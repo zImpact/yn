@@ -1,5 +1,5 @@
 init python:
-    class yn_FunctionCallback(Action):
+    class YnFunctionCallback(Action):
         def __init__(self,function, *arguments):
             self.function = function
             self.arguments = arguments
@@ -35,7 +35,7 @@ init python:
     def yn_screen_act():
         config.window_title = u"Яна"
         config.name = "Yana_mod"
-        config.version = "1.0"
+        config.version = "3.0"
 
         for screen_name in ["main_menu", "quit", "say", "nvl", "game_menu_selector", "yesno_prompt", "choice", "help"]:
             renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[("yn_" + screen_name, None)]
