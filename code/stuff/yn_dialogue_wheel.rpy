@@ -76,7 +76,7 @@ screen yn_dialogue_wheel(questions_dict):
                 pos yn_dw_buttons_positions[number]
                 
                 if questions_dict[number][2]:
-                    hovered [Show("yn_dw_iconscreen", Dissolve(0.2), icon = questions_dict[number][2])]
+                    hovered [Show("yn_dw_iconscreen", Dissolve(0.2), icon=questions_dict[number][2])]
                     unhovered [Hide("yn_dw_iconscreen", Dissolve(0.2))]
 
                 action [Hide("yn_dw_iconscreen", Dissolve(0.2)), Choose(questions_dict, number), Jump(questions_dict[number][1])]

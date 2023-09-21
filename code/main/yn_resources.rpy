@@ -17,7 +17,7 @@ init python:
                 renpy.image(file_path, file_name)
 
             elif file_name.startswith('yana/images/sprites/'):
-                renpy.image(file_path, ConditionSwitch('persistent.sprite_time=='sunset'', im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)), 'persistent.sprite_time=='night'', im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), True, file_name))
+                renpy.image(file_path, ConditionSwitch('persistent.sprite_time=="sunset"', im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)), 'persistent.sprite_time=="night"', im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), True, file_name))
 
             elif file_name.startswith('yana/sounds/'):
                 globals()[file_path] = file_name

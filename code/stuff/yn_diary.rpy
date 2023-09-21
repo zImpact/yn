@@ -9,7 +9,7 @@ init python:
         if yn_diary_page == 1:
             yn_diary_page_one = text
 
-    yn_narrator_diary = Character(None, screen = "yn_diary_mode", what_color = "#000000")
+    yn_narrator_diary = Character(None, screen='yn_diary_mode', what_color='#000000')
 
 screen yn_diary_mode(what, who):
     add "yn_diary_" + persistent.timeofday

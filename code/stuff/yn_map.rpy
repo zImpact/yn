@@ -7,7 +7,7 @@ init python:
 
         def call(self):
             if yn_dw_count_dict_keys(self.zones_dict) != 0:
-                renpy.call_screen(self.map_screen, zones_dict = self.zones_dict)
+                renpy.call_screen(self.map_screen, zones_dict=self.zones_dict)
 
             else:
                 renpy.jump(self.continue_label)

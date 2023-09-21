@@ -1,6 +1,6 @@
 init python:
     def yn_tip_handler(text):
-        renpy.show_screen("yn_tip_screen", text = text)
+        renpy.show_screen("yn_tip_screen", text=text)
         renpy.restart_interaction()
 
     def yn_tip_tag_func(tag, argument, contents):
