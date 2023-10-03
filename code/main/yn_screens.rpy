@@ -347,7 +347,7 @@ screen yn_notes_image_temp(image_name):
 
     button style 'blank_button' xpos 0 ypos 0 xfill True yfill True action [Hide('yn_notes_image_temp', Dissolve(1.5)), ShowMenu('yn_notes_choosen_place')]
 
-    add 'bg ' + image_name
+    add 'bg {}'.format(image_name)
 
 screen yn_notes_choosen_place():
     tag menu
@@ -371,7 +371,7 @@ screen yn_notes_choosen_place():
     imagebutton at yn_notes_zoom_rotate():
         idle yn_notes_all[yn_place_var][1]
         hover yn_notes_all[yn_place_var][1]
-        action [Hide('yn_notes_choosen_place', Dissolve(1.5)), ShowMenu('yn_notes_image_temp', image_name = yn_place_var)]
+        action [Hide('yn_notes_choosen_place', Dissolve(1.5)), ShowMenu('yn_notes_image_temp', image_name=yn_place_var)]
 
     add yn_notes_all[yn_place_var][2]:
         xpos 1106
@@ -396,10 +396,12 @@ screen yn_notes_groups_main_menu():
 
     add 'yn_yana_name' xpos 1428 ypos 709
 
-    text '{font=[yn_main_menu_font]}{color=#000000}Группы{/font}{/color}':
+    text 'Группы':
         size 60
         xalign 0.37
         ypos 55
+        font yn_main_menu_font
+        color '#000000'
         antialias True
         kerning 2
 
