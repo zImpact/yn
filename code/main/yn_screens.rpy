@@ -63,10 +63,12 @@ screen yn_notes_main_menu():
 
     add "yn_yana_name" xpos 1428 ypos 709
 
-    text "{font=[yn_main_menu_font]}{color=#000000}Заметки{/font}{/color}":
+    text "Заметки":
         size 60
         xalign 0.37
         ypos 55
+        font yn_main_menu_font
+        color '#000000'
         antialias True
         kerning 2
 
@@ -109,10 +111,12 @@ screen yn_notes_characters_main_menu():
 
     add "yn_main_menu_background"
 
-    text "{font=[yn_main_menu_font]}{color=#000000}Обитатели лагеря{/font}{/color}":
+    text 'Обитатели лагеря':
         size 60
         xalign 0.338
         ypos 55
+        font yn_main_menu_font
+        color '#000000'
         antialias True
         kerning 2
 
@@ -745,10 +749,12 @@ screen yn_load_main_menu():
 
     add "yn_main_menu_background"
     
-    text "{font=[yn_main_menu_font]}{color=#000000}Загрузка{/font}{/color}":
+    text "Загрузка":
         size 60
         xalign 0.37
         ypos 55
+        font yn_main_menu_font
+        color '#000000'
         antialias True
         kerning 2
 
@@ -756,7 +762,7 @@ screen yn_load_main_menu():
         auto yn_gui_path + "main_menu/buttons/yn_load_%s.png"
         xalign 0.285
         ypos 702
-        action [(yn_FunctionCallback(yn_on_load_callback, selected_slot), FileLoad(selected_slot, confirm = False))]
+        action [(YnFunctionCallback(yn_on_load_callback, selected_slot), FileLoad(selected_slot, confirm = False))]
 
     imagebutton:
         auto yn_gui_path + "main_menu/buttons/yn_delete_%s.png"
@@ -1063,7 +1069,7 @@ screen yn_save():
             text_style "yn_settings_link"
             yalign 0.92 
             xalign 0.5 
-            action (yn_FunctionCallback(yn_on_save_callback,selected_slot), FileSave(selected_slot))
+            action (YnFunctionCallback(yn_on_save_callback,selected_slot), FileSave(selected_slot))
 
         textbutton ["Удалить"]: 
             style "yn_log_button" 
@@ -1111,7 +1117,7 @@ screen yn_load():
             text_style "yn_settings_link" 
             yalign 0.92 
             xalign 0.5 
-            action (yn_FunctionCallback(yn_on_load_callback,selected_slot), FileLoad(selected_slot, confirm = False))
+            action (YnFunctionCallback(yn_on_load_callback,selected_slot), FileLoad(selected_slot, confirm = False))
         
         textbutton ["Удалить"]: 
             style "yn_log_button" 

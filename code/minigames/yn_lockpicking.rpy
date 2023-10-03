@@ -49,8 +49,8 @@ init python:
                 self.pick_broke = False
 
             elif ev.type == pygame.MOUSEBUTTONDOWN and ev.button == RIGHT:
-                global current_chest
-                current_chest = None
+                global yn_current_chest
+                yn_current_chest = None
                 renpy.hide_screen("lockpicking")
 
         def render(self, width, height, st, at):
@@ -106,11 +106,11 @@ init python:
             else:
                 pick = Transform(child = self.lock_pick_image, rotate = self.pick_pos, subpixel = True)
 
-            global display_pos
-            display_pos = self.pick_pos
+            global yn_display_pos
+            yn_display_pos = self.pick_pos
 
-            global display_spot
-            display_spot = self.sweet_spot
+            global yn_display_spot
+            yn_display_spot = self.sweet_spot
 
             if self.cylinder_try_rotate == True:
                 if self.cylinder_can_rotate:
@@ -128,10 +128,10 @@ init python:
                             renpy.sound.play("yn/sounds/sfx/lock_unlock.mp3", channel = "yn_lock_click")
                             self.cylinder_max = 90
                             self.cylinder_pos = 90
-                            global set_timers
-                            global timers
-                            timers = 0
-                            set_timers = False
+                            global yn_set_timers
+                            global yn_timers
+                            yn_timers = 0
+                            yn_set_timers = False
                             pygame.time.wait(150)
                             self.cylinder_can_rotate = False
                             renpy.jump("opened_chest")
@@ -148,15 +148,15 @@ init python:
                             self.pick_can_rotate = False
 
                             global lockpicks
-                            global set_timers
-                            global timers
+                            global yn_set_timers
+                            global yn_timers
 
-                            if set_timers == False:
-                                timers = at
-                                set_timers = True
+                            if yn_set_timers == False:
+                                yn_timers = at
+                                yn_set_timers = True
 
-                            if set_timers == True:
-                                if at > timers + self.breakage:
+                            if yn_set_timers == True:
+                                if at > yn_timers + self.breakage:
                                     renpy.sound.stop(channel = "yn_lock_move")
                                     renpy.sound.play("yn/sounds/sfx/lock_pick_break.mp3", channel = "yn_lock_click")
                                     renpy.notify("Broke a lock pick!")
@@ -167,8 +167,8 @@ init python:
                                     self.pick_broke = True
                                     self.cylinder_try_rotate = False
                                     lockpicks -= 1
-                                    timers = 0
-                                    set_timers = False
+                                    yn_timers = 0
+                                    yn_set_timers = False
                                     pygame.mouse.set_pos([self.width / 2, self.width / 4])
                                     pygame.time.wait(100)
 
@@ -184,15 +184,15 @@ init python:
                     self.pick_can_rotate = False
 
                     global lockpicks
-                    global set_timers
-                    global timers
+                    global yn_set_timers
+                    global yn_timers
 
-                    if set_timers == False:
-                        timers = at
-                        set_timers = True
+                    if yn_set_timers == False:
+                        yn_timers = at
+                        yn_set_timers = True
 
-                    if set_timers == True:
-                        if at > timers + self.breakage:
+                    if yn_set_timers == True:
+                        if at > yn_timers + self.breakage:
                             renpy.sound.stop(channel = "yn_lock_move")
                             renpy.sound.play("yn/sounds/sfx/lock_pick_break.mp3", channel = "yn_lock_click")
                             renpy.notify("Broke a lock pick!")
@@ -203,8 +203,8 @@ init python:
                             self.pick_broke = True
                             self.cylinder_try_rotate = False
                             lockpicks -= 1
-                            timers = 0
-                            set_timers = False
+                            yn_timers = 0
+                            yn_set_timers = False
                             pygame.mouse.set_pos([self.width / 2, self.width / 4])
                             pygame.time.wait(100)
 
@@ -258,27 +258,27 @@ init python:
     def counter(st, at):
         f = 0.0
 
-        if hasattr(store, "display_pos"):
-            f = store.display_pos
+        if hasattr(store, "yn_display_pos"):
+            f = store.yn_display_pos
 
         return Text("%.1f" % f, color="#09c", size=30), .1
 
     def counter2(st, at):
         f = 0.0
 
-        if hasattr(store, "display_spot"):
-            f = store.display_spot
+        if hasattr(store, "yn_display_spot"):
+            f = store.yn_display_spot
 
         return Text("%.1f" % f, color = "#09c", size = 30), .1
 
 image counter = DynamicDisplayable(counter)
 image counter2 = DynamicDisplayable(counter2)
 
-default display_pos = 0
-default display_spot = 0
-default timers = 0
-default set_timers = 0
-default current_chest = None
+default yn_display_pos = 0
+default yn_display_spot = 0
+default yn_timers = 0
+default yn_set_timers = 0
+default yn_current_chest = None
 
 image lock_dark = Solid("#000c")
 image lock_plate = "yn/images/mini_games/lockpicking/lock_plate.png"
@@ -291,11 +291,11 @@ image lock_chest1_hover = "yn/images/mini_games/lockpicking/lock_chest1_hover.pn
 image lock_chest1_open = "yn/images/mini_games/lockpicking/lock_chest1_open.png"
 image lock_chest1_open_hover = "yn/images/mini_games/lockpicking/lock_chest1_open_hover.png"
 
-default lock_chest1_lock = YnLockpickingMinigame(20)
-default lock_chest1_have_key = False
-default lock_chest1_opened = False
+default yn_lock_chest1_lock = YnLockpickingMinigame(20)
+default yn_lock_chest1_have_key = False
+default yn_lock_chest1_opened = False
 
-default lockpicks = 5
+default yn_lockpicks = 5
 
 screen click_chest(chest1_name, chest2_name=None, chest3_name=None, chest4_name=None, chest5_name=None):
     if str_to_class("{}_opened".format(chest1_name)) != True:
@@ -332,7 +332,7 @@ screen pick_choose(chest_name):
 
                 textbutton "Отмычки: [lockpicks]":
                     xalign 0.8
-                    action [Function(str_to_class('{}_lock'.format(chest_name)).reset), SetVariable("current_chest", chest_name), Hide("pick_choose"), Show("lockpicking", dissolve, str_to_class('{}_lock'.format(chest_name)), chest_name)]
+                    action [Function(str_to_class('{}_lock'.format(chest_name)).reset), SetVariable("yn_current_chest", chest_name), Hide("pick_choose"), Show("lockpicking", dissolve, str_to_class('{}_lock'.format(chest_name)), chest_name)]
 
 screen lockpicking(lock, chest_name):
     modal True
@@ -356,7 +356,7 @@ screen lockpicking(lock, chest_name):
     #     textbutton "Get the Key":
     #         xalign 0.5
     #         yalign 0.5
-    #         action [SetVariable('{}_have_key'.format(chest_name), True), Notify("You got the key!"), SetVariable("current_chest", None), Hide("lockpicking")]
+    #         action [SetVariable('{}_have_key'.format(chest_name), True), Notify("You got the key!"), SetVariable("yn_current_chest", None), Hide("lockpicking")]
 
 screen temp_screen(chest_name):
     on "show":
@@ -365,12 +365,12 @@ screen temp_screen(chest_name):
         #action [SetVariable('{}_have_key'.format(chest_name), False), SetVariable('{}_opened'.format(chest_name), True), Hide("temp_screen")] ###################### <---- set the chest to "opened", loses the key, for debugging purposes
 
 label opened_chest:
-    show screen temp_screen(current_chest)
+    show screen temp_screen(yn_current_chest)
     hide screen lockpicking
     with dissolve
     "You opened the chest!"
     window hide
     pause(1.0)
-    $ current_chest = None
+    $ yn_current_chest = None
 
     jump start
