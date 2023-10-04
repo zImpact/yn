@@ -5,20 +5,21 @@ init python:
             self.continue_label = continue_label
             self.map_screen = map_screen
 
-        def yn_cm_count_zones(self, dict_):
-            return sum(1 + yn_cm_count_zones(v) if isinstance(v, dict) else 1 for _, v in dict_.iteritems())
+        def yn_map_count_zones(self, zones):
+            return sum(1 + yn_map_count_zones(v) if isinstance(v, dict) else 1 for _, v in zones.iteritems())
+        
+        @staticmethod
+        def yn_map_disable_zone(zones, zone):
+            del zones[zone]
 
-        def call(self):
-            if self.yn_cm_count_zones(self.zones_dict) != 0:
+        def yn_map_call(self):
+            if self.yn_map_count_zones(self.zones_dict) != 0:
                 renpy.call_screen(self.map_screen, zones_dict=self.zones_dict)
 
             else:
                 renpy.jump(self.continue_label)
 
-    def yn_disable_zone(dict_, zone):
-        del dict_[zone]
-
-    Yn_disable_zone = renpy.curry(yn_disable_zone)
+    Yn_disable_zone = renpy.curry(YnCampMap.yn_map_disable_zone)
 
 screen yn_act_one_play_two_bypass_map(zones_dict):
     tag map
