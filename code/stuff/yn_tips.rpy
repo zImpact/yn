@@ -17,14 +17,17 @@ screen yn_tip_screen(text):
     modal False
     zorder 100
 
+    python:
+        blocked_action = [Hide('yn_tip_screen'), Return()]
+
     key 'dismiss':
-        action [Hide('yn_tip_screen'), Return()]
+        action blocked_action
 
     key 'toggle_skip':
-        action [Hide('yn_tip_screen'), Return()]
+        action blocked_action
 
     key 'skip':
-        action [Hide('yn_tip_screen'), Return()]
+        action blocked_action
 
     if not config.skipping:
         frame background Frame('images/gui/choice/' + persistent.timeofday + '/choice_box.png', 0, 0) xalign 0.98 yalign 0.01 left_padding 75 right_padding 75 bottom_padding 75 top_padding 75 at notify_appear:

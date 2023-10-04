@@ -263,7 +263,7 @@ screen yn_notes_places_main_menu():
         kerning 2
 
     textbutton ['Комната Яны']:
-        if persistent.yn_int_yana_room_photo_n:
+        if persistent.yn_int_yana_room_photo_note:
             text_style 'yn_settings_header_main_menu_preferences'
             action [Hide('yn_notes_places_main_menu'), SetVariable('yn_place_var', 'yn_int_yana_room'), ShowMenu('yn_notes_choosen_place')]
 
@@ -277,7 +277,7 @@ screen yn_notes_places_main_menu():
         ypos 182
 
     textbutton ['Автобусная станция']:
-        if persistent.yn_ext_bus_station_photo_n:
+        if persistent.yn_ext_bus_station_photo_note:
             text_style 'yn_settings_header_main_menu_preferences'
             action [Hide('yn_notes_places_main_menu'), SetVariable('yn_place_var', 'yn_ext_bus_station'), ShowMenu('yn_notes_choosen_place')]
 
@@ -291,7 +291,7 @@ screen yn_notes_places_main_menu():
         ypos 297
 
     textbutton ['Домик Яны']:
-        if persistent.yn_int_house_of_yana_photo_n:
+        if persistent.yn_int_house_of_yana_photo_note:
             text_style 'yn_settings_header_main_menu_preferences'
             action [Hide('yn_notes_places_main_menu'), SetVariable('yn_place_var', 'yn_int_house_of_yana_day_2'), ShowMenu('yn_notes_choosen_place')]
 
@@ -305,7 +305,7 @@ screen yn_notes_places_main_menu():
         ypos 413
 
     textbutton ['Театральный клуб']:
-        if persistent.yn_int_theatreclub_photo_n:
+        if persistent.yn_int_theatreclub_photo_note:
             text_style 'yn_settings_header_main_menu_preferences'
             action [Hide('yn_notes_places_main_menu'), SetVariable('yn_place_var', 'yn_int_theatreclub_day'), ShowMenu('yn_notes_choosen_place')]
 
@@ -319,7 +319,7 @@ screen yn_notes_places_main_menu():
         ypos 525
 
     textbutton ['Художественный клуб']:
-        if persistent.yn_int_artclub_photo_n:
+        if persistent.yn_int_artclub_photo_note:
             text_style 'yn_settings_header_main_menu_preferences'
             action [Hide('yn_notes_places_main_menu'), SetVariable('yn_place_var', 'yn_int_artclub_day'), ShowMenu('yn_notes_choosen_place')]
 
@@ -406,7 +406,7 @@ screen yn_notes_groups_main_menu():
         kerning 2
 
     textbutton ['Синицы']:
-        if persistent.yn_tomtits_group_n:
+        if persistent.yn_tomtits_group_note:
             text_style 'yn_settings_header_main_menu_preferences'
             action [Hide('yn_notes_groups_main_menu'), SetVariable('yn_group_var', 'yn_tomtits_group'), ShowMenu('yn_notes_choosen_group')]
 
@@ -420,7 +420,7 @@ screen yn_notes_groups_main_menu():
         ypos 182
 
     textbutton ['Воробьи']:
-        if persistent.yn_sparrows_group_n:
+        if persistent.yn_sparrows_group_note:
             text_style 'yn_settings_header_main_menu_preferences'
             action [Hide('yn_notes_groups_main_menu'), SetVariable('yn_group_var', 'yn_sparrows_group'), ShowMenu('yn_notes_choosen_group')]
 
@@ -434,7 +434,7 @@ screen yn_notes_groups_main_menu():
         ypos 297
 
     textbutton ['Павлины']:
-        if persistent.yn_peacocks_group_n:
+        if persistent.yn_peacocks_group_note:
             text_style 'yn_settings_header_main_menu_preferences'
             action [Hide('yn_notes_groups_main_menu'), SetVariable('yn_group_var', 'yn_peacocks_group'), ShowMenu('yn_notes_choosen_group')]
 
@@ -448,7 +448,7 @@ screen yn_notes_groups_main_menu():
         ypos 413
 
     textbutton ['Голуби']:
-        if persistent.yn_pigeons_group_n:
+        if persistent.yn_pigeons_group_note:
             text_style 'yn_settings_header_main_menu_preferences'
             action [Hide('yn_notes_groups_main_menu'), SetVariable('yn_group_var', 'yn_pigeons_group'), ShowMenu('yn_notes_choosen_group')]
 
@@ -516,10 +516,12 @@ screen yn_quit_main_menu():
 
     add 'yn_yana_name' xpos 1428 ypos 709
     
-    text '{font=[yn_main_menu_font]}{color=#000000}Вы действительно \nхотите выйти?{/font}{/color}':
+    text 'Вы действительно \nхотите выйти?':
         size 60
         xalign 0.35
         ypos 207
+        font yn_main_menu_font
+        color '#000000'
         antialias True
         kerning 2
         line_spacing -2
@@ -545,10 +547,12 @@ screen yn_authors_main_menu():
 
     add 'yn_main_menu_background'
 
-    text '{font=[yn_main_menu_font]}{color=#000000}Авторы{/font}{/color}':
+    text 'Авторы':
         size 60
         xalign 0.37
         ypos 55
+        font yn_main_menu_font
+        color '#000000'
         antialias True
         kerning 2
 
@@ -629,17 +633,21 @@ screen yn_preferences_main_menu():
 
     add 'yn_main_menu_background'
     
-    text '{font=[yn_main_menu_font]}{color=#000000}Настройки{/font}{/color}':
+    text 'Настройки':
         size 60
         xalign 0.37
         ypos 55
+        font yn_main_menu_font
+        color '#000000'
         antialias True
         kerning 2
 
-    text '{font=[yn_main_menu_font]}{color=#000000}Режим экрана{/font}{/color}':
+    text 'Режим экрана':
         size 55
         xalign 0.37
         ypos 177
+        font yn_main_menu_font
+        color '#000000'
         
     textbutton ['На весь экран']:
         style 'yn_button_none'
@@ -664,10 +672,12 @@ screen yn_preferences_main_menu():
 
         action Preference('display', 'window')
 
-    text '{font=[yn_main_menu_font]}{color=#000000}Размер шрифта{/font}{/color}':
+    text 'Размер шрифта':
         size 55
         xpos 1175
         ypos 177
+        font yn_main_menu_font
+        color '#000000'
             
     textbutton ['Обычный']:
         style 'yn_button_none'
@@ -724,10 +734,13 @@ screen yn_preferences_main_menu():
             ypos 604
             action Preference('skip', 'all')    
         
-    text '{font=[yn_main_menu_font]}{color=#000000}Громкость музыки{/font}{/color}':
+    text 'Громкость музыки':
         size 55
         xpos 1150
         ypos 484
+        font yn_main_menu_font
+        color '#000000'
+
     bar:
         value Preference('music volume')
         right_bar yn_gui_path + 'preferences/main_menu/yn_main_menu_bar_null.png'
@@ -838,7 +851,7 @@ screen yn_preferences():
                 has grid 1 16 xfill True spacing 15
 
                 text ['Режим экрана']:
-                    style 'yn_settings_header_' + persistent.timeofday + ''
+                    style 'yn_settings_header_' + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
@@ -851,7 +864,7 @@ screen yn_preferences():
 
                         textbutton ['Во весь экран']: 
                             style 'yn_log_button'
-                            text_style 'yn_settings_text_' + persistent.timeofday + ''
+                            text_style 'yn_settings_text_' + persistent.timeofday
                             action Preference('display', 'fullscreen')
 
                     hbox xalign 0.5:
@@ -863,11 +876,11 @@ screen yn_preferences():
 
                         textbutton ['В окне']: 
                             style 'yn_log_button'
-                            text_style 'yn_settings_text_' + persistent.timeofday + ''
+                            text_style 'yn_settings_text_' + persistent.timeofday
                             action Preference('display', 'window')
 
                 text ['Пропускать']:
-                    style 'yn_settings_header_' + persistent.timeofday + ''
+                    style 'yn_settings_header_' + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
@@ -880,7 +893,7 @@ screen yn_preferences():
 
                         textbutton ['Всё']: 
                             style 'yn_log_button' 
-                            text_style 'yn_settings_text_' + persistent.timeofday + ''
+                            text_style 'yn_settings_text_' + persistent.timeofday
                             action Preference('skip', 'all')
 
                     hbox xalign 0.5:
@@ -892,17 +905,17 @@ screen yn_preferences():
 
                         textbutton ['Виденное ранее']: 
                             style 'yn_log_button' 
-                            text_style 'yn_settings_text_' + persistent.timeofday + ''
+                            text_style 'yn_settings_text_' + persistent.timeofday
                             action Preference('skip', 'seen')
 
                 text ['Громкость']:
-                    style 'yn_settings_header_' + persistent.timeofday + ''                    
+                    style 'yn_settings_header_' + persistent.timeofday                   
                     xalign 0.5
 
                 grid 2 1 xfill True:
                     textbutton ['Музыка']: 
                         style 'yn_log_button'
-                        text_style 'yn_settings_text_' + persistent.timeofday + ''
+                        text_style 'yn_settings_text_' + persistent.timeofday
                         action NullAction()
                         xpos 0.1
 
@@ -919,7 +932,7 @@ screen yn_preferences():
                 grid 2 1 xfill True:
                     textbutton ['Звуки']: 
                         style 'yn_log_button'
-                        text_style 'yn_settings_text_' + persistent.timeofday + ''
+                        text_style 'yn_settings_text_' + persistent.timeofday
                         action NullAction()
                         xpos 0.1
 
@@ -936,7 +949,7 @@ screen yn_preferences():
                 grid 2 1 xfill True:
                     textbutton ['Эмбиент']: 
                         style 'yn_log_button'
-                        text_style 'yn_settings_text_' + persistent.timeofday + ''
+                        text_style 'yn_settings_text_' + persistent.timeofday
                         action NullAction()
                         xpos 0.1
 
@@ -951,7 +964,7 @@ screen yn_preferences():
                         xpos -0.55
 
                 text ['Скорость текста']:
-                    style 'yn_settings_header_' + persistent.timeofday + ''
+                    style 'yn_settings_header_' + persistent.timeofday
                     xalign 0.5
 
                 bar: 
@@ -965,7 +978,7 @@ screen yn_preferences():
                     ymaximum 36
 
                 text ['Автопереход']:
-                    style 'yn_settings_header_' + persistent.timeofday + ''
+                    style 'yn_settings_header_' + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
@@ -978,7 +991,7 @@ screen yn_preferences():
 
                         textbutton ['Включить']: 
                             style 'yn_log_button'
-                            text_style 'yn_settings_text_' + persistent.timeofday + ''
+                            text_style 'yn_settings_text_' + persistent.timeofday
                             action Preference('auto-forward after click', 'enable')
 
                     hbox xalign 0.5:
@@ -990,11 +1003,11 @@ screen yn_preferences():
 
                         textbutton ['Выключить']: 
                             style 'yn_log_button'
-                            text_style 'yn_settings_text_' + persistent.timeofday + ''
+                            text_style 'yn_settings_text_' + persistent.timeofday
                             action (Preference('auto-forward time', 0), Preference('auto-forward after click', 'disable'))
 
                 text ['Время автоперехода']:
-                    style 'yn_settings_header_' + persistent.timeofday + ''
+                    style 'yn_settings_header_' + persistent.timeofday
                     xalign 0.5
 
                 bar: 
@@ -1008,7 +1021,7 @@ screen yn_preferences():
                     ymaximum 36
 
                 text ['Размер шрифта']:
-                    style 'yn_settings_header_' + persistent.timeofday + ''
+                    style 'yn_settings_header_' + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
@@ -1021,7 +1034,7 @@ screen yn_preferences():
 
                         textbutton ['Обычный']:
                             style 'yn_log_button'
-                            text_style 'yn_settings_text_' + persistent.timeofday + ''
+                            text_style 'yn_settings_text_' + persistent.timeofday
                             action SetField(persistent, 'font_size', 'small')
 
                     hbox xalign 0.5:
@@ -1033,7 +1046,7 @@ screen yn_preferences():
 
                         textbutton ['Крупный']: 
                             style 'yn_log_button'
-                            text_style 'yn_settings_text_' + persistent.timeofday + ''
+                            text_style 'yn_settings_text_' + persistent.timeofday
                             action SetField(persistent, 'font_size', 'large')
 
             bar: 
@@ -1073,7 +1086,7 @@ screen yn_save():
             text_style 'yn_settings_link'
             yalign 0.92 
             xalign 0.5 
-            action (YnFunctionCallback(yn_on_save_callback,selected_slot), FileSave(selected_slot))
+            action (YnFunctionCallback(yn_on_save_callback, selected_slot), FileSave(selected_slot))
 
         textbutton ['Удалить']: 
             style 'yn_log_button' 
@@ -1094,9 +1107,9 @@ screen yn_save():
                         action SetVariable('selected_slot', slot)
                         xfill False
                         yfill False
-                        style 'yn_save_load_button_' + persistent.timeofday + ''
+                        style 'yn_save_load_button_' + persistent.timeofday
                         has fixed
-                        text ('%s.' % slot + FileTime(slot, format = ' %d.%m.%y, %H:%M', empty = ' Пусто') + '\n' +FileSaveName(slot)) style 'file_picker_text' xpos 15 ypos 15
+                        text ('%s.' % slot + FileTime(slot, format=' %d.%m.%y, %H:%M', empty=' Пусто') + '\n' + FileSaveName(slot)) style 'file_picker_text' xpos 15 ypos 15
     
 screen yn_load():
     tag menu
@@ -1121,7 +1134,7 @@ screen yn_load():
             text_style 'yn_settings_link' 
             yalign 0.92 
             xalign 0.5 
-            action (YnFunctionCallback(yn_on_load_callback,selected_slot), FileLoad(selected_slot, confirm = False))
+            action (YnFunctionCallback(yn_on_load_callback, selected_slot), FileLoad(selected_slot, confirm=False))
         
         textbutton ['Удалить']: 
             style 'yn_log_button' 
@@ -1144,7 +1157,7 @@ screen yn_load():
                         yfill False
                         style 'yn_save_load_button_' + persistent.timeofday
                         has fixed
-                        text ('%s.' % slot + FileTime(slot, format = ' %d.%m.%y, %H:%M', empty = ' Пусто') + '\n' + FileSaveName(slot)) style 'file_picker_text' xpos 15 ypos 15
+                        text ('%s.' % slot + FileTime(slot, format=' %d.%m.%y, %H:%M', empty=' Пусто') + '\n' + FileSaveName(slot)) style 'file_picker_text' xpos 15 ypos 15
 
 screen yn_say(what, who):
     window background None id 'window':
@@ -1280,7 +1293,7 @@ screen yn_game_menu_selector():
         imagemap:
             auto yn_gui_path + 'quick_menu/' + persistent.timeofday + '/quick_menu_%s.png' xalign 0.5 yalign 0.5
 
-            hotspot(0, 83, 660, 65) focus_mask None clicked [yn_set_main_menu_cursor_curried(), MainMenu(confirm = False)]
+            hotspot(0, 83, 660, 65) focus_mask None clicked [yn_set_main_menu_cursor_curried(), MainMenu(confirm=False)]
 
             hotspot(0, 148, 660, 65) focus_mask None clicked ShowMenu('yn_save')
 
@@ -1328,11 +1341,12 @@ screen yn_quit():
     else:
         add yn_gui_path + 'save_load/' + persistent.timeofday + '/load_bg.png'
             
-        text '{font=[yn_link_font]}Вы действительно \nхотите выйти?{/font}':
+        text 'Вы действительно \nхотите выйти?':
             size 100
             text_align 0.5
             xalign 0.5
             yalign 0.33
+            font yn_link_font
             antialias True
             kerning 2
             
@@ -1508,10 +1522,11 @@ screen yn_help():
 
     add yn_gui_path + 'save_load/' + persistent.timeofday + '/load_bg.png'
     
-    text '{font=[yn_link_font]}Информация{/font}':
+    text 'Информация':
         size 70
         xalign 0.5
         ypos 33
+        font yn_link_font
         antialias True
         kerning 2
             

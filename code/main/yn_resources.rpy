@@ -301,51 +301,6 @@ init python:
         config.mouse_displayable = MouseDisplayable(yn_gui_path + 'misc/yn_none.png', 0, 0)
 
     yn_set_null_cursor_curried = renpy.curry(yn_set_null_cursor)
-
-    # def yn_predicting():
-    #     yn_rightnow = time.time()
-
-    #     while True:
-    #         if time.time() - yn_rightnow < 9:
-    #             yn_predict_resources()
-
-    #             renpy.show('yn_first_dot_image', at_list = [yn_first_dot_pos])
-    #             renpy.pause(0.7, hard = True)
-    #             renpy.show('yn_second_dot_image', at_list = [yn_second_dot_pos])
-    #             renpy.pause(0.7, hard = True)
-    #             renpy.show('yn_third_dot_image', at_list = [yn_third_dot_pos])
-    #             renpy.pause(0.7, hard = True)
-    #             renpy.hide('yn_first_dot_image')
-    #             renpy.hide('yn_second_dot_image')
-    #             renpy.hide('yn_third_dot_image')
-    #             renpy.pause(0.7, hard = True)
-
-    #         else:
-    #             yn_predict_screens()
-
-    #             renpy.show('yn_first_dot_image', at_list = [yn_first_dot_pos])
-    #             renpy.pause(0.7, hard = True)
-    #             renpy.show('yn_second_dot_image', at_list = [yn_second_dot_pos])
-    #             renpy.pause(0.7, hard = True)
-    #             renpy.show('yn_third_dot_image', at_list = [yn_third_dot_pos])
-    #             renpy.pause(0.7, hard = True)
-    #             renpy.hide('yn_first_dot_image')
-    #             renpy.hide('yn_second_dot_image')
-    #             renpy.hide('yn_third_dot_image')
-    #             renpy.pause(0.7, hard = True)
-    #             renpy.show('yn_first_dot_image', at_list = [yn_first_dot_pos])
-
-    #             renpy.music.stop('ambience', 2)
-
-    #             break
-
-    # def yn_loading_screen():
-    #     renpy.show('bg yn_loading_background')
-    #     renpy.music.play('sound/ambiences/int_cabin_night.ogg', 'ambience', fadein = 2)
-    #     renpy.show('yn_loading_icon', at_list = [yn_full_rotate_repeat(1.1, 0.8, 0.5, 0.5)])
-    #     renpy.transition(Dissolve(2))
-    #     renpy.pause(2.0, hard = True)
-    #     yn_predicting()
         
     def yn_chapter_intro(_save_name, background, ambience, sprite, text, intermedia_phrase = None):
         global save_name
@@ -768,21 +723,21 @@ init:
 
     if persistent.yn_notes_variables == None:
         $ persistent.yn_notes_variables = {
-            'yn_int_yana_room_photo_n': False,
-            'yn_ext_bus_station_photo_n': False,
-            'yn_int_house_of_yana_photo_n': False,
-            'yn_int_theatreclub_photo_n': False,
-            'yn_int_artclub_photo_n': False,
-            'yn_haer_n': False,
-            'yn_kot_n': False,
-            'yn_slon_n': False,
-            'yn_jurn_n': False,
-            'yn_kras_n': False,
-            'yn_erika_n': False,
-            'yn_tomtits_group_n': False,
-            'yn_sparrows_group_n': False,
-            'yn_peacocks_group_n': False,
-            'yn_pigeons_group_n': False
+            'yn_int_yana_room_photo_note': False,
+            'yn_ext_bus_station_photo_note': False,
+            'yn_int_house_of_yana_photo_note': False,
+            'yn_int_theatreclub_photo_note': False,
+            'yn_int_artclub_photo_note': False,
+            'yn_haer_note': False,
+            'yn_kot_note': False,
+            'yn_slon_note': False,
+            'yn_jurn_note': False,
+            'yn_kras_note': False,
+            'yn_erika_note': False,
+            'yn_tomtits_group_note': False,
+            'yn_sparrows_group_note': False,
+            'yn_peacocks_group_note': False,
+            'yn_pigeons_group_note': False
         }
 
     $ yn_place_var = None
