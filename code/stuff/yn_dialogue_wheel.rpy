@@ -36,19 +36,10 @@ init python:
         def call(self):
             renpy.call_screen("yn_dialogue_wheel", questions_dict = self.questions_dict)
 
-    def yn_dw_count_dict_keys(dict_):
-        return sum(1 + yn_dw_count_dict_keys(v) if isinstance(v, dict) else 1 for _, v in dict_.iteritems())
-
     def yn_dw_remove_choice(dict_, choice):
         del dict_[choice]
 
     Choose = renpy.curry(yn_dw_remove_choice)
-
-    style.yn_dw_answers_text_style = Style(style.default)
-    style.yn_dw_answers_text_style.size = 35
-    style.yn_dw_answers_text_style.color = "#ffdd7d"
-    style.yn_dw_answers_text_style.drop_shadow = (2, 2)
-    style.yn_dw_answers_text_style.drop_shadow_color = "#000"
 
 screen yn_dw_iconscreen(icon):
     add icon:
