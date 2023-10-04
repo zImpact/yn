@@ -40,7 +40,7 @@ init python:
         def yn_dw_remove_choice(dw, choice):
             del dw[choice]
 
-    Yn_dw_choice = renpy.curry(YnDialogueWheel.yn_dw_remove_choice)
+    yn_dw_choice = renpy.curry(YnDialogueWheel.yn_dw_remove_choice)
 
 screen yn_dw_iconscreen(icon):
     add icon:
@@ -71,7 +71,7 @@ screen yn_dialogue_wheel(questions_dict):
                     hovered [Show('yn_dw_iconscreen', Dissolve(0.2), icon=questions_dict[number][2])]
                     unhovered [Hide('yn_dw_iconscreen', Dissolve(0.2))]
 
-                action [Hide('yn_dw_iconscreen', Dissolve(0.2)), Yn_dw_choice(questions_dict, number), Jump(questions_dict[number][1])]
+                action [Hide('yn_dw_iconscreen', Dissolve(0.2)), yn_dw_choice(questions_dict, number), Jump(questions_dict[number][1])]
 
         else:
             add yn_gui_path + 'dialogue_wheel/' + persistent.timeofday + '/{}_noactive.png'.format(number) pos yn_dw_buttons_positions[number]

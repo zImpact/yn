@@ -19,7 +19,7 @@ init python:
             else:
                 renpy.jump(self.continue_label)
 
-    Yn_disable_zone = renpy.curry(YnCampMap.yn_map_disable_zone)
+    yn_disable_zone = renpy.curry(YnCampMap.yn_map_disable_zone)
 
 screen yn_act_one_play_two_bypass_map(zones_dict):
     tag map
@@ -49,7 +49,7 @@ screen yn_act_one_play_two_bypass_map(zones_dict):
 
         for zone_name in zones_dict.keys():
             hotspot(yn_act_one_play_two_bypass_map_zones_pos[zone_name]):
-                action [Yn_disable_zone(zones_dict, zone_name), Jump(zones_dict[zone_name])]
+                action [yn_disable_zone(zones_dict, zone_name), Jump(zones_dict[zone_name])]
 
 screen yn_act_two_play_fifth_map(zones_dict):
     tag map
@@ -67,4 +67,4 @@ screen yn_act_two_play_fifth_map(zones_dict):
 
         for zone_name in zones_dict.keys():
             hotspot(yn_act_two_play_fifth_map_zones_pos[zone_name]):
-                action [Yn_disable_zone(zones_dict, zone_name), Jump(zones_dict[zone_name])]
+                action [yn_disable_zone(zones_dict, zone_name), Jump(zones_dict[zone_name])]
