@@ -302,7 +302,7 @@ init python:
 
     yn_set_null_cursor_curried = renpy.curry(yn_set_null_cursor)
         
-    def yn_chapter_intro(_save_name, background, ambience, sprite, text, intermedia_phrase = None):
+    def yn_chapter_intro(_save_name, background, ambience, sprite, text, intermedia_phrase=None):
         global save_name
 
         save_name = _save_name

@@ -75,3 +75,16 @@ screen yn_dialogue_wheel(questions_dict):
 
         else:
             add yn_gui_path + 'dialogue_wheel/' + persistent.timeofday + '/{}_noactive.png'.format(number) pos yn_dw_buttons_positions[number]
+
+screen yn_dialogue_wheel_info():
+    tag menu
+    modal True
+
+    add yn_gui_path + 'dialogue_wheel/yn_dialogue_wheel_help.png'
+
+    textbutton ['продолжить...']:
+        style 'yn_dw_info_text_style'
+        text_style 'yn_dw_info_text_style'
+        xalign 0.5
+        ypos 855
+        action [Hide('yn_dialogue_wheel_info', Dissolve(0.5)), Return()]

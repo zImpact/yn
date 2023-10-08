@@ -188,3 +188,10 @@ init python:
     style.yn_dw_answers_text_style.color = '#ffdd7d'
     style.yn_dw_answers_text_style.drop_shadow = (2, 2)
     style.yn_dw_answers_text_style.drop_shadow_color = '#000'
+
+    style.yn_dw_info_text_style = Style(style.default)
+    style.yn_dw_info_text_style.size = 35
+    style.yn_dw_info_text_style.color = '#8b7843'
+    style.yn_dw_info_text_style.hover_color = '#ffdd7d'
+    style.yn_dw_info_text_style.drop_shadow = (2, 2)
+    style.yn_dw_info_text_style.drop_shadow_color = '#000'

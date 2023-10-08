@@ -448,6 +448,8 @@ label yn_act_one_play_two:
     yn_sl 'Вроде бы обо всех рассказала. Хочешь узнать что-то ещё?'    
     yn_narrator 'Во время своего монолога Славяна смотрела мне прямо в глаза, а когда закончила, её взгляд нет-нет, да соскальзывал вверх, на манящее своей просторностью ясное небо.'
     yn_th 'Что бы у неё ещё спросить?'
+    
+    call screen yn_dialogue_wheel_info
 
     $ yn_leave_choice_name = 'Забудь, перейдем к сути' if renpy.has_label('osd_start') else 'Нет, спасибо'
 
@@ -704,6 +706,11 @@ label yn_act_one_play_two_after_sl_dialogue:
     yn_narrator 'Ульяна говорила с набитым ртом, из-за чего слушать её было делом не самым простым, да и разобрать что-то из невнятной тирады было сложно.'
 
     menu:
+        'Промолчать':
+            $ yn_morality -= 1
+            yn_narrator 'Нужно отдать «Шутникам» должное, рассказы своих товарищей они слушали внимательно и не перебивая, что для подобной компашки очень необычно.'
+            yn_narrator 'Но как бы все не пытались понять суть истории Ульяны, она прошла мимо всех, словно уносящаяся вдаль электричка.'
+
         'Подколоть Ульяну':
             $ persistent.yn_protagonist_mood = 'smile'
             $ yn_sparrows_group += 1
@@ -718,11 +725,6 @@ label yn_act_one_play_two_after_sl_dialogue:
             yn_th 'Раз уж я попала в компанию, нужно начинать играть по их правилам.'
             show yn_us upset with dspr
             yn_narrator 'Взгляд Кузнечика становится в какой-то степени обиженным, она проглатывает остаток пищи и делает пару глотков компота, после чего с меньшим энтузиазмом продолжает свой рассказ.'
-            yn_narrator 'Нужно отдать «Шутникам» должное, рассказы своих товарищей они слушали внимательно и не перебивая, что для подобной компашки очень необычно.'
-            yn_narrator 'Но как бы все не пытались понять суть истории Ульяны, она прошла мимо всех, словно уносящаяся вдаль электричка.'
-
-        'Промолчать':
-            $ yn_morality -= 1
             yn_narrator 'Нужно отдать «Шутникам» должное, рассказы своих товарищей они слушали внимательно и не перебивая, что для подобной компашки очень необычно.'
             yn_narrator 'Но как бы все не пытались понять суть истории Ульяны, она прошла мимо всех, словно уносящаяся вдаль электричка.'
 
@@ -1336,6 +1338,18 @@ label yn_act_one_play_two_bypass_theatre_club:
     yn_narrator 'За сценой послышался злорадный смешок.'
 
     menu:
+        'Ничего не говорить':
+            $ yn_morality -= 1  
+            yn_haer 'Ладно, ладно. Один - один. Но я ещё отыграюсь, кошак ты кучерявый!'
+            show yn_kot smile behind yn_haer at left with dissolve
+            yn_kot 'Чья бы корова мычала, патлатый!'
+            hide yn_kot with dspr
+            yn_narrator 'Кот выскочил, как чёрт из табакерки, показал язык и выбежал из комнаты.'
+            yn_haer 'Беги, беги. Я всё равно знаю, где ты живёшь!' 
+            yn_narrator 'Их перепалка очень меня позабавила. Вновь убеждаюсь, что с этими ребятами скучно не бывает.' 
+            yn_yana 'Хаер, мне тут обходной подписать нужно.'
+            yn_haer 'Это запросто. Сказочницы сейчас нет, она тут всем заправляет, поэтому давай я черкану.'
+
         'Продолжить шутку':
             $ persistent.yn_protagonist_mood = 'smile'
             $ yn_sparrows_group += 1
@@ -1351,18 +1365,6 @@ label yn_act_one_play_two_bypass_theatre_club:
             yn_haer 'Беги, беги. Я всё равно знаю, где ты живёшь!' 
             yn_narrator 'Их перепалка очень меня позабавила. Вновь убеждаюсь, что с этими ребятами скучно не бывает.'
             show yn_haer normal with dspr
-            yn_yana 'Хаер, мне тут обходной подписать нужно.'
-            yn_haer 'Это запросто. Сказочницы сейчас нет, она тут всем заправляет, поэтому давай я черкану.'
-
-        'Промолчать':
-            $ yn_morality -= 1  
-            yn_haer 'Ладно, ладно. Один - один. Но я ещё отыграюсь, кошак ты кучерявый!'
-            show yn_kot smile behind yn_haer at left with dissolve
-            yn_kot 'Чья бы корова мычала, патлатый!'
-            hide yn_kot with dspr
-            yn_narrator 'Кот выскочил, как чёрт из табакерки, показал язык и выбежал из комнаты.'
-            yn_haer 'Беги, беги. Я всё равно знаю, где ты живёшь!' 
-            yn_narrator 'Их перепалка очень меня позабавила. Вновь убеждаюсь, что с этими ребятами скучно не бывает.' 
             yn_yana 'Хаер, мне тут обходной подписать нужно.'
             yn_haer 'Это запросто. Сказочницы сейчас нет, она тут всем заправляет, поэтому давай я черкану.'
 
@@ -1774,6 +1776,7 @@ label yn_act_two_play_three:
     yn_th 'Похоже, эти цветы ей были действительно дороги.'
     yn_yana 'Не сердись ты на него. Он ведь от большой любви это сделал. А любовь - штука сложная. И вред, и счастье.'
     yn_yana 'Хочешь, я тебе помогу с цветами?'
+    show yn_sl smile at center with dissolve
     yn_narrator 'Славяна посмотрела мне в глаза и улыбнулась.'
     yn_sl 'Спасибо, но я сама справлюсь.'
     yn_sl 'Эх, а всё же интересно узнать, как у них там всё получится. Из Красавицы же и клещами ничего о её чувствах не вытащишь.'
@@ -1828,7 +1831,7 @@ label yn_act_two_play_three:
     yn_narrator 'Правый её глаз смотрел на меня, а левый, неплохо спрятанный под чёлкой, куда-то в сторону.'
     yn_narrator 'Сказочница - вожатая младших отрядов, которая всего год назад была Синицей. Тогда её ещё звали Косая.'
     yn_skaz 'Здравствуй, Хаер. Рановато сегодня. Ты же обычно раньше завтрака не встаёшь.' 
-    yn_haer 'Сам удивился. Только вот, не свезло с Лютиком пересечься.'
+    yn_haer 'Сам удивился. {w}Только вот не свезло с Лютиком пересечься.'
     yn_dv 'Живой, погляжу. Стареет Лютик. Совсем подобрела. Последние две смены - божий одуванчик.' 
     yn_skaz 'И правда. Повзрослела она. Это, конечно, к лучшему.'
     yn_dv 'Слон, чего это ты всё утро в молчанку играешь? Даже не присоединишься к разговору?'
@@ -1846,9 +1849,10 @@ label yn_act_two_play_three:
     yn_skaz 'Но всё же до сих пор не привыкну, что ко мне теперь обращаются на Вы.'
     yn_narrator 'Мельпа с самого моего прихода вертела в руках видавшую виды рогатку. Обратил на неё внимание я только сейчас.'
     yn_narrator 'По тёмной от времени рукояти с вырезанной на ней буквой «Л» снизу вверх ползла длинная трещина.'
-    yn_narrator 'А резинка вот-вот была готова порваться, только попробуй её потянуть, и всё - лопнет.'
+    yn_narrator 'А резинка вот-вот была готова порваться. Только попробуй её потянуть, и всё - лопнет.'
     yn_th 'Неужели, та самая рогатка?'
     yn_haer 'Мельпа, где ты раскопала это сокровище?'
+    show dv smile pioneer2 with dspr
     yn_narrator 'Девушка оживилась.'
     yn_dv 'Прикинь, сегодня такой сон необычный приснился. Даже не сон, а словно отрывок из памяти прокрутили о том, как я эту рогатку прячу в старый схрон за клубами.'
     yn_dv 'Я про неё уже помнить не помнила, а тут вот...'
@@ -1938,12 +1942,13 @@ label yn_act_two_play_three:
         linear 1.0 xalign 0.4
 
     show yn_skaz normal:
-        linear 1.0 xalign 0.7
+        linear 1.0 xalign 0.8
 
     $ renpy.pause(1, hard=True)
 
     show yn_medz pos1 normal:
         xalign 1.2
+
     with dissolve
 
     yn_narrator 'В комнату зашла она. {i}Медуза.{/i}'
@@ -2157,7 +2162,7 @@ label yn_act_two_play_fourth:
     yn_narrator 'Недалеко от крыльца с понурым видом стоит группа пионеров.'
     yn_narrator 'Все Воробьи уже давно стоят и ждут меня, рискуя всем скопом попасться на глаза Ольге и получить наказание за дерзость Алисы.'
     yn_slon 'Что-то ты долго. Всё в порядке, надеюсь?' 
-    yn_yana 'Да, всё хорошо. Просто заговорилась с Виолеттой. Спасибо, что ждали, это довольно неожиданно' 
+    yn_yana 'Да, всё хорошо. Просто заговорилась с Виолеттой. Спасибо, что ждали, это довольно неожиданно.' 
     yn_haer 'Брось. Пустяки. Теперь веришь, что приметы работают?' 
     yn_haer 'Ай, по глазам вижу, что нет.' 
     yn_yana 'А чего вы все пришли? Это не рискованно?' 
@@ -2323,7 +2328,9 @@ label yn_act_two_play_fourth:
     yn_us 'Ещё спрашиваешь? Давай, пошли!'
     yn_dv 'Да, идите. Я хочу пока одна побыть.'
     stop ambience fadeout 2
-    scene bg ext_house_of_dv_day with dissolve
+    scene bg ext_house_of_dv_day
+    show yn_haer normal at center
+    with dissolve
     play ambience ambience_camp_center_day fadein 2
     yn_narrator 'Поправившись, мы вышли из домика Алисы и Ульяны.'
     yn_narrator 'Последняя вместе с Котом пропала сразу же, как мы вышли за дверь.'
@@ -2421,7 +2428,9 @@ label yn_act_two_play_fourth_haer_dance_train_l:
     $ yn_act_two_play_fourth_yn_help_haer = True
     $ yn_sparrows_group_ending += 1
     $ renpy.pause(1, hard=True)
-    scene bg yn_int_theatreclub_day with Dissolve(1)
+    scene bg yn_int_theatreclub_day 
+    show yn_haer normal at center
+    with Dissolve(1)
     play ambience ambience_int_cabin_day fadein 2
     yn_yana 'Так, расслабься. Ноги ближе поставь и прекрати сутулиться, согбенный.' 
     yn_th 'Я думала... Нет, надеялась, что будет попроще.'
@@ -3510,7 +3519,7 @@ label yn_act_two_play_fifth_slon_dialogue_wh:
         $ yn_act_two_play_fifth_slon_dialogue_variants_d[1][0] = 'Спасибо. Думаю, достаточно'
 
     $ yn_act_two_play_fifth_slon_dialogue_wheel = YnDialogueWheel(yn_act_two_play_fifth_slon_dialogue_variants_d)
-    $ yn_act_two_play_fifth_slon_dialogue_wheel.call()
+    $ yn_act_two_play_fifth_slon_dialogue_wheel.yn_dw_call()
             
 label yn_act_two_play_fifth_slon_dialogue_tomtits_help:
     $ renpy.block_rollback()
@@ -3685,12 +3694,12 @@ label yn_act_two_play_fifth_map_musclub:
 label yn_act_two_play_fifth_jurn_first_dialogue_wh:
     $ renpy.block_rollback()
     $ yn_act_two_play_fifth_jurn_first_dialogue_wheel = YnDialogueWheel(yn_act_two_play_fifth_jurn_first_dialogue_variants_d)
-    $ yn_act_two_play_fifth_jurn_first_dialogue_wheel.call()
+    $ yn_act_two_play_fifth_jurn_first_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_fifth_jurn_second_dialogue_wh:
     $ renpy.block_rollback()
     $ yn_act_two_play_fifth_jurn_second_dialogue_wheel = YnDialogueWheel(yn_act_two_play_fifth_jurn_second_dialogue_variants_d)
-    $ yn_act_two_play_fifth_jurn_second_dialogue_wheel.call()
+    $ yn_act_two_play_fifth_jurn_second_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_fifth_jurn_dialogue_hard_to_find:
     $ renpy.block_rollback()
@@ -3892,12 +3901,12 @@ label yn_act_two_play_fifth_map_library:
 label yn_act_two_play_fifth_mz_first_dialogue_wh:
     $ renpy.block_rollback()
     $ yn_act_two_play_fifth_mz_first_dialogue_wheel = YnDialogueWheel(yn_act_two_play_fifth_mz_first_dialogue_variants_d)
-    $ yn_act_two_play_fifth_mz_first_dialogue_wheel.call()
+    $ yn_act_two_play_fifth_mz_first_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_fifth_mz_second_dialogue_wh:
     $ renpy.block_rollback()
     $ yn_act_two_play_fifth_mz_second_dialogue_wheel = YnDialogueWheel(yn_act_two_play_fifth_mz_second_dialogue_variants_d)
-    $ yn_act_two_play_fifth_mz_second_dialogue_wheel.call()
+    $ yn_act_two_play_fifth_mz_second_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_fifth_mz_dialogue_about_medz:
     $ renpy.block_rollback()
@@ -4030,12 +4039,12 @@ label yn_act_two_play_fifth_radio_engineering_club:
 label yn_act_two_play_fifth_sh_first_dialogue_wh:
     $ renpy.block_rollback()
     $ yn_act_two_play_fifth_sh_first_dialogue_wheel = YnDialogueWheel(yn_act_two_play_fifth_sh_first_dialogue_variants_d)
-    $ yn_act_two_play_fifth_sh_first_dialogue_wheel.call()
+    $ yn_act_two_play_fifth_sh_first_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_fifth_sh_second_dialogue_wh:
     $ renpy.block_rollback()
     $ yn_act_two_play_fifth_sh_second_dialogue_wheel = YnDialogueWheel(yn_act_two_play_fifth_sh_second_dialogue_variants_d)
-    $ yn_act_two_play_fifth_sh_second_dialogue_wheel.call()
+    $ yn_act_two_play_fifth_sh_second_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_fifth_sh_dialogue_films:
     $ renpy.block_rollback()
@@ -5534,12 +5543,12 @@ label yn_act_two_play_seventh:
 label yn_act_two_play_seventh_slon_first_dialogue_wh:
     $ renpy.block_rollback()
     $ yn_act_two_play_seventh_slon_first_dialogue_wheel = YnDialogueWheel(yn_act_two_play_seventh_slon_first_dialogue_variants_d)
-    $ yn_act_two_play_seventh_slon_first_dialogue_wheel.call()
+    $ yn_act_two_play_seventh_slon_first_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_seventh_slon_second_dialogue_wh:
     $ renpy.block_rollback()
     $ yn_act_two_play_seventh_slon_second_dialogue_wheel = YnDialogueWheel(yn_act_two_play_seventh_slon_second_dialogue_variants_d)
-    $ yn_act_two_play_seventh_slon_second_dialogue_wheel.call()
+    $ yn_act_two_play_seventh_slon_second_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_seventh_slon_dialogue_haer_and_kot:
     $ renpy.block_rollback()
@@ -5639,7 +5648,7 @@ label yn_act_two_play_seventh_after_slon_dialogue:
 label yn_act_two_play_seventh_wuk_first_dialogue_wh:
     $ renpy.block_rollback()
     $ yn_act_two_play_seventh_wuk_first_dialogue_wheel = YnDialogueWheel(yn_act_two_play_seventh_wuk_first_dialogue_variants_d)
-    $ yn_act_two_play_seventh_wuk_first_dialogue_wheel.call()
+    $ yn_act_two_play_seventh_wuk_first_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_seventh_wuk_second_dialogue_wh:
     $ renpy.block_rollback()
@@ -5648,7 +5657,7 @@ label yn_act_two_play_seventh_wuk_second_dialogue_wh:
         $ yn_act_two_play_seventh_wuk_second_dialogue_variants_d[2] = ['{b}Прости, кажется меня зовут.{/b}', 'yn_act_two_play_seventh_wuk_dialogue_leave', False]
 
     $ yn_act_two_play_seventh_wuk_second_dialogue_wheel = YnDialogueWheel(yn_act_two_play_seventh_wuk_second_dialogue_variants_d)
-    $ yn_act_two_play_seventh_wuk_second_dialogue_wheel.call()
+    $ yn_act_two_play_seventh_wuk_second_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_seventh_wuk_dialogue_weather:
     $ renpy.block_rollback()
