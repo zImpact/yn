@@ -5,10 +5,10 @@ label yn_prologue:
     $ persistent.sprite_time = 'day'
     $ yn_reload_names()
     $ yn_set_mode_nvl()
-    $ renpy.pause(4, hard = True)
+    $ renpy.pause(4, hard=True)
     $ yn_chapter_intro('Пролог.', 'bg yn_ext_busstop_summer_blurred', 'ext_road_day', 'yn_yana serious', 'yn_prologue_intro_text')
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ yn_onload('unlock')
     scene bg yn_int_yana_room with Dissolve(4)
     play music yn_follow_the_compass_be_near fadein 7
@@ -29,8 +29,8 @@ label yn_prologue:
     stop ambience fadeout 2
     stop music fadeout 2
     scene bg black with Dissolve(2)
-    $ persistent.yn_int_yana_room_photo_n = True
-    $ renpy.pause(1, hard = True)
+    $ persistent.yn_int_yana_room_photo_note = True
+    $ renpy.pause(1, hard=True)
     scene bg yn_ext_bus_station with Dissolve(2)
     play ambience ambience_ext_road_day fadein 2
     $ nvl_clear()
@@ -53,23 +53,23 @@ label yn_prologue:
     yn_th 'Возможно, это лето я запомню надолго.'
     $ nvl_clear()
     $ yn_set_timeofday_cursor_var = False
-    $ persistent.yn_ext_bus_station_photo_n = True
+    $ persistent.yn_ext_bus_station_photo_note = True
     $ yn_set_null_cursor()
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(3, hard = True)
+    $ renpy.pause(3, hard=True)
 
 label yn_act_one_play_one:
     $ yn_onload('lock')
     $ renpy.block_rollback()
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ persistent.timeofday = 'sunset'
     $ persistent.sprite_time = 'sunset'
     $ yn_chapter_intro('Действие первое.', 'bg yn_int_dining_hall_people_sunset_blurred', 'dining_hall_full', 'yn_yana smile1', 'yn_play_one_intro_text')
     scene bg black with Dissolve(2)
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ yn_onload('unlock')
     $ yn_set_timeofday_cursor_var = True
     scene bg int_bus_people_day at yn_bus_moving with Dissolve(2)
@@ -85,7 +85,7 @@ label yn_act_one_play_one:
     yn_th 'Я уже даже начинаю жалеть, что осталась без соседа и мне совершенно не с кем поговорить.'
     $ nvl_clear()
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg yn_int_bus_window_view at yn_bus_moving with Dissolve(2)
     yn_narrator 'Прошло около часа. За окном проплывали вспаханные поля - плод чей-то напряженной страды - и бесконечные линии электропередач.'
     yn_th 'Странно. Так хотелось поехать в этот летний лагерь, о котором мне все уши прожужжала одноклассница, но по дороге в столь желанное место я не ощущаю ничего, кроме меланхолии.'
@@ -103,7 +103,7 @@ label yn_act_one_play_one:
     stop sound_loop fadeout 4
     stop music fadeout 4
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg ext_camp_entrance_day with Dissolve(2)
     play ambience ambience_camp_entrance_day_people fadein 2
     yn_narrator 'Когда двери автобуса распахнулись, все сразу ринулись к выходу.' 
@@ -137,7 +137,7 @@ label yn_act_one_play_one:
     $ persistent.yn_protagonist_mood = 'sad'
     $ persistent.timeofday = 'sunset'
     $ persistent.sprite_time = 'sunset'
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     scene bg ext_dining_hall_away_sunset with Dissolve(2)
     play ambience ambience_camp_center_evening fadein 2
     yn_th 'Обед я благополучно проспала.'
@@ -146,7 +146,7 @@ label yn_act_one_play_one:
     scene bg ext_dining_hall_near_sunset with dissolve
     yn_narrator 'Снаружи здание ничем не выделялось. Приземистое, видавшее виды, с припаркованной возле входа волгой, покрытой слоем вековой пыли.'
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     stop ambience fadeout 2
     scene bg yn_int_dining_hall_people_sunset with dissolve
     play ambience ambience_dining_hall_full fadein 2
@@ -217,7 +217,7 @@ label yn_act_one_play_one:
     stop music fadeout 4
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg ext_houses_sunset with Dissolve(2)
     play ambience ambience_camp_center_evening fadein 2
     yn_narrator 'Во время неспешной прогулки мне повстречалась очень неоднозначная личность. Это была девушка, которую ещё в столовой я заприметила за столом «Творцов».'
@@ -258,7 +258,7 @@ label yn_act_one_play_one:
     yn_th 'Как бы то ни было, начало знакомствам положено.'
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg yn_ext_square_lenin_sunset with Dissolve(2)
     play ambience ambience_camp_center_evening fadein 2
     play music music_list['silhouette_in_sunset'] fadein 5
@@ -299,7 +299,7 @@ label yn_act_one_play_one:
     $ persistent.yn_protagonist_mood = 'sad'
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg yn_int_house_of_yana_night_light_1 with Dissolve(2)
     play ambience ambience_int_cabin_night fadein 2
     yn_narrator 'Обстановка домика была опрятной, но крайне заурядной. Выбивались разве что всевозможные склянки и упаковки таблеток, лежащие на одной из тумбочек.'
@@ -334,7 +334,7 @@ label yn_act_one_play_one:
     yn_yana 'Спасибо за совет. Обязательно как-нибудь узнаю об этом!'
     yn_cs 'Ладно, дорогая, пора спать. Раздевайся и укладывайся. Хороший сон - залог здоровья.'
     hide cs with dissolve
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg yn_int_house_of_yana_night_1 with dissolve
     yn_narrator 'Сонливость пришла быстро. Не прошло и десяти минут как я заснула.'
     stop ambience fadeout 2
@@ -346,9 +346,9 @@ label yn_act_one_play_one:
     # yn_narrator 'Мне снились бескрайние поля и голубое полотно неба, усеянное рваными облаками. Безмолвное величие пышущей жизнью природы.'
     # scene bg black with Dissolve(2)
     $ yn_set_timeofday_cursor_var = False
-    $ persistent.yn_int_house_of_yana_photo_n = True
+    $ persistent.yn_int_house_of_yana_photo_note = True
     $ yn_set_null_cursor()
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
 
 label yn_act_one_play_two:
     $ yn_onload('lock')
@@ -356,10 +356,10 @@ label yn_act_one_play_two:
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
     $ persistent.yn_protagonist_mood = 'sleepy'
-    $ renpy.pause(3, hard = True)
+    $ renpy.pause(3, hard=True)
     $ yn_chapter_intro('Действие второе.', 'bg yn_ext_square_lenin_day_blurred', 'camp_center_day', 'yn_yana smile2', 'yn_play_two_intro_text')
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ yn_onload('unlock')
     $ yn_set_timeofday_cursor_var = True
     scene bg yn_int_house_of_yana_day_1 with Dissolve(2)
@@ -378,7 +378,7 @@ label yn_act_one_play_two:
     yn_th 'После звонких гудков автомобилей и зноя городской жизни это место кажется настоящим Эдемским садом.'
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(0.5, hard = True)
+    $ renpy.pause(0.5, hard=True)
     scene bg ext_washstand_day with Dissolve(2)
     play ambience ambience_camp_center_day fadein 2
     yn_narrator 'Кое-как сориентировавшись, я нашла умывальники, возле которых приводили себя в порядок несколько пионеров.'
@@ -535,7 +535,7 @@ label yn_act_one_play_two_after_sl_dialogue:
     stop ambience fadeout 2
     stop music fadeout 4
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg int_dining_hall_people_day with Dissolve(2)
     play ambience ambience_dining_hall_full fadein 2
     play music yn_everyday_theme fadein 10
@@ -631,13 +631,13 @@ label yn_act_one_play_two_after_sl_dialogue:
         xpos -240
     yn_narrator 'Я не стала уточнять, какой была прошлая кличка, ибо вернулась Кузнечик.'
     show yn_us dontlike at yn_moveinbottom   
-    $ renpy.pause(0.8, hard = True)
+    $ renpy.pause(0.8, hard=True)
     yn_narrator 'Девушка уже садилась, как вдруг стул не без помощи Алисы исчез. Ульяна резко упала на пол, снова выронив вилку.'
     scene bg int_dining_hall_people_day with dissolve
     stop ambience fadeout 1
     $ yn_act_one_play_two_amb.pause()
     $ yn_act_one_play_two_mus.pause()
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     yn_narrator 'Показалось, что вся столовая на миг затихла, безмолвно устремив взгляды к месту происшествия. Снизу послышался злобный, но спокойный голос:'
     yn_us 'Помяни моё слово, я когда-нибудь тебя придушу!'
     $ yn_act_one_play_two_amb.resume()
@@ -727,12 +727,12 @@ label yn_act_one_play_two_after_sl_dialogue:
             yn_narrator 'Но как бы все не пытались понять суть истории Ульяны, она прошла мимо всех, словно уносящаяся вдаль электричка.'
 
     $ persistent.yn_protagonist_mood = 'normal'
-    $ persistent.yn_haer_n = True
-    $ persistent.yn_slon_n = True
+    $ persistent.yn_haer_note = True
+    $ persistent.yn_slon_note = True
     stop music fadeout 6
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg int_dining_hall_day with Dissolve(2)
     play ambience ambience_dining_hall_empty fadein 2
     yn_narrator 'Покидали столовую мы самыми последними.'
@@ -742,7 +742,7 @@ label yn_act_one_play_two_after_sl_dialogue:
     yn_yana 'Ой, спасибо. Как это я так?'
     yn_us 'Ничего, бывает.'
     hide yn_us with dissolve
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     stop ambience fadeout 2
     scene bg ext_dining_hall_near_day with dissolve
     play ambience ambience_camp_center_day fadein 2
@@ -778,7 +778,7 @@ label yn_act_one_play_two_bypass_library:
     yn_narrator 'Библиотека. Ещё одно приземистое и ничем не выделяющееся снаружи здание. Не скажу, что сильно люблю посещать подобные места по прямому назначению.'
     yn_narrator 'Я предпочитаю, когда книга принадлежит исключительно тебе и никому больше.'
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     stop ambience fadeout 2
     scene bg int_library_day with dissolve
     play ambience ambience_library_day fadein 2
@@ -835,7 +835,7 @@ label yn_act_one_play_two_bypass_library:
             yn_narrator 'Затем она развернулась и ушла обратно к шкафу с книгами.' 
 
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     stop ambience fadeout 2
     scene bg ext_library_day with dissolve
     play ambience ambience_camp_center_day fadein 2
@@ -846,7 +846,7 @@ label yn_act_one_play_two_bypass_library:
     else:
         yn_th 'Какой же она мнительный самодур!'
 
-    $ renpy.pause(0.5, hard = True)
+    $ renpy.pause(0.5, hard=True)
     $ yn_act_one_play_two_bypass_places['yn_act_one_play_two_bypass_library_completed'] = True
 
     $ yn_act_one_play_two_map.yn_map_call()
@@ -936,7 +936,7 @@ label yn_act_one_play_two_bypass_dining_hall:
             yn_narrator 'Махнув рукой, она быстро побежала в ту сторону, куда недавно ушёл Кот.' 
             yn_th 'Что за детская непосредственность? Уже не маленькая, а такой чепухой занимается.'
 
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
 
     $ yn_act_one_play_two_map.yn_map_call()
 
@@ -946,7 +946,7 @@ label yn_act_one_play_two_bypass_medic_house:
     scene bg ext_aidpost_day with fade
     yn_th 'Ну, в подобные места я уже хожу как к себе домой.'
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     stop ambience fadeout 2 
     scene bg int_aidpost_day with dissolve
     play ambience ambience_int_cabin_day fadein 2
@@ -1008,7 +1008,7 @@ label yn_act_one_play_two_bypass_radio_engineering_club:
     scene bg ext_clubs_day with fade
     yn_th 'Тут даже такое есть. Не удивлюсь, если в нём состоит только сам заведующий и от силы пара его друзей единомышленников. Сюда я записываться точно не стану, но хотя бы посмотрю.'
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     stop ambience fadeout 2
     scene bg int_clubs_male_day with dissolve
     play ambience ambience_clubs_inside_day fadein 2
@@ -1050,15 +1050,15 @@ label yn_act_one_play_two_bypass_radio_engineering_club:
     yn_narrator 'Я обернулась, встретившись с ним глазами, от чего тот вздрогнул, словно его только что ударил током.'
     yn_yana 'Ладно.'
     hide sh with dissolve
-    $ renpy.pause(0.5, hard = True)  
+    $ renpy.pause(0.5, hard=True)  
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     stop ambience fadeout 2
     stop music fadeout 4
     scene bg ext_clubs_day with dissolve
     play ambience ambience_camp_center_day fadein 2
     yn_th 'Странный паренёк. Интересно, он из своего медвежьего угла вообще вылезает?'
-    $ renpy.pause(0.5, hard = True)
+    $ renpy.pause(0.5, hard=True)
 
     $ yn_act_one_play_two_bypass_places['yn_act_one_play_two_bypass_radio_engineering_club_completed'] = True
 
@@ -1070,7 +1070,7 @@ label yn_act_one_play_two_bypass_music_club:
     scene bg ext_musclub_day with fade
     yn_narrator 'Музыкальный клуб, про который мне вчера говорила Мику, представлял из себя симпатичное здание с панорамными окнами и просторным крыльцом.'
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     stop ambience fadeout 2
     scene bg yn_int_musclub_mattresses_day with dissolve
     play ambience ambience_music_club_day fadein 2
@@ -1118,7 +1118,7 @@ label yn_act_one_play_two_bypass_music_club:
     show yn_mi serious:
         zoom 1.2
         linear 1.0 xalign 0.01
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     show yn_jurn normal at right with dissolve
     yn_narrator 'Вдруг дверь распахнулась и в музыкальный клуб, активно жестикулируя руками, вбежала незнакомая мне пионерка. Длинные тонкие ноги в тёплых, несезонных чулках. Волосы цвета мандарина, отдающие рыжиной, и берет на голове.' 
     yn_jurn 'Муза! Ты не представляешь, что я сейчас видела! Это просто...' 
@@ -1189,16 +1189,16 @@ label yn_act_one_play_two_bypass_music_club:
     hide yn_jurn
     hide yn_mi
     with dissolve
-    $ renpy.pause(0.5, hard = True)
+    $ renpy.pause(0.5, hard=True)
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
-    $ persistent.yn_jurn_n = True
+    $ renpy.pause(2, hard=True)
+    $ persistent.yn_jurn_note = True
     stop music fadeout 4
     stop ambience fadeout 2
     scene bg ext_musclub_day with dissolve
     play ambience ambience_camp_center_day fadein 2
     yn_th 'То, что у меня возьмут интервью, было, на самом деле, довольно неожиданно.'
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
 
     $ yn_act_one_play_two_bypass_places['yn_act_one_play_two_bypass_music_club_completed'] = True
 
@@ -1262,17 +1262,17 @@ label yn_act_one_play_two_bypass_art_club:
     yn_yana 'Спасибо! Пока.'
     yn_kras 'До свидания.'
     hide yn_kras with dissolve
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
-    $ persistent.yn_kras_n = True
-    $ persistent.yn_int_artclub_photo_n = True
+    $ renpy.pause(2, hard=True)
+    $ persistent.yn_kras_note = True
+    $ persistent.yn_int_artclub_photo_note = True
     stop ambience fadeout 2
     stop music fadeout 4
     scene bg ext_clubs_day with dissolve
     play ambience ambience_camp_center_day fadein 2
     yn_th 'Интересно, а Красавица случаем не сестра Ульяны?'
-    $ renpy.pause(1.5, hard = True)
+    $ renpy.pause(1.5, hard=True)
 
     $ yn_act_one_play_two_bypass_places['yn_act_one_play_two_bypass_art_club_completed'] = True
 
@@ -1366,19 +1366,19 @@ label yn_act_one_play_two_bypass_theatre_club:
             yn_yana 'Хаер, мне тут обходной подписать нужно.'
             yn_haer 'Это запросто. Сказочницы сейчас нет, она тут всем заправляет, поэтому давай я черкану.'
 
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     hide yn_haer with dissolve
     play sound sfx_open_door_1
-    $ persistent.yn_int_theatreclub_photo_n = True
-    $ persistent.yn_kot_n = True
+    $ persistent.yn_int_theatreclub_photo_note = True
+    $ persistent.yn_kot_note = True
     $ persistent.yn_protagonist_mood = 'normal'
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     stop music fadeout 4
     stop ambience fadeout 2
     scene bg ext_clubs_day with dissolve
     play ambience ambience_camp_center_day fadein 2
     yn_th 'Они так забавно дурачатся. Это только при мне или они всегда так?'
-    $ renpy.pause(0.5, hard = True)
+    $ renpy.pause(0.5, hard=True)
 
     $ yn_act_one_play_two_bypass_places['yn_act_one_play_two_bypass_theatre_club_completed'] = True
 
@@ -1388,7 +1388,7 @@ label yn_act_one_play_two_after_map:
     $ renpy.block_rollback()
     $ persistent.yn_protagonist_mood = 'normal'
     scene bg black with Dissolve(2)
-    $ renpy.pause(0.5, hard = True)
+    $ renpy.pause(0.5, hard=True)
     scene bg ext_dining_hall_near_day with Dissolve(2)
     yn_narrator 'С обходным я закончила почти вовремя. Даже успела отдать его до обеда, но на сам обед немного опоздала. Этот лагерь начинает мне нравится всё больше и больше.'
     yn_narrator 'Тут и впрямь можно найти занятие по душе, нужно только определиться с выбором.'
@@ -1495,14 +1495,14 @@ label yn_act_one_play_two_after_map:
             yn_erika 'А я что? Я ничего. Просто интересно было.'
             yn_yana 'Ладно, девочки, мне пора.'
 
-    $ persistent.yn_erika_n = True
+    $ persistent.yn_erika_note = True
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ persistent.yn_protagonist_mood = 'normal'
     scene bg ext_dining_hall_near_day with Dissolve(2)
     play ambience ambience_camp_center_day fadein 2
-    $ renpy.pause(0.5, hard = True)
+    $ renpy.pause(0.5, hard=True)
 
     if yn_tomtits_group < 2 and yn_sparrows_group < 2 and yn_pigeons_group < 2:
         show yn_sl serious at center with dissolve
@@ -1513,7 +1513,7 @@ label yn_act_one_play_two_after_map:
         yn_narrator 'По-пионерски отсалютовала я.'
         yn_sl 'Хорошо. Сначала я покажу тебе спортивную площадку. Вряд ли ты её видела. По настоянию Физрука её давным-давно убрали из обходного.'
         scene bg ext_dining_hall_away_day with dissolve
-        $ renpy.pause(1, hard = True)
+        $ renpy.pause(1, hard=True)
         stop ambience fadeout 2
         scene bg ext_playground_day with dissolve
         play ambience ambience_soccer_play_background fadein 2
@@ -1544,11 +1544,11 @@ label yn_act_one_play_two_after_map:
         stop ambience fadeout 2
         scene bg ext_beach_day with dissolve
         play ambience ambience_lake_shore_day fadein 2
-        $ renpy.pause(2, hard = True)
+        $ renpy.pause(2, hard=True)
         stop ambience fadeout 2
         scene bg yn_ext_stage_big_day with dissolve
         play ambience ambience_camp_center_day fadein 2
-        $ renpy.pause(2, hard = True)
+        $ renpy.pause(2, hard=True)
         scene bg yn_ext_square_lenin_day with dissolve
         yn_narrator 'Распрощались мы очень быстро и скомканно.'
         yn_narrator 'Удручённая мрачными мыслями я поплелась к своему домику.'
@@ -1558,13 +1558,13 @@ label yn_act_one_play_two_after_map:
         yn_narrator 'Вчера Виолетта предложила мне поехать домой. Думаю, это хорошая идея. '
         yn_narrator 'Раз уж поездка не задалась, то и дневник мне больше не нужен.'
         yn_narrator 'Идея завести его оказалась не такой уж и удачной.'
-        $ renpy.pause(1, hard = True)
+        $ renpy.pause(1, hard=True)
         stop ambience fadeout 2
         scene bg black with Dissolve(2)
         show yn_titles_final yn_titles_text_act_one_bad_end at yn_titles_anim
-        $ renpy.pause(70, hard = True)
+        $ renpy.pause(70, hard=True)
         stop music fadeout 2
-        $ renpy.pause(3, hard = True)
+        $ renpy.pause(3, hard=True)
         $ yn_set_main_menu_cursor()
         return
 
@@ -1577,7 +1577,7 @@ label yn_act_one_play_two_after_map:
         yn_narrator 'По-пионерски отсалютовала я.'
         yn_sl 'Славно! Сначала я покажу тебе спортивную площадку. Вряд ли ты её видела. По настоянию физрука её давным-давно убрали из обходного.'
         scene bg ext_dining_hall_away_day with dissolve
-        $ renpy.pause(1, hard = True)
+        $ renpy.pause(1, hard=True)
         stop ambience fadeout 2
         scene bg ext_playground_day with dissolve
         play ambience ambience_soccer_play_background fadein 2
@@ -1664,15 +1664,15 @@ label yn_act_one_play_two_after_map:
         yn_narrator 'Ещё в первое посещение столовой я поняла, что жизнь Лагеря не такая простая, как кажется. Разговор со Славей приумножил это понимание, принеся с собой много незаданных вопросов, ответы на которые я намерена получить.'
         yn_narrator 'Выходит, что Лагерь - настоящее маленькое государство с многолетней историей. Его не касаются дрязги той большой страны, от которой он скрыт буйством зелени и летним гамом. В этом месте моя тревога за будущее отодвинулась на задний план.' 
         yn_narrator 'Похоже, меня и в правду ждёт незабываемое лето.'
-        $ persistent.yn_tomtits_group_n = True
-        $ persistent.yn_sparrows_group_n = True
-        $ persistent.yn_peacocks_group_n = True
-        $ persistent.yn_pigeons_group_n = True
-        $ renpy.pause(1, hard = True)
+        $ persistent.yn_tomtits_group_note = True
+        $ persistent.yn_sparrows_group_note = True
+        $ persistent.yn_peacocks_group_note = True
+        $ persistent.yn_pigeons_group_note = True
+        $ renpy.pause(1, hard=True)
         stop music fadeout 2
         stop ambience fadeout 2
         scene bg black with Dissolve(2)
-        $ renpy.pause(1, hard = True)
+        $ renpy.pause(1, hard=True)
         jump yn_act_two_play_three
 
 label yn_act_two_play_three:
@@ -1680,17 +1680,17 @@ label yn_act_two_play_three:
     $ renpy.block_rollback()
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
-    $ renpy.pause(3, hard = True)
+    $ renpy.pause(3, hard=True)
     $ yn_chapter_intro('Действие третье.', 'bg yn_int_dining_hall_people_day_blurred', 'dining_hall_full', 'yn_yana smile2', 'yn_play_three_intro_text')
     scene bg black with Dissolve(2)
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ yn_onload('unlock')
     $ yn_set_timeofday_cursor_var = True
     scene bg yn_int_house_of_yana_night_1 with Dissolve(2)
     play ambience ambience_int_cabin_night fadein 2
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     $ yn_diary_say.page = 2
     $ yn_diary_say('Прошло несколько дней с момента приезда. {w}Лагерь меня принял, и я попала под крыло Воробьёв. {w}К удивлению, Слон, Алиса и Хаер правда курят. Слон табачит «Астру», Хаер - «Мальборо» (ума не приложу, где он их достал), а Алиса предпочитает марку «Стюардесса» или, как она говорит, «Стерва».')
     $ yn_diary_say('Я к курению отношусь нейтрально, но, похоже, они именно те, про которых отец говорил: «Эти научат тебя только плохому». {w}По всей видимости Алиса является лидером компании, а Слон её помощником и наиболее рациональным человеком из всех.')
@@ -1704,7 +1704,7 @@ label yn_act_two_play_three:
     $ yn_diary_say('Постскриптум. {w}Не забыть отдать карту Славяне.')
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ yn_rename_character('yn_jurn', 'Голос из динамика')
     $ renpy.block_rollback()
     $ persistent.timeofday = 'day'
@@ -1725,7 +1725,7 @@ label yn_act_two_play_three:
     yn_narrator 'Затем динамики зашипели и умолкли.'
     yn_th 'Думаю, в этот раз точно нужно сходить на зарядку. Слишком много вольностей я себе позволяла в последнее время.'
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ yn_rename_character('yn_jurn', 'Журналистка')
     scene bg ext_washstand_day with Dissolve(2)
     play ambience ambience_camp_center_day fadein 2
@@ -1750,7 +1750,7 @@ label yn_act_two_play_three:
     yn_haer 'Ай, чтоб тебя!'
     show yn_haer pity:
         linear 1.0 xalign 0.05
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     show yn_sl serious at right with dissolve
     yn_narrator 'Тем временем к умывальникам подошла Славяна. Поздоровавшись, она перевела на Хаера очень недобрый взгляд.'
     yn_narrator 'Увидев помощницу вожатой, парень смежил губы в максимально широкой улыбке и, не вытирая мокрое лицо, медленно попятился.'
@@ -1765,7 +1765,7 @@ label yn_act_two_play_three:
     hide yn_haer with dissolve
     show yn_sl serious:
         linear 1.0 xalign 0.5
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     yn_narrator 'Дребезжащим голосом произнёс он и, быстро развернувшись, скрылся в кустах.'
     yn_narrator 'Устало вздохнув, Славяна вернулась к умывальникам.'
     yn_sl 'Идиот! Любовник недобитый!'
@@ -1781,7 +1781,7 @@ label yn_act_two_play_three:
     stop ambience fadeout 2
     stop music fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ yn_onload('lock')
     $ renpy.block_rollback()
     $ yn_chapter_intro('Действие третье.\nИнтермедия. Хаер.', 'bg yn_int_theatreclub_day_blurred', 'int_cabin_day', 'yn_haer smile', 'yn_play_three_haer_intermedia_text', 'yn_haer_intermedia_phrase')
@@ -1789,7 +1789,7 @@ label yn_act_two_play_three:
     $ persistent.yn_protagonist = 'haer'
     $ yn_rename_character('yn_yana', 'Ящерица')
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ yn_onload('unlock')
     scene bg ext_path_day with Dissolve(2)
     play ambience ambience_forest_day fadein 2
@@ -1811,7 +1811,7 @@ label yn_act_two_play_three:
     scene bg ext_clubs_day with dissolve
     yn_narrator 'Ну, сейчас поглядим, кто в нашем теремке с утреца собрался.'
     play sound sfx_open_door_1
-    $ renpy.pause(2, hard = True)
+    $ renpy.pause(2, hard=True)
     stop ambience fadeout 2
     scene bg yn_int_theatreclub_day
     show dv normal pioneer2:
@@ -1898,7 +1898,7 @@ label yn_act_two_play_three:
     yn_narrator 'Неужели холостой?'
     show dv normal pioneer2:
         linear 1.0 xalign -0.2
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     show yn_yana smile2:
         xalign 0.2
     with dissolve
@@ -1940,7 +1940,7 @@ label yn_act_two_play_three:
     show yn_skaz normal:
         linear 1.0 xalign 0.7
 
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
 
     show yn_medz pos1 normal:
         xalign 1.2
@@ -1992,7 +1992,7 @@ label yn_act_two_play_three:
     stop ambience fadeout 2
     stop music fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg int_dining_hall_people_day
     show yn_us surp1:
         xpos -240
@@ -2049,17 +2049,17 @@ label yn_act_two_play_three:
     yn_th 'Вот тебе и приметы, Ящерица. Да... Вот тебе и приметы.'
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
 
 label yn_act_two_play_fourth:
     $ yn_onload('lock')
     $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
-    $ renpy.pause(3, hard = True)
+    $ renpy.pause(3, hard=True)
     $ yn_chapter_intro('Действие четвертое.', 'bg yn_ext_square_lenin_night_party_blurred', 'camp_center_night', 'yn_yana smile2', 'yn_play_fourth_intro_text')
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
     $ yn_onload('unlock')
@@ -2176,7 +2176,7 @@ label yn_act_two_play_fourth:
     yn_narrator 'Спохватившись, что отстаю, я ускоряю шаг, дабы догнать остальных.'
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg int_house_of_dv_day
     show yn_us upset:
         xpos -240
@@ -2344,12 +2344,12 @@ label yn_act_two_play_fourth:
 label yn_act_two_play_fourth_haer_train_first_dialogue:
     $ renpy.block_rollback()
     $ yn_act_two_play_fourth_haer_train_first_dialogue_wheel = YnDialogueWheel(yn_act_two_play_fourth_haer_train_first_dialogue_questions)
-    $ yn_act_two_play_fourth_haer_train_first_dialogue_wheel.call()
+    $ yn_act_two_play_fourth_haer_train_first_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_fourth_haer_train_second_dialogue:
     $ renpy.block_rollback()
     $ yn_act_two_play_fourth_haer_train_second_dialogue_wheel = YnDialogueWheel(yn_act_two_play_fourth_haer_train_second_dialogue_questions)
-    $ yn_act_two_play_fourth_haer_train_second_dialogue_wheel.call()
+    $ yn_act_two_play_fourth_haer_train_second_dialogue_wheel.yn_dw_call()
 
 label yn_act_two_play_fourth_haer_dance_q:
     $ renpy.block_rollback()
@@ -2420,7 +2420,7 @@ label yn_act_two_play_fourth_haer_dance_train_l:
     $ renpy.block_rollback()
     $ yn_act_two_play_fourth_yn_help_haer = True
     $ yn_sparrows_group_ending += 1
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg yn_int_theatreclub_day with Dissolve(1)
     play ambience ambience_int_cabin_day fadein 2
     yn_yana 'Так, расслабься. Ноги ближе поставь и прекрати сутулиться, согбенный.' 
@@ -2530,7 +2530,7 @@ label yn_act_two_play_fourth_after_haer_train:
     $ renpy.block_rollback()
     stop ambience fadeout 2
     scene bg black with Dissolve(1)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg int_dining_hall_people_day with Dissolve(1)
     play ambience ambience_dining_hall_full fadein 2
     yn_narrator 'В столовой я начала ловила на себе заинтересованные взгляды. Некоторые, особо смелые, не стеснялись разглядывывать протез.'
@@ -2589,7 +2589,7 @@ label yn_act_two_play_fourth_after_haer_train:
     yn_haer 'Ладно. Доедайте быстрее и пошли. Нехорошее у меня предчувствие что-то.'
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg ext_dining_hall_near_day with Dissolve(2)
     play ambience ambience_camp_center_day fadein 2
     yn_narrator 'Обед прошёл куда менее удачно, чем завтрак.'
@@ -2691,12 +2691,12 @@ label yn_act_two_play_fourth_after_haer_train:
 label yn_act_two_play_fourth_meduza_dialogue_first_q:
     $ renpy.block_rollback()
     $ yn_act_two_play_fourth_meduza_dialogue_first_wheel = YnDialogueWheel(yn_act_two_play_fourth_meduza_dialogue_first_questions)
-    $ yn_act_two_play_fourth_meduza_dialogue_first_wheel.call()
+    $ yn_act_two_play_fourth_meduza_dialogue_first_wheel.yn_dw_call()
 
 label yn_act_two_play_fourth_meduza_dialogue_second_q:
     $ renpy.block_rollback()
     $ yn_act_two_play_fourth_meduza_dialogue_second_wheel = YnDialogueWheel(yn_act_two_play_fourth_meduza_dialogue_second_questions)
-    $ yn_act_two_play_fourth_meduza_dialogue_second_wheel.call()
+    $ yn_act_two_play_fourth_meduza_dialogue_second_wheel.yn_dw_call()
 
 label yn_act_two_play_fourth_meduza_dialogue_dv_brute:
     $ renpy.block_rollback()
@@ -2838,7 +2838,7 @@ label yn_act_two_play_fourth_disco:
     $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg yn_ext_square_lenin_night_party with Dissolve(2)
     play ambience ambience_camp_center_night fadein 2
     yn_narrator 'Дискотека. Разве есть ещё в Советском Союзе подобные мероприятия, где можно столь раскрепоститься?'
@@ -3124,7 +3124,7 @@ label yn_act_two_play_fourth_disco:
     yn_dv 'Ну как? Понравилось?'
     stop ambience fadeout 2
     scene bg black with Dissolve(1)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg yn_int_house_of_yana_night_1 with Dissolve(1)
     yn_narrator 'После отбоя я начала собираться на ночное собрание Воробьёв, которое частенько проводилось в театральном кружке.'
     yn_narrator 'Пытаясь не шуметь, чтобы не разбудить соседку, я быстро оделась и на носочках поспешила к выходу.'
@@ -3277,10 +3277,10 @@ label yn_act_two_play_fifth:
     $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
-    $ renpy.pause(3, hard = True)
+    $ renpy.pause(3, hard=True)
     $ yn_chapter_intro('Действие пятое.', 'bg yn_ext_square_lenin_night_party_blurred', 'camp_center_night', 'yn_yana smile2', 'yn_play_fifth_intro_text')
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
     $ yn_onload('unlock')
@@ -3473,7 +3473,7 @@ label yn_act_two_play_fifth:
             yn_slon 'Иногда Сказочница это использует, когда Медуза слишком досаждает. Лучше нашу любимую вожатую не злить. И всё же, где я прокололся...'
             stop ambience fadeout 2
             scene bg black with Dissolve(1)
-            $ renpy.pause(1, hard = True)
+            $ renpy.pause(1, hard=True)
             scene bg ext_dining_hall_near_day 
             show yn_slon normal at center
             with dissolve
@@ -3844,7 +3844,7 @@ label yn_act_two_play_fifth_map_library:
 
     stop ambience fadeout 2
     scene bg black with Dissolve(1)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg int_library_day with dissolve
     play ambience ambience_library_day fadein 2
     yn_narrator 'Женя ожидаемо находилась в библиотеке одна. Она со скучающим видом листала какую-то книгу лежащую перед ней на столе.'
@@ -4262,7 +4262,7 @@ label yn_act_two_play_fifth_after_sh_dialogue:
 label yn_act_two_play_fifth_playground:
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg ext_playground_day with Dissolve(2)
     play ambience ambience_soccer_play_background fadein 2
     yn_slon 'Ты точно уверена, что хочешь туда записаться? Не самая хорошая идея.'
@@ -4306,7 +4306,7 @@ label yn_act_two_play_fifth_playground:
     yn_slon 'Ладно. Бывай.'
     stop ambience fadeout 2
     scene bg black with Dissolve(1)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg int_aidpost_day with Dissolve(1)
     play ambience ambience_medstation_inside_day fadein 2
     yn_cs 'Да... Годы идут, а Спортсмен не меняется. Но я же по глазам вижу, что это не основная причина твоего прихода.'
@@ -4363,7 +4363,7 @@ label yn_act_two_play_fifth_playground:
     $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     scene bg yn_ext_square_lenin_night_party with Dissolve(2)
     play ambience ambience_camp_center_night fadein 2
     #хаер в куртке
@@ -4681,7 +4681,7 @@ label yn_act_two_play_fifth_playground:
     $ renpy.block_rollback()
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ yn_onload('lock')
     $ renpy.block_rollback()
     $ yn_chapter_intro('Действие пятое.\nИнтермедия. Мельпа.', 'bg yn_ext_square_lenin_day_blurred', 'camp_center_day', 'dv grin pioneer2', 'yn_play_fifth_dv_intermedia_text', 'yn_dv_intermedia_text')
@@ -4828,10 +4828,10 @@ label yn_act_two_play_sixth:
     $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
-    $ renpy.pause(3, hard = True)
+    $ renpy.pause(3, hard=True)
     $ yn_chapter_intro('Действие шестое.', 'bg yn_ext_square_lenin_night_party_blurred', 'camp_center_night', 'yn_yana smile2', 'yn_play_sixth_intro_text')
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ persistent.timeofday = 'sunset'
     $ persistent.sprite_time = 'sunset'
     $ yn_onload('unlock')
@@ -4907,7 +4907,7 @@ label yn_act_two_play_sixth:
     stop music fadeout 2
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ renpy.block_rollback()
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
@@ -5121,10 +5121,10 @@ label yn_act_two_play_seventh:
     $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
-    $ renpy.pause(3, hard = True)
+    $ renpy.pause(3, hard=True)
     $ yn_chapter_intro('Действие седьмое.', 'bg yn_ext_square_lenin_night_party_blurred', 'camp_center_night', 'yn_yana smile2', 'yn_play_seventh_intro_text')
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
     $ yn_onload('unlock')
@@ -5819,7 +5819,7 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     yn_narrator 'Улыбка у неё была не такая, как у других людей, а какая-то по детски наивная и глупая, но очень очаровывающая.'
     yn_mi 'Тотемо утскаси! *Очень красиво!* Я знала, что ты рано или поздно сыграешь на рояле!'
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
@@ -6074,10 +6074,10 @@ label yn_act_three_play_eighth:
     $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
-    $ renpy.pause(3, hard = True)
+    $ renpy.pause(3, hard=True)
     $ yn_chapter_intro('Действие восьмое.', 'bg yn_ext_square_lenin_night_party_blurred', 'camp_center_night', 'yn_yana smile2', 'yn_play_eighth_intro_text')
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard = True)
+    $ renpy.pause(1, hard=True)
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
     $ yn_onload('unlock')
