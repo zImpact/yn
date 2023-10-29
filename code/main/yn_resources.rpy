@@ -157,7 +157,7 @@ init python:
     yn_names['yn_skaz'] = 'Сказочница'
     store.yn_names_list.append('yn_skaz')
 
-    yn_colors['yn_medz'] = {'speaker_color': '#aa64d9'}
+    yn_colors['yn_medz'] = {'speaker_color': '#cac894'}
     yn_names['yn_medz'] = 'Медуза'
     store.yn_names_list.append('yn_medz')
 

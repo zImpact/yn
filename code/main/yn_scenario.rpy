@@ -2677,7 +2677,7 @@ label yn_act_two_play_fourth_after_haer_train:
 
             show yn_slon normal2:
                 xpos 1200
-
+            play ambience ambience_camp_center_day fadein 2
             yn_th 'Добром это явно не закончится, но всё же за свои деяния приходится нести ответственность.'
             yn_kot 'Да уж. Из огня да в полымя!'
             yn_yana 'Я так понимаю, Мельпу на дискотеке мы сегодня не увидим?'
@@ -3482,6 +3482,7 @@ label yn_act_two_play_fifth:
             $ persistent.timeofday = 'sepia'
             play ambience ambience_camp_center_day fadein 2
             scene bg yn_ext_dining_hall_near_day_sepia
+            show yn_sh normal sepia at center
             show yn_static_noise_anim
             with fade
             yn_narrator 'Впервые он подошёл, когда я только попала в вашу компанию.' 
@@ -3496,31 +3497,41 @@ label yn_act_two_play_fifth:
             yn_narrator 'Он замялся и около минуты мы простояли находясь в неловком молчании. Наконец, он что-то надумал.'
             yn_sh 'Извини за нескромную просьбу, но можно немного изучить твой протез?'
             yn_sh 'Я понимаю, что это возможно грубо и отказ довольно очевиден, но мне бы очень хотелось хоть чуть-чуть осмотреть эту технологию.' 
-            yn_yana 'Всё в порядке - смотри.' 
+            yn_yana 'Всё в порядке - смотри.'
+            show yn_sh surprise sepia with dspr
             yn_narrator 'Я протянула Шурику левую руку. Он коснулся предплечья, его глаза загорелись интересом, но потом парень посмотрел мне в глаза и резко себя одёрнул.'
+            show yn_sh normal sepia with dspr
             yn_sh 'Извини. А можно в таком случае попросить тебя заглянуть к нам в кружок, чтобы осмотр не выглядел странно со стороны? Обещаю, что ничего не сломаю.' 
             yn_narrator 'Это всё действительно выглядело странно, но будучи наслышанной о его любви к технике, я сочла подобный интерес вполне нормальным для столь увлечённого человека.'
             yn_narrator 'Тем паче, мою искусственную руку можно и впрямь считать технологией будущего. Подобный прототип - большой шаг в протезировании. Подобного в СССР пока не делают.'
             yn_yana 'Хорошо. Возможно, загляну как-нибудь.'
+            stop ambience fadeout 2
             scene bg black with fade
             yn_narrator 'По итогу, право сказать, я забыла про это приглашение.'
-            scene bg yn_ext_square_lenin_day_sepia 
+            scene bg yn_ext_square_lenin_day_sepia
+            show yn_sh normal sepia at center
             show yn_static_noise_anim
             with fade
+            play ambience ambience_camp_center_day fadein 2
             yn_narrator 'Во второй раз он подошёл, когда я возвращалась от Лютика.'
             yn_narrator 'Ей нужна была кое-какая помощь на складе и первой она встретила меня, отказывать причин не было.'
             yn_narrator 'После дежурного обмена любезностями через какое-то время диалог перетёк в его монолог об отце. Уже даже не припомню, почему речь зашла про Чернобыль.'
+            show yn_sh smile sepia with dspr
             yn_sh 'У меня отец тогда пошёл в добровольцы, даже медаль дали. Много историй страшных рассказывал.'
             yn_sh 'Говорит, что во время эвакуации много животных там остались. По брошенным улицам даже лошади бродили.'
             yn_sh 'Отец с товарищами собак подкармливал. Ещё рассказывал, что там картошка потом просто огромная уродилась, чуть ли не во всё ведро.'
+            stop ambience fadeout 2
             scene bg black with fade
             yn_narrator 'Потом подошёл его друг, Электроник, поздоровался и они уже начали обсуждать эту тему между собой. Попрощавшись, я тихонько ушла.'
             scene bg yn_ext_square_lenin_night_party_sepia
+            show yn_sh upset sepia
             show yn_static_noise_anim
             with fade
+            play ambience ambience_camp_center_night fadein 2
             yn_narrator 'И в третий раз мы столкнулись вчера, на дискотеке, когда я уже уходила на поляну.'
             yn_narrator 'Немного поговорили, а потом он, похоже, собирался пригласить меня на танец.'
             yn_narrator 'Положение спасла Мельпа. Она подошла, взяла меня под локоть и со словами, что у нас дела, увела на место встречи.'
+            stop ambience fadeout 2
             $ renpy.block_rollback()
             $ persistent.timeofday = 'day'
             scene bg yn_int_theatreclub_day
@@ -4372,7 +4383,7 @@ label yn_act_two_play_fifth_playground:
     yn_narrator 'Мужчина жестом пригласил нас подойти.'
     show yn_san smile at left
     show yn_slon normal at right
-    with dspr
+    with dissolve
     yn_san 'Слоняра! Ты шо ночами делаешь? Вон, мешкари какие под глазами. По девкам бегаешь шо ли?..'
     yn_san 'Ладно, шучу. Лучше бы по площадке круги понаварачивал. Бока, ска, на ремне уже висят.'
     yn_slon 'Доброе день, Александр Ильич! Как-нибудь пробегусь.'
@@ -4941,12 +4952,14 @@ label yn_act_two_play_sixth:
     $ yn_set_timeofday_cursor_var = True
     $ persistent.yn_protagonist = 'yana'
     $ yn_rename_character('yn_yana', 'Яна')
-    scene bg ext_beach_sunset with dissolve
+    scene bg yn_ext_pier_sunset_gl with dissolve
     play ambience ambience_lake_shore_evening fadein 2
     play music yn_giaa_first_day_of_sun fadein 2
     yn_narrator 'День Нептуна - водное мероприятие, которое перекочевало в пионерлагеря от моряков.'
     yn_narrator 'Во время театрального представления пионеры обливаются водой, а иногда и принудительно отправляют в заплыв своего зазевавшегося товарища.'
-    yn_narrator 'Организацией занималась Сказочница с ребятами из младших отрядов. Она пыталась и нас завербовать в помощники, но после маниакального блеска в глазах Алисы и парочки её «зажигательных» идей, вожатая резко передумала.'
+    yn_narrator 'Организацией занималась Сказочница с ребятами из младших отрядов.'
+    yn_narrator 'Она пыталась и нас завербовать в помощники, но после маниакального блеска в глазах Алисы и парочки её «зажигательных» идей, вожатая резко передумала.'
+    scene bg ext_beach_sunset with dissolve
     yn_us 'Да ладно! Ты сняла свою железяку? Теперь точно нужно искупаться! День Нептуна как никак!'
     yn_yana 'Я знала, что как только сниму протез, то вы меня в воду потащите.'
     yn_narrator 'Ульяна очень ненатурально удивилась.'
