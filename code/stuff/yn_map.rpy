@@ -56,10 +56,10 @@ screen yn_act_two_play_fifth_map(zones_dict):
     modal True
 
     $ yn_act_two_play_fifth_map_zones_pos = {
-        'yn_music_club': (620, 250, 62, 54),
+        'yn_music_club': (620, 250, 70, 80),
         'yn_clubs': (425, 505, 120, 85),
-        'yn_art_club': (442, 418, 90, 80),
-        'yn_library': (1158, 268, 101, 55),
+        'yn_art_club': (442, 418, 110, 80),
+        'yn_library': (1158, 268, 101, 85),
     }
 
     imagemap:
