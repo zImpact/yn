@@ -4,10 +4,10 @@
 
     def yn_note_picking_piece_dragged(drags, drop):
         global yn_note_picking_minigame_parts_count
-        global note_picking_visible
+        global yn_note_picking_visible
 
         if not drop:
-            for part in ["null", "first", "second", "third", "fourth", "fifth"]:
+            for part in ['null', 'first', 'second', 'third', 'fourth', 'fifth']:
                 if drags[0].drag_name == part:
                     win_xpos = yn_note_picking_win_positions[part][0]
                     win_ypos = yn_note_picking_win_positions[part][1]
@@ -36,58 +36,61 @@ init:
     ]
 
     $ yn_note_picking_win_positions = {
-        "null": (539, 81),
-        "first": (549, 267),
-        "second": (960, 81),
-        "third": (702, 405),
-        "fourth": (930, 316),
-        "fifth": (571, 692)
+        'null': (539, 81),
+        'first': (549, 267),
+        'second': (960, 81),
+        'third': (702, 405),
+        'fourth': (930, 316),
+        'fifth': (571, 692)
     }
 
-    image yn_note_full = "yana/images/mini_games/note_picking/yn_note_full.png"
+    image yn_note_full = 'yana/images/mini_games/note_picking/yn_note_full.png'
+    image yn_note_background = 'yana/images/mini_games/note_picking/yn_note_background.png'
 
 screen yn_note_picking_minigame():
     timer 0.5 repeat True action If(not yn_note_picking_visible, true=[Hide('yn_note_picking_minigame', Dissolve(1.5)), Return()])
 
+    add 'yn_note_background'
+
     draggroup:
         drag:
-            drag_name "null"
-            child "yana/images/mini_games/note_picking/yn_note_part0.png"
+            drag_name 'null'
+            child 'yana/images/mini_games/note_picking/yn_note_part0.png'
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[0]
             
         drag:
-            drag_name "first"
-            child "yana/images/mini_games/note_picking/yn_note_part1.png"
+            drag_name 'first'
+            child 'yana/images/mini_games/note_picking/yn_note_part1.png'
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[1]
             
         drag:
-            drag_name "second"
-            child "yana/images/mini_games/note_picking/yn_note_part2.png"
+            drag_name 'second'
+            child 'yana/images/mini_games/note_picking/yn_note_part2.png'
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[2]
             
         drag:
-            drag_name "third"
-            child "yana/images/mini_games/note_picking/yn_note_part3.png"
+            drag_name 'third'
+            child 'yana/images/mini_games/note_picking/yn_note_part3.png'
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[3]
 
         drag:
-            drag_name "fourth"
-            child "yana/images/mini_games/note_picking/yn_note_part4.png"
+            drag_name 'fourth'
+            child 'yana/images/mini_games/note_picking/yn_note_part4.png'
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[4]
 
         drag:
-            drag_name "fifth"
-            child "yana/images/mini_games/note_picking/yn_note_part5.png"
+            drag_name 'fifth'
+            child 'yana/images/mini_games/note_picking/yn_note_part5.png'
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[5]
