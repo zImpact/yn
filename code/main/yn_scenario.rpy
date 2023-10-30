@@ -1695,6 +1695,7 @@ label yn_act_two_play_three:
     $ yn_set_timeofday_cursor_var = True
     scene bg yn_int_house_of_yana_night_1 with Dissolve(2)
     play ambience ambience_int_cabin_night fadein 2
+    play music yn_spiritual_spiritual fadein 2
     $ renpy.pause(2, hard=True)
     $ yn_diary_say.page = 2
     $ yn_diary_say('Прошло несколько дней с момента приезда. {w}Лагерь меня принял, и я попала под крыло Воробьёв. {w}К удивлению, Слон, Алиса и Хаер правда курят. Слон табачит «Астру», Хаер - «Мальборо» (ума не приложу, где он их достал), а Алиса предпочитает марку «Стюардесса» или, как она говорит, «Стерва».')
@@ -1708,6 +1709,7 @@ label yn_act_two_play_three:
     $ yn_diary_say('Надеюсь, что разговоры Воробьёв про проникновение со взломом и побег из лагеря просто шутки. {w}Хотя, на самом деле, это было бы весело... {w}Да уж. {w}После четырёх месяцев в больнице я слишком сильно ушла в себя и пошла на поводу у своих страхов и сомнений. {w}Нужно просто расслабиться и получать удовольствие. {w}Я же в таком замечательном месте!')
     $ yn_diary_say('Постскриптум. {w}Не забыть отдать карту Славяне.')
     stop ambience fadeout 2
+    stop music fadeout 2
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ yn_rename_character('yn_jurn', 'Голос из динамика')
@@ -2003,7 +2005,7 @@ label yn_act_two_play_three:
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     scene bg int_dining_hall_people_day
-    show yn_us surp1:
+    show yn_us dontlike:
         xpos -240
 
     show dv smile pioneer2:
@@ -2012,7 +2014,7 @@ label yn_act_two_play_three:
     show yn_yana serious:
         xpos 850
 
-    show yn_kot normal:
+    show yn_kot angry:
         xpos 470
 
     show yn_slon normal:
@@ -2022,7 +2024,8 @@ label yn_act_two_play_three:
     play ambience ambience_dining_hall_full fadein 2
     yn_kot 'Это не суп, а вода какая-то!' 
     yn_us 'Не какая-то, а кипячёная, дурень!' 
-    yn_kot 'Ты это меня дурнем сейчас назвала?' 
+    yn_kot 'Ты это меня дурнем сейчас назвала?'
+    show yn_us upset with dspr
     yn_us 'Ты видишь тут кого-то ещё, кто задаёт тупые вопросы с очевидным ответом?'
     yn_th 'Завтрак не будет завтраком, если эти двое не устроят перепалку. К тому же, они всегда начинаются одинаково.'
     yn_yana 'Слушай, Хаер, а что означает это твоё «Чёт» и «Нечет»?'
@@ -2037,22 +2040,30 @@ label yn_act_two_play_three:
     yn_th 'Вот, попробуй описать, скажем, тарелку. Чёрта с два получится сформулировать. Только пальцами от злости и нетерпения щёлкай, да переминайся с «Ну это» на «То самое».'
     yn_haer 'Слон, спасай. Не могу.' 
     yn_narrator 'Тот даже бровью не повёл. Знал, что не смогу и ждал, когда попрошу помощи.'
+    show yn_slon normal2 with dspr
     yn_slon 'Тебе поэтичнее или попроще?' 
     yn_yana 'На твой выбор.' 
-    yn_slon 'Бывает так, что если человек в нерешимости, то его надвое рвут сомнения. А неудача всегда в такие моменты где-то поблизости трётся. Хаер эту неудачу... как бы сказать? Заранее чувствует что ли, но вот правильное число выбирать пока не умеет.'
+    yn_slon 'Бывает так, что если человек в нерешимости, то его надвое рвут сомнения. А неудача всегда в такие моменты где-то поблизости трётся. {w}Хаер эту неудачу... как бы сказать? Заранее чувствует что ли, но вот правильное число выбирать пока не умеет.'
     yn_yana 'Ага. А если попроще?' 
-    yn_slon 'Примета такая. Там, где чёт выпадает - там неудача. Хаер на этой теме год назад двинулся. Сначала вообще чётных дней и номеров шарахался. Потом как-то нормально всё стало. Дурдом, одним словом.' 
+    yn_slon 'Примета такая. Там, где чёт выпадает - там неудача. Хаер на этой теме год назад двинулся. Сначала вообще чётных дней и номеров шарахался. Потом как-то нормально всё стало.'
+    yn_slon 'Дурдом, одним словом.' 
     yn_th 'Спасибо. Услужил. Психом меня каким-то выставляет.'
     yn_haer 'Не бери в голову. Просто считай, что я «Чётом» неудачи называю. Вот и всё.' 
-    yn_yana 'Ладно' 
+    yn_yana 'Ладно.' 
     yn_narrator 'Она пожала плечами и потянулась к стакану с чаем.'
     yn_dv 'Как насчёт того, чтобы после завтрака у меня в картишки переброситься? Сегодня танцы. Нужно бы до них как-то время скоротать и не залететь где-нибудь, а то не пустят же.' 
     yn_slon 'Ты минут десять назад дерзила Медузе, которая точно настучит на тебя Панамке. И на фоне этого тебя пугает перспектива залететь как-то ещё?' 
     yn_haer 'Да, идея с картами здравая. Если все хотят на танцы, нужно, чтобы Панамка нас сегодня вообще не видела. Поэтому быстрее доедайте и пошли. Главное не привлекать лишнего внимания.' 
     yn_narrator 'Всё дружно кивнули и принялись доедать запеканку. Все, кроме Ящерицы.'
     yn_narrator 'На несколько мгновений её левая рука в протезе, что держала кружку застыла над столом, потом ладонь резко разжалась и кружка отскочив от стола с оглушающим звоном разбилась о плитку.'
+    show yn_us fear
+    show yn_kot think
+    show yn_slon normal
+    show dv scared pioneer2
+    with dspr
     yn_narrator 'В глазах Ящерицы застыло удивление, а сразу же за ним появился испуг.'
     yn_narrator 'Она переводила взгляд то на протез, то на осколки, под которыми растекались остатки чая.'
+    hide yn_yana with dissolve
     yn_narrator 'Затем Ящерица вскочила и едва слышно буркнув «извините» выбежала из столовой.'
     yn_narrator 'Стоит ли говорить, что абсолютно все смотрели на нас?'
     yn_th 'Вот тебе и приметы, Ящерица. Да... Вот тебе и приметы.'
@@ -2150,7 +2161,7 @@ label yn_act_two_play_fourth:
     show yn_us upset:
         xpos -240
 
-    show dv laugh pioneer2:
+    show dv sad pioneer2:
         xpos 160    
 
     show yn_haer pity2:
@@ -2172,9 +2183,11 @@ label yn_act_two_play_fourth:
     yn_yana 'А чего вы все пришли? Это не рискованно?' 
     yn_dv 'Плевать.' 
     yn_yana 'Мельпа, твоё равнодушие сводит меня с ума.'
-    yn_slon 'Рискованно, конечно. Я пытался их убедить в том, что лучше один пойду, но они ни в какую.' 
+    yn_slon 'Рискованно, конечно. Я пытался их убедить в том, что лучше один пойду, но они ни в какую.'
+    show yn_haer normal with dspr
     yn_narrator 'Хаер возмущённо всплеснул руками.'
-    yn_haer 'Мы же одна группа! Как мушкетёры: «Один за всех и все за одного!». Поэтому, даже под угрозой отстранения от танцев, я своего товарища не брошу!' 
+    yn_haer 'Мы же одна группа! Как мушкетёры: «Один за всех и все за одного!». Поэтому, даже под угрозой отстранения от танцев, я своего товарища не брошу!'
+    show dv laugh pioneer2 with dspr
     yn_narrator 'Мельпа залилась звонким хохотом.'
     yn_dv 'Ты только посмотри на него! Как нахохлился! Пошли уже, мушкетёры.'
     scene bg ext_playground_day with dissolve
@@ -2187,7 +2200,7 @@ label yn_act_two_play_fourth:
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     scene bg int_house_of_dv_day
-    show yn_us upset:
+    show yn_us dontlike:
         xpos -240
 
     show dv laugh pioneer2:
@@ -2196,7 +2209,7 @@ label yn_act_two_play_fourth:
     show yn_haer pity2:
         xpos 850
 
-    show yn_kot sad:
+    show yn_kot normal:
         xpos 470
 
     show yn_slon normal2:
@@ -2207,7 +2220,8 @@ label yn_act_two_play_fourth:
     yn_us 'Да как ты это делаешь? Серьёзно? Опять козырный туз?!'
     yn_narrator 'Вот уже четвёртую партию подряд Алиса выходит победительницей.'
     yn_narrator 'Ей на удивление везёт, и она не забывает позлорадствовать после каждого выигрыша.'
-    yn_dv 'И кто вас только в карты дуться учил? Противники из вас никакущие!' 
+    yn_dv 'И кто вас только в карты дуться учил? Противники из вас никакущие!'
+    show yn_slon normal with dspr
     yn_slon 'Я проанализировал все прошедшие партии и могу с уверенностью сказать, что ты мухлюешь.' 
     yn_narrator 'Алиса скрестила руки на груди и, выпрямившись, самоувернно хмыкнула.'
     yn_dv 'А ты докажи!' 
@@ -2215,7 +2229,8 @@ label yn_act_two_play_fourth:
     yn_dv 'Да пожалуйста!'
     yn_narrator 'Алиса отдала колоду Хаеру.'
     yn_narrator 'Взяв карты, он начал их тасовать, а когда Мельпа мельком взглянула на его манипуляции, то Хаер и вовсе повернулся к ней боком.'
-    yn_us 'Кот, может, уже всё же сыграешь с нами партеечку?' 
+    yn_us 'Кот, может, уже всё же сыграешь с нами партеечку?'
+    show yn_kot sad with dspr
     yn_narrator 'Кот нахмурился.'
     yn_kot 'Азартные игры - грех!' 
     yn_haer 'Да где ты тут азарт видишь? Мы время коротаем. А если бы не игра, того и гляди, что-то плохое могло случится.'
@@ -2227,9 +2242,11 @@ label yn_act_two_play_fourth:
     yn_yana 'Ну, давай попробуем.'
     yn_slon 'Отличный ответ!' 
     yn_yana 'Умею, когда хочу.'
+    show yn_us grin with dspr
     yn_us 'О! Наконец-то ты участвуешь!' 
     yn_dv 'Да, теперь у тебя появится шанс хоть кого-нибудь обыграть.' 
-    yn_us 'Кто бы говорил! Жульё!' 
+    yn_us 'Кто бы говорил! Жульё!'
+    show dv angry pioneer2 with dspr
     yn_narrator 'Алисе хватило всего одного тяжёлого колючего взгляда, чтобы задавить Ульяну авторитетом, отбив у неё любое желание пререкаться.'
     yn_slon 'Хаер, ты сейчас карты сотрёшь.' 
     yn_haer 'Ой... Простите, задумался.' 
@@ -2551,25 +2568,25 @@ label yn_act_two_play_fourth_after_haer_train:
     $ renpy.pause(1, hard=True)
     scene bg int_dining_hall_people_day
 
-    show yn_us upset:
+    show yn_us normal:
         xpos -240
 
-    show dv laugh pioneer2:
+    show dv normal pioneer2:
         xpos 160    
 
     show yn_haer pity2:
         xpos 850
 
-    show yn_kot sad:
+    show yn_kot normal:
         xpos 470
 
-    show yn_slon normal2:
+    show yn_slon normal:
         xpos 1200
 
     with Dissolve(1)
 
     play ambience ambience_dining_hall_full fadein 2
-    yn_narrator 'В столовой я начала ловила на себе заинтересованные взгляды. Некоторые, особо смелые, не стеснялись разглядывывать протез.'
+    yn_narrator 'В столовой я начала ловить на себе заинтересованные взгляды. Некоторые, особо смелые, не стеснялись разглядывывать протез.'
 
     if yn_act_two_play_fourth_haer_ask_about_bf:
         yn_th 'Неужели Ульяна и вправду сказала, что у меня отвалился протез? Ох уж эта детская непосредственность.'
@@ -2590,8 +2607,10 @@ label yn_act_two_play_fourth_after_haer_train:
 
     yn_narrator 'На обед была рыба с пюре, что заметно огорчило Кузнечика, да и меня это не сильно обрадовало. Я её не особо люблю.'
     yn_narrator 'Долго удерживать негодование в себе у Ульяны не получилось. С пару минут поковыряв вилкой нелюбимый продукт, она сказала:'
+    show yn_us dontlike with dspr
     yn_us 'Рыбный день только вчера был! Они нас сегодня остатками что ли накормить решили? Мяса хочу!' 
     yn_slon 'Если есть какие-то претензии - вон стоит повариха.'
+    show yn_slon normal2 with dspr
     yn_narrator 'Слон указал вилкой в сторону места раздачи еды, где, звеня посудой, возилась молодая и вполне симпатичная на первый взгляд повариха.'
     yn_th 'Если честно, то я ожидала увидеть там куда менее молодую и симпатичную повариху. Ну, более типичную...'
     yn_slon 'Пойди, скажи, что требуешь заменить блюдо.'
@@ -2631,16 +2650,16 @@ label yn_act_two_play_fourth_after_haer_train:
     yn_narrator 'Обед прошёл куда менее удачно, чем завтрак.'
     scene bg yn_ext_dining_hall_behind_day 
     
-    show yn_us upset:
+    show yn_us normal:
         xpos -240
 
-    show dv laugh pioneer2:
+    show dv normal pioneer2:
         xpos 160    
 
     show yn_haer pity2:
         xpos 850
 
-    show yn_kot sad:
+    show yn_kot normal:
         xpos 470
 
     show yn_slon normal2:
@@ -2649,6 +2668,7 @@ label yn_act_two_play_fourth_after_haer_train:
     with dissolve
     yn_narrator 'Стоило нам только немного отойти от столовой и едва завернуть за угол, как со стороны крыльца послышалось громогласное:'
     yn_mt 'ДВАЧЕВСКАЯ!'
+    show yn_us upset with dspr
     yn_us 'Блин! Почти получилось. Может, сделать вид, что не услышали?'
     yn_dv 'Ну, всё. Приплыли. Короче, вы все, быстро валите от сюда, чтобы не попасть под раздачу. Я надерзила - мне и отхватывать.'
     yn_narrator 'Сказала Алиса, заправляя рубашку в юбку и наспех завязывая галстук.'
@@ -2677,6 +2697,8 @@ label yn_act_two_play_fourth_after_haer_train:
 
             show yn_slon normal2:
                 xpos 1200
+
+            with dissolve
             play ambience ambience_camp_center_day fadein 2
             yn_th 'Добром это явно не закончится, но всё же за свои деяния приходится нести ответственность.'
             yn_kot 'Да уж. Из огня да в полымя!'
@@ -2694,7 +2716,8 @@ label yn_act_two_play_fourth_after_haer_train:
             yn_kot 'Что теперь будем делать?'
             yn_haer 'Дождёмся её и узнаем, что всё-таки ей выпало в итоге.'
             show dv laugh pioneer2:
-                xpos 160  
+                xpos 160
+            with dissolve
             yn_narrator 'Спустя несколько минут ожидания Мельпа вернулась. Вид у неё был ровно такой же, как и всегда.'
             yn_dv 'Ну что, заждались, Стахановцы?'
             yn_yana 'Что там случилось?'
@@ -2931,8 +2954,7 @@ label yn_act_two_play_fourth_disco:
     scene bg yn_ext_square_lenin_night_party with Dissolve(2)
     play ambience ambience_camp_center_night fadein 2
     play music yn_shatunov_maiskii_vecher fadein 2
-    yn_narrator 'Дискотека. Разве есть ещё в Советском Союзе подобные мероприятия, где можно столь раскрепоститься?'
-    yn_narrator 'Где можно увидеть креативность и смекалку подростков во всей красе?'
+    yn_narrator 'Дискотека. Разве есть ещё в Советском Союзе подобные мероприятия, где можно столь раскрепоститься? Где можно увидеть креативность и смекалку подростков во всей красе?'
     yn_narrator 'Не думаю.'
     yn_narrator 'Только здесь и сейчас можно быть самим собой, вытащив из шкафа и дорожных сумок свои лучшие наряды и украшения.'
     yn_narrator 'Только здесь и сейчас старшие закрывают глаза на «прикиды» пионеров.'
@@ -2949,9 +2971,20 @@ label yn_act_two_play_fourth_disco:
 
     if yn_act_two_play_fourth_dv_disco:
         $ yn_sparrows_group_ending += 1
+        show yn_haer smile jacket at center with dissolve
         yn_narrator 'Хаер был в кожаной куртке, надетой поверх Лагерной рубашки.'
+        hide yn_haer
+        show yn_dv dress grin at center 
+        with dissolve
         yn_narrator 'Мельпа неожиданно пришла с распущенными волосами в красивом вечернем платье, которое явно не из реалий дефицита.'
+        hide yn_dv
+        show us grin dress at center
+        with dissolve
         yn_narrator 'Кузнечик тоже сделала причёску и надела платье.'
+        hide us
+        show yn_kot laugh_shy at left
+        show yn_slon smile at right
+        with dissolve
         yn_narrator 'Только Слон и Кот остались в пионерской форме.'
         yn_narrator 'На удивление, подобное столь шумное мероприятие не обошло стороной и Голубей.'
         yn_narrator 'Женя, Эрика и Лена стояли рядом с вожатыми и о чём-то с ними переговаривались. Наверное, помогали следить за порядком.'
@@ -3140,6 +3173,7 @@ label yn_act_two_play_fourth_disco:
             yn_th 'Да уж. Одной лишь смелости тут было явно недостаточно.'
     
     stop ambience fadeout 2
+    stop music fadeout 2
     scene bg ext_polyana_night with fade
     play ambience ambience_forest_night fadein 2
 
@@ -3289,6 +3323,7 @@ label yn_act_two_play_fourth_disco:
     $ yn_rename_character('yn_dv', 'Двачевская')
     scene bg int_house_of_un_day with Dissolve(2)
     play ambience ambience_int_cabin_day fadein 2
+    play music yn_erika_theme fadein 2
     yn_narrator 'Меня разбудила {yn_tip_tag=fraulein}фройляйн{/yn_tip_tag} Ольга, когда пришла по какому-то делу к моей соседке. Они долго о чём-то говорили, а затем обе ушли.'
     yn_narrator 'Утро было мокрым, словно его облизали. Всю ночь за окном скосив глаза барабанил угрюмый дождь.'
     yn_narrator 'Просыпаться в семь часов утра в мои планы не входило, но покуда уж так сложились обстоятельства, то полагаю, что после водных процедур совершить небольшой променад на пляж будет хорошей идеей.'
@@ -3367,6 +3402,7 @@ label yn_act_two_play_fourth_disco:
         yn_th 'Надеюсь, так и будет. Если Яна думает, что в них есть что-то хорошее, то возможно так и есть. Хотя, я всё равно сомневаюсь.'
 
     stop ambience fadeout 2
+    stop music fadeout 2
     scene bg black with Dissolve(2)
 
 label yn_act_two_play_fifth:
@@ -3902,12 +3938,16 @@ label yn_act_two_play_fifth_jurn_dialogue_convey_wish_to_yana:
 label yn_act_two_play_fifth_map_library:
     $ renpy.block_rollback()
     $ yn_act_two_play_fifth_map_visit_library = True
-    scene bg yn_ext_square_lenin_day with dissolve
+    scene bg yn_ext_square_lenin_day 
+    show yn_kot think at left
+    show yn_us laugh at right
+    with dissolve
     play ambience ambience_camp_center_day fadein 2
     yn_narrator 'По пути в библиотеку я столкнулась с выходящими из столовой Ульяной и Котом. '
     yn_us 'Эй, Ящерица, хочешь яблоко?'
     yn_yana 'У меня смутные сомнения, что ты мне сейчас краденное предлагаешь.'
-    yn_us 'А это обидно было. Угощеньице ведь. Я по твоему кто, чтобы яблоки какие-то тоскать? Мелковато. Вот сгущёнку с хлебом я понимаю, а это... Только повариху смешить.'
+    yn_us 'А это обидно было. Угощеньице ведь.'
+    yn_us 'Я по твоему кто, чтобы яблоки какие-то тоскать? Мелковато. Вот сгущёнку с хлебом я понимаю, а это... Только повариху смешить.'
     yn_yana 'Стало быть, сознаёшься, что воруешь?'
     yn_us 'Да что заладила то? Я это просто гипотетически. Ой, как будто бы сама на сгущёнку не позарилась, приведись возможность.'
     yn_yana 'Не позарилась бы.'
@@ -3918,23 +3958,29 @@ label yn_act_two_play_fifth_map_library:
             $ yn_us_ending += 1
             $ yn_act_two_play_fifth_get_us_apple = True
             yn_yana 'Ладно, если от чистого сердца и из чистых рук, то давай. Спасибо.'
+            show yn_us smile with dspr
             yn_us 'Ан нет. Спасибо то, конечно, спасибо, но нельзя традицию нарушать. Тут обмен должен быть. Что взамен дашь?'
             yn_yana 'Что это за традиция такая? Да и вообще странно это. Сама предложила, а теперь что-то требуешь.'
-            yn_kot 'Не, традиция то реально есть. Мена. Мы обмениваемся между собой какими-нибудь вещами, будь то яблоко, сигареты, конфеты или резинка для волос, например.'
+            show yn_kot normal with dspr
+            yn_kot 'Не, традиция то реально есть. Мена.'
+            yn_kot 'Мы обмениваемся между собой какими-нибудь вещами, будь то яблоко, сигареты, конфеты или резинка для волос, например.'
             yn_kot 'Мол, любая вещь несёт часть тепла человека, часть его характера.'
             yn_kot 'С вещью можно поделиться удачей, смелостью или отпустить какое-то горестное событие. {w}Вот так то.'
             yn_yana 'И что же ты мне хочешь передать с этим яблоком, Кузнечик?'
             yn_us 'А ты куда идёшь?'
             yn_yana 'К Голубям, в библиотеку.'
-            yn_us 'Тогда уж... Удачи. Она там стопудово нужна. Ещё и терпения, конечно, надо бы, но у тебя с ним всё в порядке. А ты мне что дашь?'
+            yn_us 'Тогда уж... Удачи. Она там стопудово нужна. {w}Ещё и терпения, конечно, надо бы, но у тебя с ним всё в порядке. А ты мне что дашь?'
             yn_th 'Ох, а что у меня с собой вообще есть?'
-            yn_narrator 'В нагрудном кармане обнаружилась только пуговица, которую я через пару дней после приезда обнаружила на дне чемодана с вещами. '
+            yn_narrator 'В нагрудном кармане обнаружилась только пуговица, которую я через пару дней после приезда обнаружила на дне чемодана с вещами.'
             yn_th 'И зачем я её с собой ношу?'
             yn_yana 'У меня только пуговица. Я не знала, что вообще есть такая традиция.'
+            show yn_us normal with dspr
             yn_narrator 'Кузнечик задумалась, потирая подбородок одной рукой и перекатывая яблоко во второй.'
             yn_us 'Ладно. Пойдёт на первый раз. В целях посвящения работаем себе в убыток.'
             yn_kot 'И что ты с этой пуговицей делать будешь?'
+            show yn_us smile with dspr
             yn_us 'Найду вторую и куклу твою сошью. Начнёшь бесить - иголочками в неё тыкать буду.'
+            show yn_kot angry with dspr
             yn_kot 'Что за языческие обряды? Чур! Да ты и шить то не умеешь!'
             yn_yana 'Ладно-ладно. Не начинайте. Вот, держи пуговицу. Даю тебе с ней... Благоразумие.'
             yn_narrator 'Ульянка взяла протянутую ей пуговицу и отдала мне взамен яблоко.'
@@ -3945,15 +3991,19 @@ label yn_act_two_play_fifth_map_library:
 
             if yn_sl_play_two_dialogue_about_library:
                 yn_th 'Славяна, кажется, упоминала, что не стоит даже приносить к Жене яблоки. Не буду испытывать удачу и нарываться на немилость.'
-
+            
+            show yn_us upset with dspr
             yn_narrator 'Кузнечик безразлично пожала плечами.'
             yn_us 'Как хошь.'
+            show yn_kot normal with dspr
             yn_kot 'Наше дело предложить - ваше отказаться.'
 
     stop ambience fadeout 2
     scene bg black with Dissolve(1)
     $ renpy.pause(1, hard=True)
-    scene bg int_library_day with dissolve
+    scene bg int_library_day
+    show mz normal glasses pioneer at center
+    with dissolve
     play ambience ambience_library_day fadein 2
     yn_narrator 'Женя ожидаемо находилась в библиотеке одна. Она со скучающим видом листала какую-то книгу лежащую перед ней на столе.'
     yn_narrator 'По всей видимости её клонило в сон.'
@@ -3971,18 +4021,18 @@ label yn_act_two_play_fifth_map_library:
     yn_mz 'Они проходят по такому же расписанию как и большинство остальных кружков. С трёх до пяти, но обычно мы задерживаемся чуть ли не до отбоя.'
 
     if yn_act_two_play_fifth_get_us_apple:
+        show mz bukal glasses pioneer with dspr
         yn_narrator 'И тут она сузив глаза и опустив брови начала внимательно рассматривать яблоко в моих руках.'
+        yn_mz 'Ты не могла бы убрать его? {w}А лучше вообще вынести из библиотеки. {w}Я терпеть не могу яблоки. {w}От одного вида уже тошнить начинает.'
+        yn_narrator 'Я извинилась и быстро вынесла яблоко из библиотеки.'
+        yn_narrator 'Выкидывать было жалко, поэтому я аккуратно положила его на небольшой выступ на фасаде здания.'
+        yn_yana 'Ещё раз извини. Не знала, что ты не любишь яблоки.'
 
-    yn_mz 'Ты не могла бы убрать его? А лучше вообще вынести из библиотеки. Я терпеть не могу яблоки. От одного вида уже тошнить начинает.'
-    yn_narrator 'Я извинилась и быстро вынесла яблоко из библиотеки.'
-    yn_narrator 'Выкидывать было жалко, поэтому я аккуратно положила его на небольшой выступ на фасаде здания.'
-    yn_yana 'Ещё раз извини. Не знала, что ты не любишь яблоки.'
+        if yn_sl_play_two_dialogue_about_library:
+            yn_th 'Не знала или всё таки забыла?'
+            yn_th 'Да уж, не стоило пропускать слова Славяны мимо ушей. Как бы этот инцидент теперь не усложнил мне задачу.'
 
-    if yn_sl_play_two_dialogue_about_library:
-        yn_th 'Не знала или всё таки забыла?'
-        yn_th 'Да уж, не стоило пропускать слова Славяны мимо ушей. Как бы этот инцидент теперь не усложнил мне задачу.'
-
-    yn_mz 'Просто не приноси их больше. Никогда. Вообще.'
+        yn_mz 'Просто не приноси их больше. Никогда. Вообще.'
 
     $ yn_act_two_play_fifth_mz_first_dialogue_variants_d = {
         1: ['{b}Что у вас с Электроником?{/b}', 'yn_act_two_play_fifth_sh_relationships', False],
@@ -4034,6 +4084,7 @@ label yn_act_two_play_fifth_mz_sh_date:
     if yn_pigeons_group >= yn_act_two_play_fifth_dialogue_threshold:
         $ yn_act_two_play_fifth_mz_succes = True
         yn_narrator 'Она не ответила, а только опустила голову задумавшись о чём-то.'
+        show mz shy glasses pioneer with dspr
         yn_narrator 'А затем от смущения сказала вовсе не то, что хотела и что было совсем уж неуместно.'
         yn_mz 'Неужели всё то, о чём мне приходилось только читать в романах начало через ниши проникать и в мою жизнь?'
         yn_yana 'Э-э-э... Наверное.'
@@ -4045,9 +4096,11 @@ label yn_act_two_play_fifth_mz_sh_date:
         yn_th 'Да ты издеваешься?'
         yn_yana 'Он хотел узнать согласна ли ты вообще. Если да, то он сам придёт.'
         yn_mz 'Ладно... Скажи ему, что я согласна и буду сегодня его ждать.'
+        show mz smile glasses pioneer with dspr
         yn_narrator 'Женя наконец подняла голову и взглянула на меня. В её взгляде появилось что-то такое, что я доселе не видела никогда. Новое чувство.'
         yn_mz 'И... Спасибо тебе, Яна.'
         yn_yana 'Всегда пожалуйста. Ладно. Пойду теперь к твоему Ромео.'
+        show mz shy glasses pioneer with dspr
         yn_th 'Упс. Теперь я вогнала её в краску и она снова потупив взгляд опустила голову.'
         stop ambience fadeout 2
         scene bg ext_library_day with dissolve
@@ -4058,6 +4111,7 @@ label yn_act_two_play_fifth_mz_sh_date:
 
     else:
         $ yn_pigeons_group -= 1
+        show mz rage glasses pioneer with dspr
         yn_narrator 'Она мельком глянула в мою сторону.'
         yn_narrator 'Глаза у неё были пустые, обращённые внутрь. Затем с выражением брезгливого сомнения она пугающе спокойным голосом сказала:'
         yn_mz 'Я отвечу, что ты спуталась не с той компанией. Очень смешно. Услышали, что мы не безразличны друг другу и подослали тебя, чтобы поглумиться.'
@@ -4072,6 +4126,7 @@ label yn_act_two_play_fifth_mz_sh_date:
         
 label yn_act_two_play_fifth_mz_leave:
     $ renpy.block_rollback()
+    show mz bukal glasses pioneer with dspr
     yn_narrator 'Женя удивлённо вскинула бровь и неловко взмахнула рукой. В этом жесте читался безмолвный вопрос: «Это всё?»'
     yn_mz 'Взаимно. Спасибо, что навестила. Можешь, кстати, придти на собрание литературного кружка, если будет время.'
     yn_yana 'Я подумаю. Пока!'
@@ -4083,7 +4138,11 @@ label yn_act_two_play_fifth_mz_leave:
 
 label yn_act_two_play_fifth_radio_engineering_club:
     $ renpy.block_rollback()
-    scene bg int_clubs_male_day with dissolve
+    scene bg int_clubs_male_day
+    show sh normal_smile pioneer at left
+    show el grin pioneer at right
+    play ambience ambience_clubs_inside_day fadein 2
+    with dissolve
     yn_yana 'Ребята, привет!'
     yn_narrator 'Члены кружка радиотехники занимались тем, чем обычно и занимаются в подобных кружках - чем-то понятным только небольшому количеству посвящённых.'
     yn_narrator 'Кругом валялись мотки проводов и медной проволоки, динамики, микросхемы и совсем уж непонятные детали.'
@@ -4538,6 +4597,7 @@ label yn_act_two_play_fifth_playground:
     scene bg black with dissolve
     scene bg ext_polyana_night with dissolve
     play ambience ambience_forest_night fadein 2
+    play music yn_sergey_eybog_in_the_void fadein 2
     yn_narrator 'В возухе всё ещё витал запах табачного дыма, а ребята нетерпеливо ждали, переминаясь с ноги на ногу.'
     yn_narrator 'Земля была всё ещё влажной после ночного дождя.'
     yn_th 'Идти через лес по грязи будет то ещё развлечение.'
@@ -4805,6 +4865,8 @@ label yn_act_two_play_fifth_playground:
     $ yn_onload('lock')
     $ renpy.block_rollback()
     $ yn_chapter_intro('Действие пятое.\nИнтермедия. Мельпа.', 'bg yn_ext_square_lenin_day_blurred', 'camp_center_day', 'dv grin pioneer2', 'yn_play_fifth_dv_intermedia_text', 'yn_dv_intermedia_text')
+    scene bg black with Dissolve(2)
+    $ renpy.pause(1, hard=True)
     $ persistent.yn_protagonist_mood = 'normal'
     $ persistent.yn_protagonist = 'dv'
     $ yn_rename_character('yn_yana', 'Ящерица')
@@ -4977,16 +5039,20 @@ label yn_act_two_play_sixth:
     yn_narrator 'Ульяна очень ненатурально удивилась.'
     yn_us 'Никто тебя в воду не кинет! Честное пионерское!'
     yn_yana 'Хотелось бы верить, но верится с трудом. Ладно. Проверим насколько ты честная.'
-    hide yn_us with dissolve
-    $ renpy.pause(0.5, hard=True)
-    show yn_dv pirate normal at left
-    show yn_slon normal at center
+    #hide yn_us with dissolve
+    show yn_us smile pirate:
+        linear 1.0 xalign 0.05
+    $ renpy.pause(1, hard=True)
+    show yn_dv pirate normal at center
+    show yn_slon normal at right
     with dissolve
     yn_slon 'Не самая лучшая идея доверять Кузнечику.'
     yn_dv 'А чего это ты, Слоняра, припёрся по форме?'
     yn_slon 'Да я...'
-    show yn_slon smile with dspr
-    show yn_san neptun evil at right with dissolve
+    show yn_slon normal2 with dspr
+    show yn_san neptun evil:
+        xpos 950
+    with dissolve
     yn_narrator 'Вдруг, на его плечо легла поражающая своими размерами ладонь. Это был Физрук в облачении Нептуна.'
     yn_san 'Жиром трясти, ска, не хочет.'
     yn_mt 'Александр Ильич, тут же дети! Можете приличнее выражаться?'
@@ -5026,7 +5092,9 @@ label yn_act_two_play_sixth:
     yn_yana 'А в чём он провинился?'
     yn_san 'Та... Нечё спорить. {w}Ишь ты, ска, на слабо меня взять удумал патлатый.'
     yn_san 'Ладно, молодёжь. Развлекайтесь.'
-    hide yn_san with dissolve
+    hide yn_san 
+    hide yn_slon
+    with dissolve
     yn_narrator 'Он ушёл к остальным «актёрам». Ну, точнее к Русалке, которая на удивление была сегодня... {w}Русалкой.'
     yn_narrator 'Чем та явно была недовольна, судя по её раздражённому виду.'
     yn_narrator 'Как и стоило ожидать, Ульяна и честность - вещи не совместимые.'
@@ -5034,7 +5102,7 @@ label yn_act_two_play_sixth:
     yn_yana 'Кузнечик!'
     show yn_us grin pirate at center with dissolve
     yn_us 'А я что? Обещано было в воду тебя не тащить, но про воду к тебе мы не обговаривали. Вы сюда загорать пришли что ли? Пошли купаться!'
-    yn_dv 'Пас. Я сюда реально загорать пришла. Если попытаешься меня облить - тебе конец.'
+    yn_dv 'Пас. Если попытаешься меня облить - тебе конец.'
     yn_th 'А пойду ка я и правда искупаюсь. До ужина осталось не так много времени. Солнце уже заходит.'
     scene bg yn_act_two_play_sixth_swim with dissolve
     yn_narrator 'Вода оказалась тёплой.'
