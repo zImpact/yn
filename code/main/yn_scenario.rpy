@@ -5087,7 +5087,8 @@ label yn_act_two_play_sixth:
             $ yn_slon_ending += 1
             yn_narrator 'Я склонилась над столом и принялась кропотливо перекладывать фрагменты записки по столу. Слон помогал.'
             yn_narrator 'Брал кусочек, разглаживал и приклеивал к нему небольшую полоску скотча.'
-            show screen yn_note_picking_minigame with Dissolve(0.5)
+            call screen yn_note_picking_minigame with Dissolve(0.5)
+            show yn_note_full with Dissolve(0.5)
             yn_narrator 'Спустя несколько минут, нам всё же удалось собрать полезную улику.'
             yn_haer 'Ну? Что там? Читай!'
             yn_yana 'Дорогуша, я понимаю, что мы в немного разной весовой категории, но ты настолько красива, что я не могу молчать.'
@@ -5172,6 +5173,8 @@ label yn_act_two_play_sixth:
         yn_dv 'А оказывается ещё кое-кто у нас смотрит ТАКИЕ фильмы. Ай, да Ящерица.'
         yn_yana 'Да я...'
 
+    stop ambience fadeout 2
+    $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
     scene bg yn_ext_houses_night with dissolve

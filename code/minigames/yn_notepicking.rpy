@@ -1,8 +1,10 @@
-﻿init python:
+﻿init python:   
     yn_note_picking_minigame_parts_count = 0
-    
+    yn_note_picking_visible = True
+
     def yn_note_picking_piece_dragged(drags, drop):
         global yn_note_picking_minigame_parts_count
+        global note_picking_visible
 
         if not drop:
             for part in ["null", "first", "second", "third", "fourth", "fifth"]:
@@ -16,10 +18,9 @@
                         drags[0].draggable = False
 
                         if yn_note_picking_minigame_parts_count == 6:
-                            renpy.hide_screen("yn_note_picking_minigame")
-                            renpy.transition("fade")
-                            renpy.show("yn_note_full")
-                            renpy.transition(fade)
+                            yn_note_picking_visible = False
+
+                        renpy.restart_interaction()
             return
         
         return True
@@ -46,7 +47,7 @@ init:
     image yn_note_full = "yana/images/mini_games/note_picking/yn_note_full.png"
 
 screen yn_note_picking_minigame():
-    modal True
+    timer 0.5 repeat True action If(not yn_note_picking_visible, true=[Hide('yn_note_picking_minigame', Dissolve(1.5)), Return()])
 
     draggroup:
         drag:

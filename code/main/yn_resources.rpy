@@ -141,13 +141,13 @@ init python:
     yn_names['yn_jurn'] = 'Девушка в берете'
     store.yn_names_list.append('yn_jurn')
 
-    yn_colors['yn_san'] = {'speaker_color': '#aa64d9'}
+    yn_colors['yn_san'] = {'speaker_color': '#466d7b'}
     yn_names['yn_san'] = 'Физрук'
     store.yn_names_list.append('yn_san')
 
-    yn_colors['yn_kris'] = {'speaker_color': '#aa64d9'}
-    yn_names['yn_kris'] = 'Кристина'
-    store.yn_names_list.append('yn_kris')
+    # yn_colors['yn_kris'] = {'speaker_color': '#aa64d9'}
+    # yn_names['yn_kris'] = 'Кристина'
+    # store.yn_names_list.append('yn_kris')
 
     yn_colors['yn_wuk'] = {'speaker_color': '#aa64d9'}
     yn_names['yn_wuk'] = 'Цукан'
