@@ -200,7 +200,7 @@ screen key_off():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     key"accessibility"action NullAction()
 screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     use key_off
-    add"yana/images/mini_games/durak/tb.jpg"
+    add"yana/images/mini_games/durak/tb.png"
     if intergames:
         if len(koloda52)>1:
             if koloda52:
@@ -248,7 +248,7 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         if iwin21 is 1:
             textbutton __("победа")align(.5,.5)style"yn_dw_info_text_style"action Jump('yn_act_two_play_fourth_card_game_win')
         elif iwin21 is 2:
-            textbutton __("ничья")align(.5,.5)style"yn_dw_info_text_style"action Return()
+            textbutton __("ничья")align(.5,.5)style"yn_dw_info_text_style"action Jump('yn_act_two_play_fourth_card_game_draw')
         else:
             textbutton __("проигыш")align(.5,.5)style"yn_dw_info_text_style"action Jump('yn_act_two_play_fourth_card_game_loose')
 label durak78:################################################################################################

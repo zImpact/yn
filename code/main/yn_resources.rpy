@@ -149,8 +149,8 @@ init python:
     # yn_names['yn_kris'] = 'Кристина'
     # store.yn_names_list.append('yn_kris')
 
-    yn_colors['yn_wuk'] = {'speaker_color': '#aa64d9'}
-    yn_names['yn_wuk'] = 'Цукан'
+    yn_colors['yn_wuk'] = {'speaker_color': '#c33736'}
+    yn_names['yn_wuk'] = 'Ёж'
     store.yn_names_list.append('yn_wuk')
 
     yn_colors['yn_skaz'] = {'speaker_color': '#eda593'}
@@ -160,6 +160,10 @@ init python:
     yn_colors['yn_medz'] = {'speaker_color': '#cac894'}
     yn_names['yn_medz'] = 'Медуза'
     store.yn_names_list.append('yn_medz')
+
+    yn_colors['yn_julya'] = {'speaker_color': '#cac894'}
+    yn_names['yn_julya'] = 'Жуля'
+    store.yn_names_list.append('yn_julya')
 
     yn_colors['yn_sparrows_g'] = {'speaker_color': '#c9c9c9'}
     yn_names['yn_sparrows_g'] = 'Воробьи'
@@ -332,6 +336,9 @@ init python:
         'H, колесо мыши — скрыть интерфейс': 400,
         'Скроллинг вверх — история': 600
     }
+
+    def yn_timeskip(t=1.0):
+        return ImageDissolve('yana/images/gui/misc/timeskip.png', t, ramplen=0, reverse=False, alpha=True)
 
     def yn_chapter_text_pos(text):
         return 1920 - renpy.image_size(yn_gui_path + 'misc/' + text + '.png')[0]
@@ -627,6 +634,32 @@ init:
 
     image yn_titles_final = ParameterizedText(style='yn_titles_style', size=40, xalign=0.5)
 
+    image yn_int_library_sunset_rain = 'yana/images/bg/yn_rain_library/yn_int_library_sunset_rain.png'
+    image yn_curtains = 'yana/images/bg/yn_rain_library/yn_curtains.png'
+    image yn_forest = 'yana/images/bg/yn_rain_library/yn_forest.png'
+    image yn_glass = 'yana/images/bg/yn_rain_library/yn_glass.png'
+
+    image yn_rain_anim:
+        'yana/images/bg/yn_rain_library/yn_rain_1.png'
+        0.1
+        'yana/images/bg/yn_rain_library/yn_rain_2.png'
+        0.1
+        'yana/images/bg/yn_rain_library/yn_rain_3.png'
+        0.1
+        repeat
+
+    image bg yn_int_library_sunset_rain_anim:
+        contains:
+            'yn_forest'
+        contains:
+            'yn_curtains'
+        contains:
+            'yn_glass'
+        contains:
+            'yn_rain_anim'
+        contains:
+            'yn_int_library_sunset_rain'
+
     $ yn_tomtits_group = 0 #синицы
     $ yn_sparrows_group = 0 #воробьи
     $ yn_sparrows_group_ending = 0
@@ -710,6 +743,8 @@ init:
 
     image yn_dusts = YnDustParticles('yana/images/gui/misc/yn_dust_particle.png')
 
+    image bg yn_table = 'yana/images/mini_games/durak/tb.png'
+
     image bg yn_ext_square_lenin_night_party_blurred = im.Blur('yana/images/bg/yn_ext_square_lenin_night_party.png', 2)
     image bg yn_ext_square_lenin_day_blurred = im.Blur('yana/images/bg/yn_ext_square_lenin_day.png', 2)
     image bg yn_int_dining_hall_people_sunset_blurred = im.Blur('yana/images/bg/yn_int_dining_hall_people_sunset.png', 2)
@@ -717,6 +752,11 @@ init:
     image bg yn_int_yana_room_blurred = im.Blur('yana/images/bg/yn_int_yana_room.png', 1)
     image bg yn_ext_busstop_summer_blurred = im.Blur('yana/images/bg/yn_ext_busstop_summer.png', 2)
     image bg yn_int_dining_hall_people_day_blurred = im.Blur('images/bg/int_dining_hall_people_day.jpg', 2)
+    image bg yn_ext_camp_entrance_day_blurred = im.Blur('images/bg/ext_camp_entrance_day.jpg', 2)
+    image bg yn_ext_beach_day_blurred = im.Blur('images/bg/ext_beach_day.jpg', 2)
+    image bg yn_ext_playground_day_blurred = im.Blur('images/bg/ext_playground_day.jpg', 2)
+    image bg yn_ext_beach_sunset_blurred = im.Blur('images/bg/ext_beach_sunset.jpg', 2)
+    image bg yn_int_old_building_night_blurred = im.Blur('images/bg/int_old_building_night.jpg', 2)
 
     image yn_static_noise_anim = yn_frame_animation('yana/images/bg/yn_static_noise_anim/yn_static_noise', 5, 0.2, True, Dissolve(0.2))
     image yn_interferences_anim = yn_frame_animation('yana/images/bg/yn_interferences_anim/yn_interferences', 3, 0.2, True, Dissolve(0.2))

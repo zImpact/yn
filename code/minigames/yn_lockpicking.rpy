@@ -334,7 +334,7 @@ screen pick_choose(chest_name):
                     xalign 0.8
                     action [Function(str_to_class('{}_lock'.format(chest_name)).reset), SetVariable("yn_current_chest", chest_name), Hide("pick_choose"), Show("lockpicking", dissolve, str_to_class('{}_lock'.format(chest_name)), chest_name)]
 
-screen lockpicking(lock, chest_name):
+screen lockpicking():#lock, chest_name):
     modal True
 
     add "lock_dark"
