@@ -337,9 +337,6 @@ init python:
         'Скроллинг вверх — история': 600
     }
 
-    def yn_timeskip(t=1.0):
-        return ImageDissolve('yana/images/gui/misc/timeskip.png', t, ramplen=0, reverse=False, alpha=True)
-
     def yn_chapter_text_pos(text):
         return 1920 - renpy.image_size(yn_gui_path + 'misc/' + text + '.png')[0]
 
@@ -741,6 +738,8 @@ init:
 
     $ yn_lines_transition = ImageDissolve('yana/images/gui/misc/yn_lines.jpg', 1.0, 8)
 
+    $ yn_timeskip = ImageDissolve('yana/images/gui/misc/yn_timeskip.png', 1.0, ramplen=0, reverse=False, alpha=True)
+
     image yn_dusts = YnDustParticles('yana/images/gui/misc/yn_dust_particle.png')
 
     image bg yn_table = 'yana/images/mini_games/durak/tb.png'
@@ -757,6 +756,9 @@ init:
     image bg yn_ext_playground_day_blurred = im.Blur('images/bg/ext_playground_day.jpg', 2)
     image bg yn_ext_beach_sunset_blurred = im.Blur('images/bg/ext_beach_sunset.jpg', 2)
     image bg yn_int_old_building_night_blurred = im.Blur('images/bg/int_old_building_night.jpg', 2)
+
+    image yn_int_old_building_wall = 'yana/images/bg/yn_wall/yn_int_old_building_wall.png'
+    image yn_int_old_building_wall_yana_name = 'yana/images/bg/yn_wall/yn_int_old_building_wall_yana_name.png'
 
     image yn_static_noise_anim = yn_frame_animation('yana/images/bg/yn_static_noise_anim/yn_static_noise', 5, 0.2, True, Dissolve(0.2))
     image yn_interferences_anim = yn_frame_animation('yana/images/bg/yn_interferences_anim/yn_interferences', 3, 0.2, True, Dissolve(0.2))
