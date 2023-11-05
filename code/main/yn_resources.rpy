@@ -740,6 +740,8 @@ init:
 
     $ yn_timeskip = ImageDissolve('yana/images/gui/misc/yn_timeskip.png', 1.0, ramplen=0, reverse=False, alpha=True)
 
+    image yn_epilogue_intro_text = 'yana/images/gui/misc/yn_epilogue_intro_text.png'
+
     image yn_dusts = YnDustParticles('yana/images/gui/misc/yn_dust_particle.png')
 
     image bg yn_table = 'yana/images/mini_games/durak/tb.png'
