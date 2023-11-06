@@ -1560,6 +1560,11 @@ label yn_act_one_play_two_after_map:
         yn_narrator 'Распрощались мы очень быстро и скомканно.'
         yn_narrator 'Удручённая мрачными мыслями я поплелась к своему домику.'
         yn_narrator 'Всё же меланхолия, что накрыла меня в автобусе, была предзнаменованием.'
+        stop ambience fadeout 2
+        scene bg black with Dissolve(1)
+        $ renpy.pause(0.5, hard=True)
+        scene bg yn_int_house_of_yana_day_1 with Dissolve(1)
+        play ambience ambience_int_cabin_day fadein 2
         yn_narrator 'После той экскурсии со Славяной мне стало невыносимо тоскливо.'
         yn_narrator 'Даже сложно описать, что я на самом деле чувствую. Не буду даже пытаться это сделать. Смысл?'
         yn_narrator 'Вчера Виолетта предложила мне поехать домой. Думаю, это хорошая идея. '
@@ -1573,7 +1578,7 @@ label yn_act_one_play_two_after_map:
         stop music fadeout 2
         $ renpy.pause(3, hard=True)
         $ yn_set_main_menu_cursor()
-        return
+        $ MainMenu(confirm=False)()
 
     else:
         show yn_sl smile at center with dissolve
@@ -3985,7 +3990,7 @@ label yn_act_two_play_fifth_map_artclub:
     show yn_kras normal at left
     show yn_wuk smile pos1 at right
     with fade
-    play music yn_ease fadein 5
+    play music yn_gerbarii_vselennaya fadein 5
     play ambience ambience_music_club_day fadein 2
     yn_narrator 'К сожалению, Журналистки здесь нет. Но Красавица была на месте, а ещё тут оказался... Ёж.'
     yn_narrator 'Облокотившись на стол, за которым сидела Красавица, он сверлил её нахальным, можно даже сказать, хищным взглядом.'
@@ -4901,6 +4906,9 @@ label yn_act_two_play_fifth_playground:
     yn_narrator 'Хаер ничего не ответил, а только пожал плечами, продолжая отбивать ритм играющей песни ногой.'
     yn_haer 'Ладно. Кот, почапали.'
     yn_narrator 'Сказал он, когда припев отыграл во второй раз.'
+    hide yn_haer
+    hide yn_kot
+    with dissolve
     yn_narrator 'Парни ушли вслед за Алисой и Слоном.'
     yn_us 'Ну что, Ящерица, готова к обряду просвещения?'
     yn_yana 'К какому ещё такому обряду?'
@@ -4909,19 +4917,24 @@ label yn_act_two_play_fifth_playground:
     yn_yana 'Ой-ой. Напугала!'
     yn_us 'Да ну тебя!'
     yn_yana 'А если серьёзно, что будет?'
-    yn_us 'Кличку твою на Стене нацарапают и ты как Воробей клятву прочтёшь. Вот и всё. Станешь часть Лагеря. Сможешь себя по праву называть одной из нас!'
+    yn_us 'Кличку твою на Стене нацарапают и ты как Воробей клятву прочтёшь. Вот и всё.'
+    yn_us 'Станешь часть Лагеря. Сможешь себя по праву называть одной из нас!'
     yn_th 'Звучит интересно. Стена, клятва. Это действительно что-то необычное.'
     yn_th 'Стану частью Лагеря...'
     stop music fadeout 2
     stop ambience fadeout 2
     $ renpy.block_rollback()
     $ persistent.timeofday = 'sepia'
+    $ persistent.sprite_time = 'day'
     $ persistent.yn_protagonist_mood = 'normal'
-    scene bg yn_old_photo_sepia with flash
+    scene bg yn_old_photo_sepia
+    show yn_static_noise_anim
+    with flash
     yn_th 'Помню, как впервые побывала в пионерлагере. Это было пару лет назад. Смена прошла скучно. В воспоминаниях даже зацепиться не за что. А тут явно будет, что вспомнить.'
     yn_th 'С того летнего месяца у меня остался лишь полароид, где я навечно осталась пятнадцатилетней девчушкой с целой левой рукой.'
     $ renpy.block_rollback()
     $ persistent.timeofday = 'night'
+    $ persistent.sprite_time = 'night'
     scene bg yn_ext_square_lenin_night_party with flash
     play ambience ambience_camp_center_night fadein 2
     play music yn_i_will_wait fadein 5
@@ -4944,8 +4957,24 @@ label yn_act_two_play_fifth_playground:
     yn_yana 'Ты вообще откуда такие слова знаешь?'
     yn_us 'От деда. Он строителем больше тридцати лет отработал!'
     stop ambience fadeout 2
+    stop music fadeout 2
     scene bg black with dissolve
-    scene bg ext_polyana_night with dissolve
+    scene bg ext_polyana_night 
+    show yn_us normal:
+        xpos -240
+
+    show dv normal pioneer2:
+        xpos 160    
+
+    show yn_haer pity2:
+        xpos 850
+
+    show yn_kot normal:
+        xpos 470
+
+    show yn_slon normal2:
+        xpos 1200
+    with dissolve
     play ambience ambience_forest_night fadein 2
     play music yn_sergey_eybog_in_the_void fadein 2
     yn_narrator 'В возухе всё ещё витал запах табачного дыма, а ребята нетерпеливо ждали, переминаясь с ноги на ногу.'
@@ -4961,16 +4990,32 @@ label yn_act_two_play_fifth_playground:
     yn_narrator 'Приходилось продираться через кусты и ветки, что так и наровили вдарить по лицу, будучи подвинутыми в сторону идущим впереди.'
     yn_narrator 'Спустя пятнадцать минут маневрирования по грязи не выдержала Ульяна. Сначала она томно вздыхала, затем изредко едко комментировала происходящее...'
     yn_narrator 'И наконец...'
+    show yn_us dontlike at center with dissolve
     yn_us 'Я задолбалась, блин, идти нафиг!'
     yn_narrator 'В сердцах воскликнула она, в очередной раз оступившись и угодив ногой в небольшую лужу.'
+    hide yn_us
+    show dv normal pioneer2 at center
+    with dissolve
     yn_us 'Завели, блин, а я должна тут по грязи фигачить. Сколько ещё идти, а?'
     yn_dv 'Тебя никто силой не тянул. Сама пошла.'
+    hide dv
+    show yn_us dontlike at center
+    with dissolve
     yn_us 'Вообще капец...'
+    hide yn_us
+    show yn_haer pity2 at center
+    with dissolve
     yn_haer 'Зачем ты пошла, если всю дорогу ноешь? У меня уже глаз из-за тебя дёргается.'
+    hide yn_haer with dissolve
     yn_narrator 'На пару минут воцарилось молчание. Но только на пару минут.'
-    yn_us 'У меня уже палец болит на ноге, блин! Чтобы я ещё хоть раз пошла в этот ваш грёбанный лес! Ещё дождь был, грязь везде, мокро...'
+    show yn_us dontlike at center with dissolve
+    yn_us 'У меня уже палец болит на ноге, блин!'
+    yn_us 'Чтобы я ещё хоть раз пошла в этот ваш грёбанный лес! Ещё дождь был, грязь везде, мокро...'
+    hide yn_us with dissolve
     yn_narrator 'Наконец-то Кузнечик замолчала и мы вышли на прогалину, где нашему взору открылся он. Первый.'
+    show yn_kot normal at center with dissolve
     yn_kot 'Слава Богу!'
+    hide yn_kot with dissolve
     yn_narrator 'Сказал он шумно выдыхая и потирая обоими руками уши.'
     scene bg ext_old_building_night with dissolve
     yn_narrator 'Первый представлял из себя довольно пугающее зрелище.'
@@ -5096,7 +5141,8 @@ label yn_act_two_play_fifth_playground:
     yn_narrator 'И тут я заметила зачёркнутую кличку в текущем составе Воробьёв.'
     yn_narrator 'Лютик.'
     yn_yana 'Подождите! Славя была с вами?'
-    yn_dv 'Да-а. Под конец прошлой смены она ушла к Синицам. Стала более правильной. В своё время Лютик была той ещё оторвой. Мы даже частенько цапались по поводу того, кто будет всем верховодить.'
+    yn_dv 'Да-а. Под конец прошлой смены она ушла к Синицам. Стала более правильной.'
+    yn_dv 'В своё время Лютик была той ещё оторвой. {w}Мы даже частенько цапались по поводу того, кто будет всем верховодить.'
     yn_yana 'Вот это явно неожиданно.'
     yn_narrator 'Алиса лишь молча кивнула. С видом «всякое бывает».'
     yn_kot 'Вы там закончили с истрией?'
@@ -5144,6 +5190,7 @@ label yn_act_two_play_fifth_playground:
     yn_narrator 'Показал большой палец Слон.'
     yn_dv 'Да... Так трогательно, что я бы даже расплакаталсь, если бы умела. Объявляю тебя Воробьём! Поздравляю и так далее, и тому подобное.'
     yn_narrator 'Алиса подмигнула и расплылась в доброй улыбке, какую я ещё никогда не видела на её лице.'
+    scene bg int_old_building_night with dissolve
     yn_narrator 'Хаер сделал шаг назад и оступился, наступив на гнилую доску. Он выронил из рук свой перочинный нож и тот, немного пролетев по широкой дуге угодил в небольшую дыру в полу.'
     yn_haer 'Бляха от ремня!'
     yn_dv 'Рукастый ты наш. Всё? Скажи любимой игрушке «До свидания».'
@@ -5216,7 +5263,7 @@ label yn_act_two_play_fifth_playground:
     yn_dv 'С тебя «Обещанка», патлатый. И рогатку ещё починишь!'
     stop ambience fadeout 2
     stop music fadeout 2
-    scene bg black with dissolve
+    scene bg black with Dissolve(2)
     $ renpy.block_rollback()
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
@@ -5720,8 +5767,8 @@ label yn_act_two_play_sixth:
     yn_narrator 'Иногда мне кажется, что само это место создаёт вокруг себя музыку.'
     yn_yana 'Да. Хотела кое-что вернуть. А вы... ты тут зачем?'
     yn_julya 'Ну, считай, цели у нас схожи, но альтернативны.'
-    yn_julya' Хотела у неё гитару одолжить, да вот не ко времени пришла. Закрыто.'
-    yn_yana 'Есть идеи где она может быть?'
+    yn_julya 'Хотела у неё гитару одолжить, да вот не ко времени пришла. Закрыто.'
+    yn_yana 'Есть идеи, где она может быть?'
     yn_julya 'Вполне. Скорее всего она сейчас в художественном кружке вместе с доброй половиной Голубей. У них там какие-то обсуждения. Я, честно сказать, не вникала.'
     yn_yana 'А зачем ты тогда пришла сюда, если знаешь, что она в другом месте?'
     yn_julya 'Ну... я об этом задумалась только после того как ты спросила'
@@ -5845,7 +5892,7 @@ label yn_act_two_play_sixth:
     yn_us 'Маловерная ты. Сейчас всё будет. Смотри и записывай. Все потом будут говорить, как я спор у Физрука выиграла!'
     scene bg ext_playground_day with fade
     yn_narrator 'А я смотрела и записывала. Как Кузнечик спустя три очевидно провальные попытки уже и так вымотанная и уставшая, наматывала круги вокруг футбольного поля. Под улюлюканье и хлопки Физрука.'
-    scene bg black with Dissolve(1)
+    scene bg black with yn_timeskip
     stop ambience fadeout 2
     stop music fadeout 2
     $ renpy.block_rollback()
@@ -5857,7 +5904,7 @@ label yn_act_two_play_sixth:
     show yn_slon normal at center
     show dv normal pioneer2 at right
     play ambience ambience_camp_center_night fadein 2
-    with Dissolve(1)
+    with yn_timeskip
     yn_yana 'Вы уверены, что быть соглядатаями хорошая идея?'
     yn_haer 'Не дрейфь, Ящерица. Физрук после отбоя идёт куда-то со звенящим пакетом. Тебе самой не интересно?'
     yn_slon 'Тише будьте. Услышит же.'
@@ -5885,11 +5932,13 @@ label yn_act_two_play_sixth:
     yn_slon 'Может пошли уже, пока не услышали чего лишнего? Нам же потом ещё им в глаза смотреть.'
     yn_dv 'Эх, лучше бы Физрук Медузу захомутал. Может, подобрела бы.'
     yn_haer 'У Саныча голова на плечах есть, вряд ли бы он добровольно её на каменную сменил.'
+    scene bg black with yn_timeskip
+    $ renpy.pause(1, hard=True)
     scene bg yn_ext_square_lenin_night
     show yn_haer normal at left
     show yn_slon normal at center
     show dv normal pioneer2 at right
-    with dissolve
+    with yn_timeskip
     yn_kras 'Как и просили, вот ваш логотип Голубей на простыне.'
     yn_kot 'Дай Бог тебе здоровья!'
     yn_haer 'Спасибо! Выглядит супер! Ты молодец!'
@@ -6911,7 +6960,7 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
         $ persistent.sprite_time = 'day'
         scene bg yn_int_theatreclub_day with Dissolve(1)
         play ambience ambience_int_cabin_day fadein 2
-        play music yn_master_of_spirits_failure fadein 2
+        play music yn_sad_piano fadein 2
         $ yn_diary_say.page = 2
         $ yn_diary_say('После того вечера с ссорой Хаера и Алисы всё пошло заметно хуже. Боюсь, всё просто ужасно.')
         $ yn_diary_say('Слон сказал, что тем же вечером Хаер пересёкся с Ежом и они подрались.')
@@ -7350,7 +7399,7 @@ label yn_act_three_play_eighth:
     $ renpy.pause(2, hard=True)
 
 label yn_epilogue:
-    $ save_name = 'Эпилог'
+    $ save_name = 'Эпилог.'
     $ persistent.timeofday = 'night'
     $ persistent.sprite_time = 'night'
     scene bg yn_int_yana_room_night_blurred 
@@ -7404,11 +7453,11 @@ label yn_epilogue:
         $ yn_diary_say('Сказать, что я удивлена - не сказать ничего. {w}Но тем не менее новость отличная. Я неимоверно счастлива вновь повстречаться с давней Лагерной подругой.')
 
     else:
-        $ yn_diary_say('С момента отъезда в 1990г. от Ульяны не было никаких вестей. Она уехала к себе в Ростовскую область и пропала. {w}Бесследно.')
-        $ yn_diary_say('Длительное время шли поиски, но никаких результатов они не принесли. {w}Ульяна пропала без вести. {w}Никто не хочет говорить это в слух, но все понимают, что скорее всего она стала жертвой {b}«Лесополосы».{/b}')
+        $ yn_diary_say('С момента отъезда в 1990г. от Ульяны не было никаких вестей. Она уехала к себе в Ростовскую область и пропала. {w}Бесследно. {w}Длительное время шли поиски, но никаких результатов они не принесли. {w}Ульяна пропала без вести. {w}Никто не хочет говорить это в слух, но все понимают, что скорее всего она стала жертвой {b}«Гражданина Икс».{/b}')
 
     $ yn_diary_say('Вот так сложилась моя жизнь и жизни остальных ребят. {w}Что ж, старина. Спасибо тебе за ретроспективу. {w}Всё же идея начать вести тебя перед отъездом оказалась очень удачной. {w}{b}Прощай.{/b}')
     stop music fadeout 2
+    stop ambience fadeout 2
     $ renpy.pause(3, hard=True)
     $ yn_set_main_menu_cursor()
-    return
+    $ MainMenu(confirm=False)()

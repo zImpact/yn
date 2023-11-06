@@ -246,11 +246,11 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 imagebutton idle i.img at zomzom(.7)action Function(durak_mine,i,n)
     else:
         if iwin21 is 1:
-            textbutton __("победа")align(.5,.5)style"yn_dw_info_text_style"action Jump('yn_act_two_play_fourth_card_game_win')
+            textbutton __("победа")align(.5,.5)style"yn_dw_info_text_style"action [Return(), Jump('yn_act_two_play_fourth_card_game_win')]
         elif iwin21 is 2:
-            textbutton __("ничья")align(.5,.5)style"yn_dw_info_text_style"action Jump('yn_act_two_play_fourth_card_game_draw')
+            textbutton __("ничья")align(.5,.5)style"yn_dw_info_text_style"action [Return(), Jump('yn_act_two_play_fourth_card_game_draw')]
         else:
-            textbutton __("проигыш")align(.5,.5)style"yn_dw_info_text_style"action Jump('yn_act_two_play_fourth_card_game_loose')
+            textbutton __("проигыш")align(.5,.5)style"yn_dw_info_text_style"action [Return(), Jump('yn_act_two_play_fourth_card_game_loose')]
 label durak78:################################################################################################
     call screen durak78
     return
