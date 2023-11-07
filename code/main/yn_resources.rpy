@@ -493,7 +493,7 @@ init:
 
     Те, благодаря кому вы видели красивые задники,\nа не пустоту - Александр Герасимов и Лена Тихонова.
 
-    Он сделал многое, но вы этого не оцените - Егор Бобков.
+    Личный Доктор Франкенштейн со своими монстрятами - Егор Бобков.
 
     Он сделал с десяток треков, но подошло только два - Алан Кокоев.
 
@@ -729,12 +729,12 @@ init:
     }
     
     $ yn_act_one_play_two_bypass_assignment = {
-        'yn_act_one_play_two_bypass_library_completed': ['yn_mz_sign', (1708, 585)],
-        'yn_act_one_play_two_bypass_medic_house_completed': ['yn_cs_sign', (1718, 616)],
-        'yn_act_one_play_two_bypass_radio_engineering_club_completed': ['yn_sh_sign', (1714, 543)],
-        'yn_act_one_play_two_bypass_music_club_completed': ['yn_mi_sign', (1724, 568)],
-        'yn_act_one_play_two_bypass_art_club_completed': ['yn_kras_sign', (1732, 493)],
-        'yn_act_one_play_two_bypass_theatre_club_completed': ['yn_haer_sign', (1723, 516)]
+        'yn_act_one_play_two_bypass_library_completed': ['yn_mz_sign', (1708, 695)],
+        'yn_act_one_play_two_bypass_medic_house_completed': ['yn_cs_sign', (1718, 726)],
+        'yn_act_one_play_two_bypass_radio_engineering_club_completed': ['yn_sh_sign', (1714, 653)],
+        'yn_act_one_play_two_bypass_music_club_completed': ['yn_mi_sign', (1724, 678)],
+        'yn_act_one_play_two_bypass_art_club_completed': ['yn_kras_sign', (1732, 603)],
+        'yn_act_one_play_two_bypass_theatre_club_completed': ['yn_haer_sign', (1723, 626)]
     }
 
     $ yn_act_one_play_two_amb = YnTimingMemorization('ambience', 1)

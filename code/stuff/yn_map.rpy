@@ -25,7 +25,7 @@ screen yn_act_one_play_two_bypass_map(zones_dict):
     tag map
     modal True
 
-    add 'yn_bypass' xpos 1275 ypos 175
+    add 'yn_bypass' xpos 1275 ypos 287
 
     for place, value in yn_act_one_play_two_bypass_places.iteritems():
         if value:
