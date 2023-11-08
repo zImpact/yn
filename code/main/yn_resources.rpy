@@ -81,39 +81,39 @@ init python:
     yn_names['yn_kras'] = 'Красавица'
     store.yn_names_list.append('yn_kras')
 
-    yn_colors['yn_slon'] = {'speaker_color': '#555555'}
+    yn_colors['yn_slon'] = {'speaker_color': '#7c7b7b'}
     yn_names['yn_slon'] = 'Полноватый'
     store.yn_names_list.append('yn_slon')
 
-    yn_colors['yn_slon_willpower'] = {'speaker_color': '#555555'}
+    yn_colors['yn_slon_willpower'] = {'speaker_color': '#7c7b7b'}
     yn_names['yn_slon_willpower'] = 'Сила воли'
     store.yn_names_list.append('yn_slon_willpower')
 
-    yn_colors['yn_slon_laziness'] = {'speaker_color': '#555555'}
+    yn_colors['yn_slon_laziness'] = {'speaker_color': '#7c7b7b'}
     yn_names['yn_slon_laziness'] = 'Лень'
     store.yn_names_list.append('yn_slon_laziness')
 
-    yn_colors['yn_slon_irritability'] = {'speaker_color': '#555555'}
+    yn_colors['yn_slon_irritability'] = {'speaker_color': '#7c7b7b'}
     yn_names['yn_slon_irritability'] = 'Раздражительность'
     store.yn_names_list.append('yn_slon_irritability')
 
-    yn_colors['yn_slon_unrest'] = {'speaker_color': '#555555'}
+    yn_colors['yn_slon_unrest'] = {'speaker_color': '#7c7b7b'}
     yn_names['yn_slon_unrest'] = 'Переживания'
     store.yn_names_list.append('yn_slon_unrest')
 
-    yn_colors['yn_slon_friendliness'] = {'speaker_color': '#555555'}
+    yn_colors['yn_slon_friendliness'] = {'speaker_color': '#7c7b7b'}
     yn_names['yn_slon_friendliness'] = 'Дружелюбие'
     store.yn_names_list.append('yn_slon_friendliness')
 
-    yn_colors['yn_slon_instincts'] = {'speaker_color': '#555555'}
+    yn_colors['yn_slon_instincts'] = {'speaker_color': '#7c7b7b'}
     yn_names['yn_slon_instincts'] = 'Инстинкты'
     store.yn_names_list.append('yn_slon_instincts')
 
-    yn_colors['yn_slon_spontaneity'] = {'speaker_color': '#555555'}
+    yn_colors['yn_slon_spontaneity'] = {'speaker_color': '#7c7b7b'}
     yn_names['yn_slon_spontaneity'] = 'Спонтанность'
     store.yn_names_list.append('yn_slon_spontaneity')
 
-    yn_colors['yn_slon_observations'] = {'speaker_color': '#555555'}
+    yn_colors['yn_slon_observations'] = {'speaker_color': '#7c7b7b'}
     yn_names['yn_slon_observations'] = 'Наблюдения'
     store.yn_names_list.append('yn_slon_observations')
 
@@ -122,7 +122,7 @@ init python:
     store.yn_names_list.append('yn_sh')
 
     yn_colors['yn_el'] = {'speaker_color': '#fff226'}
-    yn_names['yn_el'] = 'Шурик'
+    yn_names['yn_el'] = 'Электроник'
     store.yn_names_list.append('yn_el')
 
     yn_colors['yn_erika'] = {'speaker_color': '#efe2d9'}
