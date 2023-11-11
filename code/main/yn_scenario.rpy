@@ -140,6 +140,7 @@ label yn_act_one_play_one:
     $ renpy.pause(2, hard=True)
     scene bg ext_dining_hall_away_sunset with Dissolve(2)
     play ambience ambience_camp_center_evening fadein 2
+    call screen yn_interface_info with Dissolve(0.5)
     yn_th 'Обед я благополучно проспала.'
     yn_narrator 'После того, как прозвучал горн, предвещающий ужин, я проснулась и, приведя себя в порядок, быстро направилась к столовой.' 
     yn_narrator 'Дошла далеко не сразу, попутно умудрившись сначала забрести к сцене, а потом к медпункту. В конечном итоге дорогу мне подсказал мимо проходящий пионер.'
@@ -339,12 +340,6 @@ label yn_act_one_play_one:
     yn_narrator 'Сонливость пришла быстро. Не прошло и десяти минут как я заснула.'
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    # $ persistent.timeofday = 'day'
-    # $ persistent.sprite_time = 'day'
-    # $ renpy.block_rollback()
-    # scene bg yn_ext_field_day with Dissolve(2)
-    # yn_narrator 'Мне снились бескрайние поля и голубое полотно неба, усеянное рваными облаками. Безмолвное величие пышущей жизнью природы.'
-    # scene bg black with Dissolve(2)
     $ yn_set_timeofday_cursor_var = False
     $ persistent.yn_int_house_of_yana_photo_note = True
     $ yn_set_null_cursor()
@@ -2062,10 +2057,14 @@ label yn_act_two_play_three:
     yn_narrator 'Она пожала плечами и потянулась к стакану с чаем.'
     yn_dv 'Как насчёт того, чтобы после завтрака у меня в картишки переброситься? Сегодня танцы. Нужно бы до них как-то время скоротать и не залететь где-нибудь, а то не пустят же.' 
     yn_slon 'Ты минут десять назад дерзила Медузе, которая точно настучит на тебя Панамке. И на фоне этого тебя пугает перспектива залететь как-то ещё?' 
-    yn_haer 'Да, идея с картами здравая. Если все хотят на танцы, нужно, чтобы Панамка нас сегодня вообще не видела. Поэтому быстрее доедайте и пошли. Главное не привлекать лишнего внимания.' 
+    yn_haer 'Да, идея с картами здравая. Если все хотят на танцы, нужно, чтобы Панамка нас сегодня вообще не видела. Поэтому быстрее доедайте и пошли. Главное не привлекать лишнего внимания.'
+    show yn_us normal
+    show yn_kot normal
+    with dspr
     yn_narrator 'Всё дружно кивнули и принялись доедать запеканку. {w}Все, кроме Ящерицы.'
     hide yn_yana with dissolve
-
+    play music music_list['doomed_to_be_defeated'] fadein 2
+    play sound sfx_broken_dish
     yn_narrator 'На несколько мгновений её левая рука в протезе, что держала кружку застыла над столом, потом ладонь резко разжалась и кружка отскочив от стола с оглушающим звоном разбилась о плитку.'
     show yn_us fear
     show yn_kot think
@@ -2077,6 +2076,7 @@ label yn_act_two_play_three:
     yn_narrator 'Затем Ящерица вскочила и едва слышно буркнув «извините» выбежала из столовой.'
     yn_narrator 'Стоит ли говорить, что абсолютно все смотрели на нас?'
     yn_th 'Вот тебе и приметы, Ящерица. Да... Вот тебе и приметы.'
+    stop music fadeout 2
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
@@ -2166,6 +2166,8 @@ label yn_act_two_play_fourth:
     yn_yana 'До свидания!'
     yn_th 'Нужно будет как-нибудь расспросить поподробнее про её юность, когда выдастся возможность.'
     stop ambience fadeout 2
+    play sound sfx_open_door_1
+    $ renpy.pause(2, hard=True)
     scene bg ext_aidpost_day
     play ambience ambience_camp_center_day fadein 2
     play music yn_no_words_pioneer_lets_go fadein 2
@@ -2330,9 +2332,9 @@ label yn_act_two_play_fourth:
 
 label yn_act_two_play_fourth_card_game_win:
     $ yn_act_two_play_fourth_dv_card_game_result = 'win'
-    yn_yana 'А это тебе на пагоны!'
+    yn_yana 'А это тебе на погоны!'
     show dv sad pioneer2 with dspr
-    yn_dv 'Вообще-то, тут даже близко ничего такого нет, чтобы мне на пагоны подошло.'
+    yn_dv 'Вообще-то, тут даже близко ничего такого нет, чтобы мне на погоны подошло.'
     yn_narrator 'Разочарованно пробурчала Мельпа сквозь зубы.'
     yn_yana 'Хм, а я думала, что так говорят, когда выигрывают.' 
     yn_narrator 'Я перевела взгляд на ребят.'
@@ -2394,6 +2396,8 @@ label yn_act_two_play_fourth_after_card_game:
     yn_dv 'Да, идите. Я хочу пока одна побыть.'
     stop ambience fadeout 2
     stop music fadeout 2
+    play sound sfx_open_door_1
+    $ renpy.pause(2, hard=True)
     scene bg ext_house_of_dv_day
     show yn_haer normal at center
     with dissolve
@@ -2802,13 +2806,13 @@ label yn_act_two_play_fourth_after_haer_train:
 
         'Остаться':
             $ yn_sparrows_group_ending += 1
-            show dv angry pioneer2 with dspr
+            show dv angry pioneer with dspr
             yn_dv 'А тебе особое приглашение нужно?'
             yn_narrator 'Спросила уже изрядно раздражённая Алиса.'
             yn_yana 'Я у неё на хорошем счету. Мне ничего не будет. Может и получится тебя выгородить.'
             yn_narrator 'Я последовала примеру Алисы и начала приводить форму в порядок.'
             yn_narrator 'Сразу завязать галстук не удалось. Пальцы протеза никак не хотели удерживать второй конец галстука.'
-            show dv normal pioneer2 with dspr
+            show dv normal pioneer with dspr
             yn_dv 'Ну и дура. Смотри, не пустит на дискотеку - я тебя развлекать не собираюсь.'
             yn_narrator 'Мельпа подошла ближе и, молча забрав галстук из моих рук, помогла его завязать.'
             yn_yana 'Спасибо. Идём?'
@@ -2838,7 +2842,8 @@ label yn_act_two_play_fourth_after_haer_train:
             yn_medz 'Одни не носят галстуки вовсе, а другие повязывают их на руки, словно дежурные, которыми они, между прочим, не являются!'
             yn_narrator 'По взгляду Ольги Дмитриевны можно было понять, что она вовсе не пылает таким энтузиазмом, как её коллега.'
             yn_mt 'Мария Павловна, давайте поговорим об этом в другой раз?'
-            yn_medz 'Ладно, я просто хотела обратить ваше внимание на эту проблему. Вернёмся к вопросу неподобающего поведения вашей подопечной. Думаю, вы сами заметили, сколь фамильярное общение со старшими она себе позволяет.'
+            yn_medz 'Ладно, я просто хотела обратить ваше внимание на эту проблему. Вернёмся к вопросу неподобающего поведения вашей подопечной.'
+            yn_medz 'Думаю, вы сами заметили, сколь фамильярное общение со старшими она себе позволяет.'
             yn_narrator 'Та самая подопечная Ольги всё это время со скучающим видом в пол уха слушала нудную триаду Медузы чуть ли не зевая.'
             yn_mt 'И что вы предлагаете?'
             yn_medz 'Предлагаю применить к ней дисциплинарное наказание.'
@@ -2913,7 +2918,9 @@ label yn_act_two_play_fourth_meduze_dilogue_lie:
     show dv surprise pioneer at center
     with dissolve
     yn_narrator 'Отойдя на приличное расстояние от столовой, Алиса первая завела разговор.'
-    yn_dv 'Ну, ты ей и гуся залепила, конечно! Я уж сама было чуть не поверила, что от меня парень ушёл. За то, что вписалась - спасибо. Уважаю. Только больше подобные темы не поднимай, ясно?'
+    yn_dv 'Ну, ты ей и гуся залепила, конечно! Я уж сама было чуть не поверила, что от меня парень ушёл.'
+    show dv normal pioneer2 with dspr
+    yn_dv 'За то, что вписалась - спасибо. Уважаю. Только больше подобные темы не поднимай, ясно?'
     yn_yana 'Ясно, как в солнечный день. Давай уж наших теперь искать.'
     jump yn_act_two_play_fourth_disco
 
@@ -3478,6 +3485,7 @@ label yn_act_two_play_fourth_disco:
         yn_slon 'Тут всего три сигареты. Издеваешься?'
         yn_dv 'Уговор был на полпачки. Вот тебе и полпачки. Всё честно.'
         yn_slon 'Опять ты за своё.'
+        show yn_kot smile with dspr
         yn_kot 'Не опять, а снова!'
         yn_narrator 'Задорно сказал Кот.'
         yn_narrator 'Ребята посмотрели на него, как на ребёнка, что дождался момента вставить фразу в разговор взрослых.'
@@ -3518,7 +3526,7 @@ label yn_act_two_play_fourth_disco:
     yn_narrator 'Неожиданно для всех Алиса достала полученные от Хаера Marlboro и протянула Кузнечику вместе с зажигалкой.'
     yn_yana 'Мельпа, что ты творишь?'
     yn_slon 'Слушай, может, реально не стоит? Это уже перебор.'
-    show yn_kot think with dspr
+    show yn_kot angry with dspr
     yn_kot 'Кузнечик, ты чего?! Это же грех! Не поддавайся соблазну!'
     yn_dv 'Она уже не маленькая. У неё своя голова на плечах. Ей и решать, а не вам.'
     yn_us 'Я только попробовать...'
@@ -3616,7 +3624,7 @@ label yn_act_two_play_fourth_disco:
     yn_dv 'А Журналистка уже потом растрезвонит об этом по всему Лагерю. Когда все его косяки всплывут всем на показ, он, как таракан забьётся в самую глубокую щель...'
     show dv laugh pioneer2 with dspr
     yn_narrator 'Алиса хихикнула.'
-    yn_dv '...и больше не будет ни к кому лезьть.'  
+    yn_dv '...и больше не будет ни к кому лезть.'  
     yn_haer 'Это гениально!' 
     yn_dv 'Да-да-да. На этом мои полномочия - всё. Дерзайте, ребята!'
     stop music fadeout 2
@@ -3751,7 +3759,7 @@ label yn_act_two_play_fifth:
     $ persistent.yn_protagonist = 'yana'
     $ yn_rename_character('yn_dv', 'Мельпа')
     scene bg yn_int_theatreclub_day
-    show yn_haer pity longhair:
+    show yn_haer smile2_longhair:
         xalign -0.2
     show dv normal pioneer2:
         xalign 0.12
@@ -3806,7 +3814,7 @@ label yn_act_two_play_fifth:
     show yn_us normal with dspr
     yn_narrator 'Кузнечик настолько постаралась сделать жалостливый взгляд, что любой другой, не знающий её, мог бы мгновенно пропитаться к ней симпатией и сделать всё, что угодно.'
     yn_skaz 'А я тут что сделаю? Сходить то смогу, но сразу хочу сказать, что ничего заново организовывать они не станут.'
-    yn_skaz' Вы бы для начала вообще узнали, действительно ли в Лагере остался видеомагнитофон и кассеты к нему.'
+    yn_skaz 'Вы бы для начала вообще узнали, действительно ли в Лагере остался видеомагнитофон и кассеты к нему.'
     yn_skaz 'Не удивлюсь, если они уже у завхоза дома лежат. Время нынче такое.'
     yn_slon 'Значит, нужно сходить в радио-кружок и выяснить там ли видак с кассетами. По возможности - договориться.'
     yn_slon 'Скорее всего, всё добро хранится в кладовке и я очень сомневаюсь, что они его не используют. Если удастся как-то обстряпать вопрос, то можно смотреть видак у них в кружке.' 
@@ -3815,14 +3823,16 @@ label yn_act_two_play_fifth:
     yn_yana 'А зачем ей понадобились инструменты?' 
     yn_us 'Ну... Мне один парнишка обмен предложил. Там был целый кулёк «Кис-кис»! Ты бы и сама на моём месте согласилась!'
     yn_narrator 'Сказочница цокнула языком и неодобрительно покачала головой, вперив в Кузнечика разочарованный взгляд.'
-    show yn_dv normal pioneer2 with dspr
+    show dv normal pioneer2 with dspr
     yn_dv 'А может, ночью залезем и посмотрим? Так сказать, «Всё твоё и ваше, всегда было моё и наше».'
     yn_narrator 'Задумчиво сказала Алиса, ловко перекатывая пятикопеечную монету по костяшкам пальцев.'
     yn_narrator 'Лицо Сказочницы, казалось бы, натурально побелело и стало напоминать цветом извёстку.'
     yn_skaz 'Это что за воровские замашки такие? Вы меня начинаете пугать.'
     yn_narrator 'С кротким недоумением в голосе сказала Сказочница.'
     yn_slon 'Шутит она так. Никуда мы ночью лезть не будем. Не волнуйтесь.'
-    show yn_us dontlike with dspr
+    show yn_us dontlike 
+    show yn_haer pity longhair
+    with dspr
     yn_narrator 'Хаер и Кузнечик заметно расстроились, когда поняли, что у них вряд ли что-то получится. Ребята действительно очень этого хотят.'
 
     menu:
@@ -3856,16 +3866,17 @@ label yn_act_two_play_fifth:
             yn_yana 'А что если, я попробую с ними поговорить?'
             show yn_us grin
             show dv smile pioneer2
-            show yn_kot smile
+            show yn_haer smile2_longhair
+            show yn_slon smile2
             with dspr
             yn_narrator 'Ребята оживились и заметно воспрянули духом.'
             yn_haer 'Реально! Ты это сделаешь?' 
             yn_yana 'Могу попробовать. Репутация у меня не запятнана как минимум. Ну, а ещё...' 
             yn_dv 'Шурик пытается к тебе подкатить.' 
             yn_th 'Прозвучало хуже, чем я ожидала.'
-            show yn_kot think
             show yn_slon normal2
             show yn_us surp3
+            show yn_haer pity longhair
             with dspr
             yn_narrator 'Воробьи и Сказочница удивлены. Смотрят на меня приоткрыв рты, долго не находя, что сказать.'
             yn_yana 'Я бы сказала, что просто проявляет знаки внимания.' 
@@ -3932,7 +3943,7 @@ label yn_act_two_play_fifth:
             $ renpy.block_rollback()
             $ persistent.timeofday = 'day'
             scene bg yn_int_theatreclub_day
-            show yn_haer pity longhair:
+            show yn_haer smile2_longhair:
                 xalign -0.2
             show dv normal pioneer2:
                 xalign 0.12
@@ -3957,14 +3968,16 @@ label yn_act_two_play_fifth:
             yn_narrator 'Я окинула Слона удивлённым укоризненным взглядом.'
             yn_slon 'Прости. В голове это звучало куда более тактично.' 
             yn_narrator 'Искренне извинился он.'
-            yn_slon 'Что-то я сегодня выражаюсь весь день как-то неправильно и двусмысленно. Как бы к проблемам не привело. Нарушил что-то что ли?' 
+            yn_slon 'Что-то я сегодня выражаюсь весь день как-то неправильно и двусмысленно. Как бы к проблемам не привело. Нарушил что-то что ли?'
+            show yn_haer pity longhair with dspr
             yn_haer 'Ладно, Ящерица. Так ты в итоге всё-таки поможешь?' 
             yn_yana 'Да-да.' 
             yn_narrator 'Со сцены послышался громкий зевок.'
             yn_kot 'Да уж. Хорошая мысля приходит опосля.' 
             yn_yana 'Ты всё это время был тут?' 
             yn_kot 'Ну да. Закемарил немного. Проснулся, когда ты про Шурика рассказывала. А у него отец реально ликвидатором был?' 
-            #*Горн*
+            play sound sfx_dinner_horn_processed
+            $ renpy.pause(1, hard=True)
             yn_dv 'Так, пошли реще в тошниловку. Не хватало ещё с Медузой на входе пересечься. После всё обсудим.' 
             yn_skaz 'Ладно, ребята. Удачи желать не буду, а то вы говорите, что примета плохая. Пора свои отряды на завтрак вести.'
             hide yn_skaz with dissolve
@@ -4169,7 +4182,7 @@ label yn_act_two_play_fifth_map_musclub:
     play ambience ambience_music_club_day fadein 2
     play music yn_regulations_mos fadein 2
     yn_narrator 'На второй раз мне всё таки удалось найти Журналистку. Это действительно можно считать огромным везением.'
-    yn_narrator 'Она лежала на диванчике из матов и перебрала небольшую стопку газет, вырезая из них какие-то фрагменты.'
+    yn_narrator 'Она лежала на диванчике из матов и перебирала небольшую стопку газет, вырезая из них какие-то фрагменты.'
     show yn_jurn smile with dspr
     yn_jurn 'О! Ящерица, день добрый! Как здоровьице? Слышала что-нибудь интересное?'
     yn_th 'После того как мы с ней познакомились чуть получше, она всегда начинала разговор с вопроса про новости.'
@@ -4501,7 +4514,8 @@ label yn_act_two_play_fifth_mz_sh_date:
         show mz rage glasses pioneer with dspr
         yn_narrator 'Она мельком глянула в мою сторону.'
         yn_narrator 'Глаза у неё были пустые, обращённые внутрь. Затем с выражением брезгливого сомнения она пугающе спокойным голосом сказала:'
-        yn_mz 'Я отвечу, что ты спуталась не с той компанией. Очень смешно. Услышали, что мы не безразличны друг другу и подослали тебя, чтобы поглумиться.'
+        yn_mz 'Я отвечу, что ты спуталась не с той компанией. Очень смешно.'
+        yn_mz 'Услышали, что мы не безразличны друг другу и подослали тебя, чтобы поглумиться.'
         yn_mz 'Ведь действительно будет забавно посмотреть как дурочка из библиотеки побежит к парню, который понятия не имеет ни о какой такой прогулке.'
         show mz normal glasses pioneer with dspr
         yn_mz 'Яна, я хорошо к тебе отношусь и не хочу этого портить.'
@@ -4509,7 +4523,7 @@ label yn_act_two_play_fifth_mz_sh_date:
         yn_narrator 'Гадкое чувство.'
         stop ambience fadeout 2
         stop music fadeout 2
-        scene bg ext_library day with dissolve
+        scene bg ext_library_day with dissolve
         play ambience ambience_camp_center_day fadein 2
         yn_narrator 'Я кивнула и молча вышла вон.'
         yn_th 'Да уж. Это было действительно глупо. Похоже, я сильно обидела Женю. Не стоило даже пытаться идти на такие уловки.'
@@ -4654,8 +4668,8 @@ label yn_act_two_play_fifth_sh_dialogue_jurn:
     yn_yana 'Ладно. Спасибо тебе большое! Обещаю, всё будет хорошо. Я пойду.'
 
     if yn_act_two_play_fifth_mz_succes:
-        show el smile pioneer with dspr
         yn_yana 'Кстати, Электроник! Загляни сегодня в библиотеку. Тебя ждут и надеятся на променад.'
+        show el smile pioneer with dspr
         yn_narrator 'Электроник краснеет до самых ушей. Он пытается скрыть довольную улыбку. Неудачно.'
 
     else:
@@ -4812,6 +4826,8 @@ label yn_act_two_play_fifth_sh_dialogue_leave:
 
 label yn_act_two_play_fifth_after_sh_dialogue:
     $ renpy.block_rollback()
+    play sound sfx_open_door_1
+    $ renpy.pause(2, hard=True)
     stop music fadeout 2
     stop ambience fadeout 2
     scene bg ext_clubs_day 
@@ -4853,11 +4869,18 @@ label yn_act_two_play_fifth_after_sh_dialogue:
             yn_slon 'Тебя стопудово не будут брать на картошку в институте. Слишком глубоко копаешь.'
             yn_kot 'Меньше знаешь - крепче спишь.' 
 
+        show dv smile pioneer2
+        show yn_haer smile2_longhair
+        show yn_us laugh
+        with dspr
         yn_haer 'Спасибо, Ящерица! А это...'
         yn_yana 'Спектрума у них нет.'
+        show yn_haer pity longhair with dspr
         yn_narrator 'Хаер заметно расстроился.'
         yn_haer 'Жаль.'
+        show dv laugh pioneer2 with dspr
         yn_dv 'Кому что, а патлатому игрушки. Может, это ты у нас ребёнок, а не Кузнечик?'
+        show yn_us dontlike with dspr
         yn_us 'Хватит называть меня ребёнком! Ты старше меня всего на два года!'
 
     else:
@@ -4880,7 +4903,7 @@ label yn_act_two_play_fifth_playground:
     play ambience ambience_soccer_play_background fadein 2
     play music yn_elektronika_302_schastlivaya_yunost fadein 2
     yn_slon 'Ты точно уверена, что хочешь туда записаться? Не самая хорошая идея.'
-    yn_yana 'Раньше у меня очень хорошо получалось. Наша команда постоянно занимала первые места на соревнованиях. Хотя бы попробую, каково это играть одной рукой.'
+    yn_yana 'Раньше у меня очень хорошо получалось. Наша команда постоянно занимала первые места на соревнованиях. Хотя бы попробую, каково играть одной рукой.'
     yn_slon 'Ладно. Предупреждаю заранее. Физрук — бывший афганец, был командиром моего брата. Поэтому нрав у него соответствующий. Не обижайся, если что.'
     yn_slon 'Манера общения у него.... {i}Своеобразная.{/i}'
     yn_yana 'Хорошо. Пошли.'
@@ -5019,13 +5042,11 @@ label yn_act_two_play_fifth_playground:
         xpos 1200
     with Dissolve(2)
     play ambience ambience_camp_center_night fadein 2
-    # !СПРАЙТ! хаер должен быть в куртке
-    # !СПРАЙТ! алиса в куртке
     yn_dv 'Так, Медузе и Панамке мы примелькались. Даже липу липить не придётся. Ждём подходящего момента и уходим с концами.'
     yn_slon 'Может, пока посмолим?'
     yn_narrator 'Слон сделал характерный жест рукой.'
     yn_slon 'В Первом это делать как бы некрасиво будет.'
-    # !СПРАЙТ! поменять алисе
+    show yn_dv smile jacket with dspr
     yn_dv 'Идея! Пошли. Будем тогда по парам уходить. Менее палевно.'
     yn_dv 'Мы пошли. Следующие идите через минуты три-четыре.'
     yn_dv 'Главное Голубям на галаза не попадитесь. У этих могут вопросы возникнуть.'
@@ -5146,6 +5167,7 @@ label yn_act_two_play_fifth_playground:
     yn_dv 'Ага. Двинули, короче.'
     scene bg ext_path_night with dissolve
     yn_narrator 'Приходилось продираться через кусты и ветки, что так и наровили вдарить по лицу, будучи подвинутыми в сторону идущим впереди.'
+    play sound sfx_owl_far
     yn_narrator 'Спустя пятнадцать минут маневрирования по грязи не выдержала Ульяна. Сначала она томно вздыхала, затем изредко едко комментировала происходящее...'
     yn_narrator 'И наконец...'
     show yn_us dontlike at center with dissolve
@@ -5244,7 +5266,7 @@ label yn_act_two_play_fifth_playground:
     show yn_kot angry at center with dissolve
     yn_kot 'А это уже святотатство какое-то!'
     hide yn_kot
-    show yn_haer pity2 at center
+    show yn_haer normal pos2 jacket at center
     with dissolve
     yn_haer 'Нет тут ничего такого. Просто сгоревшее здание. Это типа...'
     hide yn_haer
@@ -5252,7 +5274,7 @@ label yn_act_two_play_fifth_playground:
     with dissolve
     yn_slon '...эдакий памятник, вроде того, что стоит на площади.'
     hide yn_slon
-    show yn_haer pity2 at center
+    show yn_haer smile jacket at center
     with dissolve
     yn_haer 'Да, спасибо.'
     hide yn_haer with dissolve
@@ -5270,7 +5292,7 @@ label yn_act_two_play_fifth_playground:
     with dissolve
     yn_kot 'Не судите и не судимы будете. {w}Нет никаких призраков, а вот черти вполне могу...'
     hide yn_kot
-    show yn_haer pity2 at center
+    show yn_haer normal pos2 jacket at center
     with dissolve
     yn_haer 'Кот, и ты туда же? Всё, пошли внутрь уже. {w}Пора к Стене.'
     scene bg int_old_building_night with dissolve
@@ -5430,7 +5452,6 @@ label yn_act_two_play_fifth_playground:
     $ renpy.pause(0.5, hard=True)
     show yn_haer pity longhair at center with dissolve
     yn_narrator 'Хаер стянул кожаную куртку, отдал её Слону и опустившись на колени засунул руку в дыру. Так он провозился около минуты.'
-    #*Спрайт Хаера без куртки*
     yn_haer 'Да чтоб тебя! Совсем немного не хватает!'
     yn_yana 'Давай я попробую?'
     yn_narrator 'Ребята удивлённо на меня оглянулись.'
@@ -5463,8 +5484,10 @@ label yn_act_two_play_fifth_playground:
     yn_haer 'Спасибо!'
     hide yn_haer with dissolve
     yn_yana 'Пожалуйста.'
+    play sound sfx_bush_leaves
     yn_narrator 'Вдруг с улицы послышалось какое-то шуршание. Хрустнула ветка.'
     show yn_us fear at center with dissolve
+    play music music_list['just_think'] fadein 2
     yn_us 'Кто там?'
     yn_narrator 'Перейдя на фальцет дрожащим голосом спросила Ульяна.'
     hide yn_us
@@ -5500,7 +5523,9 @@ label yn_act_two_play_fifth_playground:
     yn_dv 'Он после этого несколько месяцев в больничке провалялся. По пять раз в день кололи. Я после такого тоже бы их стремалась.'
     hide yn_dv with dissolve
     yn_narrator 'Хаера аж натурально передёрнуло от неприятных воспоминаний.'
+    play sound yn_window_smash
     yn_narrator 'Слон тем временем уже нашёл камень и с размаха бросил его в окно.'
+    play sound yn_dog_scream
     yn_narrator 'Раздался глухой звук удара. Собака взвизгнула и по всей видимости убежала.'
     show yn_slon normal at center with dissolve
     yn_slon 'Походу и правда Шарик был. Путь свободен. Идём?'
@@ -5528,6 +5553,8 @@ label yn_act_two_play_fifth_playground:
     yn_dv 'Если такое случится, то мы походу реально в какой-то недокомедии.'
     hide yn_dv with dissolve
     yn_narrator 'По иронии судьбы, кусты слева зашуршали.'
+    play sound_loop yn_dog_growl fadein 2
+    play sound sfx_bush_leaves
     show yn_sharik normal:
         xpos 900 ypos 413
     show yn_dv normal jacket at left
@@ -5553,10 +5580,13 @@ label yn_act_two_play_fifth_playground:
     show yn_sharik angry with dspr
     yn_narrator 'Шарик припал чуть ближе к земле и очень недобро зарычал.'
     yn_narrator 'Ещё пара мгновений и он набросится на длинноволосого пионера, чьё лицо побледнело настолько, что стало напоминать своим цветом мел.'
+    stop sound_loop fadeout 2
+    play sound sfx_fall_grass
     show yn_sharik angry at yn_moveinbottom   
     $ renpy.pause(0.8, hard=True)
     yn_narrator 'И только собака собралась сделать рывок, как ей прямо в нос прилетел увесистый камень.'
     yn_narrator 'Удар был достаточно сильным, чтобы пса повело в сторону и он, запутавшись в ногах, нелепо завалился на бок.'
+    play sound yn_dog_scream
     yn_narrator 'Но он почти сразу же поднялся и неожиданно заскулив, рванув в противоположную сторону от той, куда направлялись мы.'
     show yn_dv smile jacket at center with dissolve
     yn_dv 'Я, конечно, люблю животных. Но надо было спасать нашу принцессу.'
@@ -5685,8 +5715,10 @@ label yn_act_two_play_fifth_playground:
     yn_us 'Да меня ночью какой-то недалёкий всю зубной пастой извазюкал. Ты ничего не видела?'
     yn_dv 'О! Женишок что ли завёлся? Мож, Кот решил подкатить?'
     yn_dv 'А что? Вон, постоянно вместе ходите. Скоро платочек ситцевый подарит, будешь с ним и его бабкой в церковь ходить по воскресеньям. {w}Красота!'
+    show yn_us dontlike with dspr
     yn_us 'Да иди ты. Мне про твоего напомнить?'
     yn_dv 'Зубы не болят?'
+    show yn_us normal with dspr
     yn_us 'Поняла. Что случилось?'
     yn_dv 'Короче, сдал нас кто-то. Медуза наехала за уход из Лагеря.'
     yn_us 'Это как? Мы же Голубям, вроде, не попадались. Какой такой бессмертный кроме них решился бы на нас стучать?'
@@ -5696,13 +5728,16 @@ label yn_act_two_play_fifth_playground:
     yn_dv 'Не спеши. Медуза говорила неуверенно. Я могу различить, когда стукач Голубь, а когда нет. Тут скорее второй вариант.'
     yn_us 'Ну давай тогда других ждать. Может, что видели.'
     yn_dv 'Блин, Кузнечик, сгоняй за Хаером. Он раньше горна не встанет. Разбудить надо.'
+    show yn_us dontlike with dspr
     yn_us 'Нашла дуру. Я тебе во-первых, не девочка на побегушках, а во-вторых, его и из пушки не разбудишь.'
     yn_narrator 'Пришлось снова сделать злое лицо и повысить голос или она продолжит мне тут пальцы веером гнуть.'
     yn_dv 'Не зли меня, Кузнечик. На тебе же потом и отыграюсь.'
+    show yn_us normal with dspr
     yn_us 'Ну, что ты так сразу? Расслабься. Всё будет в лучшем виде.'
+    hide yn_us with dissolve
     yn_narrator 'Подняв руки в знак смирения, она вышла на улицу.'
-    yn_th 'Даже скучно как-то. Ребёнок ребёнком. Стоит пальчиком погрозить как тут же паинькой становится. Когда она уже вырастет?'
-    show yn_slon normal at left with dissolve
+    yn_th 'Даже скучно как-то. Ребёнок ребёнком. {w}Стоит пальчиком погрозить, как тут же паинькой становится. Когда она уже вырастет?'
+    show yn_slon normal at center with dissolve
     yn_narrator 'Первым пришёл Слон. Сказал, что Ящерица прислала.'
     yn_th 'Молодец! Умудрилась же где-то его найти в такую рань.'
     yn_narrator 'Я быстро ввела его в курс дела. Он состроил сложные щи, но ничего говорить не стал.'
@@ -5726,16 +5761,19 @@ label yn_act_two_play_fifth_playground:
     yn_haer 'Кузнечик что-то про крысу балаболила. Ничего не понял. Что случилось то?'
     yn_narrator 'Спросил он зевая.'
     yn_dv 'Наш поход в Первый, как любит говорить Журналистка, стал достоянием общественности. Нужно теперь разобраться, кто и зачем это сделал.'
+    show yn_kot angry with dspr
     yn_kot 'Иуда!'
-    yn_haer 'Да-да. Он самый, Кот. Есть идеи?'
+    yn_haer 'Да-да. Он самый, Кот. {w}Есть идеи?'
     yn_us 'Немая? Она, вроде бы рядом бродила, когда мы уходили.'
     yn_slon 'Нет. Она бы не стала ничего говорить, пока её не спросят. Сомневаюсь, что Медуза проводит опрос Голубей каждое утро.'
     yn_yana 'Ёж? Он пытался пригласить меня на танец, а Кузнечик его очень красноречиво попросила уйти прочь.'
+    show yn_us surp1 with dspr
     yn_narrator 'Кузнечик подпрыгнула и хлопнула в ладоши.'
     yn_us 'Точно-точно! Он это! Он!'
     yn_dv 'А чего ты мне об этом сразу то не сказала?'
     yn_yana 'Да у меня как-то мысли вообще в другой стороне были. Что вы теперь будете делать?'
-    yn_dv 'Ты же рядом с Вилкой трёшься? Сможешь марганцовку притащить? Остальное я сама нарою. Посмотрим, как Ёж будет жить без места, которым обычно думает вместо головы.'
+    yn_dv 'Ты же рядом с Вилкой трёшься? Сможешь марганцовку притащить? Остальное я сама нарою.'
+    yn_dv 'Посмотрим, как Ёж будет жить без места, которым обычно думает вместо головы.'
     yn_kot 'Опять двадцать пять, за рыбу деньги!'
     yn_yana 'Слишком радикально.'
     yn_slon 'Нужно тоньше действовать. Обговаривали же уже. Пора действовать.'
@@ -5743,6 +5781,7 @@ label yn_act_two_play_fifth_playground:
     yn_narrator 'Скрипя зубами пришлось согласиться. Желания радовать Медузу и ставить новое «П» на Стене не было никакого.'
     yn_dv 'Ладно. Пусть живёт до поры.'
     yn_slon 'Крутяк! На днях всё будет!'
+    show yn_us grin with dspr
     yn_us 'За себя и за Хаера!'
     stop ambience fadeout 2
     stop music fadeout 2
@@ -5842,7 +5881,7 @@ label yn_act_two_play_sixth:
     $ renpy.pause(1, hard=True)
     yn_narrator 'Слон вместе с Физруком ушли к остальным «актёрам». Ну, точнее к Русалке, которая на удивление была сегодня... {w}Русалкой.'
     yn_narrator 'Чем та явно была недовольна, судя по её раздражённому виду.'
-    # !ЗВУК! звук воды
+    play sound sfx_draw_water
     yn_narrator 'Как и стоило ожидать, Ульяна и честность - вещи несовместимые. Девчушка окатила меня водой из ведра. {w}Теперь от прилипшего песка я вряд ли отделаюсь.'
     yn_yana 'Кузнечик!'
     show yn_us grin pirate with dspr
@@ -5858,7 +5897,7 @@ label yn_act_two_play_sixth:
     yn_narrator 'Эта закатная {yn_tip_tag=suita}сюита{/yn_tip_tag} рифмуется с пением птиц, гвалтом всеобщего веселья и очень умиротворяет.'
     yn_narrator 'Раньше мне очень часто казалось, что я вижу себя со стороны, словно наблюдаю за собой из зазеркалья.'
     yn_narrator 'Когда радовалась или сердилась - это словно делала кто-то другая, а не я.'
-    yn_narrator 'Теперь, смотря в зеркальную гладь воды понимаю, что я наконец-то перестала видеть себя со стороны.'
+    yn_narrator 'Теперь, смотря в зеркальную гладь воды, я понимаю, что наконец-то перестала видеть себя со стороны.'
     yn_narrator 'Отражение на своём месте.'
     yn_th '{i}Неужели всё взаправду?{/i}'
     stop music fadeout 2
@@ -5875,7 +5914,7 @@ label yn_act_two_play_sixth:
     show dv normal pioneer2:
         xpos 160    
 
-    show yn_haer pity2:
+    show yn_haer pity longhair:
         xpos 850
 
     show yn_kot normal:
@@ -5889,15 +5928,20 @@ label yn_act_two_play_sixth:
     yn_yana 'В смысле, вы подожгли дерево?'
     yn_us 'Не подожгли! Оно само загорелось...'
     yn_yana 'Скажи мне на милость, как дерево может загореться само?'
+    show yn_kot think with dspr
     yn_kot 'Ну... Был же один горящий куст...'
     yn_haer 'Это к теме не относится.'
     yn_narrator 'Отрезал Хаер попытки Кота перевести разговор в другое русло.'
     yn_dv 'Кузнечик, ты когда-нибудь находила свою одежду приклеенной к потолку?'
     yn_us 'Нет...'
     yn_dv 'А хочешь?'
+    show yn_us fear with dspr
     yn_us 'Точно нет.'
+    show yn_us normal with dspr
     yn_dv 'Тогда не тяни кота за...'
-    yn_narrator 'Алиса запнулась. Оценивающе глянула на Кота. Он, в свою очередь рефлекторно на всякий случай перекрестился.'
+    yn_narrator 'Алиса запнулась. Оценивающе глянула на Кота.'
+    show yn_kot normal with dspr
+    yn_narrator 'Он, в свою очередь рефлекторно на всякий случай перекрестился.'
     yn_dv 'Рассказывайте давайте!'
     yn_kot 'Ну, Кузнечик нашла лупу и мы решили поэкспериментировать.'
     yn_haer 'Нашли? Это где?'
@@ -5921,9 +5965,12 @@ label yn_act_two_play_sixth:
     yn_yana 'Кажется, у нас проблемы. У нас, в смысле у тебя.'
     yn_dv 'Что случилось?'
     yn_yana 'Откуда у тебя вообще дымовая шашка?'
+    show dv smile pioneer2 with dspr
     yn_dv 'Ха! Немного «Правды», бутылочка селитры, щепотка любви и огромный талант. Вот и весь секрет.'
     yn_yana 'Но зачем ты всё это богатство в уборную кинула, когда там один из Голубей был?'
-    yn_dv 'Он назвал меня дурой необразованной. Я ему и показала свои навыки юного химика. Ишь ты, «необразованная». Я ещё взрыв-пакеты им не показывала!'
+    show dv laugh pioneer2 with dspr
+    yn_dv 'Он назвал меня дурой необразованной. Я ему и показала свои навыки юного химика.'
+    yn_dv 'Ишь ты, «необразованная». Я ещё взрыв-пакеты им не показывала!'
     yn_yana 'Медуза тебя убьёт. Совсем. Насмерть.'
     stop ambience fadeout 2
     scene bg black with yn_timeskip
@@ -5935,7 +5982,7 @@ label yn_act_two_play_sixth:
     show dv normal pioneer2:
         xpos 160    
 
-    show yn_haer pity2:
+    show yn_haer pity longhair:
         xpos 850
 
     show yn_kot normal:
@@ -5953,9 +6000,9 @@ label yn_act_two_play_sixth:
     yn_dv 'Я то думала, ты что-то реальное надыбал, а тут какие-то бесполезные обрывки.'
     yn_dv 'Сама могу по Лагерю пройтись и собрать несколько таких Ежовых писем. При этом целые.'
     yn_haer 'Да не гони ты раньше времени. Можно попробовать сложить кусочки. Всё равно ничего не теряем.'
-    yn_dv 'Теряем. Моё. Терпение.'
+    yn_dv '{i}Теряем. {w}Моё. {w}Терпение.{/i}'
     yn_narrator 'Процедила она каждое слово сквозь зубы.'
-    yn_dv 'Я могу сделать так, что он даже не поймёт из-за чего у него волосы загорелись. И да, Хаер. Напомню, это и в твоих интересах тоже.'
+    yn_dv 'Я могу сделать так, что он даже не поймёт из-за чего у него волосы загорелись. {w}И да, Хаер. Напомню, это и в твоих интересах тоже.'
     yn_haer 'Да я при любом удачном случае познакомил бы свой кулак с его лицом и устроил им первый поцелуй. Но настучит же. И всё. Пока, Лагерь.'
     yn_yana 'Может, займёмся этой злосчастной запиской? Попробуем собрать.'
     yn_slon 'Я притащил клейкую ленту. Можно будет с обратной стороны потом склеить. Если спереди, то с его куриным почерком и мятой бумагой ничего разобрать уже не выйдет. Аккуратно надо.'
@@ -5984,7 +6031,7 @@ label yn_act_two_play_sixth:
             show dv normal pioneer2:
                 xpos 160    
 
-            show yn_haer pity2:
+            show yn_haer pity longhair:
                 xpos 850
 
             show yn_kot normal:
@@ -5995,6 +6042,12 @@ label yn_act_two_play_sixth:
             with dissolve
             yn_narrator 'Молчание. Всеобщий глубокий вдох.'
             yn_dv 'Пфф...'
+            show dv laugh pioneer2
+            show yn_us grin
+            show yn_slon smile
+            show yn_haer smile2_longhair
+            show yn_kot smile
+            with dspr
             yn_narrator 'Мы одновременно засмеялись протяжным, неумолчным и непрерывным смехом. Хаер вообще хохотал так, словно впал в какой-то припадок.'
             yn_narrator 'Нам потребовалось много времени, чтобы успокоиться.'
             yn_dv 'Вот и реальные доказательства, что он шары к Сказочнице катил. Журналистка из этой бумажки сможет такое состряпать...'
@@ -6011,11 +6064,23 @@ label yn_act_two_play_sixth:
             yn_slon 'Фрагментов?'
             yn_haer 'Ага. Прям по центру. Нифига не понятно. Прочитать можно только «Твои волосы пахнут любовью».'
             yn_narrator 'Молчание. Всеобщий глубокий вдох.'
+            show dv laugh pioneer2
+            show yn_us grin
+            show yn_slon smile
+            show yn_haer smile2_longhair
+            show yn_kot smile
+            with dspr
             yn_dv 'Пфф...'
             yn_narrator 'Мы одновременно засмеялись протяжным, неумолчным и непрерывным смехом. Хаер вообще хохотал так, словно впал в какой-то припадок.'
             yn_slon 'Это настолько тупо, что гениально.'
             yn_dv 'Ладно. Всё. Закончили. Записка.'
-            yn_narrator 'Все бросили озабоченные взгляды на стол. Прямо по центру тетрадного листа, где и была написана вся нужная нам информация зияла большой дыра с рваными краями.'
+            show dv normal pioneer2
+            show yn_us normal
+            show yn_slon normal
+            show yn_haer pity longhair
+            show yn_kot normal
+            with dspr
+            yn_narrator 'Все бросили озабоченные взгляды на стол. Прямо по центру тетрадного листа, где и была написана вся нужная нам информация, зияла большой дыра с рваными краями.'
             yn_dv 'И где оставшиеся кусочки?'
             yn_slon 'Без понятия. Изначально вроде бы всё на месте было.'
             yn_haer 'Прекрасно. Просто офигенно.'
@@ -6026,18 +6091,19 @@ label yn_act_two_play_sixth:
     scene bg black with yn_timeskip
     $ renpy.pause(1, hard=True)
     scene bg ext_houses_day 
-    show yn_haer pity at center
+    show yn_haer pity longhair at center
     with yn_timeskip
     play ambience ambience_camp_center_day fadein 2
     yn_yana 'Ты же сам говорил, что хотел извинится перед Лютиком за цветы. Вот она. Лучше возможности уже не представится.'
     yn_haer 'Ладно-ладно. Твоя правда. Да. Пойду извинюсь. Ну, надеюсь, нечет.'
     scene bg yn_ext_square_lenin_day
-    show yn_haer pity at left
+    show yn_haer pity longhair at left
     show yn_sl serious at right
     with dissolve
     yn_narrator 'Хаер свернул на площадь и шаркающей походкой подошёл к скамейке, где по обыкновению отдыхала Славяна.'
     yn_narrator 'Она смерила его коротким студёным взглядом и показательно приподняла вверх подбородок.'
     yn_haer 'Лют, я тут извинится хотел. Некрасиво получилось. Я это не подумав. Прости меня, а? Может, я помочь чем могу?'
+    show yn_sl normal with dspr
     yn_narrator 'Девушка задумалась, оглядывая Воробья с головы до ног.'
     yn_sl 'Клумбу я уже восстановила, но помочь ты можешь. Готов?'
     yn_haer 'Всегда готов!'
@@ -6049,10 +6115,19 @@ label yn_act_two_play_sixth:
     hide yn_haer
     with dissolve
     yn_narrator 'Оставшуюся часть дня Хаеру в добровольно-принудительном порядке пришлось участвовать в чём-то вроде реконструкции времён крепостного права.'
+    scene bg yn_ext_admins_day
+    show yn_haer pity longhair at left
+    show yn_sl normal at right
+    with fade
     yn_narrator 'Сначала он под пристальным надзором Славяны подметал на площади, перед зданием администрации и в «жилых кварталах».'
+    scene bg yn_ext_booth_day
+    show yn_haer pity longhair at left
+    show yn_sl smile2 at right
+    with fade
     yn_narrator 'Затем убирался на складе и лодочном причале.'
     yn_narrator 'Комсомолка осталась довольна.'
-    yn_narrator 'Уже ближе к вечеру продемонстрировав работу Панамке и получив похвалу за организацию уборочных работ (Хаер тоже без добрых слов в свой адрес не остался), отпустила моего товарища с миром на все четыре стороны.'
+    scene bg yn_ext_square_lenin_day with fade
+    yn_narrator 'Уже ближе к вечеру, продемонстрировав работу Панамке и получив похвалу за организацию уборочных работ (Хаер тоже без добрых слов в свой адрес не остался), отпустила моего товарища с миром на все четыре стороны.'
     yn_narrator 'Он потом жуть как ворчал из-за того, что послушал меня и пошёл извинятся.'
     stop ambience fadeout 2
     scene bg black with yn_timeskip
@@ -6147,7 +6222,7 @@ label yn_act_two_play_sixth:
         show dv normal pioneer2:
             xpos 160
 
-        show yn_haer pity2:
+        show yn_haer smile2_longhair:
             xpos 850
 
         show yn_kot normal:
@@ -6159,25 +6234,37 @@ label yn_act_two_play_sixth:
         play ambience ambience_int_cabin_night fadein 2
         play music yn_raw_deal_lamanski_chase_lamanski_syn fadein 2
         yn_haer 'Ну и фильмец, конечно. Шварц - шикарен. Боевичок, что доктор прописал!'
+        show yn_us laugh with dspr
         yn_us 'До сих пор не могу перестать смеяться от этого ломанного русского языка.'
-        yn_kot 'Мне Кэт жалко. А этот Рост - гад, конечно. По делам ему! Как говорится, нашла коса на камень!'
+        show yn_kot sad2 with dspr
+        yn_kot 'Мне Кэт жалко.'
+        show yn_kot angry with dspr
+        yn_kot 'А этот Рост - гад, конечно. По делам ему!'
+        show yn_kot normal with dspr
+        yn_kot 'Как говорится, нашла коса на камень!'
         yn_haer 'Да! Видели, как они его? Ух!'
         yn_narrator 'Замахал руками довольный Хаер, пытаясь повторить движения из фильма.'
         yn_dv 'А мне не понравилось. Лучше другое кинцо глянуть.'
-        yn_dv 'Я тут порылась и нашла занимательную такую кассету. Ток мы женским составом её посмотрим. Без вас, парни.'
+        yn_dv 'Я тут порылась и нашла занимательную такую кассету. {w}Ток мы женским составом её посмотрим. {w}Без вас, парни.'
         yn_dv 'Кузнечик, ты тоже извиняй.'
         yn_slon 'Что это за фильм то такой?'
         yn_narrator 'Мельпа повернулась так, чтобы её лицо могла видеть только я и подмигнула, мол «подыграй». Затем выдержав паузу ещё немного, а потом закинув ногу на ногу сказала:'
+        show dv smile pioneer2 with dspr
         yn_dv 'Эммануэль.'
         yn_narrator 'Алиса явно играла на Слона, видимо зная или догадываясь, что тот знает, о чём этот фильм.'
         yn_th 'Да... Нашла я как-то эту кассету под кроватью родителей. Познавательное кино. Ничего не скажешь.'
+        show yn_slon normal with dspr
         yn_narrator 'План Мельпы сработал. На щеках Слона появился румянец и он отвёл взгляд.'
         yn_haer 'А о чём фильм? Кто снимался? Ван Дамм? Сталлоне?'
+        show yn_us upset with dspr
         yn_us 'Так не честно! Мы тоже хотим посмотреть!'
-        # !СПРАЙТ! алиса лыбится
+        show dv laugh pioneer2 with dspr
         yn_narrator 'Алиса лишь ехидно улыбалась, довольная собой.'
-        yn_slon 'Ребят, действительно, пошли. Пусть смотрят. Я вам потом всё расскажу. Нечего шуметь.'
-        yn_us 'У-у. Опять всё веселье испортили. Нельзя нам смотреть. Какие важные. Ну и тухнете здесь. Не больно то и хотелось.'
+        yn_slon 'Ребят, действительно, пошли. Пусть смотрят.'
+        yn_slon 'Я вам потом всё расскажу. Нечего шуметь.'
+        show yn_us dontlike with dspr
+        yn_us 'У-у. Опять всё веселье испортили. Нельзя нам смотреть. Какие важные.'
+        yn_us 'Ну и тухните здесь. Не больно то и хотелось.'
         hide yn_us
         hide yn_kot
         hide yn_haer
@@ -6185,19 +6272,20 @@ label yn_act_two_play_sixth:
         with dissolve
         yn_narrator 'Ребята медленно вышли из кладовой, стараясь ничего не задеть, попутно присматривая за Кузнечиком, чтобы она {b}нарочно{/b} ничего не задела.'
         yn_narrator 'Алиса всё так же молчала смотря на меня испытывающим взглядом и с всё той же ехидной улыбкой.'
+        show dv normal pioneer2 with dspr
         yn_narrator 'Затем достала из нагрудного кармана сигареты и закурила. Это только придало ещё большей пикантности ситуации. {w}Становилось неловко.'
         yn_narrator 'Девушка ожидала моей реакции.'
         yn_yana 'Ты серьёзно эротику решила посмотреть?'
         yn_dv 'Коне...'
-        # !СПРАЙТ! алиса лыбится
+        show dv laugh pioneer2 with dspr
         yn_narrator 'Она запнулась и надрывно засмеялась, размахивая зажённой сигаретой.'
         yn_dv 'Прости, не сдержалась. Ты бы видела своё лицо. А морды ребят - вообще.'
         yn_dv 'Слон, как помидор стал. Я и не сомневалась, что он такое смотрит.'
         yn_yana 'Шурик же просил здесь не курить.'
-        # !СПРАЙТ! алиса недовольная
+        show dv normal pioneer2 with dspr
         yn_narrator 'Алиса закатила глаза и громко вздохнула. Ей было не по нраву, что я испортила весь момент.'
         yn_dv 'Забей. {w}Они не заметят. {w}Выветрится. {w}Пошли наших догонять, а то обидятся же.'
-        # !СПРАЙТ! алиса жестко лыбится
+        show dv laugh pioneer2 with dspr
         yn_narrator 'Уже на выходе она легонько толкнула меня в бок. И заулыбалась.'
         yn_dv 'А оказывается ещё кое-кто у нас смотрит {i}такие{/i} фильмы. {w}Ай, да Ящерица.'
         yn_yana 'Да я...'
@@ -6209,7 +6297,9 @@ label yn_act_two_play_sixth:
     $ renpy.block_rollback()
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
-    scene bg ext_playground_day with yn_timeskip
+    scene bg ext_playground_day 
+    show us angry sport at center
+    with yn_timeskip
     play ambience ambience_soccer_play_background fadein 2
     play music yn_proton4_eto_chudesnoe_leto fadein 2
     yn_yana 'И долго ты ещё собираешься кидаться на ветряные мельницы?'
@@ -6234,35 +6324,45 @@ label yn_act_two_play_sixth:
     $ persistent.sprite_time = 'night'
     $ renpy.pause(1, hard=True)
     scene bg yn_ext_houses_night
-    show yn_haer normal at left
+    show yn_haer pity longhair at fleft
     show yn_slon normal at center
-    show dv normal pioneer2 at right
+    show dv normal pioneer2 at fright
     play ambience ambience_camp_center_night fadein 2
     play music music_list['eternal_longing'] fadein 2
     with yn_timeskip
     yn_yana 'Вы уверены, что быть соглядатаями хорошая идея?'
-    yn_haer 'Не дрейфь, Ящерица. Физрук после отбоя идёт куда-то со звенящим пакетом. Тебе самой не интересно?'
+    show yn_haer smile2_longhair with dspr
+    yn_haer 'Не дрейфь, Ящерица. Физрук после отбоя идёт куда-то со звенящим пакетом.'
+    yn_haer 'Тебе самой не интересно?'
     yn_slon 'Тише будьте. Услышит же.'
     yn_dv 'Где он вообще алкашку достал? Неужели, с собой привёз?'
     yn_haer 'Да не. Я видел, как он во время дискотеки из Лагеря уходил.'
     yn_haer 'По-любому в деревню уходил, в хозмаг. {w}Там по слухам из под прилавка водку с вином продают.'
-    yn_dv 'И кому это интересно,  он высокоградусный романтический вечер устроить решил?'
+    yn_dv 'И кому это интересно, он высокоградусный романтический вечер устроить решил?'
     yn_yana 'А почему вы Кота с Кузнечиком не позвали?'
     yn_dv 'Это им в наказание. Нечего деревья поджигать.'
     yn_haer 'Ой, какая ты справ...'
+    show yn_haer pity longhair with dspr
     yn_narrator 'Хаер замолчал. Вновь на его лице отразилось уже знакомое всем замешательство.'
     yn_slon 'Справедливая?'
     yn_haer 'Да! Спасибо. Какая ты справедливая, Мельпа. Может, в угол ещё их поставишь?'
     yn_dv 'Во-первых, не нарывайся. Во-вторых, эта острота выглядит нелепой из-за того, что ты забыл слово.'
-    scene bg ext_house_of_mt_night with dissolve
-    yn_narrator 'Вдруг Физрук остановился возле домика Панамки. Придерживая предательски выдающий звоном содержимое пакет, он оглянулся.'
-    yn_narrator 'Все мы инстинктивно пригнулись, чтобы не быть замеченными. Из-за резкого движения Хаер начал терять равновесие, чуть не наступив на сухую ветку, но Слон успел ухватить товарища.'
+    scene bg yn_ext_house_of_mt_night_san with fade
+    yn_narrator 'Вдруг Физрук остановился возле домика Панамки. {w}Придерживая предательски выдающий звоном содержимое пакет, он оглянулся.'
+    yn_narrator 'Все мы инстинктивно пригнулись, чтобы не быть замеченными.'
+    yn_narrator 'Из-за резкого движения Хаер начал терять равновесие, чуть не наступив на сухую ветку, но Слон успел ухватить товарища.'
     yn_dv 'Если она хрустнет, следом такой же звук издаст твой позвоночник.'
     yn_narrator 'Шёпотом сказала крайне заинтригованная происходящим Алиса.'
     yn_narrator 'В окнах домика вожатой тем временем подрагивал слабый огонёк. По всей видимости, от свечей.'
     yn_narrator 'Физрук, убедившись, что в радиусе его видимости никого нет, трижды постучал в дверь.'
+    scene bg ext_house_of_mt_night
+    show yn_haer pity longhair at fleft
+    show yn_slon normal at center
+    show dv normal pioneer2 at fright
+    with fade
     yn_narrator 'Спустя пару мгновений она распахнулась и он спешно зашёл внутрь. Послышался щелчок закрывающегося замка.'
     yn_dv 'Чтоб меня. Журналистка бы удавилась за такой материал.'
+    show yn_haer smile2_longhair with dspr
     yn_haer 'Ну, Саныч, конечно, мужик. Я даже и не подумал бы.'
     yn_dv 'Да ты вообще редко это делаешь.'
     yn_slon 'Может пошли уже, пока не услышали чего лишнего? Нам же потом ещё им в глаза смотреть.'
@@ -6282,7 +6382,7 @@ label yn_act_two_play_sixth:
     with dissolve
     yn_kot 'Дай Бог тебе здоровья!'
     hide yn_kot
-    show yn_haer smile at center
+    show yn_haer smile2_longhair at center
     with dissolve
     yn_haer 'Спасибо! Выглядит супер! Ты молодец!'
     hide yn_haer
@@ -6297,17 +6397,17 @@ label yn_act_two_play_sixth:
     hide yn_kras
     show yn_us grin at center
     with dissolve
-    yn_us 'Бывай, сестрёнка'
+    yn_us 'Бывай, сестрёнка.'
     hide yn_us with dissolve
     yn_narrator 'Прозвучало вовсе недружелюбно, а даже с какой-то долей сарказма, но Красавица даже бровью не повела.'
-    show yn_haer smile at center with dissolve
+    show yn_haer smile2_longhair at center with dissolve
     yn_haer 'Пока!'
     hide yn_haer
     show yn_slon normal at center
     with dissolve
     yn_slon 'До сих пор не могу поверить, что эту идею предложила Ящерица.'
     hide yn_slon
-    show dv normal pioneer2 at center
+    show dv laugh pioneer2 at center
     with dissolve
     yn_dv 'Обвыкаться начала, молодец!'
     yn_yana 'Ну, это как бы была просто невинная шутка. {w}Я же не думала, что вы всерьёз решитесь взяться за такое.'
@@ -6352,7 +6452,7 @@ label yn_act_two_play_seventh:
     $ yn_set_timeofday_cursor_var = True
     scene bg yn_int_theatreclub_day
     show yn_slon normal at left
-    show yn_haer normal at right
+    show yn_haer pity longhair at right
     with Dissolve(2)
     play ambience ambience_int_cabin_day fadein 2
     play music yn_master_of_spirits_theatreclub_theme fadein 2
@@ -6370,7 +6470,9 @@ label yn_act_two_play_seventh:
     with dissolve
     yn_us 'Помню, мне дед рассказывал, что во время войны он со своим взводом взял немецкий склад.'
     yn_us 'От хозяев на столе осталось много еды. Консервы там разные. И человек пять на них накинулись. Никогда подобного же не пробовали.'
-    yn_us 'Дед есть не стал. Смекнул, что что-то не так. А на утро все, кто немецкой еды пожрали, померли. Отравленная оказалась.'
+    yn_us 'Дед есть не стал. Смекнул, что что-то не так.'
+    show yn_us grin with dspr
+    yn_us 'А на утро все, кто немецкой еды пожрали, померли. Отравленная оказалась.'
     yn_narrator 'Повисла неловкая пауза.'
     yn_dv 'Умеешь же ты в тему что-то выкинуть.'
     hide yn_us
@@ -6454,6 +6556,7 @@ label yn_act_two_play_seventh:
     yn_dv 'Вот счастья то привалило. Перед этой старшей стервой на задних лапах плясать...'
     yn_narrator 'Алиса взяла один из сценариев и бегло его пролистала, оценивая масштаб трагедии.'
     yn_narrator 'Затем подняла взгляд на нас и указала на стол, где лежали остальные копии текста.'
+    show dv normal pioneer2 with dspr
     yn_dv 'Ну? Чего сидим, граждане алкоголики, хулиганы, тунеядцы? Разбирайте!'
     scene bg black with yn_timeskip
     $ renpy.pause(0.5, hard=True)
@@ -6463,7 +6566,7 @@ label yn_act_two_play_seventh:
     show yn_san normal at center with dissolve
     yn_san 'Здорово, удальцы, молодцы и на трубе игрецы.'
     hide yn_san
-    show yn_haer normal at center
+    show yn_haer pity longhair at center
     with dissolve
     yn_haer 'Здрасьте, а вы тут какими судьбами?'
     hide yn_haer
@@ -6471,7 +6574,7 @@ label yn_act_two_play_seventh:
     with dissolve
     yn_san 'Мармеладова играть буду. Припаяли, ска.'
     hide yn_san
-    show dv normal pioneer2 at center
+    show dv smile pioneer2 at center
     with dissolve
     yn_dv 'Панамка попросила?'
     yn_narrator 'Хитро спросила Алиса, пытаясь сдержать смех.'
@@ -6485,7 +6588,7 @@ label yn_act_two_play_seventh:
     show yn_san normal at center with dissolve
     yn_san 'Будь здорова. Живая?'
     hide yn_san
-    show dv normal pioneer2 at center
+    show dv laugh pioneer2 at center
     with dissolve
     yn_dv 'Спасибо. Живая.'
     hide dv
@@ -6500,7 +6603,7 @@ label yn_act_two_play_seventh:
     show dv normal pioneer2 at center with dissolve
     yn_dv 'Да всё в ажуре будет, мы же все профессионалы театрального дела... Если Хаер, конечно не накосячит.'
     hide dv
-    show yn_haer pity2 at center
+    show yn_haer pity longhair at center
     with dissolve
     yn_haer 'Умеешь же ты похвалить и в душу плюнуть.'
     hide yn_haer
@@ -6508,16 +6611,16 @@ label yn_act_two_play_seventh:
     with dissolve
     yn_slon 'Хаер, ты слова хоть чуть-чуть подучил?'
     hide yn_slon
-    show yn_haer pity2 at center
+    show yn_haer pity longhair at center
     with dissolve
     yn_haer 'Более-менее. Да. Я вообще не понимаю, Ящерица, как ты читаешь и понимаешь всё, что написано в таких книгах.'
-    yn_haer 'Тут часть слов вообще не понятные. Я в некоторых моментах только междо...'
+    yn_haer 'Тут часть слов вообще непонятные. Я в некоторых моментах только междо...'
     hide yn_haer
     show yn_slon normal at center
     with dissolve
     yn_slon 'Междометия.'
     hide yn_slon
-    show yn_haer pity2 at center
+    show yn_haer pity longhair at center
     with dissolve
     yn_haer 'Да, спасибо. Только междометия понимаю.'
     yn_narrator 'Я пожала плечами и постаралась принять задумчивый вид.'
@@ -6548,7 +6651,7 @@ label yn_act_two_play_seventh:
     yn_mz 'Помню, батюшка, очень хорошо помню, что вы были.'
     hide mz with dissolve
     yn_narrator 'Читала Женя скрипучим, походящим на старческий голосом.'
-    show yn_haer pity2 at center with dissolve
+    show yn_haer pity longhair at center with dissolve
     yn_haer 'Так вот-с... и опять, по такому же дельцу...'
     hide yn_haer with dissolve
     yn_narrator 'Немного смутившись, но не по сценарию, отвечал Хаер.'
@@ -6556,7 +6659,7 @@ label yn_act_two_play_seventh:
     scene bg black with yn_timeskip 
     $ renpy.pause(1, hard=True)
     scene bg yn_int_theatreclub_day 
-    show yn_haer pity2 at center
+    show yn_haer pity longhair at center
     with yn_timeskip 
     yn_haer 'Нет, не случалось. Это что такое?'
     hide yn_haer
@@ -6568,6 +6671,7 @@ label yn_act_two_play_seventh:
     yn_narrator 'Сцена знакомства Раскольникова и Мармеладова даже в укороченной версии оказалась длинной.'
     yn_narrator 'Александр Ильич стоически держался, чтобы не выпалить своё излюбленное междометие.'
     yn_narrator 'Правда, когда его герой добавлял частицу «с» в конце слова, чтобы выразить почтение собеседнику, это практически происходило.'
+    show yn_medz pos1 angry with dspr
     yn_narrator 'Уже на этом моменте Медуза скрестила руки на груди и нахмурилась. {w}Что-то ей не нравилось.'
     scene bg black with yn_timeskip
     $ renpy.pause(0.5, hard=True)
@@ -6578,19 +6682,22 @@ label yn_act_two_play_seventh:
     yn_mz 'Да чего же ты, батюшка, так вдруг... Что такое?'
     hide mz with dissolve
     yn_narrator 'Удивлённо спрашивает Женя, принимая реквизит.'
-    show yn_haer normal at center with dissolve
+    show yn_haer pity longhair at center with dissolve
     yn_haer 'Серебряная попиросница: ведь говорил прошлый раз.'
     hide yn_haer with dissolve
-    yn_narrator 'Женя отворачивается, раскрывая принесённый ей «заклад». Хаер пошатываясь достаёт топор.'
+    yn_narrator 'Женя отворачивается, раскрывая принесённый ей «заклад». Хаер, пошатываясь, достаёт топор.'
     yn_narrator 'Алиса в предвкушении.'
     yn_th 'В толк не возьму, что её так раззадорило. Словно, топор не сделан из папье-маше, а самый, что ни на есть настоящий.'
     yn_narrator 'Хаер взмахнул обеими руками и медленно, без усилий опустил на макушку Мегеры.'
-    yn_narrator 'Она содрогнулся, пошатнулась, глухо ударилась о сцену выпущенная из рук дощечка. Женя опустилась на колени, а затем аккуратно упала.'
-    show dv normal pioneer2 at center with dissolve
+    yn_narrator 'Женя опустилась на колени, а затем аккуратно упала.'
+    show dv smile pioneer2 at center with dissolve
     yn_dv 'Это нужно закрепить, зазернить в катарсисе!' 
     scene bg black with yn_timeskip
     $ renpy.pause(0.5, hard=True)
-    scene bg yn_int_theatreclub_day with yn_timeskip
+    scene bg yn_int_theatreclub_day 
+    show yn_haer pity longhair at left
+    show yn_kras normal at right
+    with yn_timeskip
     yn_narrator 'Сцена, когда Сонечка приходит пригласить Родиона на похороны отца.'
     yn_narrator 'Хаер пытается скрыть улыбку, но у него это не получается. Только чувствуется в этой улыбке что-то обречённое. Тени сомнения.'
     yn_narrator 'Словно после каждой новой встречи с Красавицей, как бы он её не ждал, что-то внутри него ломается.'
@@ -6600,19 +6707,31 @@ label yn_act_two_play_seventh:
     scene bg yn_int_theatreclub_day with yn_timeskip
     yn_narrator 'После окончания репетиции, что продлилась больше двух часов, театральный кружок начал стремительно пустеть.'
     yn_narrator 'От былого столпотворения не осталось и следа, но тем не менее, народа было ещё достаточно.'
+    show yn_skaz normal at left
+    show yn_medz pos1 angry at right
+    with dissolve
     yn_narrator 'Сказочница и Медуза о чём-то бурно спорили, размахивая копиями сценария.'
-    yn_narrator 'В какой-то момент Медуза с ухмылкой назвала Сказочницу Косой, когда та, в пылу распрей назвала кого-то из ребят по прозвищу. Обе вожатых замолчали.'
-    show yn_slon normal at center with dissolve
+    yn_narrator 'В какой-то момент Медуза с ухмылкой назвала Сказочницу Косой, когда та, в пылу распрей, назвала кого-то из ребят по прозвищу. Обе вожатых замолчали.'
+    hide yn_skaz
+    hide yn_medz
+    show yn_slon normal at center
+    with dissolve
     yn_slon 'Ох, и не к добру это.'
     hide yn_slon with dissolve
     yn_narrator 'Прокомментировал происходящее Слон, вместе со мной наблюдавший за ссорой двух вожатых.'
+    show yn_skaz normal at left
+    show yn_medz pos1 angry at right
+    with dissolve
     yn_skaz 'Ладно, Мария Павловна, удачи вам с пересмотром постановки.'
     yn_narrator 'Холодом и обидой веяло от этих слов.'
-    show yn_slon normal at center with dissolve
+    hide yn_skaz
+    hide yn_medz
+    show yn_slon normal at center
+    with dissolve
     yn_slon 'Ну всё. Приплыли. Удачи пожелала.'
     hide yn_slon with dissolve
     yn_th 'Та самая примета? Знатно же Медуза её довела.'
-    yn_narrator 'Медуза ничего не ответела, а только гордо задрав голову, посмотрела сверху вниз на свою визави признавшую поражение и ушла.'
+    yn_narrator 'Медуза ничего не ответила, а только гордо задрав голову, посмотрела сверху вниз на свою визави, признавшую поражение, и ушла.'
     yn_narrator 'Физрук тем временем кинул в одного из Голубей какой-то тряпкой.'
     show yn_san angry at center with dissolve
     yn_san 'Линза, шо так паршиво играешь, ска? {w}Старайся лучше или ты у меня на секции с турника не слезешь. {b}Понял?!{/b}'
@@ -6669,7 +6788,7 @@ label yn_act_two_play_seventh:
         yn_yana 'Хорошо. Я с ним поговорю.'
         yn_skaz 'Спасибо.'
         yn_narrator 'Она оглядывается по сторонам, смущённая собственным энтузиазмом.'
-        yn_skaz 'А я поговорю с Красавицей. Видно же, что парень ей небезразличен какой бы беспристрастной она себя не выставляла.'
+        yn_skaz 'А я поговорю с Красавицей. Видно же, что парень ей небезразличен, какой бы беспристрастной она себя не выставляла.'
         yn_skaz 'Догадываюсь, почему она стала такой... закрытой. Был у неё уже неприятный опыт, который она до сих пор не может переварить.'
         yn_yana 'Надеюсь, мы не натворим чего-то ужасного.'
         yn_narrator 'Сказочница отмахнулась.'
@@ -6687,43 +6806,54 @@ label yn_act_two_play_seventh:
         scene bg yn_int_theatreclub_night
         play ambience ambience_int_cabin_night fadein 2
         play music music_list['smooth_machine'] fadein 2
-        show yn_haer normal at center
+        show yn_haer pity longhair at center
         with yn_timeskip
         yn_narrator 'После очередного ночного собрания я попросила Хаера задержаться.'
         yn_narrator 'Стоило только завести разговор про его отношения с Красавицей, как Хаера прорвало. {w}Видимо, ему давно уже хотелось поговорить об этом с кем-нибудь, кто бы был сведущ в подобных вопросах.'
-        yn_haer 'Просто... Если в большинстве ситуаций я могу хотя бы предположить чёт это или нечет, то тут я теряюсь. Да. Теряюсь. Что, если я себе это придумал для веселухи и из-за своих хотелок мучаю рав...'
+        yn_haer 'Просто... Если в большинстве ситуаций я могу хотя бы предположить чёт это или нечет, то тут я теряюсь. Да. Теряюсь.'
+        yn_haer 'Что, если я себе это придумал для веселухи и из-за своих хотелок мучаю рав...'
         yn_yana 'Равнодушную?'
-        yn_haer 'Да, спасибо. Равнодушную девчонку. Вот у остальных всё пучком, а у меня какая-то канитель.'
+        yn_haer 'Да, спасибо. Равнодушную девчонку. {w}Вот у остальных всё пучком, а у меня какая-то канитель.'
         yn_yana 'Это на самом деле не так сложно определить. Вот закрой глаза.'
         yn_yana 'Закрой, говорю.'
+        show yn_haer closed_eyes longhair with dspr
         yn_haer 'Закрыл.'
         yn_yana 'А теперь представь Красавицу, но не только её внешность, а попытайся облачить свои чувства в её образ и попробуй описать, что получится. Звучит странно, но попробуй.'
         yn_yana 'Может возникнуть воспоминание или просто какая-то её отличительная черта. {w}Цепляйся за первое, что приходит в голову.'
         yn_haer 'Это тупо и...'
         yn_yana 'Делай, что говорю!'
         yn_narrator 'Довольно резко выпалила я, не дав ему договорить.'
+        show yn_haer pity longhair with dspr
         yn_narrator 'Хаер от неожиданности открыл глаза и окинул меня меня удивлённым взглядом.'
         yn_th 'Ощущение, что во мне на мгновение отразилась Алиса.'
         yn_haer 'Ладно-ладно.'
+        show yn_haer closed_eyes longhair with dspr
         yn_narrator 'Он снова закрыл глаза и нахмурился, силясь представить нужный ему образ.'
         yn_haer 'Её очень сложно рассмешить, но, если получается, она встречается с тобой глазами и неожиданно начинает искренне хохотать, а не хихикать в лодошку, как обычно.'
         yn_haer 'Смех у неё хрипловатый, словно она до этого момента никогда раньше не смеялась.'
         yn_yana 'Так... Что-то ещё?'
+        show yn_haer closed_eyes smile longhair with dspr
         yn_narrator 'Глаза закрыты. Взволнованный голос, губы дрожат, но он улыбается.'
         yn_haer 'Она очень нерешительная. {w}У неё никогда не получается с чем-либо определиться. {w}Какую картину она хочет нарисовать, какой её любимый цвет или цветок.'
+        show yn_haer pity longhair with dspr
         yn_narrator 'Хаер открыл глаза.'
         yn_haer 'Это было ужасно, да?'
         yn_yana 'Если бы это было ужасно, я бы тебе это сразу сказала и возможно, даже посмеялась от души, но как видишь, я этого не делаю. И всё-таки ты себе это не придумал. Чувства есть.'
         yn_haer 'Но всё равно не понятно, как она ко мне относится.'
         yn_yana 'Ну-у... когда вы разговариваете, она отвечает нормально или односложно?'
         yn_haer 'Нормально.'
-        yn_yana 'Тогда у тебя есть шансы. Я уже видела, как она общается с неприятными ей людьми. Её ответы не уходят дальше «Да» или «Нет». К тому же, она согласилась с тобой потанцевать. Забыл уже что ли?'
+        yn_yana 'Тогда у тебя есть шансы. Я уже видела, как она общается с неприятными ей людьми. Её ответы не уходят дальше «Да» или «Нет».'
+        yn_yana 'К тому же, она согласилась с тобой потанцевать. Забыл уже что ли?'
         yn_haer 'Не забыл, конечно! А ведь реально. Если бы я её бесил, то она бы вообще не общалась со мной.'
+        show yn_haer smile2_longhair with dspr
         yn_narrator 'Он сморщился в улыбке.'
-        yn_yana 'Да-да. Сделай, знаешь как? Подстрегись покороче, собери чёлку и уложи её на левую сторону, а ещё побрейся так, чтобы остались только усы под самым носом. Тогда Красавица сразу поймёт, что наступление неизбежно!'
+        yn_yana 'Да-да. Сделай, знаешь как? Подстрегись покороче, собери чёлку и уложи её на левую сторону, а ещё побрейся так, чтобы остались только усы под самым носом.'
+        yn_yana 'Тогда Красавица сразу поймёт, что наступление неизбежно!'
+        show yn_haer pity longhair with dspr
         yn_narrator 'Хаер скорчил неоднозначную гримассу и откашлялся в кулак.'
         yn_yana 'А если серьёзно, то я в толк не возьму, почему ты до сих пор не додумался просто записаться в художественный кружок. И вообще без разницы как у тебя там обстоят дела с навыками рисования.'
         yn_yana 'Когда с кем-то занимаешься одним делом, то есть очень большая вероятность сблизиться с этим человеком.'
+        show yn_haer smile2_longhair with dspr
         yn_haer 'По факту. И чего это я раньше не допёр записаться в художку. Валенок! Да. Валенок. Спасибо тебе больше, Ящерица. Вот реально. За всё.'
         yn_narrator 'Его просто разрывало от искренней благодарности, но более, он не смог подобрать подходящих слов, поэтому прсто дружески приобнял меня и похлопал по плечу.'
         yn_th 'Ещё один любитель в сентиментальные моменты похлопать своей тяжёлой рукой по хрупкому женскому плечу. Как будто отца мне не хватало.'
@@ -7191,16 +7321,16 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     scene bg black with Dissolve(1)
     $ renpy.pause(1, hard=True)
     scene bg yn_int_musclub_mattresses_sunset 
-    show yn_us normal:
+    show yn_us dontlike:
         xpos -240
 
-    show dv normal pioneer2:
+    show dv angry pioneer2:
         xpos 160
 
-    show yn_haer pity2:
+    show yn_haer pity longhair:
         xpos 850
 
-    show yn_kot normal:
+    show yn_kot sad2:
         xpos 470
 
     show yn_slon normal2:
@@ -7224,14 +7354,15 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     yn_narrator 'Слон ответил шепотом.'
     yn_slon 'Да всё то же. Выяснилось, что Ежа спугнул Хаер, начав выяснять с ним отношения.'
     yn_slon 'Кот прибежал предупредить Мельпу, а той на месте не оказалось. Как-то так.'
-    show yn_kot normal:
-        xpos 200
+    show yn_kot sad:
+        xpos 100
     with dissolve
     yn_kot 'Всё у нас не слава Богу.'
     hide yn_kot with dissolve
     yn_narrator 'Неожиданно прошептал непонятно откуда взявшийся Кот.'
-    yn_yana 'Мельпа сказала куда она пропала?'
+    yn_yana 'Мельпа сказала, куда она пропала?'
     yn_slon 'Не-а.'
+    hide yn_slon with dissolve
     yn_narrator 'Тем временем уже потихоньку начиналась перебранка. Алиса соизволила ответить Ульяне, но как и следовало ожидать, это была просто едкая острота.'
     yn_th 'Нет смысла влезать во всё это и выяснять отношения. Что случилось, то случилось.'
     yn_narrator 'Решив не обращать внимание на небольшую склоку, которая явно не перерастёт в сильную ссору, я подошла к роялю.'
@@ -7240,8 +7371,11 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     yn_narrator 'Так рождается музыка, да и всё настоящее творчество в целом.'
     yn_narrator 'Я аккуратно подняла крышку рояля и села на неудобный стул-вертушку.'
     yn_narrator 'Вспомнилась одна простенькая, но красивая мелодия, которую я успела выучить до попадания в больницу.'
-    yn_narrator 'При должной сноровке хватит и одной руки. '
+    yn_narrator 'При должной сноровке хватит и одной руки.'
     yn_narrator 'Ребята к этому времени всё ещё не успокоились.'
+    show dv angry pioneer2 at left
+    show yn_us dontlike at right
+    with dissolve
     yn_dv 'Конечно-конечно. Ты права. Ты у нас всегда права, мелкая всезнайка.'
     yn_narrator 'Слон уже было хотел что-то сказать. Даже поднял руку, для привлечения внимания.'
     scene bg yn_act_two_musclub_piano with dissolve
@@ -7286,7 +7420,7 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     show yn_kot sad at center with dissolve
     yn_kot 'А ведь воровать - грех.'
     hide yn_kot
-    show yn_haer normal at center
+    show yn_haer pity longhair at center
     with dissolve
     yn_haer 'А у кого мы воруем? Харчи то казённые, государственные.'
     hide yn_haer
@@ -7294,7 +7428,7 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     with dissolve
     yn_kot 'Так у государства и воруем.'
     hide yn_kot
-    show yn_haer normal at center
+    show yn_haer pity longhair at center
     with dissolve
     yn_haer 'А мы что, не часть государства по твоему?'
     hide yn_haer
@@ -7303,7 +7437,7 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     yn_narrator 'Кот задумался.'
     yn_kot 'Ну... часть, конечно.'
     hide yn_kot
-    show yn_haer normal at center
+    show yn_haer pity longhair at center
     with dissolve 
     yn_haer 'Вот и не парься, Кошак. Сам у себя не украдёшь.'
     hide yn_haer
@@ -7316,7 +7450,7 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     yn_us 'Ты только в этот раз нас не кинь.'
     hide yn_us with dissolve
     yn_narrator 'Мельпа остановилась, сжала кулаки.'
-    show dv normal pioneer2 at center with dissolve
+    show dv angry pioneer2 at center with dissolve
     yn_dv 'Молчи, мелкая. Я и твои косяки напомнить могу.'
     hide dv with dissolve
     yn_narrator 'Мельпа выжидающе зыркнула через плечо на Ульяну и поняв, что продолжения перепалки не будет, молча пошла к крыльцу столовой.'
@@ -7352,7 +7486,7 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     # yn_dv 'Не парься. Не во всём же быть талантливой. Давай теперь мамочка этим займётся.'
     # yn_narrator 'Я отошла, пропуская «мамочку» к двери.'
     yn_narrator 'Я даже не успела и глазом моргнуть, как Мельпа парой ловких движений провернула шпильку в замке и раздался щелчок.'
-    show dv normal pioneer2 at center with dissolve
+    show dv smile pioneer2 at center with dissolve
     yn_dv 'Учись пока я не в «покойничках».'
     hide dv with dissolve
     yn_narrator 'Девушка приоткрыла дверь и дала отмашку остальным Воробьям.' 
@@ -7371,15 +7505,16 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     show dv normal pioneer2:
         xpos 160
 
-    show yn_haer pity2:
+    show yn_haer pity longhair:
         xpos 850
 
-    show yn_kot normal:
+    show yn_kot sad:
         xpos 470
 
     show yn_slon normal2:
         xpos 1200
     with dissolve
+    play ambience yn_fridge_ambient fadein 2
     yn_narrator 'Непривычная тишина, которую нарушает только гул работающих холодильников.'
     yn_yana 'Кстати, забыла спросить. А зачем мы собственно сюда забрались?'
     yn_haer 'Это больше Мельпе надо. Хочет свое... это самое... потешить, короче.'
@@ -7387,35 +7522,43 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     yn_haer 'Да, спасибо.'
     yn_th 'Кажется, ситуация вот-вот накалится до предела. Сначала Кузнечик, теперь Хаер.'
     yn_narrator 'За тот короткий промежуток времени, что мы находились в столовой, Ульяна уже успела присвоить себе пару банок сгущёнки.'
-    yn_narrator 'Она встала чуть в стороне и теперь внимательно, словно ювелир рассматривающий драгоценный камень, изучала этикетки.'
+    yn_narrator 'Она встала чуть в стороне и теперь внимательно, словно ювелир, рассматривающий драгоценный камень, изучала этикетки.'
+    show dv angry pioneer2 with dspr
     yn_dv 'Ты мне что-то предъявить хочешь?'
     yn_narrator 'Алиса уже завелась на на шутку.'
     yn_haer 'Много чего накопилось. Да. Много.'
     yn_narrator 'Неожиданно Хаер прищурился и окинул взглядом помещение.'
     yn_slon 'Дежавю.'
     yn_narrator 'Прошептал мне Слон.'
-    yn_dv 'Это не я, как ревнивая идиотка караулила у художки, лишь бы этот озабоченный не припёрся к моей ненаглядой! Из-за тебя всё пошло не по плану! Да и план фиговый был на самом деле.'
+    yn_dv 'Это не я, как ревнивая идиотка караулила у художки, лишь бы этот озабоченный не припёрся к моей ненаглядой!'
+    yn_dv 'Из-за тебя всё пошло не по плану! Да и план фиговый был на самом деле.'
     yn_haer 'А другие хочешь сказать не переживают за тех, кто им дорог? Вот ты...'
+    show dv rage pioneer2 with dspr
     yn_narrator 'Алиса оскалилась.'
     yn_dv 'Не смей!'
-    yn_narrator 'Прошипела она. Все безропотно молчали. Наблюдали и не рисковали вмешаться. Даже Кузнечик не торопилась вставить свои пять копеек.'
+    yn_narrator 'Прошипела она.'
+    yn_narrator 'Все безропотно молчали. Наблюдали и не рисковали вмешаться.'
+    yn_narrator 'Даже Кузнечик не торопилась вставить свои пять копеек.'
     yn_narrator 'Хаер сперва действительно поумерил свой пыл, он был в замешательстве.'
     yn_narrator 'Но затем всё же собрался и закончил то, что начал.'
     yn_haer 'Ты тоже чуть не отметелила ту девчонку, когда она полезла к твоему...'
     yn_narrator 'Алиса уже казалось, была готова бросится на товарища, когда неожиданно между ними материализовался Слон.'
     yn_slon 'Оба успокойтесь. Не место здесь разборки устраивать. Предлагаю снова устроить то самое собрание.'
     yn_narrator 'Алиса прерывисто и тяжело дышала. Она была ужасно зла.'
-    yn_narrator 'Хаер удивлённый собственной дерзостью всё же пытался сохранять самообладание.'
+    yn_narrator 'Хаер, удивлённый собственной дерзостью, всё же пытался сохранять самообладание.'
     yn_dv 'Пошли.'
-    yn_narrator 'Кротко бросила она и развернувшись пошла прочь из столовой.'
-    yn_narrator 'Немного замешкавшись Хаер пошёл следом.'
+    hide dv with dissolve
+    yn_narrator 'Кротко бросила она и, развернувшись, пошла прочь из столовой.'
+    hide yn_haer with dissolve
+    yn_narrator 'Немного замешкавшись, Хаер пошёл следом.'
     yn_slon 'Чувствую, разговор будет очень жарким.'
     yn_narrator 'Слон окинул оценивающим взглядом меня, Кузнечика и Кота.'
 
     if yn_sparrows_group_ending < 5:
-        yn_slon 'Так, ребят, вам лучше не идти. Мельпа злая, Хаер тоже не в духе. Ещё и вам прилетит. Я же прослежу, чтобы они там друг друга не поубивали.'
+        yn_slon 'Так, ребят, вам лучше не идти. Мельпа злая, Хаер тоже не в духе. Ещё и вам прилетит.'
+        yn_slon 'Я же прослежу, чтобы они там друг друга не поубивали.'
         yn_narrator 'Кузнечик нахмурилась, но возражать не решилась.'
-        yn_narrator 'Кот же до сих пор находясь под впечатлением от произошедшего совершенно никак не отреагировал.'
+        yn_narrator 'Кот же до сих пор находясь под впечатлением от произошедшего и совершенно никак не отреагировал.'
         yn_th 'Слон прав. Не стоит нам сейчас лезть в их прения. Ему явно виднее.'
         yn_yana 'Хорошо. Мы тогда подождём снаружи?'
         yn_slon 'Да. Так будет лучше, извините.'
@@ -7436,19 +7579,20 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
     else:
         $ yn_us_ending += 1
         yn_slon 'Ладно. Пошли в театральный.'
+        stop ambience fadeout 2
         scene bg black with Dissolve(1)
         $ renpy.pause(1, hard=True)
-        scene bg yn_int_theatreclub_night 
+        scene bg yn_int_theatreclub_night_smoke
         show yn_us normal:
             xpos -240
 
-        show dv normal pioneer2:
+        show dv angry pioneer2:
             xpos 160
 
-        show yn_haer pity2:
+        show yn_haer pity longhair:
             xpos 850
 
-        show yn_kot normal:
+        show yn_kot sad:
             xpos 470
 
         show yn_slon normal2:
@@ -7457,7 +7601,7 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
         play ambience ambience_int_cabin_night fadein 2
         play music music_list['you_lost_me'] fadein 2
         yn_narrator 'Обстановка действительно была жаркая.'
-        yn_narrator 'Воздух уплотнился и табачный дым всегда сопровождавший ночные посиделки Воробьёв стал настолько всеобъемлющим, что начал душить.'
+        yn_narrator 'Воздух уплотнился и табачный дым, всегда сопровождавший ночные посиделки Воробьёв, стал настолько всеобъемлющим, что начал душить.'
         yn_narrator 'Ребятам хотелось выговориться. Нет, дело явно не в обычной обиде. Тут нечто куда более важное, чем мелкая ссора.'
         yn_narrator 'И по всей видимости, подобное собрание уже когда-то случилось.'
         yn_haer 'Что, Мельпа, поговорим по существу?'
@@ -7475,31 +7619,49 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
         yn_dv 'Скрытный и скользкий, как мыло в душе тип, которым руководят только изворотливость и инстинкт самосохранения.'
         yn_dv 'Всё про всех знаешь, а сам раскрыться боишься, хоть и понимаешь, что мы тебя только поддержим.'
         yn_slon 'Убила. Четырёхпалубник.'
+        show yn_us dontlike with dspr
         yn_us 'О! О! А про меня можно?'
         yn_dv 'Сама напросилась! Несамостоятельный застрявший в детстве ребёнок, который пытается казаться взрослым, повторяя за мной.'
-        yn_dv 'Нашла, чтоб тебя пример для подражания. Курить она решила начать!'
+        yn_dv 'Нашла, чтоб тебя, пример для подражания. Курить она решила начать!'
         yn_dv 'Запомни, ребёнка от взрослого отличает готовность признавать и исправлять свои ошибки! Ты же этого делать не хочешь!'
         yn_yana 'Ну и меня тогда стороной не обходи. Я хоть и рыжая, но не белая ворона.'
-        yn_dv 'Да пожалуйста! Выросшая в богатой семье душная избалованная девчонка. Даже притеревшись продолжаешь смотреть сверху вниз.'
-        yn_dv 'Ты не можешь принять себя такой, какая ты есть. В своих страхах и сомнениях сидишь, как в скорлупе даже не пытаясь от туда вылезти и просто банально попросить у кого-то помощи.'
-        yn_dv 'Гордость не позволяет или доверять не умеешь?' 
+        yn_dv 'Да пожалуйста! Выросшая в богатой семье душная избалованная девчонка. Даже притеревшись, продолжаешь смотреть сверху вниз.'
+        yn_dv 'Ты не можешь принять себя такой, какая ты есть. В своих страхах и сомнениях сидишь, как в скорлупе, даже не пытаясь от туда вылезти и просто банально попросить у кого-то помощи.'
+        yn_dv 'Гордость не позволяет или доверять не умеешь?'
+        show yn_kot think with dspr
         yn_narrator 'В стороне остался только крайне удивлённый Кот. Смотрит на нас ошарашенно приоткрыв рот, как на идиотов, что решили ни с того ни с сего перемыть друг другу кости.'
         yn_haer 'А про Кота что скажешь?'
+        show yn_haer smile2_longhair with dspr
         yn_narrator 'С ухмылкой спросил Хаер, торжествующе смотря на потерявшую запал Алису.'
-        yn_narrator 'Уловив на себе этот взгляд, она приосанилась и злорадно подмигнув сказала:'
+        show dv laugh pioneer2 with dspr
+        yn_narrator 'Уловив на себе этот взгляд, она приосанилась и, злорадно подмигнув, сказала:'
         yn_dv 'Славный малый. Хоть и слишком ведомый из-за своей наивности, но это мы со временем поправим.'
+        stop music fadeout 7
         yn_narrator 'Напряжённая атмосфера быстро рассеялась. Стало понятно, что никто ни на кого зла не держит.'
         yn_th 'Я ожидала чего-то более... масштабного.'
         yn_slon 'Все выговорились и услышали то, что хотели?'
+        show dv normal pioneer2
+        show yn_kot sad
+        show yn_us normal
+        show yn_haer pity longhair
+        with dspr
         yn_narrator 'Все неуверенно кивнули всё ещё находясь под впечатлением от случившегося.'
         yn_slon 'Ну и славно. Давайте примем всё выше сказанное к сведению и постараемся переступить через свои недостатки, чтобы стать лучшими версиями себя. Надеюсь, конфликт исчерпан?'
         yn_haer_and_dv 'Вполне.'
+        show dv smile pioneer2
+        show yn_haer smile2_longhair
+        with dspr
         yn_narrator 'Затем эти двое улыбнувшись друг другу в жест примиренения пожали руки.'
         yn_th 'А из Алисы бы получился отличный психолог. Отличный агрессивно настроенный психолог. Она говорила прямо и остро, но попала точно в «яблочко».'
         yn_narrator 'Немного неприятно, когда тебя выворачивают наизнанку всем на показ, но ведь для того и нужны друзья. Люди, что без утаивания скажут тебе о том, что ты и сам прекрасно знаешь.'
         yn_narrator 'О том, зудящем и разъедающем изнутри, что ты хочешь закопать поглубже, смириться с этим и сделать вид, что всё в порядке, что всё так и должно быть.'
         yn_narrator 'Ведь именно друзья делают это не для того, чтобы сделать тебе больно, откапывая то, что ты так тщательно пытался спрятать, а для того, чтобы помочь, ведь ты им не безразличен.'
         yn_narrator 'Да. Думаю, я теперь понимаю, кем стали для меня Воробьи. Настоящими друзьями.'
+        scene bg black with Dissolve(1)
+        $ renpy.pause(1, hard=True)
+        scene bg yn_int_theatreclub_night_smoke
+        show dv smile pioneer2 at center
+        with Dissolve(1)
         yn_narrator 'Алиса предложила мне остаться после собрания, мол хочет поговорить. Я согласилась.'
         yn_narrator 'И вот, мы сидим за столом в молчании. Спустя какое-то время, она достаёт подаренные Marlboro и закуривает.'
         yn_yana 'Мы кого-то ждём?'
@@ -7508,23 +7670,28 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
         yn_narrator 'Алиса сперва долго затягивается, медленно, с наслаждением выпускает дым и только тогда кивает.'
         yn_dv 'Да. С заказом.'
         yn_th 'Понятно. Дальше можно не расспрашивать. Лучше просто дождаться Слона.'
+        show yn_slon normal at fright with dissolve
         yn_narrator 'Он пришёл через несколько минут, пряча что-то большое под рубашкой.'
         yn_dv 'Тебя только за смертью посылать.'
         yn_slon 'Там Павлины везде шкандыбали. Кое-как незамеченным проскочил.'
         yn_dv 'Ну да. Тебя сложно не заметить. Ладно. Доставай уж.'
+        hide dv with dissolve
         yn_narrator 'Алиса уходит к шкафчику, где хранился реквизит, а Слон достаёт из-под рубашки бутылку вина с выпирающей пробкой.'
         yn_th 'Они серьёзно? Вино?!'
+        show dv normal pioneer2 at center with dissolve
         yn_narrator 'Мельпа вернулась и поставила на стол два фужера.'
         yn_yana 'Вы собираетесь пить?'
         yn_th 'Нет, конечно, я понимаю, что второй бокал для меня, но всё же пытаюсь хотя бы чуть-чуть отойти от этого.'
+        show yn_slon normal2 with dspr
         yn_narrator 'Слон скривился.'
-        yn_slon 'Я это пить не буду ни за какие коврижки.'
+        yn_slon 'Я это пить не буду {yn_tip_tag=covrig}ни за какие коврижки.{/yn_tip_tag}'
         yn_dv 'Это для нас. Чтобы разговор мягче шёл.'
         yn_yana 'А это обязательно?'
         yn_dv 'Да.'
         yn_th 'Ладно. От половины бокала ничего страшного не случится. К тому же, за семейными застольями мне уже доводилось пару раз пробовать сей напиток.'
         yn_narrator 'Впервые я выпила вино на юбилей дедушки по его настоянию, мол за здоровье. Он аргументировал это тем, что раз уж у меня есть рот, значит можно.'
         yn_yana 'Эх, если только половину бокала.'
+        show dv smile pioneer2 with dspr
         yn_narrator 'Алиса улыбнулась и добродушно пожала плечами.'
         yn_narrator 'Ей понравилось, что я не стала жеманничать.'
         yn_dv 'Хорошо.'
@@ -7532,9 +7699,10 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
         yn_narrator 'Сказал слон, открывая бутылку. Раздался характерный хлопок.'
         yn_dv 'Не паясничай или с нами сейчас пить будешь.'
         yn_slon 'Понял. Пойду, закрою дверь с той стороны. Хорошего вечера.'
+        hide yn_slon with dissolve
         yn_narrator 'Слон ушёл, а Мельпа разлила вино по фужерам.'
-        scene bg yn_dv_thinking_smoke with dissolve
-        play music music_list['waltz_of_doubts'] fadein 2
+        scene bg yn_dv_thinking_smoke with fade
+        play music music_list['waltz_of_doubts'] fadein 10
         yn_dv 'Знаешь, давно думала уже поговорить с кем-нибудь об этом чтобы душу отвести, да не с кем было.'
         yn_narrator 'С бокалом в руке Алиса выглядит довольно кокетливо, хоть и взгляд её излучает глубокую задумчивость.'
         yn_yana 'Дай угадаю. Разговор пойдёт про любовь?'
@@ -7544,7 +7712,8 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
         yn_dv 'Вот смотрю я на тупые попытки Хаера ухаживать за Красавицей и понимаю, что он делает не так, но вот помочь с этим не могу. Никак.'
         yn_dv 'Тошно только от одной мысли становится. Хорошо, что ты тут преуспела. Спасибо.'
         yn_yana 'А как давно вы знакомы с Хаером?'
-        yn_dv 'С самого детства. Он в деревне у бабушки жил до тринадцати лет, а я туда на лето с родителями каждый год приезжала. Так и сдружились. Даже семьи наши потом дружбу водить начали. Отцы сработались так сказать...'
+        yn_dv 'С самого детства. Он в деревне у бабушки жил до тринадцати лет, а я туда на лето с родителями каждый год приезжала. Так и сдружились.'
+        yn_dv 'Даже семьи наши потом дружбу водить начали. Отцы сработались, так сказать...'
         yn_narrator 'Мельпа осеклась. Окинула меня внимательным взглядом, а затем решившись продолжила.'
         yn_dv 'Мой раньше военным лётчиком был, а сейчас на таможне работает. Отец Хаера же фарцой занимается.'
         yn_th 'Так вот откуда у этих обоих дефицитные вещи.'
@@ -7579,12 +7748,12 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
         yn_yana 'Это маленький се-крет.'
         stop music fadeout 2
         stop ambience fadeout 2
-        scene bg black with Dissolve(1)
+        scene bg black with Dissolve(2)
         $ renpy.block_rollback()
         $ renpy.pause(2, hard=True)
         $ persistent.timeofday = 'day'
         $ persistent.sprite_time = 'day'
-        scene bg yn_int_theatreclub_day with Dissolve(1)
+        scene bg yn_int_theatreclub_day with Dissolve(2)
         play ambience ambience_int_cabin_day fadein 2
         play music music_list['memories'] fadein 5
         $ yn_diary_say.page = 2
@@ -7597,7 +7766,7 @@ label yn_act_two_play_seventh_after_wuk_dialogue:
         $ yn_diary_say('Хаер всё же записался в художественный кружок. Теперь он не просто навязчиво приходит туда донимая Красавицу, а учится рисовать. Да и сама Красавица как-то оттаяла. Стала больше улыбаться, особенно рядом с Хаером и говорит теперь менее односложно.')
         $ yn_diary_say('На Ежа просто перестали обращать внимание. Скоро выйдет газета Журналистки и он окончательно отстанет.')
         $ yn_diary_say('А ещё мой потлатый товарищ перестал забывать слова. Слон говорит, что такого никогда раньше не случалось. А Кот... Ну, теперь Кот всем говорит, что он славный парень.')
-        $ yn_diary_say('Что же касается меня... Стало заметно легче. Все те озарения, что случались со мной на протяжении всей Лагерной смены и вечер откровений окончательно сложились в единый пазл.{w}Мой. {w}Личный. {w}Мрачное будущее уже не кажется таким страшным. Туман со временем осядет. Нужно просто не бояться в него всматриваться и идти вперёд.')
+        $ yn_diary_say('Что же касается меня... Стало заметно легче. Все те озарения, что случались со мной на протяжении всей Лагерной смены и вечер откровений окончательно сложились в единый пазл. {w}Мой. {w}Личный. {w}Мрачное будущее уже не кажется таким страшным. Туман со временем осядет. Нужно просто не бояться в него всматриваться и идти вперёд.')
     
     stop ambience fadeout 2
     stop music fadeout 2
@@ -7627,6 +7796,7 @@ label yn_act_three_play_eighth:
         scene bg yn_newspaper_deceased with Dissolve(2)
         $ renpy.pause()
     
+    stop ambience fadeout 2
     scene bg black with Dissolve(1)
     $ renpy.pause(1, hard = True)
     scene bg yn_ext_bus_driver with Dissolve(2)
@@ -7727,7 +7897,7 @@ label yn_act_three_play_eighth:
     yn_cs 'Конечно! Иди пока к остальным.'
     show cs smile glasses with dspr
     yn_narrator 'Неожиданно Виолетта подошла чуть ближе и обняла меня, всё же поддавшись сентиментальному порыву.'
-    yn_cs 'Ты была отличной соседкой, дорогая! Надеюсь, в будущем в тебя всё получится!'
+    yn_cs 'Ты была отличной соседкой, дорогая! Надеюсь, в будущем у тебя всё получится!'
     yn_narrator 'Я обняла её в ответ.'
     yn_yana 'Спасибо! Мы обязательно должны когда-нибудь снова с вами увидеться!'
     yn_cs 'Обязательно!'
@@ -7806,7 +7976,7 @@ label yn_act_three_play_eighth:
     yn_sl 'Ольга Дмитриевна говорит, что в следующем году зарплату урезают и некоторые вожатые, что не причастны к Лагерной жизни, сюда больше ехать не собираются.'
     yn_sl 'Ты это... Можешь Воробьям передать, что они могут устроиться, если захотят.'
     yn_yana 'Ого! Обязательно передам. Слон, вон, точно собирался вожатым.'
-    yn_sl 'Славно! Я всё же скачаю по тем временам, когда мы с Мельпой собачились. Не хватает мне этого порой. Надеюсь, она тоже приедет.'
+    yn_sl 'Славно! Я всё же скучаю по тем временам, когда мы с Мельпой собачились. Не хватает мне этого порой. Надеюсь, она тоже приедет.'
     show yn_sl smile with dspr
     yn_narrator 'Славяна загадочно улыбнулась.'
     yn_sl 'Всё! Пока! Увидимся в райцентре!'
@@ -7860,13 +8030,13 @@ label yn_act_three_play_eighth:
     yn_narrator 'И снова звонкий смех.'
     stop ambience fadeout 2
     stop music fadeout 2
-    scene bg int_bus_people_day with dissolve
+    scene bg int_bus_people_day with fade
     play music music_list['lightness_radio_bus'] fadein 2
     yn_dv 'Чёрт, я вся этим дымом провонялась. Устроили, блин, прощальный костёр. Запах вообще сбить не получается.'
     yn_us 'А зачем ты туда бензин подливала? Или что это вообще было?'
     yn_dv 'Не бензин. Намешала там кое-что.'
     yn_yana 'Зато красиво было.'
-    yn_slon 'Это да... До сих пор удивляюсь, как она себе брови с сожгла.'
+    yn_slon 'Это да... До сих пор удивляюсь, как она себе брови сожгла.'
     yn_dv 'Не дождёшься.'
     
     if yn_haer_good_ending:
@@ -7967,6 +8137,7 @@ label yn_epilogue:
     stop ambience fadeout 2
     show yn_titles_final yn_titles_text_good_end at yn_good_titles_anim
     $ renpy.pause(80, hard=True)
+    scene bg black with Dissolve(2)
     stop music fadeout 2
     $ yn_set_main_menu_cursor()
     $ MainMenu(confirm=False)()

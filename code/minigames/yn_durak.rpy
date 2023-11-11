@@ -200,7 +200,15 @@ screen key_off():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     key"accessibility"action NullAction()
 screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     use key_off
+
     add"yana/images/mini_games/durak/tb.png"
+
+    textbutton ['Сдаться']:
+        align(.8, .5)
+        style 'yn_dw_info_text_style'
+        text_style 'yn_dw_info_text_style'
+        action [Return(), Jump('yn_act_two_play_fourth_card_game_loose')]
+
     if intergames:
         if len(koloda52)>1:
             if koloda52:

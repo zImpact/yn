@@ -1583,3 +1583,16 @@ screen yn_help():
         xalign 0.015 
         yalign 0.92 
         action Return()
+
+screen yn_interface_info():
+    tag menu
+    modal True
+
+    add yn_gui_path + 'misc/yn_interface_tip.png'
+
+    textbutton ['продолжить...']:
+        style 'yn_dw_info_text_style'
+        text_style 'yn_dw_info_text_style'
+        xalign 0.5
+        ypos 855
+        action [Hide('yn_interface_info', Dissolve(0.5)), Return()]
