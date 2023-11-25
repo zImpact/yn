@@ -33,10 +33,6 @@ init python:
 
     store.yn_names_list.append('yn_th')
 
-    yn_colors['yn_yana'] = {'speaker_color': 'ff852a'}
-    yn_names['yn_yana'] = 'Яна'
-    store.yn_names_list.append('yn_yana')
-
     yn_colors['yn_mom'] = {'speaker_color': '#FFC0CB'} 
     yn_names['yn_mom'] = 'Мама'
     store.yn_names_list.append('yn_mom')
@@ -45,29 +41,69 @@ init python:
     yn_names['yn_dad'] = 'Папа'
     store.yn_names_list.append('yn_dad')
 
+    yn_colors['yn_yana'] = {'speaker_color': '#ff852a'}
+    yn_names['yn_yana'] = 'Яна'
+    store.yn_names_list.append('yn_yana')
+
+    yn_colors['yn_yana_lizard'] = {'speaker_color': '#ff852a'}
+    yn_names['yn_yana_lizard'] = 'Ящерица'
+    store.yn_names_list.append('yn_yana_lizard')
+
+    yn_colors['yn_mi_cyanic'] = {'speaker_color': '#00b4cf'}
+    yn_names['yn_mi_cyanic'] = 'Циановая'
+    store.yn_names_list.append('yn_mi_cyanic')
+
     yn_colors['yn_mi'] = {'speaker_color': '#00b4cf'}
-    yn_names['yn_mi'] = 'Циановая'
+    yn_names['yn_mi'] = 'Мику'
     store.yn_names_list.append('yn_mi')
 
+    yn_colors['yn_cs_hw'] = {'speaker_color': '#8686e6'}
+    yn_names['yn_cs_hw'] = 'Медработник'
+    store.yn_names_list.append('yn_cs_hw')
+
     yn_colors['yn_cs'] = {'speaker_color': '#8686e6'}
-    yn_names['yn_cs'] = 'Медработник'
+    yn_names['yn_cs'] = 'Виолетта'
     store.yn_names_list.append('yn_cs')
 
     yn_colors['yn_mz'] = {'speaker_color': '#4a86ff'}
     yn_names['yn_mz'] = 'Женя'
     store.yn_names_list.append('yn_mz')
 
+    yn_colors['yn_sl_blonde'] = {'speaker_color': '#ffd200'}
+    yn_names['yn_sl_blonde'] = 'Блондинка'
+    store.yn_names_list.append('yn_sl_blonde')
+
     yn_colors['yn_sl'] = {'speaker_color': '#ffd200'}
-    yn_names['yn_sl'] = 'Блондинка'
+    yn_names['yn_sl'] = 'Славяна'
     store.yn_names_list.append('yn_sl')
 
     yn_colors['yn_mt'] = {'speaker_color': '#00ea32'}
     yn_names['yn_mt'] = 'Ольга'
     store.yn_names_list.append('yn_mt')
 
+    yn_colors['yn_us_girl'] = {'speaker_color': '#ff3200'}
+    yn_names['yn_us_girl'] = 'Девчушка'
+    store.yn_names_list.append('yn_us_girl')
+
     yn_colors['yn_us'] = {'speaker_color': '#ff3200'}
-    yn_names['yn_us'] = 'Девчушка'
+    yn_names['yn_us'] = 'Кузнечик'
     store.yn_names_list.append('yn_us')
+
+    yn_colors['yn_us_voice'] = {'speaker_color': '#ff3200'}
+    yn_names['yn_us_voice'] = 'Женский голос'
+    store.yn_names_list.append('yn_us_voice')
+
+    yn_colors['yn_us_ulya'] = {'speaker_color': '#ff3200'}
+    yn_names['yn_us_ulya'] = 'Ульяна'
+    store.yn_names_list.append('yn_us_ulya')
+
+    yn_colors['yn_us_sova'] = {'speaker_color': '#ff3200'}
+    yn_names['yn_us_sova'] = '{s}Ульяна{/s} Сова'
+    store.yn_names_list.append('yn_us_sova')
+
+    yn_colors['yn_us_gh'] = {'speaker_color': '#ff3200'}
+    yn_names['yn_us_gh'] = '{s}Сова{/s} Кузнечик'
+    store.yn_names_list.append('yn_us_gh')
 
     yn_colors['yn_haer'] = {'speaker_color': '#004979'}
     yn_names['yn_haer'] = 'Хаер'
@@ -81,8 +117,12 @@ init python:
     yn_names['yn_kras'] = 'Красавица'
     store.yn_names_list.append('yn_kras')
 
+    yn_colors['yn_slon_plump'] = {'speaker_color': '#7c7b7b'}
+    yn_names['yn_slon_plump'] = 'Полноватый'
+    store.yn_names_list.append('yn_slon_plump')
+
     yn_colors['yn_slon'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon'] = 'Полноватый'
+    yn_names['yn_slon'] = 'Слон'
     store.yn_names_list.append('yn_slon')
 
     yn_colors['yn_slon_willpower'] = {'speaker_color': '#7c7b7b'}
@@ -126,19 +166,43 @@ init python:
     store.yn_names_list.append('yn_el')
 
     yn_colors['yn_erika'] = {'speaker_color': '#efe2d9'}
-    yn_names['yn_erika'] = 'Светловолосая'
+    yn_names['yn_erika'] = 'Эрика'
     store.yn_names_list.append('yn_erika')
+
+    yn_colors['yn_erika_bright'] = {'speaker_color': '#efe2d9'}
+    yn_names['yn_erika_bright'] = 'Светловолосая'
+    store.yn_names_list.append('yn_erika_bright')
 
     yn_colors['yn_un'] = {'speaker_color': '#aa64d9'}
     yn_names['yn_un'] = 'Лена'
     store.yn_names_list.append('yn_un')
 
     yn_colors['yn_dv'] = {'speaker_color': '#ffaa00'}
-    yn_names['yn_dv'] = 'Алиса'
+    yn_names['yn_dv'] = 'Мельпа'
     store.yn_names_list.append('yn_dv')
 
+    yn_colors['yn_dv_alice'] = {'speaker_color': '#ffaa00'}
+    yn_names['yn_dv_alice'] = 'Алиса'
+    store.yn_names_list.append('yn_dv_alice')
+
+    yn_colors['yn_dv_dvach'] = {'speaker_color': '#ffaa00'}
+    yn_names['yn_dv_dvach'] = 'Двачевская'
+    store.yn_names_list.append('yn_dv_dvach')
+
+    yn_colors['yn_dv_melpa'] = {'speaker_color': '#ffaa00'}
+    yn_names['yn_dv_melpa'] = '{s}Алиса{/s} Мельпа'
+    store.yn_names_list.append('yn_dv_melpa')
+
+    yn_colors['yn_jurn_girl'] = {'speaker_color': '#45933f'}
+    yn_names['yn_jurn_girl'] = 'Девушка в берете'
+    store.yn_names_list.append('yn_jurn_girl')
+
+    yn_colors['yn_jurn_voice'] = {'speaker_color': '#45933f'}
+    yn_names['yn_jurn_voice'] = 'Голос из динамика'
+    store.yn_names_list.append('yn_jurn_voice')
+
     yn_colors['yn_jurn'] = {'speaker_color': '#45933f'}
-    yn_names['yn_jurn'] = 'Девушка в берете'
+    yn_names['yn_jurn'] = 'Журналистка'
     store.yn_names_list.append('yn_jurn')
 
     yn_colors['yn_san'] = {'speaker_color': '#466d7b'}
@@ -243,13 +307,13 @@ init python:
         for character_name in store.yn_names_list:
             yn_char_define(character_name)
 
-    yn_reload_names()
+    # yn_reload_names()
 
-    def yn_rename_character(character_id, new_name):
-        store.yn_names_list.remove(character_id)
-        yn_names[character_id] = new_name
-        store.yn_names_list.append(character_id)
-        yn_reload_names()
+    # def yn_rename_character(character_id, new_name):
+    #     store.yn_names_list.remove(character_id)
+    #     yn_names[character_id] = new_name
+    #     store.yn_names_list.append(character_id)
+    #     yn_reload_names()
 
     def yn_frame_animation(image_name, frames_quantity, retention, loop, transition, start = 1, **properties):
         anim_args = []
@@ -516,6 +580,8 @@ init:
 
     Александр Милютин - красавчик.
 
+    Pgg Big - Обнаружил, что в моде оказалось два Шурика.
+
 
     {b}ДОНАТЕРЫ{/b}
     Запрещённая на территории летосферы группировка FJ (500р) - Sorry, but I drank your beer while I was holding.
@@ -550,7 +616,7 @@ init:
 
     Инори Милованова (21р) - Тут ты как-нибудь сам.
 
-    Сергей столбов (10р) - Слишком мало ты выделил на юри. 
+    Сергей Столбов (10р) - Слишком мало ты выделил на юри. 
 
     Даниэль Маринюк (200р) - Мы всё ещё перспективные и в том же духе!
 
@@ -559,6 +625,8 @@ init:
 
     {b}ОТДЕЛЬНЫЕ БЛАГОДАРНОСТИ{/b}
     Яночке, нашему маскоту, за то, что согласилась взять на себя\n главную роль (правда, мы её и не спрашивали).
+
+    Руслан Рыков - спасибо за спрайты Эрики и Сказочницы!)
 
     {i}Тебе, дорогой читатель.{/i} Молодец, что не скипнул титры.
     
@@ -606,6 +674,8 @@ init:
 
     Исаева Дарья.
 
+    Pgg Big.
+
 
     {b}ДОНАТЕРЫ{/b}
     FJ - 500р. 
@@ -640,7 +710,7 @@ init:
 
     Инори Милованова - 21р.
 
-    Сергей столбов - 10р.
+    Сергей Столбов - 10р.
 
     Даниэль Маринюк - 200р.
 
@@ -649,6 +719,8 @@ init:
 
     {b}ОТДЕЛЬНЫЕ БЛАГОДАРНОСТИ{/b}
     Яне, нашему маскоту, за то, что согласилась взять на себя\n главную роль.
+
+    Руслан Рыков - спрайты Эрики и Сказочницы.
 
     {i}Тебе, дорогой читатель.{/i} Спасибо, что не скипнул титры.'''
 
@@ -1003,4 +1075,4 @@ init:
     transform yn_good_titles_anim():
         xalign 0.5
         ypos 1.1
-        linear 70 ypos -5.89
+        linear 70 ypos -6.125

@@ -556,13 +556,13 @@ screen yn_authors_main_menu():
         antialias True
         kerning 2
 
-    textbutton ['Ева Миронова']:
+    textbutton ['Даниил Бухичевский']:
         style 'yn_button_none'
         text_style 'yn_settings_header_main_menu_preferences'
         text_align 0.5
         xpos 525
         ypos 182
-        action OpenURL('https://vk.com/id516012146')
+        action OpenURL('https://vk.com/bukhichevsky')
 
     textbutton ['Андрей Катаев']:
         style 'yn_button_none'
@@ -570,7 +570,7 @@ screen yn_authors_main_menu():
         text_align 0.5
         xpos 525
         ypos 297
-        action OpenURL('https://vk.com/visssh')
+        action OpenURL('https://github.com/paych3ck')
 
     textbutton ['Рина Анисимова']:
         style 'yn_button_none'
@@ -612,10 +612,26 @@ screen yn_authors_main_menu():
         ypos 297
         action OpenURL('https://vk.com/kagome_art')
 
+    textbutton ['Juria Kraiymer']:
+        style 'yn_button_none'
+        text_style 'yn_settings_header_main_menu_preferences'
+        text_align 0.5
+        xpos 1100
+        ypos 413
+        action OpenURL('https://vk.com/juriakraiymer')
+
+    textbutton ['Мария Ракшинская']:
+        style 'yn_button_none'
+        text_style 'yn_settings_header_main_menu_preferences'        
+        text_align 0.5
+        xpos 1100
+        ypos 527
+        action OpenURL('https://vk.com/marie_raksha')
+
     imagebutton:
         auto yn_gui_path + 'main_menu/buttons/yn_zero_impact_logo_%s.png'
         xpos 1311
-        ypos 595
+        ypos 650
         action OpenURL('https://vk.com/zeroimpact')
 
     imagebutton:
