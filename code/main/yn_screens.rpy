@@ -1309,15 +1309,17 @@ screen yn_game_menu_selector():
         imagemap:
             auto yn_gui_path + 'quick_menu/' + persistent.timeofday + '/quick_menu_%s.png' xalign 0.5 yalign 0.5
 
-            hotspot(0, 83, 660, 65) focus_mask None clicked [yn_set_main_menu_cursor_curried(), MainMenu(confirm=False)]
+            hotspot(0, 70, 660, 65) focus_mask None clicked [yn_set_main_menu_cursor_curried(), MainMenu(confirm=False)]
 
-            hotspot(0, 148, 660, 65) focus_mask None clicked ShowMenu('yn_save')
+            hotspot(0, 135, 660, 65) focus_mask None clicked ShowMenu('yn_save')
 
-            hotspot(0, 213, 660, 65) focus_mask None clicked ShowMenu('yn_load')
+            hotspot(0, 200, 660, 65) focus_mask None clicked ShowMenu('yn_load')
 
-            hotspot(0, 278, 660, 65) focus_mask None clicked ShowMenu('yn_preferences')
+            hotspot(0, 265, 660, 65) focus_mask None clicked ShowMenu('yn_text_history')
 
-            hotspot(0, 343, 660, 65) focus_mask None action [(Function(yn_screens_diact)), ShowMenu('main_menu')]
+            hotspot(0, 330, 660, 65) focus_mask None clicked ShowMenu('yn_preferences')
+
+            hotspot(0, 395, 660, 65) focus_mask None action [(Function(yn_screens_diact)), ShowMenu('main_menu')]
 
 screen yn_keyboard_help():
     tag menu

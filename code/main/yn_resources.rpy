@@ -307,7 +307,7 @@ init python:
         for character_name in store.yn_names_list:
             yn_char_define(character_name)
 
-    # yn_reload_names()
+    yn_reload_names()
 
     # def yn_rename_character(character_id, new_name):
     #     store.yn_names_list.remove(character_id)

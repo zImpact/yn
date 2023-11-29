@@ -3,7 +3,7 @@ label yn_prologue:
     stop music fadeout 4
     $ persistent.timeofday = 'day'
     $ persistent.sprite_time = 'day'
-    $ yn_reload_names()
+    # $ yn_reload_names()
     $ yn_set_mode_nvl()
     $ renpy.pause(4, hard=True)
     $ yn_chapter_intro('Пролог.', 'bg yn_ext_busstop_summer_blurred', 'ext_road_day', 'yn_yana serious', 'yn_prologue_intro_text')
@@ -3340,7 +3340,7 @@ label yn_act_two_play_fourth_disco:
         yn_yana 'Вижу.'
         yn_narrator 'Длинные, почти как у Хаера волосы, отдающие пламенной рыжиной, и действительно перебинтованная рука.'
         yn_narrator 'Он о чём-то общался с парой девушек из Синиц, что отбились от общей толпы своих товарищей.'
-        yn_narrator 'Они явно порывались уйти как можно быстрее и украдкой поглядывали на парня с видом бризгливой неприязни.'
+        yn_narrator 'Они явно порывались уйти как можно быстрее и украдкой поглядывали на парня с видом брезгливой неприязни.'
         scene bg yn_ext_square_lenin_night_party 
         show yn_us normal dress:
             xpos -240
