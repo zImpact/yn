@@ -1177,10 +1177,36 @@ screen yn_load():
 
 screen yn_say(what, who):
     window background None id 'window':
+        # add yn_gui_path + 'dialogue_box/' + persistent.timeofday + '/buttons_box.png' xpos 1670 ypos 50
+
         if persistent.font_size == 'large':
             add yn_gui_path + 'dialogue_box/' + persistent.timeofday + '/dialogue_box_large.png' xpos 304 ypos 866
 
             add yn_gui_path + 'dialogue_box/' + persistent.timeofday + '/side_box_large.png' xpos 52 ypos 866
+
+            imagebutton:
+                auto yn_gui_path + 'dialogue_box/' +persistent.timeofday + '/hide_%s.png'
+                xpos 1648 
+                ypos 883
+                action HideInterface()
+
+            imagebutton:
+                auto yn_gui_path + 'dialogue_box/' +persistent.timeofday + '/save_%s.png'
+                xpos 1707
+                ypos 883
+                action ShowMenu('yn_save')
+
+            imagebutton:
+                auto yn_gui_path + 'dialogue_box/' +persistent.timeofday + '/menu_%s.png'
+                xpos 1765
+                ypos 883
+                action ShowMenu('yn_game_menu_selector')
+
+            imagebutton:
+                auto yn_gui_path + 'dialogue_box/' +persistent.timeofday + '/load_%s.png'
+                xpos 1822
+                ypos 883
+                action ShowMenu('yn_load')
 
             if persistent.timeofday == 'sepia':
                 add 'yn_' + persistent.yn_protagonist + '_emote_' + persistent.yn_protagonist_mood + '_sepia' xpos 72 ypos 871
@@ -1208,6 +1234,30 @@ screen yn_say(what, who):
             add yn_gui_path + 'dialogue_box/' + persistent.timeofday + '/dialogue_box.png' xpos 285 ypos 916
 
             add yn_gui_path + 'dialogue_box/' + persistent.timeofday + '/side_box.png' xpos 69 ypos 916
+
+            imagebutton:
+                auto yn_gui_path + 'dialogue_box/' +persistent.timeofday + '/hide_%s.png'
+                xpos 1629 
+                ypos 933
+                action HideInterface()
+
+            imagebutton:
+                auto yn_gui_path + 'dialogue_box/' +persistent.timeofday + '/save_%s.png'
+                xpos 1688
+                ypos 933
+                action ShowMenu('yn_save')
+
+            imagebutton:
+                auto yn_gui_path + 'dialogue_box/' +persistent.timeofday + '/menu_%s.png'
+                xpos 1746
+                ypos 933 
+                action ShowMenu('yn_game_menu_selector')
+
+            imagebutton:
+                auto yn_gui_path + 'dialogue_box/' +persistent.timeofday + '/load_%s.png'
+                xpos 1803
+                ypos 933
+                action ShowMenu('yn_load')
 
             if persistent.timeofday == 'sepia':
                 add 'yn_' + persistent.yn_protagonist + '_emote_' + persistent.yn_protagonist_mood + '_sepia':
@@ -1398,7 +1448,7 @@ screen yn_yesno_prompt(yes_action, message, no_action):
         elif persistent.timeofday == 'night':
             color '#161d3d'
 
-        elif persistent.timeofday == 'bw':
+        elif persistent.timeofday == 'sepia':
             color '#000000'
 
         elif persistent.timeofday == 'sunset':
@@ -1470,6 +1520,7 @@ screen yn_text_history():
                     text_style 'yn_text_history' 
                     xpos 100                    
                     xmaximum xmax
+                    text_color '#ffdd7d'
 
                     if persistent.timeofday == 'day':
                         text_hover_color '#40e138'
@@ -1477,8 +1528,8 @@ screen yn_text_history():
                     elif persistent.timeofday == 'night':
                         text_hover_color '#008193'
 
-                    elif persistent.timeofday == 'bw':
-                        text_hover_color '#00c6ff'
+                    elif persistent.timeofday == 'sepia':
+                        text_hover_color '#b7a492'
 
                     elif persistent.timeofday == 'sunset':
                         text_hover_color '#636840'

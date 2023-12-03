@@ -987,7 +987,11 @@ init:
             'yn_slon normal'
             xpos 1230
             ypos 0
-            
+    
+    transform yn_skip_pos():
+        xalign 0.5
+        ypos 900
+
     transform yn_chapter_intro_background_moving():
         zoom 1.4
         anchor(0.5, 0.5)

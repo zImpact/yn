@@ -12,11 +12,14 @@ label yn_start:
     $ persistent.sprite_time = 'day'
     $ persistent.yn_protagonist = 'yana'
     $ persistent.yn_protagonist_mood = 'normal'
-    $ yn_set_null_cursor()
+    #$ yn_set_null_cursor()
+    $ yn_set_main_menu_cursor()
     $ yn_onload('lock')
     $ yn_screens_save_act()
     $ renpy.pause(3, hard = True)
-    scene yn_main_menu_intro with Dissolve(3)
+    scene yn_main_menu_intro
+    show expression renpy.display.behavior.ImageButton(yn_gui_path + '/main_menu/yn_skip_idle.png', yn_gui_path + '/main_menu/yn_skip_hover.png', clicked=[Jump('yn_after_intro')]) at yn_skip_pos
+    with Dissolve(3)
     play sound yn_konami
     $ renpy.pause(2.5, hard = True)
     scene bg black with Dissolve(2)
@@ -37,4 +40,6 @@ label yn_start:
     $ renpy.pause(1, hard = True)
     $ yn_set_main_menu_cursor()
     $ yn_onload('unlock')
-    $ renpy.transition(dissolve)
+
+    label yn_after_intro:
+        $ renpy.transition(dissolve)
