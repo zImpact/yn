@@ -826,10 +826,10 @@ init:
     $ yn_us_sepia = Character('Кузнечик', what_style='yn_text_style', ctc='yn_none', ctc_position='fixed', color='#fbd195', what_color='#fbd195')
     $ yn_yana_sepia = Character('Яна', what_style='yn_text_style', ctc='yn_none', ctc_position='fixed', color='#fbd195', what_color='#fbd195')
 
-    $ yn_screens_list = ['yn_main_menu', 'yn_notes_main_menu', 'yn_preferences_main_menu', 'yn_load_main_menu', 'yn_quit_main_menu', 'yn_preferences', 'yn_save', 
-        'yn_load', 'yn_say', 'yn_nvl', 'yn_game_menu_selector', 'yn_quit', 'yn_yesno_prompt', 'yn_text_history', 'yn_choice', 'yn_help']
+    # $ yn_screens_list = ['yn_main_menu', 'yn_notes_main_menu', 'yn_preferences_main_menu', 'yn_load_main_menu', 'yn_quit_main_menu', 'yn_preferences', 'yn_save', 
+    #     'yn_load', 'yn_say', 'yn_nvl', 'yn_game_menu_selector', 'yn_quit', 'yn_yesno_prompt', 'yn_text_history', 'yn_choice', 'yn_help']
 
-    $ yn_folders_list = ['yana/images/bg*.*', 'yana/images/sprites*.*']
+    # $ yn_folders_list = ['yana/images/bg*.*', 'yana/images/sprites*.*']
 
     $ yn_lines_transition = ImageDissolve('yana/images/gui/misc/yn_lines.jpg', 1.0, 8)
 

@@ -12,7 +12,6 @@ label yn_start:
     $ persistent.sprite_time = 'day'
     $ persistent.yn_protagonist = 'yana'
     $ persistent.yn_protagonist_mood = 'normal'
-    #$ yn_set_null_cursor()
     $ yn_set_main_menu_cursor()
     $ yn_onload('lock')
     $ yn_screens_save_act()
@@ -24,7 +23,6 @@ label yn_start:
     $ renpy.pause(2.5, hard = True)
     scene bg black with Dissolve(2)
     $ renpy.pause(3, hard = True)
-    #$ yn_loading_screen()
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard = True)
     $ renpy.movie_cutscene('yana/images/gui/main_menu/yn_main_menu_intro_start_background.ogv')
