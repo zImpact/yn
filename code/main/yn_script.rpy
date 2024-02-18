@@ -69,8 +69,6 @@ init python:
         layout.LOADING = 'Загрузка приведёт к потере несохранённых данных.\nВы уверены, что хотите сделать это?'
             
         renpy.free_memory()
-        yn_stop_predict_screens()
-        yn_stop_predict_resources()
 
         config.overlay_functions.remove(yn_set_timeofday_cursor)
         config.mouse_displayable = MouseDisplayable('images/misc/mouse/1.png', 0, 0)
