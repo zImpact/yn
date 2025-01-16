@@ -1,2 +1,5 @@
+commands:
+  - "play music"
+
 words:
   - "Пример слова-исключения"
