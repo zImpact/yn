@@ -43,7 +43,7 @@ init:
         "fifth": (571, 692)
     }
 
-    image yn_note_full = "yana/images/mini_games/note_picking/yn_note_full.png"
+    image yn_note_full = "yn/images/mini_games/note_picking/yn_note_full.png"
 
 screen yn_note_picking_minigame():
     modal True
@@ -51,42 +51,42 @@ screen yn_note_picking_minigame():
     draggroup:
         drag:
             drag_name "null"
-            child "yana/images/mini_games/note_picking/yn_note_part0.png"
+            child "yn/images/mini_games/note_picking/yn_note_part0.png"
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[0]
 
         drag:
             drag_name "first"
-            child "yana/images/mini_games/note_picking/yn_note_part1.png"
+            child "yn/images/mini_games/note_picking/yn_note_part1.png"
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[1]
 
         drag:
             drag_name "second"
-            child "yana/images/mini_games/note_picking/yn_note_part2.png"
+            child "yn/images/mini_games/note_picking/yn_note_part2.png"
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[2]
 
         drag:
             drag_name "third"
-            child "yana/images/mini_games/note_picking/yn_note_part3.png"
+            child "yn/images/mini_games/note_picking/yn_note_part3.png"
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[3]
 
         drag:
             drag_name "fourth"
-            child "yana/images/mini_games/note_picking/yn_note_part4.png"
+            child "yn/images/mini_games/note_picking/yn_note_part4.png"
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[4]
 
         drag:
             drag_name "fifth"
-            child "yana/images/mini_games/note_picking/yn_note_part5.png"
+            child "yn/images/mini_games/note_picking/yn_note_part5.png"
             droppable False
             dragged yn_note_picking_piece_dragged
             pos yn_note_picking_start_positions[5]

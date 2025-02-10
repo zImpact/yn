@@ -1,8 +1,8 @@
 init python:
-    mods['yn_start'] = u'{font=yana/images/gui/fonts/ljk_streamster.otf}{size=70} Яна{/font}{/size}'
+    mods['yn_start'] = u'{font=yn/images/gui/fonts/ljk_streamster.otf}{size=70} Яна{/font}{/size}'
 
     try:
-        modsImages['yn_start'] = ('yana/images/gui/misc/yn_tabular_list_preview.png', False)
+        modsImages['yn_start'] = ('yn/images/gui/misc/yn_tabular_list_preview.png', False)
 
     except:
         pass 
@@ -25,7 +25,7 @@ label yn_start:
     $ renpy.pause(3, hard = True)
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard = True)
-    $ renpy.movie_cutscene('yana/images/gui/main_menu/yn_main_menu_intro_start_background.ogv')
+    $ renpy.movie_cutscene('yn/images/gui/main_menu/yn_main_menu_intro_start_background.ogv')
     scene yn_main_menu_background_full
     $ renpy.pause(0.5, hard = True)
     scene yn_main_menu_background_full:

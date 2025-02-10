@@ -1,5 +1,5 @@
 init python:
-    yn_gui_path = 'yana/images/gui/'
+    yn_gui_path = 'yn/images/gui/'
     yn_link_font = yn_gui_path + 'fonts/gothic.ttf'
     yn_header_font = yn_gui_path + 'fonts/corbel.ttf'
     yn_main_font = 'fonts/calibri.ttf'

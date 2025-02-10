@@ -18,19 +18,19 @@ init python:
 
     class Karta(object):#======================== КЛАСС КАРТ =======================================
         __slots__ ="num","img"
-        def __init__(self,num=0,img="yana/images/mini_games/durak/0.png",suit=1):
+        def __init__(self,num=0,img="yn/images/mini_games/durak/0.png",suit=1):
             self.num=num   #НОМЕР
             self.img=img   #КАРТИНКА
             self.suit=suit #МАСТЬ
 
-    base_koloda_durak36=[Karta(6,"yana/images/mini_games/durak/106.jpg",1),Karta(7,"yana/images/mini_games/durak/107.jpg",1),Karta(8,"yana/images/mini_games/durak/108.jpg",1),Karta(9,"yana/images/mini_games/durak/109.jpg",1),
-        Karta(10,"yana/images/mini_games/durak/110.jpg",1),Karta(11,"yana/images/mini_games/durak/110a.jpg",1),Karta(12,"yana/images/mini_games/durak/110b.jpg",1),Karta(13,"yana/images/mini_games/durak/110c.jpg",1),Karta(14,"yana/images/mini_games/durak/111.jpg",1),
-        Karta(6,"yana/images/mini_games/durak/206.jpg",2),Karta(7,"yana/images/mini_games/durak/207.jpg",2),Karta(8,"yana/images/mini_games/durak/208.jpg",2),Karta(9,"yana/images/mini_games/durak/209.jpg",2),
-        Karta(10,"yana/images/mini_games/durak/210.jpg",2),Karta(11,"yana/images/mini_games/durak/210a.jpg",2),Karta(12,"yana/images/mini_games/durak/210b.jpg",2),Karta(13,"yana/images/mini_games/durak/210c.jpg",2),Karta(14,"yana/images/mini_games/durak/211.jpg",2),
-        Karta(6,"yana/images/mini_games/durak/306.jpg",3),Karta(7,"yana/images/mini_games/durak/307.jpg",3),Karta(8,"yana/images/mini_games/durak/308.jpg",3),Karta(9,"yana/images/mini_games/durak/309.jpg",3),
-        Karta(10,"yana/images/mini_games/durak/310.jpg",3),Karta(11,"yana/images/mini_games/durak/310a.jpg",3),Karta(12,"yana/images/mini_games/durak/310b.jpg",3),Karta(13,"yana/images/mini_games/durak/310c.jpg",3),Karta(14,"yana/images/mini_games/durak/311.jpg",3),
-        Karta(6,"yana/images/mini_games/durak/406.jpg",4),Karta(7,"yana/images/mini_games/durak/407.jpg",4),Karta(8,"yana/images/mini_games/durak/408.jpg",4),Karta(9,"yana/images/mini_games/durak/409.jpg",4),
-        Karta(10,"yana/images/mini_games/durak/410.jpg",4),Karta(11,"yana/images/mini_games/durak/410a.jpg",4),Karta(12,"yana/images/mini_games/durak/410b.jpg",4),Karta(13,"yana/images/mini_games/durak/410c.jpg",4),Karta(14,"yana/images/mini_games/durak/411.jpg",4)]
+    base_koloda_durak36=[Karta(6,"yn/images/mini_games/durak/106.jpg",1),Karta(7,"yn/images/mini_games/durak/107.jpg",1),Karta(8,"yn/images/mini_games/durak/108.jpg",1),Karta(9,"yn/images/mini_games/durak/109.jpg",1),
+        Karta(10,"yn/images/mini_games/durak/110.jpg",1),Karta(11,"yn/images/mini_games/durak/110a.jpg",1),Karta(12,"yn/images/mini_games/durak/110b.jpg",1),Karta(13,"yn/images/mini_games/durak/110c.jpg",1),Karta(14,"yn/images/mini_games/durak/111.jpg",1),
+        Karta(6,"yn/images/mini_games/durak/206.jpg",2),Karta(7,"yn/images/mini_games/durak/207.jpg",2),Karta(8,"yn/images/mini_games/durak/208.jpg",2),Karta(9,"yn/images/mini_games/durak/209.jpg",2),
+        Karta(10,"yn/images/mini_games/durak/210.jpg",2),Karta(11,"yn/images/mini_games/durak/210a.jpg",2),Karta(12,"yn/images/mini_games/durak/210b.jpg",2),Karta(13,"yn/images/mini_games/durak/210c.jpg",2),Karta(14,"yn/images/mini_games/durak/211.jpg",2),
+        Karta(6,"yn/images/mini_games/durak/306.jpg",3),Karta(7,"yn/images/mini_games/durak/307.jpg",3),Karta(8,"yn/images/mini_games/durak/308.jpg",3),Karta(9,"yn/images/mini_games/durak/309.jpg",3),
+        Karta(10,"yn/images/mini_games/durak/310.jpg",3),Karta(11,"yn/images/mini_games/durak/310a.jpg",3),Karta(12,"yn/images/mini_games/durak/310b.jpg",3),Karta(13,"yn/images/mini_games/durak/310c.jpg",3),Karta(14,"yn/images/mini_games/durak/311.jpg",3),
+        Karta(6,"yn/images/mini_games/durak/406.jpg",4),Karta(7,"yn/images/mini_games/durak/407.jpg",4),Karta(8,"yn/images/mini_games/durak/408.jpg",4),Karta(9,"yn/images/mini_games/durak/409.jpg",4),
+        Karta(10,"yn/images/mini_games/durak/410.jpg",4),Karta(11,"yn/images/mini_games/durak/410a.jpg",4),Karta(12,"yn/images/mini_games/durak/410b.jpg",4),Karta(13,"yn/images/mini_games/durak/410c.jpg",4),Karta(14,"yn/images/mini_games/durak/411.jpg",4)]
 
     def playdurak(kolodatip=52):#============================== ЗАПУСКАЮЩАЯ ИГРУ ФУНКЦИЯ ==============================
         global quick_menu
@@ -44,8 +44,8 @@ init python:
         iwin21=0
         atkcards=[]
         defcards=[]
-        zerocard=Karta(0,"yana/images/mini_games/durak/0.png")
-        zerocardkrb=Karta(0,"yana/images/mini_games/durak/k.jpg")
+        zerocard=Karta(0,"yn/images/mini_games/durak/0.png")
+        zerocardkrb=Karta(0,"yn/images/mini_games/durak/k.jpg")
         if kolodatip is 52:
             koloda52=deepcopy(base_koloda_durak)
         elif kolodatip is 36:
@@ -201,7 +201,7 @@ screen key_off():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     use key_off
 
-    add"yana/images/mini_games/durak/tb.png"
+    add"yn/images/mini_games/durak/tb.png"
 
     textbutton ['Сдаться']:
         align(.8, .5)
@@ -213,7 +213,7 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         if len(koloda52)>1:
             if koloda52:
                 add koloda52[0].img align(0.,.5) at zomrot(.7,90)
-            add"yana/images/mini_games/durak/s.png"align(0.,.5)at zomzom(.7)
+            add"yn/images/mini_games/durak/s.png"align(0.,.5)at zomzom(.7)
         if cpu_walk:
             if len(atkcards):
                 textbutton ["Забрать"]:
@@ -229,7 +229,7 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             hbox xpos.142 yalign.502:#--------------ЗАЩИЩАЮЩИЕСЯ КАРТЫ
                 spacing 3
                 for i in defcards:
-                    add"yana/images/mini_games/durak/shadow.png"at zomzom(.7)
+                    add"yn/images/mini_games/durak/shadow.png"at zomzom(.7)
             hbox xpos.14 yalign.5:#--------------ЗАЩИЩАЮЩИЕСЯ КАРТЫ
                 spacing 3
                 for i in defcards:
@@ -248,7 +248,7 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             hbox xpos.152 yalign.402:#--------------ЗАЩИЩАЮЩИЕСЯ КАРТЫ
                 spacing 3
                 for i in defcards:
-                    add"yana/images/mini_games/durak/shadow.png"at zomzom(.7)
+                    add"yn/images/mini_games/durak/shadow.png"at zomzom(.7)
             hbox xpos.15 yalign.4:#--------------ЗАЩИЩАЮЩИЕСЯ КАРТЫ
                 spacing 3
                 for i in defcards:
@@ -256,7 +256,7 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         hbox align(.5,0.):#-------------------КАРТЫ В РУКАХ ИИ
             spacing 3
             for i in cpucards:
-                add"yana/images/mini_games/durak/k.jpg"at zomzom(.7)#"yana/images/mini_games/durak/k.jpg"
+                add"yn/images/mini_games/durak/k.jpg"at zomzom(.7)#"yn/images/mini_games/durak/k.jpg"
         hbox align(.5,1.):#------------------КАРТЫ В РУКАХ ИГРОКА
             spacing 3
             for n,i in enumerate(playercards):

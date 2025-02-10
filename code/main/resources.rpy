@@ -735,17 +735,17 @@ init:
 
     image yn_titles_final = ParameterizedText(style='yn_titles_style', size=40, xalign=0.5)
 
-    image yn_int_library_sunset_rain = 'yana/images/bg/yn_rain_library/yn_int_library_sunset_rain.png'
-    image yn_curtains = 'yana/images/bg/yn_rain_library/yn_curtains.png'
-    image yn_forest = 'yana/images/bg/yn_rain_library/yn_forest.png'
-    image yn_glass = 'yana/images/bg/yn_rain_library/yn_glass.png'
+    image yn_int_library_sunset_rain = 'yn/images/bg/yn_rain_library/yn_int_library_sunset_rain.png'
+    image yn_curtains = 'yn/images/bg/yn_rain_library/yn_curtains.png'
+    image yn_forest = 'yn/images/bg/yn_rain_library/yn_forest.png'
+    image yn_glass = 'yn/images/bg/yn_rain_library/yn_glass.png'
 
     image yn_rain_anim:
-        'yana/images/bg/yn_rain_library/yn_rain_1.png'
+        'yn/images/bg/yn_rain_library/yn_rain_1.png'
         0.1
-        'yana/images/bg/yn_rain_library/yn_rain_2.png'
+        'yn/images/bg/yn_rain_library/yn_rain_2.png'
         0.1
-        'yana/images/bg/yn_rain_library/yn_rain_3.png'
+        'yn/images/bg/yn_rain_library/yn_rain_3.png'
         0.1
         repeat
 
@@ -838,24 +838,24 @@ init:
     # $ yn_screens_list = ['yn_main_menu', 'yn_notes_main_menu', 'yn_preferences_main_menu', 'yn_load_main_menu', 'yn_quit_main_menu', 'yn_preferences', 'yn_save', 
     #     'yn_load', 'yn_say', 'yn_nvl', 'yn_game_menu_selector', 'yn_quit', 'yn_yesno_prompt', 'yn_text_history', 'yn_choice', 'yn_help']
 
-    # $ yn_folders_list = ['yana/images/bg*.*', 'yana/images/sprites*.*']
+    # $ yn_folders_list = ['yn/images/bg*.*', 'yn/images/sprites*.*']
 
-    $ yn_lines_transition = ImageDissolve('yana/images/gui/misc/yn_lines.jpg', 1.0, 8)
+    $ yn_lines_transition = ImageDissolve('yn/images/gui/misc/yn_lines.jpg', 1.0, 8)
 
-    $ yn_timeskip = ImageDissolve('yana/images/gui/misc/yn_timeskip.png', 1.0, ramplen=0, reverse=False, alpha=True)
+    $ yn_timeskip = ImageDissolve('yn/images/gui/misc/yn_timeskip.png', 1.0, ramplen=0, reverse=False, alpha=True)
 
-    image yn_epilogue_intro_text = 'yana/images/gui/misc/yn_epilogue_intro_text.png'
+    image yn_epilogue_intro_text = 'yn/images/gui/misc/yn_epilogue_intro_text.png'
 
-    image yn_dusts = YnDustParticles('yana/images/gui/misc/yn_dust_particle.png')
+    image yn_dusts = YnDustParticles('yn/images/gui/misc/yn_dust_particle.png')
 
-    image bg yn_table = 'yana/images/mini_games/durak/tb.png'
+    image bg yn_table = 'yn/images/mini_games/durak/tb.png'
 
-    image bg yn_ext_square_lenin_night_party_blurred = im.Blur('yana/images/bg/yn_ext_square_lenin_night_party.png', 2)
-    image bg yn_ext_square_lenin_day_blurred = im.Blur('yana/images/bg/yn_ext_square_lenin_day.png', 2)
-    image bg yn_int_dining_hall_people_sunset_blurred = im.Blur('yana/images/bg/yn_int_dining_hall_people_sunset.png', 2)
-    image bg yn_int_theatreclub_day_blurred = im.Blur('yana/images/bg/yn_int_theatreclub_day.png', 2)
-    image bg yn_int_yana_room_blurred = im.Blur('yana/images/bg/yn_int_yana_room.png', 1)
-    image bg yn_ext_busstop_summer_blurred = im.Blur('yana/images/bg/yn_ext_busstop_summer.png', 2)
+    image bg yn_ext_square_lenin_night_party_blurred = im.Blur('yn/images/bg/yn_ext_square_lenin_night_party.png', 2)
+    image bg yn_ext_square_lenin_day_blurred = im.Blur('yn/images/bg/yn_ext_square_lenin_day.png', 2)
+    image bg yn_int_dining_hall_people_sunset_blurred = im.Blur('yn/images/bg/yn_int_dining_hall_people_sunset.png', 2)
+    image bg yn_int_theatreclub_day_blurred = im.Blur('yn/images/bg/yn_int_theatreclub_day.png', 2)
+    image bg yn_int_yana_room_blurred = im.Blur('yn/images/bg/yn_int_yana_room.png', 1)
+    image bg yn_ext_busstop_summer_blurred = im.Blur('yn/images/bg/yn_ext_busstop_summer.png', 2)
     image bg yn_int_dining_hall_people_day_blurred = im.Blur('images/bg/int_dining_hall_people_day.jpg', 2)
     image bg yn_ext_camp_entrance_day_blurred = im.Blur('images/bg/ext_camp_entrance_day.jpg', 2)
     image bg yn_ext_beach_day_blurred = im.Blur('images/bg/ext_beach_day.jpg', 2)
@@ -863,11 +863,11 @@ init:
     image bg yn_ext_beach_sunset_blurred = im.Blur('images/bg/ext_beach_sunset.jpg', 2)
     image bg yn_int_old_building_night_blurred = im.Blur('images/bg/int_old_building_night.jpg', 2)
 
-    image yn_int_old_building_wall = 'yana/images/bg/yn_wall/yn_int_old_building_wall.png'
-    image yn_int_old_building_wall_yana_name = 'yana/images/bg/yn_wall/yn_int_old_building_wall_yana_name.png'
+    image yn_int_old_building_wall = 'yn/images/bg/yn_wall/yn_int_old_building_wall.png'
+    image yn_int_old_building_wall_yana_name = 'yn/images/bg/yn_wall/yn_int_old_building_wall_yana_name.png'
 
-    image yn_static_noise_anim = yn_frame_animation('yana/images/bg/yn_static_noise_anim/yn_static_noise', 5, 0.2, True, Dissolve(0.2))
-    image yn_interferences_anim = yn_frame_animation('yana/images/bg/yn_interferences_anim/yn_interferences', 3, 0.2, True, Dissolve(0.2))
+    image yn_static_noise_anim = yn_frame_animation('yn/images/bg/yn_static_noise_anim/yn_static_noise', 5, 0.2, True, Dissolve(0.2))
+    image yn_interferences_anim = yn_frame_animation('yn/images/bg/yn_interferences_anim/yn_interferences', 3, 0.2, True, Dissolve(0.2))
 
     if persistent.yn_notes_variables == None:
         $ persistent.yn_notes_variables = {
