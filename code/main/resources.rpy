@@ -2,25 +2,34 @@ init python:
     import time
     from os import path
 
+    yn_mod_name = "yn"
+    yn_prefix = yn_mod_name + "_"
+
     for file_name in renpy.list_files():
-        if 'yana' in file_name:
+        if yn_mod_name in file_name:
             file_path = path.splitext(path.basename(file_name))[0]
 
-            if file_name.startswith('yana/images/bg/'):
+            if file_name.startswith(yn_mod_name + '/images/bg/'):
+                bg_name = "bg " + yn_prefix + file_path
+
                 if file_name.endswith('.ogv'):
-                    renpy.image('bg ' + file_path, Movie(fps=45, play=file_name))
+                    renpy.image(bg_name, Movie(fps=45, play=file_name))
 
                 else:
-                    renpy.image('bg ' + file_path, file_name)
+                    renpy.image(bg_name, file_name)
 
-            elif file_name.startswith('yana/images/gui/'):
-                renpy.image(file_path, file_name)
+            elif file_name.startswith(yn_mod_name + '/images/sprites/'):
+                renpy.image(
+                    yn_prefix + file_path,
+                    ConditionSwitch(
+                        'persistent.sprite_time=="sunset"', im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)),
+                        'persistent.sprite_time=="night"', im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)),
+                        True, file_name
+                    )
+                )
 
-            elif file_name.startswith('yana/images/sprites/'):
-                renpy.image(file_path, ConditionSwitch('persistent.sprite_time=="sunset"', im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)), 'persistent.sprite_time=="night"', im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), True, file_name))
-
-            elif file_name.startswith('yana/sounds/'):
-                globals()[file_path] = file_name
+            elif file_name.startswith(yn_mod_name + '/sounds/'):
+                globals()[yn_prefix + file_path] = file_name
 
     yn_std_set_for_preview = {}
     yn_std_set = {}
