@@ -9,26 +9,26 @@ init python:
         if yn_mod_name in file_name:
             file_path = path.splitext(path.basename(file_name))[0]
 
-            if file_name.startswith(yn_mod_name + '/images/bg/'):
+            if file_name.startswith(yn_mod_name + "/images/bg/"):
                 bg_name = "bg " + yn_prefix + file_path
 
-                if file_name.endswith('.ogv'):
+                if file_name.endswith(".ogv"):
                     renpy.image(bg_name, Movie(fps=45, play=file_name))
 
                 else:
                     renpy.image(bg_name, file_name)
 
-            elif file_name.startswith(yn_mod_name + '/images/sprites/'):
+            elif file_name.startswith(yn_mod_name + "/images/sprites/"):
                 renpy.image(
                     yn_prefix + file_path,
                     ConditionSwitch(
-                        'persistent.sprite_time=="sunset"', im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)),
-                        'persistent.sprite_time=="night"', im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)),
+                        "persistent.sprite_time=="sunset"", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)),
+                        "persistent.sprite_time=="night"", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)),
                         True, file_name
                     )
                 )
 
-            elif file_name.startswith(yn_mod_name + '/sounds/'):
+            elif file_name.startswith(yn_mod_name + "/sounds/"):
                 globals()[yn_prefix + file_path] = file_name
 
     yn_std_set_for_preview = {}
@@ -36,219 +36,219 @@ init python:
     store.yn_colors = {}
     store.yn_names = {}
     store.yn_names_list = []
-    yn_speaker_color = 'speaker_color'
+    yn_speaker_color = "speaker_color"
 
-    store.yn_names_list.append('yn_narrator')
+    store.yn_names_list.append("yn_narrator")
 
-    store.yn_names_list.append('yn_th')
+    store.yn_names_list.append("yn_th")
 
-    yn_colors['yn_mom'] = {'speaker_color': '#FFC0CB'} 
-    yn_names['yn_mom'] = 'Мама'
-    store.yn_names_list.append('yn_mom')
+    yn_colors["yn_mom"] = {"speaker_color": "#FFC0CB"} 
+    yn_names["yn_mom"] = "Мама"
+    store.yn_names_list.append("yn_mom")
 
-    yn_colors['yn_dad'] = {'speaker_color': '#CD5C5C'}
-    yn_names['yn_dad'] = 'Папа'
-    store.yn_names_list.append('yn_dad')
+    yn_colors["yn_dad"] = {"speaker_color": "#CD5C5C"}
+    yn_names["yn_dad"] = "Папа"
+    store.yn_names_list.append("yn_dad")
 
-    yn_colors['yn_yana'] = {'speaker_color': '#ff852a'}
-    yn_names['yn_yana'] = 'Яна'
-    store.yn_names_list.append('yn_yana')
+    yn_colors["yn_yana"] = {"speaker_color": "#ff852a"}
+    yn_names["yn_yana"] = "Яна"
+    store.yn_names_list.append("yn_yana")
 
-    yn_colors['yn_yana_lizard'] = {'speaker_color': '#ff852a'}
-    yn_names['yn_yana_lizard'] = 'Ящерица'
-    store.yn_names_list.append('yn_yana_lizard')
+    yn_colors["yn_yana_lizard"] = {"speaker_color": "#ff852a"}
+    yn_names["yn_yana_lizard"] = "Ящерица"
+    store.yn_names_list.append("yn_yana_lizard")
 
-    yn_colors['yn_mi_cyanic'] = {'speaker_color': '#00b4cf'}
-    yn_names['yn_mi_cyanic'] = 'Циановая'
-    store.yn_names_list.append('yn_mi_cyanic')
+    yn_colors["yn_mi_cyanic"] = {"speaker_color": "#00b4cf"}
+    yn_names["yn_mi_cyanic"] = "Циановая"
+    store.yn_names_list.append("yn_mi_cyanic")
 
-    yn_colors['yn_mi'] = {'speaker_color': '#00b4cf'}
-    yn_names['yn_mi'] = 'Мику'
-    store.yn_names_list.append('yn_mi')
+    yn_colors["yn_mi"] = {"speaker_color": "#00b4cf"}
+    yn_names["yn_mi"] = "Мику"
+    store.yn_names_list.append("yn_mi")
 
-    yn_colors['yn_cs_hw'] = {'speaker_color': '#8686e6'}
-    yn_names['yn_cs_hw'] = 'Медработник'
-    store.yn_names_list.append('yn_cs_hw')
+    yn_colors["yn_cs_hw"] = {"speaker_color": "#8686e6"}
+    yn_names["yn_cs_hw"] = "Медработник"
+    store.yn_names_list.append("yn_cs_hw")
 
-    yn_colors['yn_cs'] = {'speaker_color': '#8686e6'}
-    yn_names['yn_cs'] = 'Виолетта'
-    store.yn_names_list.append('yn_cs')
+    yn_colors["yn_cs"] = {"speaker_color": "#8686e6"}
+    yn_names["yn_cs"] = "Виолетта"
+    store.yn_names_list.append("yn_cs")
 
-    yn_colors['yn_mz'] = {'speaker_color': '#4a86ff'}
-    yn_names['yn_mz'] = 'Женя'
-    store.yn_names_list.append('yn_mz')
+    yn_colors["yn_mz"] = {"speaker_color": "#4a86ff"}
+    yn_names["yn_mz"] = "Женя"
+    store.yn_names_list.append("yn_mz")
 
-    yn_colors['yn_sl_blonde'] = {'speaker_color': '#ffd200'}
-    yn_names['yn_sl_blonde'] = 'Блондинка'
-    store.yn_names_list.append('yn_sl_blonde')
+    yn_colors["yn_sl_blonde"] = {"speaker_color": "#ffd200"}
+    yn_names["yn_sl_blonde"] = "Блондинка"
+    store.yn_names_list.append("yn_sl_blonde")
 
-    yn_colors['yn_sl'] = {'speaker_color': '#ffd200'}
-    yn_names['yn_sl'] = 'Славяна'
-    store.yn_names_list.append('yn_sl')
+    yn_colors["yn_sl"] = {"speaker_color": "#ffd200"}
+    yn_names["yn_sl"] = "Славяна"
+    store.yn_names_list.append("yn_sl")
 
-    yn_colors['yn_mt'] = {'speaker_color': '#00ea32'}
-    yn_names['yn_mt'] = 'Ольга'
-    store.yn_names_list.append('yn_mt')
+    yn_colors["yn_mt"] = {"speaker_color": "#00ea32"}
+    yn_names["yn_mt"] = "Ольга"
+    store.yn_names_list.append("yn_mt")
 
-    yn_colors['yn_us_girl'] = {'speaker_color': '#ff3200'}
-    yn_names['yn_us_girl'] = 'Девчушка'
-    store.yn_names_list.append('yn_us_girl')
+    yn_colors["yn_us_girl"] = {"speaker_color": "#ff3200"}
+    yn_names["yn_us_girl"] = "Девчушка"
+    store.yn_names_list.append("yn_us_girl")
 
-    yn_colors['yn_us'] = {'speaker_color': '#ff3200'}
-    yn_names['yn_us'] = 'Кузнечик'
-    store.yn_names_list.append('yn_us')
+    yn_colors["yn_us"] = {"speaker_color": "#ff3200"}
+    yn_names["yn_us"] = "Кузнечик"
+    store.yn_names_list.append("yn_us")
 
-    yn_colors['yn_us_voice'] = {'speaker_color': '#ff3200'}
-    yn_names['yn_us_voice'] = 'Женский голос'
-    store.yn_names_list.append('yn_us_voice')
+    yn_colors["yn_us_voice"] = {"speaker_color": "#ff3200"}
+    yn_names["yn_us_voice"] = "Женский голос"
+    store.yn_names_list.append("yn_us_voice")
 
-    yn_colors['yn_us_ulya'] = {'speaker_color': '#ff3200'}
-    yn_names['yn_us_ulya'] = 'Ульяна'
-    store.yn_names_list.append('yn_us_ulya')
+    yn_colors["yn_us_ulya"] = {"speaker_color": "#ff3200"}
+    yn_names["yn_us_ulya"] = "Ульяна"
+    store.yn_names_list.append("yn_us_ulya")
 
-    yn_colors['yn_us_sova'] = {'speaker_color': '#ff3200'}
-    yn_names['yn_us_sova'] = '{s}Ульяна{/s} Сова'
-    store.yn_names_list.append('yn_us_sova')
+    yn_colors["yn_us_sova"] = {"speaker_color": "#ff3200"}
+    yn_names["yn_us_sova"] = "{s}Ульяна{/s} Сова"
+    store.yn_names_list.append("yn_us_sova")
 
-    yn_colors['yn_us_gh'] = {'speaker_color': '#ff3200'}
-    yn_names['yn_us_gh'] = '{s}Сова{/s} Кузнечик'
-    store.yn_names_list.append('yn_us_gh')
+    yn_colors["yn_us_gh"] = {"speaker_color": "#ff3200"}
+    yn_names["yn_us_gh"] = "{s}Сова{/s} Кузнечик"
+    store.yn_names_list.append("yn_us_gh")
 
-    yn_colors['yn_haer'] = {'speaker_color': '#004979'}
-    yn_names['yn_haer'] = 'Хаер'
-    store.yn_names_list.append('yn_haer')
+    yn_colors["yn_haer"] = {"speaker_color": "#004979"}
+    yn_names["yn_haer"] = "Хаер"
+    store.yn_names_list.append("yn_haer")
 
-    yn_colors['yn_kot'] = {'speaker_color': '#efbf88'}
-    yn_names['yn_kot'] = 'Кот'
-    store.yn_names_list.append('yn_kot')
+    yn_colors["yn_kot"] = {"speaker_color": "#efbf88"}
+    yn_names["yn_kot"] = "Кот"
+    store.yn_names_list.append("yn_kot")
 
-    yn_colors['yn_kras'] = {'speaker_color': '#b4151a'}
-    yn_names['yn_kras'] = 'Красавица'
-    store.yn_names_list.append('yn_kras')
+    yn_colors["yn_kras"] = {"speaker_color": "#b4151a"}
+    yn_names["yn_kras"] = "Красавица"
+    store.yn_names_list.append("yn_kras")
 
-    yn_colors['yn_slon_plump'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon_plump'] = 'Полноватый'
-    store.yn_names_list.append('yn_slon_plump')
+    yn_colors["yn_slon_plump"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon_plump"] = "Полноватый"
+    store.yn_names_list.append("yn_slon_plump")
 
-    yn_colors['yn_slon'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon'] = 'Слон'
-    store.yn_names_list.append('yn_slon')
+    yn_colors["yn_slon"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon"] = "Слон"
+    store.yn_names_list.append("yn_slon")
 
-    yn_colors['yn_slon_willpower'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon_willpower'] = 'Сила воли'
-    store.yn_names_list.append('yn_slon_willpower')
+    yn_colors["yn_slon_willpower"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon_willpower"] = "Сила воли"
+    store.yn_names_list.append("yn_slon_willpower")
 
-    yn_colors['yn_slon_laziness'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon_laziness'] = 'Лень'
-    store.yn_names_list.append('yn_slon_laziness')
+    yn_colors["yn_slon_laziness"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon_laziness"] = "Лень"
+    store.yn_names_list.append("yn_slon_laziness")
 
-    yn_colors['yn_slon_irritability'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon_irritability'] = 'Раздражительность'
-    store.yn_names_list.append('yn_slon_irritability')
+    yn_colors["yn_slon_irritability"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon_irritability"] = "Раздражительность"
+    store.yn_names_list.append("yn_slon_irritability")
 
-    yn_colors['yn_slon_unrest'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon_unrest'] = 'Переживания'
-    store.yn_names_list.append('yn_slon_unrest')
+    yn_colors["yn_slon_unrest"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon_unrest"] = "Переживания"
+    store.yn_names_list.append("yn_slon_unrest")
 
-    yn_colors['yn_slon_friendliness'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon_friendliness'] = 'Дружелюбие'
-    store.yn_names_list.append('yn_slon_friendliness')
+    yn_colors["yn_slon_friendliness"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon_friendliness"] = "Дружелюбие"
+    store.yn_names_list.append("yn_slon_friendliness")
 
-    yn_colors['yn_slon_instincts'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon_instincts'] = 'Инстинкты'
-    store.yn_names_list.append('yn_slon_instincts')
+    yn_colors["yn_slon_instincts"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon_instincts"] = "Инстинкты"
+    store.yn_names_list.append("yn_slon_instincts")
 
-    yn_colors['yn_slon_spontaneity'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon_spontaneity'] = 'Спонтанность'
-    store.yn_names_list.append('yn_slon_spontaneity')
+    yn_colors["yn_slon_spontaneity"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon_spontaneity"] = "Спонтанность"
+    store.yn_names_list.append("yn_slon_spontaneity")
 
-    yn_colors['yn_slon_observations'] = {'speaker_color': '#7c7b7b'}
-    yn_names['yn_slon_observations'] = 'Наблюдения'
-    store.yn_names_list.append('yn_slon_observations')
+    yn_colors["yn_slon_observations"] = {"speaker_color": "#7c7b7b"}
+    yn_names["yn_slon_observations"] = "Наблюдения"
+    store.yn_names_list.append("yn_slon_observations")
 
-    yn_colors['yn_sh'] = {'speaker_color': '#fff226'}
-    yn_names['yn_sh'] = 'Шурик'
-    store.yn_names_list.append('yn_sh')
+    yn_colors["yn_sh"] = {"speaker_color": "#fff226"}
+    yn_names["yn_sh"] = "Шурик"
+    store.yn_names_list.append("yn_sh")
 
-    yn_colors['yn_el'] = {'speaker_color': '#fff226'}
-    yn_names['yn_el'] = 'Электроник'
-    store.yn_names_list.append('yn_el')
+    yn_colors["yn_el"] = {"speaker_color": "#fff226"}
+    yn_names["yn_el"] = "Электроник"
+    store.yn_names_list.append("yn_el")
 
-    yn_colors['yn_erika'] = {'speaker_color': '#efe2d9'}
-    yn_names['yn_erika'] = 'Эрика'
-    store.yn_names_list.append('yn_erika')
+    yn_colors["yn_erika"] = {"speaker_color": "#efe2d9"}
+    yn_names["yn_erika"] = "Эрика"
+    store.yn_names_list.append("yn_erika")
 
-    yn_colors['yn_erika_bright'] = {'speaker_color': '#efe2d9'}
-    yn_names['yn_erika_bright'] = 'Светловолосая'
-    store.yn_names_list.append('yn_erika_bright')
+    yn_colors["yn_erika_bright"] = {"speaker_color": "#efe2d9"}
+    yn_names["yn_erika_bright"] = "Светловолосая"
+    store.yn_names_list.append("yn_erika_bright")
 
-    yn_colors['yn_un'] = {'speaker_color': '#aa64d9'}
-    yn_names['yn_un'] = 'Лена'
-    store.yn_names_list.append('yn_un')
+    yn_colors["yn_un"] = {"speaker_color": "#aa64d9"}
+    yn_names["yn_un"] = "Лена"
+    store.yn_names_list.append("yn_un")
 
-    yn_colors['yn_dv'] = {'speaker_color': '#ffaa00'}
-    yn_names['yn_dv'] = 'Мельпа'
-    store.yn_names_list.append('yn_dv')
+    yn_colors["yn_dv"] = {"speaker_color": "#ffaa00"}
+    yn_names["yn_dv"] = "Мельпа"
+    store.yn_names_list.append("yn_dv")
 
-    yn_colors['yn_dv_alice'] = {'speaker_color': '#ffaa00'}
-    yn_names['yn_dv_alice'] = 'Алиса'
-    store.yn_names_list.append('yn_dv_alice')
+    yn_colors["yn_dv_alice"] = {"speaker_color": "#ffaa00"}
+    yn_names["yn_dv_alice"] = "Алиса"
+    store.yn_names_list.append("yn_dv_alice")
 
-    yn_colors['yn_dv_dvach'] = {'speaker_color': '#ffaa00'}
-    yn_names['yn_dv_dvach'] = 'Двачевская'
-    store.yn_names_list.append('yn_dv_dvach')
+    yn_colors["yn_dv_dvach"] = {"speaker_color": "#ffaa00"}
+    yn_names["yn_dv_dvach"] = "Двачевская"
+    store.yn_names_list.append("yn_dv_dvach")
 
-    yn_colors['yn_dv_melpa'] = {'speaker_color': '#ffaa00'}
-    yn_names['yn_dv_melpa'] = '{s}Алиса{/s} Мельпа'
-    store.yn_names_list.append('yn_dv_melpa')
+    yn_colors["yn_dv_melpa"] = {"speaker_color": "#ffaa00"}
+    yn_names["yn_dv_melpa"] = "{s}Алиса{/s} Мельпа"
+    store.yn_names_list.append("yn_dv_melpa")
 
-    yn_colors['yn_jurn_girl'] = {'speaker_color': '#45933f'}
-    yn_names['yn_jurn_girl'] = 'Девушка в берете'
-    store.yn_names_list.append('yn_jurn_girl')
+    yn_colors["yn_jurn_girl"] = {"speaker_color": "#45933f"}
+    yn_names["yn_jurn_girl"] = "Девушка в берете"
+    store.yn_names_list.append("yn_jurn_girl")
 
-    yn_colors['yn_jurn_voice'] = {'speaker_color': '#45933f'}
-    yn_names['yn_jurn_voice'] = 'Голос из динамика'
-    store.yn_names_list.append('yn_jurn_voice')
+    yn_colors["yn_jurn_voice"] = {"speaker_color": "#45933f"}
+    yn_names["yn_jurn_voice"] = "Голос из динамика"
+    store.yn_names_list.append("yn_jurn_voice")
 
-    yn_colors['yn_jurn'] = {'speaker_color': '#45933f'}
-    yn_names['yn_jurn'] = 'Журналистка'
-    store.yn_names_list.append('yn_jurn')
+    yn_colors["yn_jurn"] = {"speaker_color": "#45933f"}
+    yn_names["yn_jurn"] = "Журналистка"
+    store.yn_names_list.append("yn_jurn")
 
-    yn_colors['yn_san'] = {'speaker_color': '#466d7b'}
-    yn_names['yn_san'] = 'Физрук'
-    store.yn_names_list.append('yn_san')
+    yn_colors["yn_san"] = {"speaker_color": "#466d7b"}
+    yn_names["yn_san"] = "Физрук"
+    store.yn_names_list.append("yn_san")
 
-    # yn_colors['yn_kris'] = {'speaker_color': '#aa64d9'}
-    # yn_names['yn_kris'] = 'Кристина'
-    # store.yn_names_list.append('yn_kris')
+    # yn_colors["yn_kris"] = {"speaker_color": "#aa64d9"}
+    # yn_names["yn_kris"] = "Кристина"
+    # store.yn_names_list.append("yn_kris")
 
-    yn_colors['yn_wuk'] = {'speaker_color': '#c33736'}
-    yn_names['yn_wuk'] = 'Ёж'
-    store.yn_names_list.append('yn_wuk')
+    yn_colors["yn_wuk"] = {"speaker_color": "#c33736"}
+    yn_names["yn_wuk"] = "Ёж"
+    store.yn_names_list.append("yn_wuk")
 
-    yn_colors['yn_skaz'] = {'speaker_color': '#eda593'}
-    yn_names['yn_skaz'] = 'Сказочница'
-    store.yn_names_list.append('yn_skaz')
+    yn_colors["yn_skaz"] = {"speaker_color": "#eda593"}
+    yn_names["yn_skaz"] = "Сказочница"
+    store.yn_names_list.append("yn_skaz")
 
-    yn_colors['yn_medz'] = {'speaker_color': '#cac894'}
-    yn_names['yn_medz'] = 'Медуза'
-    store.yn_names_list.append('yn_medz')
+    yn_colors["yn_medz"] = {"speaker_color": "#cac894"}
+    yn_names["yn_medz"] = "Медуза"
+    store.yn_names_list.append("yn_medz")
 
-    yn_colors['yn_julya'] = {'speaker_color': '#F08080'}
-    yn_names['yn_julya'] = 'Жуля'
-    store.yn_names_list.append('yn_julya')
+    yn_colors["yn_julya"] = {"speaker_color": "#F08080"}
+    yn_names["yn_julya"] = "Жуля"
+    store.yn_names_list.append("yn_julya")
 
-    yn_colors['yn_sparrows_g'] = {'speaker_color': '#c9c9c9'}
-    yn_names['yn_sparrows_g'] = 'Воробьи'
-    store.yn_names_list.append('yn_sparrows_g')
+    yn_colors["yn_sparrows_g"] = {"speaker_color": "#c9c9c9"}
+    yn_names["yn_sparrows_g"] = "Воробьи"
+    store.yn_names_list.append("yn_sparrows_g")
 
-    yn_colors['yn_slon_and_us'] = {'speaker_color': '#c9c9c9'}
-    yn_names['yn_slon_and_us'] = 'Слон и Кузнечик'
-    store.yn_names_list.append('yn_slon_and_us')
+    yn_colors["yn_slon_and_us"] = {"speaker_color": "#c9c9c9"}
+    yn_names["yn_slon_and_us"] = "Слон и Кузнечик"
+    store.yn_names_list.append("yn_slon_and_us")
 
-    yn_colors['yn_haer_and_dv'] = {'speaker_color': '#c9c9c9'}
-    yn_names['yn_haer_and_dv'] = 'Хаер и Алиса'
-    store.yn_names_list.append('yn_haer_and_dv')
+    yn_colors["yn_haer_and_dv"] = {"speaker_color": "#c9c9c9"}
+    yn_names["yn_haer_and_dv"] = "Хаер и Алиса"
+    store.yn_names_list.append("yn_haer_and_dv")
 
     def yn_char_define(character_name, is_nvl = False):
         global DynamicCharacter
@@ -257,31 +257,31 @@ init python:
         global yn_speaker_color
         yn_gl = globals()
         
-        if character_name == 'yn_narrator':
+        if character_name == "yn_narrator":
             if is_nvl:
-                yn_gl['yn_narrator'] = Character(None, kind=nvl, what_style='yn_text_style', what_suffix='\n')
+                yn_gl["yn_narrator"] = Character(None, kind=nvl, what_style="yn_text_style", what_suffix="\n")
             
             else:
-                yn_gl['yn_narrator'] = Character(None, what_style='yn_text_style')
+                yn_gl["yn_narrator"] = Character(None, what_style="yn_text_style")
             
             return
         
-        if character_name == 'yn_th':
+        if character_name == "yn_th":
             if is_nvl:
-                yn_gl['yn_th'] = Character(None, kind=nvl, what_style='yn_text_style', what_prefix='~ ', what_suffix=' ~\n')
+                yn_gl["yn_th"] = Character(None, kind=nvl, what_style="yn_text_style", what_prefix="~ ", what_suffix=" ~\n")
             
             else:
-                yn_gl['yn_th'] = Character(None, what_style='yn_text_style', what_prefix='~ ', what_suffix=' ~')
+                yn_gl["yn_th"] = Character(None, what_style="yn_text_style", what_prefix="~ ", what_suffix=" ~")
             
             return
         
         if is_nvl:
-            yn_gl[character_name] = DynamicCharacter('%s_name' % character_name, color=store.yn_colors[character_name][yn_speaker_color], kind=nvl, what_style='yn_text_style', who_suffix=':', what_suffix='\n')
-            yn_gl['%s_name' % character_name] = store.yn_names[character_name]
+            yn_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.yn_colors[character_name][yn_speaker_color], kind=nvl, what_style="yn_text_style", who_suffix=":", what_suffix="\n")
+            yn_gl["%s_name" % character_name] = store.yn_names[character_name]
         
         else:
-            yn_gl[character_name] = DynamicCharacter('%s_name' % character_name, color=store.yn_colors[character_name][yn_speaker_color], what_style='yn_text_style')
-            yn_gl['%s_name' % character_name] = store.yn_names[character_name]
+            yn_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.yn_colors[character_name][yn_speaker_color], what_style="yn_text_style")
+            yn_gl["%s_name" % character_name] = store.yn_names[character_name]
 
     def yn_set_mode_adv():
         nvl_clear()
@@ -328,7 +328,7 @@ init python:
         anim_args = []
         
         for i in range(start, start + frames_quantity):
-            anim_args.append(renpy.display.im.image(image_name + '_' + str(i) + '.png'))
+            anim_args.append(renpy.display.im.image(image_name + "_" + str(i) + ".png"))
             
             if loop:
                 anim_args.append(retention)
@@ -337,14 +337,14 @@ init python:
         return anim.TransitionAnimation(*anim_args, **properties)
 
     def yn_blink(blink_pause):
-        renpy.show('blink')
+        renpy.show("blink")
         renpy.pause(blink_pause, hard=True)
 
     def yn_unblink(scene_name, unblink_pause):
-        renpy.hide('blink')
+        renpy.hide("blink")
         renpy.scene()
         renpy.show(scene_name)
-        renpy.show('unblink')
+        renpy.show("unblink")
         renpy.pause(unblink_pause, hard=True)
 
     class YnTimingMemorization():
@@ -358,11 +358,11 @@ init python:
             renpy.music.stop(self.channel, fadeout = self.fade)
 
         def resume(self):
-            self.resume_params = '<from 0>' + self.file_name if self.pause_time == None else '<from {}>'.format(self.pause_time) + self.file_name
+            self.resume_params = "<from 0>" + self.file_name if self.pause_time == None else "<from {}>".format(self.pause_time) + self.file_name
             renpy.music.play(self.resume_params, channel=self.channel, fadein=self.fade)
 
     def yn_set_main_menu_cursor():
-        config.mouse_displayable = MouseDisplayable(yn_gui_path + 'misc/cursor.png', 0, 0)
+        config.mouse_displayable = MouseDisplayable(yn_gui_path + "misc/cursor.png", 0, 0)
 
     yn_set_main_menu_cursor_curried = renpy.curry(yn_set_main_menu_cursor)
 
@@ -370,12 +370,12 @@ init python:
         global yn_set_timeofday_cursor_var
 
         if yn_set_timeofday_cursor_var:
-            config.mouse_displayable = MouseDisplayable(yn_gui_path + 'dialogue_box/' + persistent.timeofday + '/cursor.png', 0, 0)
+            config.mouse_displayable = MouseDisplayable(yn_gui_path + "dialogue_box/" + persistent.timeofday + "/cursor.png", 0, 0)
 
     yn_set_timeofday_cursor_curried = renpy.curry(yn_set_timeofday_cursor)
 
     def yn_set_null_cursor():
-        config.mouse_displayable = MouseDisplayable(yn_gui_path + 'misc/yn_none.png', 0, 0)
+        config.mouse_displayable = MouseDisplayable(yn_gui_path + "misc/yn_none.png", 0, 0)
 
     yn_set_null_cursor_curried = renpy.curry(yn_set_null_cursor)
         
@@ -383,7 +383,7 @@ init python:
         global save_name
 
         save_name = _save_name
-        renpy.music.play('sound/ambiences/{}.ogg'.format(ambience), 'ambience', fadein=2)
+        renpy.music.play("sound/ambiences/{}.ogg".format(ambience), "ambience", fadein=2)
         renpy.show(background, at_list = [yn_chapter_intro_background_moving()])
         renpy.show(sprite, at_list = [yn_chapter_intro_sprite_moving()])
         renpy.show(text, at_list = [yn_chapter_intro_text_pos(text)])
@@ -393,25 +393,16 @@ init python:
 
         renpy.transition(dissolve)
         renpy.pause(4, hard=True)
-        renpy.music.stop('ambience', 2)
-
-    yn_music_list = {
-        yn_follow_the_compass_be_near: 'Follow The Compass — Be Near',
-        yn_master_of_spirits_failure: 'Master Of Spirits — Failure',
-        yn_master_of_spirits_theatreclub_theme: 'Master Of Spirits — Спектакль',
-        'sound/music/raindrops.ogg': 'Sergey Eybog — Raindrops',
-        'sound/music/get_to_know_me_better.ogg': 'Sergey Eybog — Get To Know Me Better',
-        'sound/music/silhouette_in_sunset.ogg': 'Sergey Eybog — Silhouette In Sunset'
-    }
+        renpy.music.stop("ambience", 2)
 
     yn_keyboard_help_list = {
-        'TAB, LCTRL — пропуск': 200, 
-        'H, колесо мыши — скрыть интерфейс': 400,
-        'Скроллинг вверх — история': 600
+        "TAB, LCTRL — пропуск": 200, 
+        "H, колесо мыши — скрыть интерфейс": 400,
+        "Скроллинг вверх — история": 600
     }
 
     def yn_chapter_text_pos(text):
-        return 1920 - renpy.image_size(yn_gui_path + 'misc/' + text + '.png')[0]
+        return 1920 - renpy.image_size(yn_gui_path + "misc/" + text + ".png")[0]
 
     def yn_predict_screens():
         for screen_name in yn_screens_list:
@@ -433,13 +424,13 @@ init python:
         global yn_lock_quit
         global yn_lock_quick_menu
 
-        if type == 'lock':
+        if type == "lock":
             renpy.config.skipping = None
             yn_lock_quit = True
             yn_lock_quick_menu = True
             config.allow_skipping = False
 
-        elif type == 'unlock':
+        elif type == "unlock":
             yn_lock_quit = False
             yn_lock_quick_menu = False
             config.allow_skipping = True
@@ -553,7 +544,7 @@ init python:
             return renderObj     
 
 init:
-    $ yn_titles_text_good_end = '''
+    $ yn_titles_text_good_end = """
     Благодарим вас за прочтение нашей модификации!
 
 
@@ -646,9 +637,9 @@ init:
 
     
 
-    Для каждого из нас, кто разрабатывал эту модификацию на протяжении четырех лет, Яна - отдельная глава в жизни. В этом моде реализовано огромное количество наших задумок, вложена, если можно так сказать, частичка души каждого из нас. Будем рады, если вы оцените нашу работу по достоинству.'''
+    Для каждого из нас, кто разрабатывал эту модификацию на протяжении четырех лет, Яна - отдельная глава в жизни. В этом моде реализовано огромное количество наших задумок, вложена, если можно так сказать, частичка души каждого из нас. Будем рады, если вы оцените нашу работу по достоинству."""
 
-    $ yn_titles_text_act_one_bad_end = '''
+    $ yn_titles_text_act_one_bad_end = """
     Благодарим вас за прочтение первого акта нашей модификации. \nК сожалению, вы попали на плохую концовку. Попробуйте совершить другие выборы, дабы узнать больше про историю Лагеря.
 
 
@@ -731,35 +722,35 @@ init:
 
     Руслан Рыков - спрайты Эрики и Сказочницы.
 
-    {i}Тебе, дорогой читатель.{/i} Спасибо, что не скипнул титры.'''
+    {i}Тебе, дорогой читатель.{/i} Спасибо, что не скипнул титры."""
 
-    image yn_titles_final = ParameterizedText(style='yn_titles_style', size=40, xalign=0.5)
+    image yn_titles_final = ParameterizedText(style="yn_titles_style", size=40, xalign=0.5)
 
-    image yn_int_library_sunset_rain = 'yn/images/bg/yn_rain_library/yn_int_library_sunset_rain.png'
-    image yn_curtains = 'yn/images/bg/yn_rain_library/yn_curtains.png'
-    image yn_forest = 'yn/images/bg/yn_rain_library/yn_forest.png'
-    image yn_glass = 'yn/images/bg/yn_rain_library/yn_glass.png'
+    image yn_int_library_sunset_rain = "yn/images/bg/yn_rain_library/yn_int_library_sunset_rain.png"
+    image yn_curtains = "yn/images/bg/yn_rain_library/yn_curtains.png"
+    image yn_forest = "yn/images/bg/yn_rain_library/yn_forest.png"
+    image yn_glass = "yn/images/bg/yn_rain_library/yn_glass.png"
 
     image yn_rain_anim:
-        'yn/images/bg/yn_rain_library/yn_rain_1.png'
+        "yn/images/bg/yn_rain_library/yn_rain_1.png"
         0.1
-        'yn/images/bg/yn_rain_library/yn_rain_2.png'
+        "yn/images/bg/yn_rain_library/yn_rain_2.png"
         0.1
-        'yn/images/bg/yn_rain_library/yn_rain_3.png'
+        "yn/images/bg/yn_rain_library/yn_rain_3.png"
         0.1
         repeat
 
     image bg yn_int_library_sunset_rain_anim:
         contains:
-            'yn_forest'
+            "yn_forest"
         contains:
-            'yn_curtains'
+            "yn_curtains"
         contains:
-            'yn_glass'
+            "yn_glass"
         contains:
-            'yn_rain_anim'
+            "yn_rain_anim"
         contains:
-            'yn_int_library_sunset_rain'
+            "yn_int_library_sunset_rain"
 
     $ yn_tomtits_group = 0 #синицы
     $ yn_sparrows_group = 0 #воробьи
@@ -812,80 +803,75 @@ init:
     $ yn_act_one_play_two_bypass_counter = 0
 
     $ yn_act_one_play_two_bypass_places = {
-        'yn_act_one_play_two_bypass_library_completed': False,
-        'yn_act_one_play_two_bypass_medic_house_completed': False,
-        'yn_act_one_play_two_bypass_radio_engineering_club_completed': False,
-        'yn_act_one_play_two_bypass_music_club_completed': False,
-        'yn_act_one_play_two_bypass_art_club_completed': False,
-        'yn_act_one_play_two_bypass_theatre_club_completed': False  
+        "yn_act_one_play_two_bypass_library_completed": False,
+        "yn_act_one_play_two_bypass_medic_house_completed": False,
+        "yn_act_one_play_two_bypass_radio_engineering_club_completed": False,
+        "yn_act_one_play_two_bypass_music_club_completed": False,
+        "yn_act_one_play_two_bypass_art_club_completed": False,
+        "yn_act_one_play_two_bypass_theatre_club_completed": False  
     }
     
     $ yn_act_one_play_two_bypass_assignment = {
-        'yn_act_one_play_two_bypass_library_completed': ['yn_mz_sign', (1708, 695)],
-        'yn_act_one_play_two_bypass_medic_house_completed': ['yn_cs_sign', (1718, 726)],
-        'yn_act_one_play_two_bypass_radio_engineering_club_completed': ['yn_sh_sign', (1714, 653)],
-        'yn_act_one_play_two_bypass_music_club_completed': ['yn_mi_sign', (1724, 678)],
-        'yn_act_one_play_two_bypass_art_club_completed': ['yn_kras_sign', (1732, 603)],
-        'yn_act_one_play_two_bypass_theatre_club_completed': ['yn_haer_sign', (1723, 626)]
+        "yn_act_one_play_two_bypass_library_completed": ["yn_mz_sign", (1708, 695)],
+        "yn_act_one_play_two_bypass_medic_house_completed": ["yn_cs_sign", (1718, 726)],
+        "yn_act_one_play_two_bypass_radio_engineering_club_completed": ["yn_sh_sign", (1714, 653)],
+        "yn_act_one_play_two_bypass_music_club_completed": ["yn_mi_sign", (1724, 678)],
+        "yn_act_one_play_two_bypass_art_club_completed": ["yn_kras_sign", (1732, 603)],
+        "yn_act_one_play_two_bypass_theatre_club_completed": ["yn_haer_sign", (1723, 626)]
     }
 
-    $ yn_act_one_play_two_amb = YnTimingMemorization('ambience', 1)
-    $ yn_act_one_play_two_mus = YnTimingMemorization('music', 2)
+    $ yn_act_one_play_two_amb = YnTimingMemorization("ambience", 1)
+    $ yn_act_one_play_two_mus = YnTimingMemorization("music", 2)
 
-    $ yn_us_sepia = Character('Кузнечик', what_style='yn_text_style', ctc='yn_none', ctc_position='fixed', color='#fbd195', what_color='#fbd195')
-    $ yn_yana_sepia = Character('Яна', what_style='yn_text_style', ctc='yn_none', ctc_position='fixed', color='#fbd195', what_color='#fbd195')
+    $ yn_us_sepia = Character("Кузнечик", what_style="yn_text_style", ctc="yn_none", ctc_position="fixed", color="#fbd195", what_color="#fbd195")
+    $ yn_yana_sepia = Character("Яна", what_style="yn_text_style", ctc="yn_none", ctc_position="fixed", color="#fbd195", what_color="#fbd195")
 
-    # $ yn_screens_list = ['yn_main_menu', 'yn_notes_main_menu', 'yn_preferences_main_menu', 'yn_load_main_menu', 'yn_quit_main_menu', 'yn_preferences', 'yn_save', 
-    #     'yn_load', 'yn_say', 'yn_nvl', 'yn_game_menu_selector', 'yn_quit', 'yn_yesno_prompt', 'yn_text_history', 'yn_choice', 'yn_help']
+    $ yn_lines_transition = ImageDissolve("yn/images/gui/misc/yn_lines.jpg", 1.0, 8)
 
-    # $ yn_folders_list = ['yn/images/bg*.*', 'yn/images/sprites*.*']
+    $ yn_timeskip = ImageDissolve("yn/images/gui/misc/yn_timeskip.png", 1.0, ramplen=0, reverse=False, alpha=True)
 
-    $ yn_lines_transition = ImageDissolve('yn/images/gui/misc/yn_lines.jpg', 1.0, 8)
+    image yn_epilogue_intro_text = "yn/images/gui/misc/yn_epilogue_intro_text.png"
 
-    $ yn_timeskip = ImageDissolve('yn/images/gui/misc/yn_timeskip.png', 1.0, ramplen=0, reverse=False, alpha=True)
+    image yn_dusts = YnDustParticles("yn/images/gui/misc/yn_dust_particle.png")
 
-    image yn_epilogue_intro_text = 'yn/images/gui/misc/yn_epilogue_intro_text.png'
+    image bg yn_table = "yn/images/mini_games/durak/tb.png"
 
-    image yn_dusts = YnDustParticles('yn/images/gui/misc/yn_dust_particle.png')
+    image bg yn_ext_square_lenin_night_party_blurred = im.Blur("yn/images/bg/yn_ext_square_lenin_night_party.png", 2)
+    image bg yn_ext_square_lenin_day_blurred = im.Blur("yn/images/bg/yn_ext_square_lenin_day.png", 2)
+    image bg yn_int_dining_hall_people_sunset_blurred = im.Blur("yn/images/bg/yn_int_dining_hall_people_sunset.png", 2)
+    image bg yn_int_theatreclub_day_blurred = im.Blur("yn/images/bg/yn_int_theatreclub_day.png", 2)
+    image bg yn_int_yana_room_blurred = im.Blur("yn/images/bg/yn_int_yana_room.png", 1)
+    image bg yn_ext_busstop_summer_blurred = im.Blur("yn/images/bg/yn_ext_busstop_summer.png", 2)
+    image bg yn_int_dining_hall_people_day_blurred = im.Blur("images/bg/int_dining_hall_people_day.jpg", 2)
+    image bg yn_ext_camp_entrance_day_blurred = im.Blur("images/bg/ext_camp_entrance_day.jpg", 2)
+    image bg yn_ext_beach_day_blurred = im.Blur("images/bg/ext_beach_day.jpg", 2)
+    image bg yn_ext_playground_day_blurred = im.Blur("images/bg/ext_playground_day.jpg", 2)
+    image bg yn_ext_beach_sunset_blurred = im.Blur("images/bg/ext_beach_sunset.jpg", 2)
+    image bg yn_int_old_building_night_blurred = im.Blur("images/bg/int_old_building_night.jpg", 2)
 
-    image bg yn_table = 'yn/images/mini_games/durak/tb.png'
+    image yn_int_old_building_wall = "yn/images/bg/yn_wall/yn_int_old_building_wall.png"
+    image yn_int_old_building_wall_yana_name = "yn/images/bg/yn_wall/yn_int_old_building_wall_yana_name.png"
 
-    image bg yn_ext_square_lenin_night_party_blurred = im.Blur('yn/images/bg/yn_ext_square_lenin_night_party.png', 2)
-    image bg yn_ext_square_lenin_day_blurred = im.Blur('yn/images/bg/yn_ext_square_lenin_day.png', 2)
-    image bg yn_int_dining_hall_people_sunset_blurred = im.Blur('yn/images/bg/yn_int_dining_hall_people_sunset.png', 2)
-    image bg yn_int_theatreclub_day_blurred = im.Blur('yn/images/bg/yn_int_theatreclub_day.png', 2)
-    image bg yn_int_yana_room_blurred = im.Blur('yn/images/bg/yn_int_yana_room.png', 1)
-    image bg yn_ext_busstop_summer_blurred = im.Blur('yn/images/bg/yn_ext_busstop_summer.png', 2)
-    image bg yn_int_dining_hall_people_day_blurred = im.Blur('images/bg/int_dining_hall_people_day.jpg', 2)
-    image bg yn_ext_camp_entrance_day_blurred = im.Blur('images/bg/ext_camp_entrance_day.jpg', 2)
-    image bg yn_ext_beach_day_blurred = im.Blur('images/bg/ext_beach_day.jpg', 2)
-    image bg yn_ext_playground_day_blurred = im.Blur('images/bg/ext_playground_day.jpg', 2)
-    image bg yn_ext_beach_sunset_blurred = im.Blur('images/bg/ext_beach_sunset.jpg', 2)
-    image bg yn_int_old_building_night_blurred = im.Blur('images/bg/int_old_building_night.jpg', 2)
-
-    image yn_int_old_building_wall = 'yn/images/bg/yn_wall/yn_int_old_building_wall.png'
-    image yn_int_old_building_wall_yana_name = 'yn/images/bg/yn_wall/yn_int_old_building_wall_yana_name.png'
-
-    image yn_static_noise_anim = yn_frame_animation('yn/images/bg/yn_static_noise_anim/yn_static_noise', 5, 0.2, True, Dissolve(0.2))
-    image yn_interferences_anim = yn_frame_animation('yn/images/bg/yn_interferences_anim/yn_interferences', 3, 0.2, True, Dissolve(0.2))
+    image yn_static_noise_anim = yn_frame_animation("yn/images/bg/yn_static_noise_anim/yn_static_noise", 5, 0.2, True, Dissolve(0.2))
+    image yn_interferences_anim = yn_frame_animation("yn/images/bg/yn_interferences_anim/yn_interferences", 3, 0.2, True, Dissolve(0.2))
 
     if persistent.yn_notes_variables == None:
         $ persistent.yn_notes_variables = {
-            'yn_int_yana_room_photo_note': False,
-            'yn_ext_bus_station_photo_note': False,
-            'yn_int_house_of_yana_photo_note': False,
-            'yn_int_theatreclub_photo_note': False,
-            'yn_int_artclub_photo_note': False,
-            'yn_haer_note': False,
-            'yn_kot_note': False,
-            'yn_slon_note': False,
-            'yn_jurn_note': False,
-            'yn_kras_note': False,
-            'yn_erika_note': False,
-            'yn_tomtits_group_note': False,
-            'yn_sparrows_group_note': False,
-            'yn_peacocks_group_note': False,
-            'yn_pigeons_group_note': False
+            "yn_int_yana_room_photo_note": False,
+            "yn_ext_bus_station_photo_note": False,
+            "yn_int_house_of_yana_photo_note": False,
+            "yn_int_theatreclub_photo_note": False,
+            "yn_int_artclub_photo_note": False,
+            "yn_haer_note": False,
+            "yn_kot_note": False,
+            "yn_slon_note": False,
+            "yn_jurn_note": False,
+            "yn_kras_note": False,
+            "yn_erika_note": False,
+            "yn_tomtits_group_note": False,
+            "yn_sparrows_group_note": False,
+            "yn_peacocks_group_note": False,
+            "yn_pigeons_group_note": False
         }
 
     $ yn_place_var = None
@@ -893,107 +879,107 @@ init:
     $ yn_group_var = None
 
     $ yn_notes_all = {
-        'yn_int_yana_room': ['Комната Яны', 'yn_int_yana_room_photo', 'yn_int_yana_room_photo_text'],
-        'yn_ext_bus_station': ['Автобусная\nстанция', 'yn_ext_bus_station_photo', 'yn_ext_bus_station_photo_text'],
-        'yn_int_house_of_yana_day_2': ['Домик Яны', 'yn_int_house_of_yana_photo', 'yn_int_house_of_yana_photo_text'],
-        'yn_int_theatreclub_day': ['Театральный\nклуб', 'yn_int_theatreclub_photo', 'yn_int_theatreclub_photo_text'],
-        'yn_int_artclub_day': ['Художественный\nклуб', 'yn_int_artclub_photo', 'yn_int_artclub_photo_text'],
-        'yn_haer': ['Хаер', 'yn_haer_photo', 'yn_haer_photo_text'],
-        'yn_kot': ['Кот', 'yn_kot_photo', 'yn_kot_photo_text'],
-        'yn_slon': ['Слон', 'yn_slon_photo', 'yn_slon_photo_text'],
-        'yn_jurn': ['Журналистка', 'yn_jurn_photo', 'yn_jurn_photo_text'],
-        'yn_kras': ['Красавица', 'yn_kras_photo', 'yn_kras_photo_text'],
-        'yn_erika': ['Эрика', 'yn_erika_photo', 'yn_erika_photo_text'],
-        'yn_tomtits_group': ['Синицы', 'yn_tomtits_group_logo', 'yn_tomtits_group_text', 'yn_tomtits_group_roster'],
-        'yn_sparrows_group': ['Воробьи', 'yn_sparrows_group_logo', 'yn_sparrows_group_text', 'yn_sparrows_group_roster'],
-        'yn_peacocks_group': ['Павлины', 'yn_peacocks_group_logo', 'yn_peacocks_group_text', None],
-        'yn_pigeons_group': ['Голуби', 'yn_pigeons_group_logo', 'yn_pigeons_group_text', 'yn_pigeons_group_roster']
+        "yn_int_yana_room": ["Комната Яны", "yn_int_yana_room_photo", "yn_int_yana_room_photo_text"],
+        "yn_ext_bus_station": ["Автобусная\nстанция", "yn_ext_bus_station_photo", "yn_ext_bus_station_photo_text"],
+        "yn_int_house_of_yana_day_2": ["Домик Яны", "yn_int_house_of_yana_photo", "yn_int_house_of_yana_photo_text"],
+        "yn_int_theatreclub_day": ["Театральный\nклуб", "yn_int_theatreclub_photo", "yn_int_theatreclub_photo_text"],
+        "yn_int_artclub_day": ["Художественный\nклуб", "yn_int_artclub_photo", "yn_int_artclub_photo_text"],
+        "yn_haer": ["Хаер", "yn_haer_photo", "yn_haer_photo_text"],
+        "yn_kot": ["Кот", "yn_kot_photo", "yn_kot_photo_text"],
+        "yn_slon": ["Слон", "yn_slon_photo", "yn_slon_photo_text"],
+        "yn_jurn": ["Журналистка", "yn_jurn_photo", "yn_jurn_photo_text"],
+        "yn_kras": ["Красавица", "yn_kras_photo", "yn_kras_photo_text"],
+        "yn_erika": ["Эрика", "yn_erika_photo", "yn_erika_photo_text"],
+        "yn_tomtits_group": ["Синицы", "yn_tomtits_group_logo", "yn_tomtits_group_text", "yn_tomtits_group_roster"],
+        "yn_sparrows_group": ["Воробьи", "yn_sparrows_group_logo", "yn_sparrows_group_text", "yn_sparrows_group_roster"],
+        "yn_peacocks_group": ["Павлины", "yn_peacocks_group_logo", "yn_peacocks_group_text", None],
+        "yn_pigeons_group": ["Голуби", "yn_pigeons_group_logo", "yn_pigeons_group_text", "yn_pigeons_group_roster"]
     }
 
     image bg yn_loading_background:
         contains:
-            'bg yn_int_yana_room_night_blurred'
+            "bg yn_int_yana_room_night_blurred"
             xalign 0.5 yalign 0.5 zoom 1.0
             pause 2.0
             linear 20 zoom 2.0 xalign 0.5 yalign 0.5
 
         contains:
-            'yn_dusts'
+            "yn_dusts"
         
         contains:
-            'yn_loading_screen_header'
+            "yn_loading_screen_header"
             xpos 770
             ypos 46
 
         contains:
-            'yn_resources_loading'
+            "yn_resources_loading"
             xpos 557
             ypos 831
 
     image bg yn_int_dining_hall_people_sunset_sparrows:
         contains:
-            'bg yn_int_dining_hall_people_sunset_blurred_and_zoomed_center'
+            "bg yn_int_dining_hall_people_sunset_blurred_and_zoomed_center"
 
         contains:
-            'yn_erika normal hands_behind'
+            "yn_erika normal hands_behind"
             xpos 20
             ypos 0
 
         contains:
-            'mz bukal glasses pioneer'
+            "mz bukal glasses pioneer"
             xpos 460
             ypos 0
 
         contains:
-            'un normal pioneer'
+            "un normal pioneer"
             xpos 870
             ypos 0
 
     image bg yn_int_dining_hall_people_sunset_tomtits:
         contains:
-            'bg yn_int_dining_hall_people_sunset_blurred_and_zoomed_left'
+            "bg yn_int_dining_hall_people_sunset_blurred_and_zoomed_left"
 
         contains:
-            'yn_mi grin'
+            "yn_mi grin"
             xpos 20
             ypos -40
 
         contains:
-            'yn_jurn smirk'
+            "yn_jurn smirk"
             xpos 500
             ypos -40
 
         contains:
-            'yn_kras normal'
+            "yn_kras normal"
             xpos 900
             ypos -40
 
     image bg yn_int_dining_hall_people_sunset_pigeons:
         contains:
-            'bg yn_int_dining_hall_people_sunset_blurred_and_zoomed_right'
+            "bg yn_int_dining_hall_people_sunset_blurred_and_zoomed_right"
 
         contains:
-            'yn_us grin'
+            "yn_us grin"
             xpos -300
             ypos 0
 
         contains:
-            'yn_haer normal'
+            "yn_haer normal"
             xpos 514
             ypos 27
 
         contains:
-            'yn_kot normal'
+            "yn_kot normal"
             xpos 140
             ypos 0
 
         contains:
-            'dv grin pioneer2'
+            "dv grin pioneer2"
             xpos 900
             ypos 0
 
         contains:
-            'yn_slon normal'
+            "yn_slon normal"
             xpos 1230
             ypos 0
     

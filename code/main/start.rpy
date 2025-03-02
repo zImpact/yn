@@ -1,23 +1,23 @@
 init python:
-    mods['yn_start'] = u'{font=yn/images/gui/fonts/ljk_streamster.otf}{size=70} Яна{/font}{/size}'
+    mods["yn_start"] = u"{font=yn/images/gui/fonts/ljk_streamster.otf}{size=70} Яна{/font}{/size}"
 
     try:
-        modsImages['yn_start'] = ('yn/images/gui/misc/yn_tabular_list_preview.png', False)
+        modsImages["yn_start"] = ("yn/images/gui/misc/yn_tabular_list_preview.png", False)
 
     except:
         pass 
 
 label yn_start:
-    $ persistent.timeofday = 'day'
-    $ persistent.sprite_time = 'day'
-    $ persistent.yn_protagonist = 'yana'
-    $ persistent.yn_protagonist_mood = 'normal'
+    $ persistent.timeofday = "day"
+    $ persistent.sprite_time = "day"
+    $ persistent.yn_protagonist = "yana"
+    $ persistent.yn_protagonist_mood = "normal"
     $ yn_set_main_menu_cursor()
-    $ yn_onload('lock')
+    $ yn_onload("lock")
     $ yn_screens_save_act()
     $ renpy.pause(3, hard = True)
     scene yn_main_menu_intro
-    show expression renpy.display.behavior.ImageButton(yn_gui_path + '/main_menu/yn_skip_idle.png', yn_gui_path + '/main_menu/yn_skip_hover.png', clicked=[Jump('yn_after_intro')]) at yn_skip_pos
+    show expression renpy.display.behavior.ImageButton(yn_gui_path + "/main_menu/skip_idle.png", yn_gui_path + "/main_menu/skip_hover.png", clicked=[Jump("yn_after_intro")]) at yn_skip_pos
     with Dissolve(3)
     play sound yn_konami
     $ renpy.pause(2.5, hard = True)
@@ -25,7 +25,7 @@ label yn_start:
     $ renpy.pause(3, hard = True)
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard = True)
-    $ renpy.movie_cutscene('yn/images/gui/main_menu/yn_main_menu_intro_start_background.ogv')
+    $ renpy.movie_cutscene("yn/images/gui/main_menu/yn_main_menu_intro_start_background.ogv")
     scene yn_main_menu_background_full
     $ renpy.pause(0.5, hard = True)
     scene yn_main_menu_background_full:
@@ -37,7 +37,7 @@ label yn_start:
     play sound yn_insert_cassette
     $ renpy.pause(1, hard = True)
     $ yn_set_main_menu_cursor()
-    $ yn_onload('unlock')
+    $ yn_onload("unlock")
 
     label yn_after_intro:
         $ renpy.transition(dissolve)
