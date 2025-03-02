@@ -332,7 +332,7 @@ screen pick_choose(chest_name):
 
             textbutton "Отмычки: [lockpicks]":
                 xalign 0.8
-                action [Function(str_to_class('{}_lock'.format(chest_name)).reset), SetVariable("current_chest", chest_name), Hide("pick_choose"), Show("lockpicking", dissolve, str_to_class('{}_lock'.format(chest_name)), chest_name)]
+                action [Function(str_to_class("{}_lock".format(chest_name)).reset), SetVariable("current_chest", chest_name), Hide("pick_choose"), Show("lockpicking", dissolve, str_to_class("{}_lock".format(chest_name)), chest_name)]
 
 screen lockpicking(lock, chest_name):
     modal True
@@ -360,7 +360,7 @@ screen lockpicking(lock, chest_name):
 
 screen temp_screen(chest_name):
     on "show":
-        action [SetVariable('{}_opened'.format(chest_name), True), Hide("temp_screen")]
+        action [SetVariable("{}_opened".format(chest_name), True), Hide("temp_screen")]
 
 
 

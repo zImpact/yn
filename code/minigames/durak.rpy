@@ -203,11 +203,11 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
     add"yn/images/mini_games/durak/tb.png"
 
-    textbutton ['Сдаться']:
+    textbutton ["Сдаться"]:
         align(.8, .5)
-        style 'yn_dw_info_text_style'
-        text_style 'yn_dw_info_text_style'
-        action [Return(), Jump('yn_act_two_play_fourth_card_game_loose')]
+        style "yn_dw_info_text_style"
+        text_style "yn_dw_info_text_style"
+        action [Return(), Jump("yn_act_two_play_fourth_card_game_loose")]
 
     if intergames:
         if len(koloda52)>1:
@@ -218,8 +218,8 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             if len(atkcards):
                 textbutton ["Забрать"]:
                     align(.5,.7)
-                    style 'yn_dw_info_text_style'
-                    text_style 'yn_dw_info_text_style'
+                    style "yn_dw_info_text_style"
+                    text_style "yn_dw_info_text_style"
                     action Function(durak_mine,1)
 
             hbox xpos.15 yalign.4:#--------------АТАКУЮЩИЕ КАРТЫ
@@ -238,8 +238,8 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             if len(atkcards):
                 textbutton ["Завершить ход"]:
                     align(.5,.7)
-                    style 'yn_dw_info_text_style'
-                    text_style 'yn_dw_info_text_style'
+                    style "yn_dw_info_text_style"
+                    text_style "yn_dw_info_text_style"
                     action Function(durak_mine,2)
             hbox xpos.14 yalign.5:#--------------АТАКУЮЩИЕ КАРТЫ
                 spacing 3
@@ -265,23 +265,23 @@ screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         if iwin21 is 1:
             textbutton ["Победа"]:
                 align(.5,.5)
-                style 'yn_dw_info_text_style'
-                text_style 'yn_dw_info_text_style'
-                action [Return(), Jump('yn_act_two_play_fourth_card_game_win')]
+                style "yn_dw_info_text_style"
+                text_style "yn_dw_info_text_style"
+                action [Return(), Jump("yn_act_two_play_fourth_card_game_win")]
 
         elif iwin21 is 2:
-            textbutton ['Ничья']:
+            textbutton ["Ничья"]:
                 align(.5,.5)
-                style 'yn_dw_info_text_style'
-                text_style 'yn_dw_info_text_style'
-                action [Return(), Jump('yn_act_two_play_fourth_card_game_draw')]
+                style "yn_dw_info_text_style"
+                text_style "yn_dw_info_text_style"
+                action [Return(), Jump("yn_act_two_play_fourth_card_game_draw")]
 
         else:
             textbutton ["Проигрыш"]:
                 align(.5,.5)
-                style 'yn_dw_info_text_style'
-                text_style 'yn_dw_info_text_style'
-                action [Return(), Jump('yn_act_two_play_fourth_card_game_loose')]
+                style "yn_dw_info_text_style"
+                text_style "yn_dw_info_text_style"
+                action [Return(), Jump("yn_act_two_play_fourth_card_game_loose")]
 label durak78:################################################################################################
     call screen durak78
     return
