@@ -1,11 +1,16 @@
 init python:
-    yn_lockpicking_minigame_images = ["yn/images/mini_games/lockpicking/lock_plate.png", "yn/images/mini_games/lockpicking/lock_cylinder.png", "yn/images/mini_games/lockpicking/lock_tension.png", "yn/images/mini_games/lockpicking/lock_pick.png"]
+    yn_lockpicking_minigame_images = [
+        "yn/images/mini_games/lockpicking/lock_plate.png",
+        "yn/images/mini_games/lockpicking/lock_cylinder.png",
+        "yn/images/mini_games/lockpicking/lock_tension.png",
+        "yn/images/mini_games/lockpicking/lock_pick.png"
+    ]
 
-    renpy.music.register_channel("yn_lock_move", mixer = "sfx", loop = True)
-    renpy.music.register_channel("yn_lock_click", mixer = "sfx", loop = False, tight = True)
+    renpy.music.register_channel("yn_lock_move", mixer="sfx", loop=True)
+    renpy.music.register_channel("yn_lock_click", mixer="sfx", loop=False, tight=True)
 
     class YnLockpickingMinigame(renpy.Displayable):
-        def __init__(self, difficulty, resize = 1920, **kwargs):
+        def __init__(self, difficulty, resize=1920, **kwargs):
             super(YnLockpickingMinigame, self).__init__(**kwargs)
             
             self.width = resize
@@ -42,7 +47,7 @@ init python:
                 self.cylinder_released = False
             
             elif ev.type == pygame.MOUSEBUTTONUP and ev.button == LEFT:
-                renpy.sound.stop(channel = "yn_lock_move")
+                renpy.sound.stop(channel="yn_lock_move")
                 self.cylinder_try_rotate = False
                 self.cylinder_released = True
                 self.pick_can_rotate = True
@@ -101,10 +106,10 @@ init python:
                     self.cylinder_max = 90
             
             if self.pick_broke == True:
-                pick = Transform(child = None)
+                pick = Transform(child=None)
             
             else:
-                pick = Transform(child = self.lock_pick_image, rotate = self.pick_pos, subpixel = True)
+                pick = Transform(child=self.lock_pick_image, rotate=self.pick_pos, subpixel=True)
             
             global display_pos
             display_pos = self.pick_pos
@@ -117,15 +122,15 @@ init python:
                     
                     self.cylinder_pos += (2 * st) / (at + 1)
                     
-                    cylinder = Transform(child = self.lock_cylinder_image, rotate = self.cylinder_pos, subpixel = True)
-                    tension = Transform(child = self.lock_tension_image, rotate = self.cylinder_pos, subpixel = True)
+                    cylinder = Transform(child=self.lock_cylinder_image, rotate=self.cylinder_pos, subpixel=True)
+                    tension = Transform(child=self.lock_tension_image, rotate=self.cylinder_pos, subpixel=True)
                     
                     if self.cylinder_pos > self.cylinder_max:
                         self.cylinder_pos = self.cylinder_max
                         
                         if self.cylinder_pos == 90:
-                            renpy.sound.stop(channel = "yn_lock_move")
-                            renpy.sound.play("yn/sounds/sfx/lock_unlock.mp3", channel = "yn_lock_click")
+                            renpy.sound.stop(channel="yn_lock_move")
+                            renpy.sound.play("yn/sounds/sfx/lock_unlock.mp3", channel="yn_lock_click")
                             self.cylinder_max = 90
                             self.cylinder_pos = 90
                             global set_timers
@@ -138,12 +143,12 @@ init python:
                         
                         else:
                             if renpy.sound.is_playing != True:
-                                renpy.sound.play("yn/sounds/sfx/lock_moving.mp3", channel = "yn_lock_move")
+                                renpy.sound.play("yn/sounds/sfx/lock_moving.mp3", channel="yn_lock_move")
                             
                             angle1 = self.cylinder_pos + renpy.random.randint(-2, 2)
                             angle2 = self.cylinder_pos + renpy.random.randint(-4, 4)
-                            cylinder = Transform(child = self.lock_cylinder_image, subpixel = True, rotate = angle1)
-                            tension = Transform(child = self.lock_tension_image, subpixel = True, rotate = angle2)
+                            cylinder = Transform(child=self.lock_cylinder_image, subpixel=True, rotate=angle1)
+                            tension = Transform(child=self.lock_tension_image, subpixel=True, rotate=angle2)
                             
                             self.pick_can_rotate = False
                             
@@ -157,11 +162,11 @@ init python:
                             
                             if set_timers == True:
                                 if at > timers + self.breakage:
-                                    renpy.sound.stop(channel = "yn_lock_move")
-                                    renpy.sound.play("yn/sounds/sfx/lock_pick_break.mp3", channel = "yn_lock_click")
+                                    renpy.sound.stop(channel="yn_lock_move")
+                                    renpy.sound.play("yn/sounds/sfx/lock_pick_break.mp3", channel="yn_lock_click")
                                     renpy.notify("Broke a lock pick!")
                                     mispick = renpy.random.randint(-30, 30)
-                                    pick = Transform(child = self.lock_pick_image, rotate = self.pick_pos + (2 * mispick), subpixel = True)
+                                    pick = Transform(child=self.lock_pick_image, rotate=self.pick_pos + (2 * mispick), subpixel=True)
                                     self.pick_can_rotate = False
                                     pygame.time.wait(200)
                                     self.pick_broke = True
@@ -174,12 +179,12 @@ init python:
                 
                 else:
                     if renpy.sound.is_playing != True:
-                        renpy.sound.play("yn/sounds/sfx/lock_moving.mp3", loop = True, channel = "yn_lock_move")
+                        renpy.sound.play("yn/sounds/sfx/lock_moving.mp3", loop=True, channel="yn_lock_move")
                     
                     angle1 = self.cylinder_pos + renpy.random.randint(-2, 2)
                     angle2 = self.cylinder_pos + renpy.random.randint(-4, 4)
-                    cylinder = Transform(child = self.lock_cylinder_image, subpixel = True, rotate = angle1)
-                    tension = Transform(child = self.lock_tension_image, subpixel = True, rotate = angle2)
+                    cylinder = Transform(child=self.lock_cylinder_image, subpixel=True, rotate=angle1)
+                    tension = Transform(child=self.lock_tension_image, subpixel=True, rotate=angle2)
                     
                     self.pick_can_rotate = False
                     
@@ -187,17 +192,17 @@ init python:
                     global set_timers
                     global timers
                     
-                    if set_timers == False:
+                    if not set_timers:
                         timers = at
                         set_timers = True
                     
-                    if set_timers == True:
+                    if set_timers:
                         if at > timers + self.breakage:
-                            renpy.sound.stop(channel = "yn_lock_move")
-                            renpy.sound.play("yn/sounds/sfx/lock_pick_break.mp3", channel = "yn_lock_click")
+                            renpy.sound.stop(channel="yn_lock_move")
+                            renpy.sound.play("yn/sounds/sfx/lock_pick_break.mp3", channel="yn_lock_click")
                             renpy.notify("Broke a lock pick!")
                             mispick = renpy.random.randint(-30, 30)
-                            pick = Transform(child = self.lock_pick_image, rotate = self.pick_pos + (2 * mispick), subpixel = True)
+                            pick = Transform(child=self.lock_pick_image, rotate=self.pick_pos + (2 * mispick), subpixel=True)
                             self.pick_can_rotate = False
                             pygame.time.wait(200)
                             self.pick_broke = True
@@ -209,9 +214,9 @@ init python:
                             pygame.time.wait(100)
             
             else:
-                if self.cylinder_released == True:
+                if self.cylinder_released:
                     if self.cylinder_pos > 15:
-                        renpy.sound.play("yn/sounds/sfx/lock_moving_back.mp3", channel = "yn_lock_click")
+                        renpy.sound.play("yn/sounds/sfx/lock_moving_back.mp3", channel="yn_lock_click")
                     
                     self.pick_can_rotate = True
                     self.cylinder_pos -= (5 * st) / (at + 1)
@@ -219,10 +224,10 @@ init python:
                     if self.cylinder_pos < self.cylinder_min:
                         self.cylinder_pos = self.cylinder_min
                         self.cylinder_released = False
-                        renpy.sound.stop(channel = "yn_lock_click")
+                        renpy.sound.stop(channel="yn_lock_click")
                 
-                cylinder = Transform(child = self.lock_cylinder_image, rotate = self.cylinder_pos, subpixel = True)
-                tension = Transform(child = self.lock_tension_image, rotate = self.cylinder_pos, subpixel = True)
+                cylinder = Transform(child=self.lock_cylinder_image, rotate=self.cylinder_pos, subpixel=True)
+                tension = Transform(child=self.lock_tension_image, rotate=self.cylinder_pos, subpixel=True)
             
             lock_plate_render = renpy.render(self.lock_plate_image, width, height, st, at)
             lock_cylinder_render = renpy.render(cylinder, width, height, st, at)

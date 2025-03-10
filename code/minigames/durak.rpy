@@ -185,7 +185,7 @@ init python:
         if min(playerlist)<min(cpulist):
             return 0
         return 1
-screen key_off():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+screen key_off():
     key"game_menu"action NullAction()
     key"rollback"action NullAction()
     key"viewport_wheelup"action NullAction()
@@ -198,7 +198,7 @@ screen key_off():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     key"toggle_skip"action NullAction()
     key"fast_skip"action NullAction()
     key"accessibility"action NullAction()
-screen durak78():#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+screen durak78():
     use key_off
 
     add"yn/images/mini_games/durak/tb.png"
