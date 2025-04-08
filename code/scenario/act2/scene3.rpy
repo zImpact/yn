@@ -4,7 +4,13 @@ label yn_act2_scene3:
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
     $ renpy.pause(3, hard=True)
-    $ yn_chapter_intro("Действие третье.", "bg yn_int_dining_hall_people_day_blurred", "dining_hall_full", "yn_yana smile2", "yn_play_three_intro_text")
+    $ yn_chapter_intro(
+        "Действие третье.",
+        "bg yn_int_dining_hall_people_day_blurred",
+        "dining_hall_full",
+        "yn_yana smile2",
+        "yn_play_three_intro_text"
+    )
     scene bg black with Dissolve(2)
     $ persistent.timeofday = "night"
     $ persistent.sprite_time = "night"
@@ -14,6 +20,9 @@ label yn_act2_scene3:
     scene bg yn_int_house_of_yana_night_1 with Dissolve(2)
     play ambience ambience_int_cabin_night fadein 2
     play music yn_spiritual_spiritual fadein 2
+    # TODO: здесь добавить уведомление о том, что появились новые записи в дневнике
+    # TODO: конкретно: Места - Художественный и Театральный клубы, Кладбище, персонажи - Кот, Слон, Хаер
+    # TODO: внести в дневник информацию про ВСЕ группы
     $ renpy.pause(2, hard=True)
     $ yn_diary_say.page = 2
     $ yn_diary_say("Прошло несколько дней с момента приезда. {w}Лагерь меня принял, и я попала под крыло Воробьёв. {w}К удивлению, Слон, Алиса и Хаер правда курят. Слон табачит «Астру», Хаер - «Мальборо» (ума не приложу, где он их достал), а Алиса предпочитает марку «Стюардесса» или, как она говорит, «Стерва».")
@@ -30,7 +39,6 @@ label yn_act2_scene3:
     stop music fadeout 2
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
-    # $ yn_rename_character("yn_jurn", "Голос из динамика")
     $ renpy.block_rollback()
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
@@ -51,7 +59,6 @@ label yn_act2_scene3:
     yn_th "Думаю, в этот раз точно нужно сходить на зарядку. Слишком много вольностей я себе позволяла в последнее время."
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
-    # $ yn_rename_character("yn_jurn", "Журналистка")
     scene bg ext_washstand_day with Dissolve(2)
     play ambience ambience_camp_center_day fadein 2
     yn_narrator "У умывальников я встретила Хаера, который с опаской смотрел на бурный поток воды, бьющей из крана."
@@ -110,7 +117,14 @@ label yn_act2_scene3:
     $ renpy.pause(1, hard=True)
     $ yn_onload("lock")
     $ renpy.block_rollback()
-    $ yn_chapter_intro("Действие третье.\nИнтермедия. Хаер.", "bg yn_int_theatreclub_day_blurred", "int_cabin_day", "yn_haer smile", "yn_play_three_haer_intermedia_text", "yn_haer_intermedia_phrase")
+    $ yn_chapter_intro(
+        "Действие третье.\nИнтермедия. Хаер.",
+        "bg yn_int_theatreclub_day_blurred",
+        "int_cabin_day",
+        "yn_haer smile",
+        "yn_play_three_haer_intermedia_text",
+        "yn_haer_intermedia_phrase"
+    )
     $ persistent.yn_protagonist_mood = "normal"
     $ persistent.yn_protagonist = "haer"
     # $ yn_rename_character("yn_yana", "Ящерица")

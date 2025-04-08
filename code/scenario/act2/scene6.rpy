@@ -4,7 +4,13 @@ label yn_act2_scene6:
     $ persistent.timeofday = "sunset"
     $ persistent.sprite_time = "sunset"
     $ renpy.pause(3, hard=True)
-    $ yn_chapter_intro("Действие шестое.", "bg yn_ext_beach_sunset_blurred", "lake_shore_evening", "yn_yana swim smile", "yn_play_sixth_intro_text")
+    $ yn_chapter_intro(
+        "Действие шестое.",
+        "bg yn_ext_beach_sunset_blurred",
+        "lake_shore_evening",
+        "yn_yana swim smile",
+        "yn_play_sixth_intro_text"
+    )
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ yn_onload("unlock")

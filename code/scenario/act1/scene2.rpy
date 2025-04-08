@@ -5,7 +5,13 @@ label yn_act1_scene2:
     $ persistent.sprite_time = "day"
     $ persistent.yn_protagonist_mood = "sleepy"
     $ renpy.pause(3, hard=True)
-    $ yn_chapter_intro("Действие второе.", "bg yn_ext_square_lenin_day_blurred", "camp_center_day", "yn_yana smile2", "yn_play_two_intro_text")
+    $ yn_chapter_intro(
+        "Действие второе.",
+        "bg yn_ext_square_lenin_day_blurred",
+        "camp_center_day",
+        "yn_yana smile2",
+        "yn_play_two_intro_text"
+    )
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ yn_onload("unlock")
@@ -13,6 +19,7 @@ label yn_act1_scene2:
     scene bg yn_int_house_of_yana_day_1 with Dissolve(2)
     play ambience ambience_int_cabin_day fadein 2
     play music music_list["everyday_theme"] fadein 4
+    # TODO: здесь добавить уведомление о том, что появились новые записи в дневнике (Домик Яны в лагере)
     yn_narrator "Проснулась я от того, что уже одетая Виолетта слегка трясла меня за плечи. Яркие лучи утреннего солнца уже пробивались через занавески."
     show cs normal glasses at center with dissolve
     yn_cs "Вставай, дорогая, линейка на площади начнётся через двадцать минут. Рекомендую не опаздывать, Ольга этого ой как не любит."
@@ -359,7 +366,7 @@ label yn_act1_scene2_after_sl_dialogue:
             yn_yana "Разве мама не учила тебя не говорить с набитым ртом?"
             show dv smile pioneer2
             show yn_haer smile
-            show yn_kot smile 
+            show yn_kot smile
             with dspr
             yn_narrator "Спросила я у Ульяны с нарочито показным видом взрослого, отчитывающего ребёнка за его шалости. Все остальные за столом улыбнулись. Алиса даже удовлетворённо покачала головой."
             yn_th "Раз уж я попала в компанию, нужно начинать играть по их правилам."
@@ -410,7 +417,11 @@ label yn_act1_scene2_after_sl_dialogue:
         "yn_theatre_club": "yn_act1_scene2_bypass_theatre_club"
     }
     
-    $ yn_act1_scene2_map = YnCampMap(yn_act1_scene2_bypass_zones_dict, "yn_act1_scene2_after_map", map_screen="yn_act1_scene2_bypass_map")
+    $ yn_act1_scene2_map = YnCampMap(
+        yn_act1_scene2_bypass_zones_dict,
+        "yn_act1_scene2_after_map",
+        map_screen="yn_act1_scene2_bypass_map"
+    )
     $ yn_act1_scene2_map.yn_map_call()
 
 label yn_act1_scene2_bypass_library:
@@ -557,10 +568,12 @@ label yn_act1_scene2_bypass_dining_hall:
             with fade
             yn_th "Быстро, однако, Ульяна пошла на попятную. Неужели она ждала, что я начну разбор полётов? Ещё одна проверка? Или у меня паранойя?"
             yn_yana "Предложение, конечно, заманчивое, но в конце-концов эти бегунки нужны, чтобы найти для себя интересное занятие. Да и с лагерем получше познакомиться."
+            # TODO: здесь должна быть развилка, что если Яна уже была в театральном, то она скажет что там уже была
             yn_us "Как знаешь. Но если ты хочешь куда-то записаться, рекомендую к нашим, в театральный. Там никогда скучно не бывает."
             yn_yana "Да, видела его в обходном. Здорово, что он тут есть!"
             yn_us "А то! В клубах найдёшь. У нас тут вообще много чего есть. Мы нисколечко не хуже этих артековских! Даже лучше!"
             yn_yana "Хорошо. Приму к сведению. И смотри мне, чтоб больше без проделок!"
+            # TODO: тут развилка заканчивается
             show yn_us grin with dspr
             yn_us "Обижаешь! Бывай!"
             stop music fadeout 4
@@ -583,6 +596,7 @@ label yn_act1_scene2_bypass_dining_hall:
     $ yn_act1_scene2_map.yn_map_call()
 
 label yn_act1_scene2_bypass_medic_house:
+    # TODO: нужно обновить ЦГ осмотра
     $ renpy.block_rollback()
     $ persistent.yn_protagonist_mood = "normal"
     scene bg ext_aidpost_day with fade
@@ -638,7 +652,7 @@ label yn_act1_scene2_bypass_medic_house:
     yn_narrator "Я вышла из медпункта, обойдя ребят, провожающих меня взглядом."
     yn_th "Всё же интересный человек, местная медработница."
     yn_th "Взрослая женщина, но блестящие озорством глаза и некоторые слова с действиями выдают в ней какое-то ребячество, словно она не работница лагеря, а обычная пионерка, приехавшая сюда отдыхать."
-    yn_th "А на неё почему-то надели медицинский халат и повесели на шею стетоскоп вместо красного галстука."
+    yn_th "А на неё почему-то надели медицинский халат и повесили на шею стетоскоп вместо красного галстука."
 
     $ yn_act1_scene2_bypass_places["yn_act1_scene2_bypass_medic_house_completed"] = True
 

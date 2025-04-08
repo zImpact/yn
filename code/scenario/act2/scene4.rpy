@@ -4,7 +4,13 @@ label yn_act2_scene4:
     $ persistent.timeofday = "night"
     $ persistent.sprite_time = "night"
     $ renpy.pause(3, hard=True)
-    $ yn_chapter_intro("Действие четвертое.", "bg yn_ext_square_lenin_night_party_blurred", "camp_center_night", "yn_yana smile2", "yn_play_fourth_intro_text")
+    $ yn_chapter_intro(
+        "Действие четвертое.",
+        "bg yn_ext_square_lenin_night_party_blurred",
+        "camp_center_night",
+        "yn_yana smile2",
+        "yn_play_fourth_intro_text"
+    )
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ persistent.timeofday = "day"
@@ -1552,7 +1558,14 @@ label yn_act2_scene4_disco:
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
     $ yn_onload("lock")
-    $ yn_chapter_intro("Действие четвертое.\nИнтермедия. Эрика.", "bg yn_ext_beach_day_blurred", "lake_shore_day", "yn_erika normal hands_behind", "yn_play_fourth_erika_intermedia", "yn_erika_intermedia_text")
+    $ yn_chapter_intro(
+        "Действие четвертое.\nИнтермедия. Эрика.",
+        "bg yn_ext_beach_day_blurred",
+        "lake_shore_day",
+        "yn_erika normal hands_behind",
+        "yn_play_fourth_erika_intermedia",
+        "yn_erika_intermedia_text"
+    )
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ yn_onload("unlock")

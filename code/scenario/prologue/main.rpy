@@ -6,7 +6,13 @@ label yn_prologue:
     # $ yn_reload_names()
     $ yn_set_mode_nvl()
     $ renpy.pause(4, hard=True)
-    $ yn_chapter_intro("Пролог.", "bg yn_ext_busstop_summer_blurred", "ext_road_day", "yn_yana serious", "yn_prologue_intro_text")
+    $ yn_chapter_intro(
+        "Пролог.",
+        "bg yn_ext_busstop_summer_blurred",
+        "ext_road_day",
+        "yn_yana serious",
+        "yn_prologue_intro_text"
+    )
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ yn_onload("unlock")
@@ -66,3 +72,4 @@ label yn_prologue:
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
     $ renpy.pause(3, hard=True)
+    jump yn_act1_scene1

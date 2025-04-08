@@ -324,7 +324,7 @@ init python:
     #     store.yn_names_list.append(character_id)
     #     yn_reload_names()
 
-    def yn_frame_animation(image_name, frames_quantity, retention, loop, transition, start = 1, **properties):
+    def yn_frame_animation(image_name, frames_quantity, retention, loop, transition, start=1, **properties):
         anim_args = []
         
         for i in range(start, start + frames_quantity):
@@ -384,12 +384,12 @@ init python:
 
         save_name = _save_name
         renpy.music.play("sound/ambiences/{}.ogg".format(ambience), "ambience", fadein=2)
-        renpy.show(background, at_list = [yn_chapter_intro_background_moving()])
-        renpy.show(sprite, at_list = [yn_chapter_intro_sprite_moving()])
-        renpy.show(text, at_list = [yn_chapter_intro_text_pos(text)])
+        renpy.show(background, at_list=[yn_chapter_intro_background_moving()])
+        renpy.show(sprite, at_list=[yn_chapter_intro_sprite_moving()])
+        renpy.show(text, at_list=[yn_chapter_intro_text_pos(text)])
 
         if intermedia_phrase:
-            renpy.show(intermedia_phrase, at_list = [yn_intermedia_phrase_pos(intermedia_phrase)])
+            renpy.show(intermedia_phrase, at_list=[yn_intermedia_phrase_pos(intermedia_phrase)])
 
         renpy.transition(dissolve)
         renpy.pause(4, hard=True)

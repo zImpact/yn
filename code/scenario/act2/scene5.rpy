@@ -4,13 +4,18 @@ label yn_act2_scene5:
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
     $ renpy.pause(3, hard=True)
-    $ yn_chapter_intro("Действие пятое.", "bg yn_ext_playground_day_blurred", "soccer_play_background", "yn_yana smile2", "yn_play_fifth_intro_text")
+    $ yn_chapter_intro(
+        "Действие пятое.",
+        "bg yn_ext_playground_day_blurred",
+        "soccer_play_background",
+        "yn_yana smile2",
+        "yn_play_fifth_intro_text"
+    )
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ yn_onload("unlock")
     $ yn_set_timeofday_cursor_var = True
     $ persistent.yn_protagonist = "yana"
-    # $ yn_rename_character("yn_dv", "Мельпа")
     scene bg yn_int_theatreclub_day
     show yn_haer smile2_longhair:
         xalign -0.2
@@ -1853,7 +1858,14 @@ label yn_act2_scene5_playground:
     $ renpy.pause(1, hard=True)
     $ yn_onload("lock")
     $ renpy.block_rollback()
-    $ yn_chapter_intro("Действие пятое.\nИнтермедия. Мельпа.", "bg yn_ext_square_lenin_day_blurred", "camp_center_day", "dv grin pioneer2", "yn_play_fifth_dv_intermedia_text", "yn_dv_intermedia_text")
+    $ yn_chapter_intro(
+        "Действие пятое.\nИнтермедия. Мельпа.",
+        "bg yn_ext_square_lenin_day_blurred",
+        "camp_center_day",
+        "dv grin pioneer2",
+        "yn_play_fifth_dv_intermedia_text",
+        "yn_dv_intermedia_text"
+    )
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ persistent.yn_protagonist_mood = "normal"

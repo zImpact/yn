@@ -4,7 +4,13 @@ label yn_act1_scene1:
     $ renpy.pause(1, hard=True)
     $ persistent.timeofday = "sunset"
     $ persistent.sprite_time = "sunset"
-    $ yn_chapter_intro("Действие первое.", "bg yn_int_dining_hall_people_sunset_blurred", "dining_hall_full", "yn_yana smile1", "yn_play_one_intro_text")
+    $ yn_chapter_intro(
+        "Действие первое.",
+        "bg yn_int_dining_hall_people_sunset_blurred",
+        "dining_hall_full",
+        "yn_yana smile1",
+        "yn_play_one_intro_text"
+    )
     scene bg black with Dissolve(2)
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
@@ -15,8 +21,8 @@ label yn_act1_scene1:
     play music music_list["raindrops"] fadein 4
     play sound_loop sfx_bus_interior_moving fadein 2
     #ЗДЕСЬ БУДЕТ ВЫБОР НАВЫКОВ
-    #-----------------------
 
+    # TODO: здесь добавить уведомление о том, что появились новые записи в дневнике (Квартира + Автобусная станция Муркино)
     #ЕСЛИ НАВЫК = ВОСПРИЯТИЕ + ЭНЦИКЛОПЕДИЯ
     yn_narrator "Автобус мерно гудел, изредка подскакивая на дорожных выбоинах. Городские виды резко сменились лесами и полями, словно на замену ведутисту пришел пейзажист." with dissolve
     #ИНАЧЕ "Городские виды резко сменились лесами и полями."

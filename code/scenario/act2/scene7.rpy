@@ -4,7 +4,13 @@ label yn_act2_scene7:
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
     $ renpy.pause(3, hard=True)
-    $ yn_chapter_intro("Действие седьмое.", "bg yn_int_theatreclub_day_blurred", "int_cabin_day", "yn_yana smile2", "yn_play_seventh_intro_text")
+    $ yn_chapter_intro(
+        "Действие седьмое.",
+        "bg yn_int_theatreclub_day_blurred",
+        "int_cabin_day",
+        "yn_yana smile2",
+        "yn_play_seventh_intro_text"
+    )
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ persistent.timeofday = "day"
@@ -429,7 +435,14 @@ label yn_act2_scene7:
     $ renpy.pause(1, hard=True)
     $ yn_onload("lock")
     $ renpy.block_rollback()
-    $ yn_chapter_intro("Действие седьмое.\nИнтермедия. Слон.", "bg yn_ext_square_lenin_day_blurred", "camp_center_day", "yn_slon normal2", "yn_play_seventh_slon_intermedia_text", "yn_slon_intermedia_text")
+    $ yn_chapter_intro(
+        "Действие седьмое.\nИнтермедия. Слон.",
+        "bg yn_ext_square_lenin_day_blurred",
+        "camp_center_day",
+        "yn_slon normal2",
+        "yn_play_seventh_slon_intermedia_text",
+        "yn_slon_intermedia_text"
+    )
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard=True)
     $ persistent.yn_protagonist_mood = "normal"
