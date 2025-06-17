@@ -5,7 +5,7 @@ init python:
 
         else:
             yn_diary_say.page = 1 if yn_diary_say.page == 2 else 2
-        
+
         renpy.say(yn_narrator_diary, text)
 
         if yn_diary_say.page == 1:
@@ -21,7 +21,7 @@ screen yn_diary_mode(what, who):
             id "what"
             font yn_flow_ext
             xpos 377
-            ypos 122 
+            ypos 122
             xmaximum 500
             size 34
             line_spacing 9
@@ -31,7 +31,7 @@ screen yn_diary_mode(what, who):
             font yn_flow_ext
             color "#000000"
             xpos 377
-            ypos 122 
+            ypos 122
             xmaximum 500
             size 34
             line_spacing 9
@@ -40,7 +40,7 @@ screen yn_diary_mode(what, who):
             id "what"
             font yn_flow_ext
             xpos 1030
-            ypos 122 
+            ypos 122
             xmaximum 495
             size 34
             line_spacing 9

@@ -40,10 +40,10 @@ screen yn_tip_screen(text):
     if not config.skipping:
         frame background Frame("images/gui/choice/" + persistent.timeofday + "/choice_box.png", 0, 0) xalign 0.98 yalign 0.01 left_padding 75 right_padding 75 bottom_padding 75 top_padding 75 at notify_appear:
             text yn_tip_phrases[text]:
-                font header_font 
-                size 37 
-                color "#ffdd7d" 
+                font header_font
+                size 37
+                color "#ffdd7d"
                 xmaximum 0.35
-                
+
     else:
         timer 0.01 action Hide("yn_tip_screen")

@@ -7,7 +7,7 @@ init python:
 
         def yn_map_count_zones(self, zones):
             return sum(1 + yn_map_count_zones(v) if isinstance(v, dict) else 1 for _, v in zones.iteritems())
-        
+
         @staticmethod
         def yn_map_disable_zone(zones, zone):
             del zones[zone]

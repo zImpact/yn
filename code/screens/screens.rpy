@@ -1,22 +1,22 @@
 screen yn_preferences():
     tag menu
     modal True
-    
+
     $ yn_bar_null = Frame((yn_gui_path + "preferences/" + persistent.timeofday + "/yn_bar_null.png"), 36, 36)
     $ yn_bar_full = Frame((yn_gui_path + "preferences/" + persistent.timeofday + "/yn_bar_full.png"), 36, 36)
 
     window background yn_gui_path + "preferences/" + persistent.timeofday + "/preferences_bg.jpg":
-        text ["Настройки"]: 
+        text ["Настройки"]:
             style "yn_settings_link"
-            xalign 0.5 
-            yalign 0.08 
+            xalign 0.5
+            yalign 0.08
             color "#ffffff"
 
-        textbutton ["Назад"]: 
-            style "yn_log_button" 
-            text_style "yn_settings_link" 
-            xalign 0.015 
-            yalign 0.92 
+        textbutton ["Назад"]:
+            style "yn_log_button"
+            text_style "yn_settings_link"
+            xalign 0.015
+            yalign 0.92
             action Return()
 
         side "c b r":
@@ -39,7 +39,7 @@ screen yn_preferences():
                         else:
                             null width 22
 
-                        textbutton ["Во весь экран"]: 
+                        textbutton ["Во весь экран"]:
                             style "yn_log_button"
                             text_style "yn_settings_text_" + persistent.timeofday
                             action Preference("display", "fullscreen")
@@ -51,7 +51,7 @@ screen yn_preferences():
                         else:
                             null width 22
 
-                        textbutton ["В окне"]: 
+                        textbutton ["В окне"]:
                             style "yn_log_button"
                             text_style "yn_settings_text_" + persistent.timeofday
                             action Preference("display", "window")
@@ -68,8 +68,8 @@ screen yn_preferences():
                         else:
                             null width 22
 
-                        textbutton ["Всё"]: 
-                            style "yn_log_button" 
+                        textbutton ["Всё"]:
+                            style "yn_log_button"
                             text_style "yn_settings_text_" + persistent.timeofday
                             action Preference("skip", "all")
 
@@ -80,17 +80,17 @@ screen yn_preferences():
                         else:
                             null width 22
 
-                        textbutton ["Виденное ранее"]: 
-                            style "yn_log_button" 
+                        textbutton ["Виденное ранее"]:
+                            style "yn_log_button"
                             text_style "yn_settings_text_" + persistent.timeofday
                             action Preference("skip", "seen")
 
                 text ["Громкость"]:
-                    style "yn_settings_header_" + persistent.timeofday                   
+                    style "yn_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
-                    textbutton ["Музыка"]: 
+                    textbutton ["Музыка"]:
                         style "yn_log_button"
                         text_style "yn_settings_text_" + persistent.timeofday
                         action NullAction()
@@ -98,60 +98,60 @@ screen yn_preferences():
 
                     bar:
                         value Preference("music volume")
-                        left_bar yn_bar_full 
-                        right_bar yn_bar_null 
-                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                        xmaximum 1.35 
-                        ymaximum 36 
-                        xpos -0.55
-
-                grid 2 1 xfill True:
-                    textbutton ["Звуки"]: 
-                        style "yn_log_button"
-                        text_style "yn_settings_text_" + persistent.timeofday
-                        action NullAction()
-                        xpos 0.1
-
-                    bar: 
-                        value Preference("sound volume") 
-                        left_bar yn_bar_full 
-                        right_bar yn_bar_null 
-                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                        xmaximum 1.35 
+                        left_bar yn_bar_full
+                        right_bar yn_bar_null
+                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                        xmaximum 1.35
                         ymaximum 36
                         xpos -0.55
 
                 grid 2 1 xfill True:
-                    textbutton ["Эмбиент"]: 
+                    textbutton ["Звуки"]:
                         style "yn_log_button"
                         text_style "yn_settings_text_" + persistent.timeofday
                         action NullAction()
                         xpos 0.1
 
-                    bar: 
-                        value Preference("voice volume") 
-                        left_bar yn_bar_full 
-                        right_bar yn_bar_null 
-                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                        xmaximum 1.35 
-                        ymaximum 36 
+                    bar:
+                        value Preference("sound volume")
+                        left_bar yn_bar_full
+                        right_bar yn_bar_null
+                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                        xmaximum 1.35
+                        ymaximum 36
+                        xpos -0.55
+
+                grid 2 1 xfill True:
+                    textbutton ["Эмбиент"]:
+                        style "yn_log_button"
+                        text_style "yn_settings_text_" + persistent.timeofday
+                        action NullAction()
+                        xpos 0.1
+
+                    bar:
+                        value Preference("voice volume")
+                        left_bar yn_bar_full
+                        right_bar yn_bar_null
+                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                        xmaximum 1.35
+                        ymaximum 36
                         xpos -0.55
 
                 text ["Скорость текста"]:
                     style "yn_settings_header_" + persistent.timeofday
                     xalign 0.5
 
-                bar: 
-                    value Preference("text speed") 
-                    left_bar yn_bar_full 
-                    right_bar yn_bar_null 
-                    thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                    hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                    xalign 0.5 
-                    xmaximum 0.8 
+                bar:
+                    value Preference("text speed")
+                    left_bar yn_bar_full
+                    right_bar yn_bar_null
+                    thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                    hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                    xalign 0.5
+                    xmaximum 0.8
                     ymaximum 36
 
                 text ["Автопереход"]:
@@ -166,7 +166,7 @@ screen yn_preferences():
                         else:
                             null width 22
 
-                        textbutton ["Включить"]: 
+                        textbutton ["Включить"]:
                             style "yn_log_button"
                             text_style "yn_settings_text_" + persistent.timeofday
                             action Preference("auto-forward after click", "enable")
@@ -178,7 +178,7 @@ screen yn_preferences():
                         else:
                             null width 22
 
-                        textbutton ["Выключить"]: 
+                        textbutton ["Выключить"]:
                             style "yn_log_button"
                             text_style "yn_settings_text_" + persistent.timeofday
                             action (Preference("auto-forward time", 0), Preference("auto-forward after click", "disable"))
@@ -187,14 +187,14 @@ screen yn_preferences():
                     style "yn_settings_header_" + persistent.timeofday
                     xalign 0.5
 
-                bar: 
-                    value Preference("auto-forward time") 
-                    left_bar yn_bar_full 
-                    right_bar yn_bar_null 
-                    thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                    hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png" 
-                    xalign 0.5 
-                    xmaximum 0.8 
+                bar:
+                    value Preference("auto-forward time")
+                    left_bar yn_bar_full
+                    right_bar yn_bar_null
+                    thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                    hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                    xalign 0.5
+                    xmaximum 0.8
                     ymaximum 36
 
                 text ["Размер шрифта"]:
@@ -221,55 +221,55 @@ screen yn_preferences():
                         else:
                             null width 22
 
-                        textbutton ["Крупный"]: 
+                        textbutton ["Крупный"]:
                             style "yn_log_button"
                             text_style "yn_settings_text_" + persistent.timeofday
                             action SetField(persistent, "font_size", "large")
 
-            bar: 
-                value XScrollValue("preferences") 
-                left_bar "images/misc/none.png" 
-                right_bar "images/misc/none.png" 
-                thumb "images/misc/none.png" 
+            bar:
+                value XScrollValue("preferences")
+                left_bar "images/misc/none.png"
+                right_bar "images/misc/none.png"
+                thumb "images/misc/none.png"
                 hover_thumb "images/misc/none.png"
 
-            vbar: 
-                value YScrollValue("preferences") 
-                bottom_bar "images/misc/none.png" 
-                top_bar "images/misc/none.png" 
-                thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_vthumb.png" 
+            vbar:
+                value YScrollValue("preferences")
+                bottom_bar "images/misc/none.png"
+                top_bar "images/misc/none.png"
+                thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_vthumb.png"
                 thumb_offset -12
 
 screen yn_save():
     tag menu
     modal True
-    
+
     window background yn_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png":
-        text ["Сохранение"]: 
-            style "yn_settings_link" 
-            xalign 0.5 
-            yalign 0.08 
+        text ["Сохранение"]:
+            style "yn_settings_link"
+            xalign 0.5
+            yalign 0.08
             color "#ffffff"
 
-        textbutton ["Назад"]: 
-            style "yn_log_button" 
-            text_style "yn_settings_link" 
-            xalign 0.015 
-            yalign 0.92 
+        textbutton ["Назад"]:
+            style "yn_log_button"
+            text_style "yn_settings_link"
+            xalign 0.015
+            yalign 0.92
             action Return()
 
-        textbutton ["Сохранить"]: 
-            style "yn_log_button" 
+        textbutton ["Сохранить"]:
+            style "yn_log_button"
             text_style "yn_settings_link"
-            yalign 0.92 
-            xalign 0.5 
+            yalign 0.92
+            xalign 0.5
             action (YnFunctionCallback(yn_on_save_callback, selected_slot), FileSave(selected_slot))
 
-        textbutton ["Удалить"]: 
-            style "yn_log_button" 
-            text_style "yn_settings_link" 
-            yalign 0.92 
-            xalign 0.97 
+        textbutton ["Удалить"]:
+            style "yn_log_button"
+            text_style "yn_settings_link"
+            yalign 0.92
+            xalign 0.97
             action FileDelete(selected_slot)
 
         grid 4 3 xpos 0.108 ypos 0.2 xmaximum 0.81 ymaximum 0.65:
@@ -287,37 +287,37 @@ screen yn_save():
                         style "yn_save_load_button_" + persistent.timeofday
                         has fixed
                         text ("%s." % slot + FileTime(slot, format=" %d.%m.%y, %H:%M", empty=" Пусто") + "\n" + FileSaveName(slot)) style "file_picker_text" xpos 15 ypos 15
-    
+
 screen yn_load():
     tag menu
     modal True
-    
+
     window background yn_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png":
-        text ["Загрузка"]: 
-            style "yn_settings_link" 
-            xalign 0.5 
-            yalign 0.08 
+        text ["Загрузка"]:
+            style "yn_settings_link"
+            xalign 0.5
+            yalign 0.08
             color "#ffffff"
 
-        textbutton ["Назад"]: 
-            style "yn_log_button" 
-            text_style "yn_settings_link" 
-            xalign 0.015 
-            yalign 0.92 
+        textbutton ["Назад"]:
+            style "yn_log_button"
+            text_style "yn_settings_link"
+            xalign 0.015
+            yalign 0.92
             action Return()
 
-        textbutton ["Загрузить"]: 
-            style "yn_log_button" 
-            text_style "yn_settings_link" 
-            yalign 0.92 
-            xalign 0.5 
-            action (YnFunctionCallback(yn_on_load_callback, selected_slot), FileLoad(selected_slot, confirm=False))
-        
-        textbutton ["Удалить"]: 
-            style "yn_log_button" 
+        textbutton ["Загрузить"]:
+            style "yn_log_button"
             text_style "yn_settings_link"
             yalign 0.92
-            xalign 0.97 
+            xalign 0.5
+            action (YnFunctionCallback(yn_on_load_callback, selected_slot), FileLoad(selected_slot, confirm=False))
+
+        textbutton ["Удалить"]:
+            style "yn_log_button"
+            text_style "yn_settings_link"
+            yalign 0.92
+            xalign 0.97
             action FileDelete(selected_slot)
 
         grid 4 3 xpos 0.108 ypos 0.2 xmaximum 0.81 ymaximum 0.65:
@@ -347,7 +347,7 @@ screen yn_say(what, who):
 
             imagebutton:
                 auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/hide_%s.png"
-                xpos 1648 
+                xpos 1648
                 ypos 883
                 action HideInterface()
 
@@ -376,19 +376,19 @@ screen yn_say(what, who):
                 add "yn_" + persistent.yn_protagonist + "_emote_" + persistent.yn_protagonist_mood xpos 72 ypos 871
 
             text what:
-                id "what" 
-                xpos 315 
-                ypos 907 
-                xmaximum 1550 
+                id "what"
+                xpos 315
+                ypos 907
+                xmaximum 1550
                 size 29
                 line_spacing 1
 
             if who:
                 text who:
-                    id "who" 
+                    id "who"
                     xpos 315
                     ypos 873
-                    size 35 
+                    size 35
                     line_spacing 1
 
         elif persistent.font_size == "small":
@@ -398,7 +398,7 @@ screen yn_say(what, who):
 
             imagebutton:
                 auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/hide_%s.png"
-                xpos 1629 
+                xpos 1629
                 ypos 933
                 action HideInterface()
 
@@ -411,7 +411,7 @@ screen yn_say(what, who):
             imagebutton:
                 auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/menu_%s.png"
                 xpos 1746
-                ypos 933 
+                ypos 933
                 action ShowMenu("yn_game_menu_selector")
 
             imagebutton:
@@ -433,19 +433,19 @@ screen yn_say(what, who):
                     ypos 918
 
             text what:
-                id "what" 
+                id "what"
                 xpos 298
                 ypos 956
-                xmaximum 1541 
+                xmaximum 1541
                 size 24
                 line_spacing 2
 
             if who:
                 text who:
-                    id "who" 
+                    id "who"
                     xpos 298
-                    ypos 925 
-                    size 28 
+                    ypos 925
+                    size 28
                     line_spacing 2
 
 screen yn_nvl(items, dialogue):
@@ -460,22 +460,22 @@ screen yn_nvl(items, dialogue):
 
                 if persistent.font_size == "large":
                     if who is not None:
-                        text who: 
-                            id who_id 
+                        text who:
+                            id who_id
                             size 35
 
                     text what:
-                        id what_id 
+                        id what_id
                         size 32
 
                 elif persistent.font_size == "small":
                     if who is not None:
-                        text who: 
-                            id who_id 
+                        text who:
+                            id who_id
                             size 30
 
                     text what:
-                        id what_id 
+                        id what_id
                         size 28
         if items:
             vbox:
@@ -538,10 +538,10 @@ screen yn_keyboard_help():
 
     add yn_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png"
 
-    text ["Помощь"]: 
-        style "yn_settings_link" 
-        xalign 0.5 
-        yalign 0.08 
+    text ["Помощь"]:
+        style "yn_settings_link"
+        xalign 0.5
+        yalign 0.08
         color "#ffffff"
 
     viewport id "vp":
@@ -550,17 +550,17 @@ screen yn_keyboard_help():
                 xpos 200
                 ypos _ypos
 
-    textbutton ["Назад"]: 
-        style "yn_log_button" 
-        text_style "yn_settings_link" 
-        xalign 0.015 
-        yalign 0.92 
+    textbutton ["Назад"]:
+        style "yn_log_button"
+        text_style "yn_settings_link"
+        xalign 0.015
+        yalign 0.92
         action Return()
 
 screen yn_quit():
     tag menu
     modal True
-    
+
     if yn_lock_quit:
         timer 0.01 action Return()
 
@@ -569,7 +569,7 @@ screen yn_quit():
 
     else:
         add yn_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png"
-            
+
         text "Вы действительно \nхотите выйти?":
             size 100
             text_align 0.5
@@ -578,14 +578,14 @@ screen yn_quit():
             font yn_link_font
             antialias True
             kerning 2
-            
+
         textbutton ["Да"]:
             style "yn_settings_header_main_menu_quit"
             text_style "yn_settings_header_main_menu_quit"
             xpos 493
             ypos 600
             action [(Function(yn_screens_diact)), ShowMenu("main_menu")]
-            
+
         textbutton ["Нет"]:
             style "yn_settings_header_main_menu_quit"
             text_style "yn_settings_header_main_menu_quit"
@@ -598,9 +598,9 @@ screen yn_yesno_prompt(yes_action, message, no_action):
 
     add yn_gui_path + "yes_no/" + persistent.timeofday + "/yes_no.png"
 
-    text _(message): 
-        text_align 0.5 
-        yalign 0.46 
+    text _(message):
+        text_align 0.5
+        yalign 0.46
         xalign 0.5
 
         if persistent.timeofday == "day":
@@ -615,23 +615,23 @@ screen yn_yesno_prompt(yes_action, message, no_action):
         elif persistent.timeofday == "sunset":
             color "#5a3525"
 
-        font yn_header_font 
+        font yn_header_font
         size 30
 
-    textbutton ["Да"]: 
-        text_size 60 
-        style "yn_log_button" 
-        text_style "yn_settings_link" 
-        yalign 0.65 
-        xalign 0.3 
+    textbutton ["Да"]:
+        text_size 60
+        style "yn_log_button"
+        text_style "yn_settings_link"
+        yalign 0.65
+        xalign 0.3
         action yes_action
 
-    textbutton ["Нет"]: 
-        text_size 60 
-        style "yn_log_button" 
-        text_style "yn_settings_link" 
-        yalign 0.65 
-        xalign 0.7 
+    textbutton ["Нет"]:
+        text_size 60
+        style "yn_log_button"
+        text_style "yn_settings_link"
+        yalign 0.65
+        xalign 0.7
         action no_action
 
 screen yn_text_history():
@@ -674,12 +674,12 @@ screen yn_text_history():
 
                         if "color" in h.who_args:
                             color h.who_args["color"]
-                            
+
                 textbutton h.what:
                     text_size history_text_size
-                    style "yn_log_button" 
-                    text_style "yn_text_history" 
-                    xpos 100                    
+                    style "yn_log_button"
+                    text_style "yn_text_history"
+                    xpos 100
                     xmaximum xmax
                     text_color "#ffdd7d"
 
@@ -694,15 +694,15 @@ screen yn_text_history():
 
                     elif persistent.timeofday == "sunset":
                         text_hover_color "#636840"
-                    
+
                     action RollbackToIdentifier(h.rollback_identifier)
-        
-        vbar value YScrollValue("yn_text_history_screen") bottom_bar "images/misc/none.png" top_bar "images/misc/none.png" thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_vthumb.png" xoffset 1700  
+
+        vbar value YScrollValue("yn_text_history_screen") bottom_bar "images/misc/none.png" top_bar "images/misc/none.png" thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_vthumb.png" xoffset 1700
 
 screen yn_choice(items):
     modal True
-    
-    $ yn_choice_colors_hover = {                        
+
+    $ yn_choice_colors_hover = {
         "day": "#9dcd55",
         "night": "#3ccfa2",
         "sunset": "#dcd168"
@@ -714,7 +714,7 @@ screen yn_choice(items):
         "sunset": "#69652f"
     }
 
-    $ yn_choice_colors_selected = {                        
+    $ yn_choice_colors_selected = {
         "day": "#2a3b15",
         "night": "#0b3027",
         "sunset": "#42401e"
@@ -733,7 +733,7 @@ screen yn_choice(items):
                     if persistent.licensed:
                         if caption in persistent.choices and caption != "Налево" and caption != "Направо" and caption != "Go left" and caption != "Go right" and caption != "Ir a la izquierda" and caption != "Ir a la derecha":
                             text caption font header_font size 37 hover_size 37 color yn_choice_colors_selected[persistent.timeofday] hover_color yn_choice_colors_hover[persistent.timeofday] xcenter 0.5 text_align 0.5
-                            
+
                         else:
                             text caption font header_font size 37 hover_size 37 color yn_choice_colors[persistent.timeofday] hover_color yn_choice_colors_hover[persistent.timeofday] xcenter 0.5 text_align 0.5
 
@@ -751,7 +751,7 @@ screen yn_help():
     modal True
 
     add yn_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png"
-    
+
     text "Информация":
         size 70
         xalign 0.5
@@ -759,47 +759,47 @@ screen yn_help():
         font yn_link_font
         antialias True
         kerning 2
-            
+
     textbutton ["Группа VK"]:
-        style "yn_log_button" 
+        style "yn_log_button"
         text_style "yn_settings_header_main_menu_quit"
         xalign 0.5
         ypos 350
         action OpenURL("https://vk.com/public176281709")
-            
+
     textbutton ["Бессонница"]:
-        style "yn_log_button" 
+        style "yn_log_button"
         text_style "yn_settings_header_main_menu_quit"
         xalign 0.5
         ypos 500
         action OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=2343598706")
 
     textbutton ["Дни нигде"]:
-        style "yn_log_button" 
+        style "yn_log_button"
         text_style "yn_settings_header_main_menu_quit"
         xalign 0.5
         ypos 500
 
     textbutton ["Один украденный день"]:
-        style "yn_log_button" 
+        style "yn_log_button"
         text_style "yn_settings_header_main_menu_quit"
         xalign 0.5
         ypos 500
         action OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=1746278653")
 
     textbutton ["Всех не спасти"]:
-        style "yn_log_button" 
+        style "yn_log_button"
         text_style "yn_settings_header_main_menu_quit"
         xalign 0.5
         ypos 500
-            
+
     textbutton ["Петля времени"]:
-        style "yn_log_button" 
+        style "yn_log_button"
         text_style "yn_settings_header_main_menu_quit"
         xalign 0.5
         ypos 650
-        action OpenURL("https://youtu.be/x2KBAuBKWL8")        
-            
+        action OpenURL("https://youtu.be/x2KBAuBKWL8")
+
     imagebutton:
         idle yn_gui_path + "logowhite_hover.png"
         hover yn_gui_path + "logowhite_hover.png"
@@ -807,11 +807,11 @@ screen yn_help():
         ypos 890
         action NullAction()
 
-    textbutton ["Назад"]: 
-        style "yn_log_button" 
-        text_style "yn_settings_link" 
-        xalign 0.015 
-        yalign 0.92 
+    textbutton ["Назад"]:
+        style "yn_log_button"
+        text_style "yn_settings_link"
+        xalign 0.015
+        yalign 0.92
         action Return()
 
 screen yn_interface_info():

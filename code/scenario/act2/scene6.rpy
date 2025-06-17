@@ -88,7 +88,7 @@ label yn_act2_scene6:
     yn_yana "А в чём он провинился?"
     yn_san "Та... Нечё спорить. {w}Ишь ты, ска, на слабо меня взять удумал патлатый."
     yn_san "Ладно, молодёжь. Развлекайтесь."
-    hide yn_san 
+    hide yn_san
     hide yn_slon
     with dissolve
     show yn_dv pirate normal:
@@ -124,12 +124,12 @@ label yn_act2_scene6:
     $ renpy.block_rollback()
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
-    scene bg yn_int_theatreclub_day 
+    scene bg yn_int_theatreclub_day
     show yn_us normal:
         xpos -240
 
     show dv normal pioneer2:
-        xpos 160    
+        xpos 160
 
     show yn_haer pity longhair:
         xpos 850
@@ -175,7 +175,7 @@ label yn_act2_scene6:
     stop ambience fadeout 2
     scene bg black with yn_timeskip
     $ renpy.pause(1, hard=True)
-    scene bg ext_houses_day 
+    scene bg ext_houses_day
     show dv normal pioneer2 at center
     with yn_timeskip
     play ambience ambience_camp_center_day fadein 2
@@ -192,12 +192,12 @@ label yn_act2_scene6:
     stop ambience fadeout 2
     scene bg black with yn_timeskip
     $ renpy.pause(1, hard=True)
-    scene bg yn_int_theatreclub_day 
+    scene bg yn_int_theatreclub_day
     show yn_us normal:
         xpos -240
 
     show dv normal pioneer2:
-        xpos 160    
+        xpos 160
 
     show yn_haer pity longhair:
         xpos 850
@@ -239,14 +239,14 @@ label yn_act2_scene6:
             yn_yana "Дорогуша, я понимаю, что мы в немного разной весовой категории, но ты настолько красива, что я не могу молчать."
             yn_yana "Твои волосы пахнут любовью, а глаза явно видят больше, чем у других. Прошу, Косая, приходи сегодня вечером на причал. Буду ждать."
             hide yn_note_full
-            scene bg yn_int_theatreclub_day 
+            scene bg yn_int_theatreclub_day
             with dissolve
             $ renpy.pause(0.5, hard=True)
             show yn_us normal:
                 xpos -240
 
             show dv normal pioneer2:
-                xpos 160    
+                xpos 160
 
             show yn_haer pity longhair:
                 xpos 850
@@ -307,7 +307,7 @@ label yn_act2_scene6:
     stop ambience fadeout 2
     scene bg black with yn_timeskip
     $ renpy.pause(1, hard=True)
-    scene bg ext_houses_day 
+    scene bg ext_houses_day
     show yn_haer pity longhair at center
     with yn_timeskip
     play ambience ambience_camp_center_day fadein 2
@@ -363,7 +363,7 @@ label yn_act2_scene6:
     yn_julya "О! Привет, Ящерица!"
     yn_narrator "С лёгкой улыбкой крикнула она мне."
     yn_julya "Давай сюда, быстрее! Чего мокнешь?"
-    scene bg yn_ext_musclub_verandah_sunset_video_rain 
+    scene bg yn_ext_musclub_verandah_sunset_video_rain
     show yn_julya happy at center
     with dissolve
     yn_narrator "Когда я поднялась по ступенькам, её улыбка стала ещё шире."
@@ -415,7 +415,7 @@ label yn_act2_scene6:
     yn_dv "Расслабься. Я тут заначку уже несколько смен подряд делаю."
     yn_yana "А что искать то?"
     yn_dv "Вообще, я тебя позвала, чтобы ты на шухере постояла. Ребята сейчас другим делом заняты. Просто постой на входе. Если кто-то пойдёт, начни его громко забалтывать."
-    scene bg yn_int_library_sunset_rain_anim 
+    scene bg yn_int_library_sunset_rain_anim
     show dv sad pioneer2 at center
     with dissolve
     yn_narrator "Она на мгновение замешкалась, перестав перебирать страницы очередной книги. Подняла на меня пронзительный взгляд и немного стушевавшись сказала:"
@@ -432,7 +432,7 @@ label yn_act2_scene6:
         $ renpy.block_rollback()
         $ persistent.timeofday = "night"
         $ persistent.sprite_time = "night"
-        scene bg int_clubs_male2_night 
+        scene bg int_clubs_male2_night
         show yn_us normal:
             xpos -240
 
@@ -514,7 +514,7 @@ label yn_act2_scene6:
     $ renpy.block_rollback()
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
-    scene bg ext_playground_day 
+    scene bg ext_playground_day
     show us angry sport at center
     with yn_timeskip
     play ambience ambience_soccer_play_background fadein 2
