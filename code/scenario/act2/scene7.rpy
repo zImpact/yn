@@ -69,7 +69,7 @@ label yn_act2_scene7:
     yn_dv "Молчи. Умнее выглядеть будешь."
     yn_slon "И что вы собираетесь ставить?"
     yn_narrator "Сказочница ловко выдернула из общей кучи, стопку листов скреплённых скрепкой и положила на стол перед всеми."
-    yn_skaz "{b}«Преступление и наказание».{/b} Укороченная версия." 
+    yn_skaz "{b}«Преступление и наказание».{/b} Укороченная версия."
     yn_haer "Ох, ё! Ну вы выбрали, конечно, репе..."
     yn_slon "Репертуар."
     yn_haer "Да, спасибо."
@@ -212,7 +212,7 @@ label yn_act2_scene7:
     yn_narrator "Репетиция началась."
     scene bg black with yn_timeskip
     $ renpy.pause(0.5, hard=True)
-    scene bg yn_int_theatreclub_day 
+    scene bg yn_int_theatreclub_day
     show mz bukal pioneer at center
     with yn_timeskip
     yn_mz "Помню, батюшка, очень хорошо помню, что вы были."
@@ -223,11 +223,11 @@ label yn_act2_scene7:
     hide yn_haer with dissolve
     yn_narrator "Немного смутившись, но не по сценарию, отвечал Хаер."
     yn_narrator "Алиса стояла рядом со мной. В руках она крутила бутафорский топор и с очень злорадной улыбкой украдкой поглядывала на Женю."
-    scene bg black with yn_timeskip 
+    scene bg black with yn_timeskip
     $ renpy.pause(1, hard=True)
-    scene bg yn_int_theatreclub_day 
+    scene bg yn_int_theatreclub_day
     show yn_haer pity longhair at center
-    with yn_timeskip 
+    with yn_timeskip
     yn_haer "Нет, не случалось. Это что такое?"
     hide yn_haer
     show yn_san squint at center
@@ -258,10 +258,10 @@ label yn_act2_scene7:
     yn_narrator "Хаер взмахнул обеими руками и медленно, без усилий опустил на макушку Мегеры."
     yn_narrator "Женя опустилась на колени, а затем аккуратно упала."
     show dv smile pioneer2 at center with dissolve
-    yn_dv "Это нужно закрепить, зазернить в катарсисе!" 
+    yn_dv "Это нужно закрепить, зазернить в катарсисе!"
     scene bg black with yn_timeskip
     $ renpy.pause(0.5, hard=True)
-    scene bg yn_int_theatreclub_day 
+    scene bg yn_int_theatreclub_day
     show yn_haer pity longhair at left
     show yn_kras normal at right
     with yn_timeskip
@@ -567,7 +567,7 @@ label yn_act2_scene7:
     # $ yn_rename_character("yn_yana", "Яна")
     $ persistent.timeofday = "sunset"
     $ persistent.sprite_time = "sunset"
-    scene bg yn_ext_houses_backyard_sunset 
+    scene bg yn_ext_houses_backyard_sunset
     show yn_slon normal at center
     show yn_us normal at left
     play ambience ambience_camp_center_evening fadein 2
@@ -813,7 +813,7 @@ label yn_act2_scene7_wuk_dialogue_kras:
     yn_narrator "Сердце ушло в пятки."
     yn_narrator "Но никакого крика не послышалось. Ёж просто зашёл и демонстративно захлопнул дверь."
     yn_th "Ушла! Повезло!"
-    yn_narrator "Ладно. Теперь нужно возвращаться и узнать успела ли Ульяна что-то найти. А ещё стоит поинтересоваться, почему Алиса нас не предупредила." 
+    yn_narrator "Ладно. Теперь нужно возвращаться и узнать успела ли Ульяна что-то найти. А ещё стоит поинтересоваться, почему Алиса нас не предупредила."
     jump yn_act2_scene7_after_wuk_dialogue
 
 label yn_act2_scene7_wuk_dialogue_leave:
@@ -864,7 +864,7 @@ label yn_act2_scene7_after_wuk_dialogue:
         show yn_us normal with dspr
         yn_us "Тоже хотелось бы узнать. Если бы не Ящерица, то я бы по полной влетела."
         yn_us "Всё из-за нашей заводилы. И да. План твой - туфта."
-        yn_narrator "Слова Ульяны совсем не задели Слона. {w}Он только отмахнулся, а затем вперил странный взгляд в журнал. Тот был помятым и замызганным." 
+        yn_narrator "Слова Ульяны совсем не задели Слона. {w}Он только отмахнулся, а затем вперил странный взгляд в журнал. Тот был помятым и замызганным."
         yn_slon "Кузнечик, я тебе настоятельно рекомендую прямо сейчас быстро пойти помыть руки. Прям тщательно. С мочалкой."
         yn_us "А что такое?"
         yn_slon "Как бы тебе сказать..."
@@ -894,7 +894,7 @@ label yn_act2_scene7_after_wuk_dialogue:
     stop ambience fadeout 2
     scene bg black with Dissolve(1)
     $ renpy.pause(1, hard=True)
-    scene bg yn_int_musclub_mattresses_sunset 
+    scene bg yn_int_musclub_mattresses_sunset
     show yn_us dontlike:
         xpos -240
 
@@ -960,7 +960,7 @@ label yn_act2_scene7_after_wuk_dialogue:
     yn_narrator "Даже если эта музыка только мне кажется чарующей и красивой, то я всё равно довольна."
     $ renpy.pause()
     stop music fadeout 2
-    scene bg yn_int_musclub_mattresses_sunset 
+    scene bg yn_int_musclub_mattresses_sunset
     show yn_mi grin at center
     with dissolve
     yn_narrator "Стоило мне доиграть, как тут же в музыкальный клуб вошла Мику. Она была в восторге и улыбалась."
@@ -1012,7 +1012,7 @@ label yn_act2_scene7_after_wuk_dialogue:
     yn_kot "Ну... часть, конечно."
     hide yn_kot
     show yn_haer pity longhair at center
-    with dissolve 
+    with dissolve
     yn_haer "Вот и не парься, Кошак. Сам у себя не украдёшь."
     hide yn_haer
     show dv normal pioneer2 at center
@@ -1063,7 +1063,7 @@ label yn_act2_scene7_after_wuk_dialogue:
     show dv smile pioneer2 at center with dissolve
     yn_dv "Учись пока я не в «покойничках»."
     hide dv with dissolve
-    yn_narrator "Девушка приоткрыла дверь и дала отмашку остальным Воробьям." 
+    yn_narrator "Девушка приоткрыла дверь и дала отмашку остальным Воробьям."
 
     # #Успех*
     # yn_narrator "Я аккуратно провернула замок, послышался невероятно желанный щелчок."
@@ -1072,7 +1072,7 @@ label yn_act2_scene7_after_wuk_dialogue:
     # yn_narrator "Девушка приоткрыла дверь и дала отмашку остальным Воробьям."
     stop ambience fadeout 2
     stop music fadeout 2
-    scene bg int_dining_hall_night 
+    scene bg int_dining_hall_night
     show yn_us normal:
         xpos -240
 
@@ -1183,7 +1183,7 @@ label yn_act2_scene7_after_wuk_dialogue:
         yn_slon "Хаер, ты только не перегибай или она напихает тебе похлеще, чем досталось Усманову за «Хлопковое дело»."
         yn_dv "Не лезь. Я и до тебя доберусь, если у нас сегодня такой вечер откровений."
         yn_narrator "В ответ Слон только неопределённо развёл руками."
-        yn_haer "Ну, хорошо. Держи: самовлюблённая, ци..." 
+        yn_haer "Ну, хорошо. Держи: самовлюблённая, ци..."
         yn_narrator "Он запнулся, снова забыв нужное слово."
         yn_slon "Циничная."
         yn_haer "Да, спасибо. Самовлюблённая, циничная стерва с недостатком внимания и страхом быть отверженной!"
@@ -1341,7 +1341,7 @@ label yn_act2_scene7_after_wuk_dialogue:
         $ yn_diary_say("На Ежа просто перестали обращать внимание. Скоро выйдет газета Журналистки и он окончательно отстанет.")
         $ yn_diary_say("А ещё мой потлатый товарищ перестал забывать слова. Слон говорит, что такого никогда раньше не случалось. А Кот... Ну, теперь Кот всем говорит, что он славный парень.")
         $ yn_diary_say("Что же касается меня... Стало заметно легче. Все те озарения, что случались со мной на протяжении всей Лагерной смены и вечер откровений окончательно сложились в единый пазл. {w}Мой. {w}Личный. {w}Мрачное будущее уже не кажется таким страшным. Туман со временем осядет. Нужно просто не бояться в него всматриваться и идти вперёд.")
-    
+
     stop ambience fadeout 2
     stop music fadeout 2
     scene bg black with Dissolve(2)

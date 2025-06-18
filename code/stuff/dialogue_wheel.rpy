@@ -44,7 +44,7 @@ init python:
 
 screen yn_dw_iconscreen(icon):
     add icon:
-        xalign 0.5 
+        xalign 0.5
         ypos 750
 
 screen yn_dialogue_wheel(questions_dict):
@@ -56,17 +56,17 @@ screen yn_dialogue_wheel(questions_dict):
                 style "yn_dw_answers_text_style"
 
                 if number >= 3:
-                    xpos questions_dict[number][3]                 
+                    xpos questions_dict[number][3]
 
                 else:
                     xpos yn_dw_text_positions[number][0]
-                
+
                 ypos yn_dw_text_positions[number][1]
 
             imagebutton:
                 auto yn_gui_path + "dialogue_wheel/" + persistent.timeofday + "/{}_%s.png".format(number)
                 pos yn_dw_buttons_positions[number]
-                
+
                 if questions_dict[number][2]:
                     hovered [Show("yn_dw_iconscreen", Dissolve(0.2), icon=questions_dict[number][2])]
                     unhovered [Hide("yn_dw_iconscreen", Dissolve(0.2))]

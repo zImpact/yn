@@ -5,7 +5,7 @@ init python:
         modsImages["yn_start"] = ("yn/images/gui/misc/yn_tabular_list_preview.png", False)
 
     except:
-        pass 
+        pass
 
 label yn_start:
     $ persistent.timeofday = "day"

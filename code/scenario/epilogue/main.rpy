@@ -3,7 +3,7 @@ label yn_epilogue:
     $ save_name = "Эпилог."
     $ persistent.timeofday = "night"
     $ persistent.sprite_time = "night"
-    scene bg yn_int_yana_room_night_blurred 
+    scene bg yn_int_yana_room_night_blurred
     show yn_epilogue_intro_text:
         xalign 0.5 yalign 0.5
     with Dissolve(2)

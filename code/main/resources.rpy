@@ -42,7 +42,7 @@ init python:
 
     store.yn_names_list.append("yn_th")
 
-    yn_colors["yn_mom"] = {"speaker_color": "#FFC0CB"} 
+    yn_colors["yn_mom"] = {"speaker_color": "#FFC0CB"}
     yn_names["yn_mom"] = "Мама"
     store.yn_names_list.append("yn_mom")
 
@@ -256,63 +256,63 @@ init python:
         global yn_store
         global yn_speaker_color
         yn_gl = globals()
-        
+
         if character_name == "yn_narrator":
             if is_nvl:
                 yn_gl["yn_narrator"] = Character(None, kind=nvl, what_style="yn_text_style", what_suffix="\n")
-            
+
             else:
                 yn_gl["yn_narrator"] = Character(None, what_style="yn_text_style")
-            
+
             return
-        
+
         if character_name == "yn_th":
             if is_nvl:
                 yn_gl["yn_th"] = Character(None, kind=nvl, what_style="yn_text_style", what_prefix="~ ", what_suffix=" ~\n")
-            
+
             else:
                 yn_gl["yn_th"] = Character(None, what_style="yn_text_style", what_prefix="~ ", what_suffix=" ~")
-            
+
             return
-        
+
         if is_nvl:
             yn_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.yn_colors[character_name][yn_speaker_color], kind=nvl, what_style="yn_text_style", who_suffix=":", what_suffix="\n")
             yn_gl["%s_name" % character_name] = store.yn_names[character_name]
-        
+
         else:
             yn_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.yn_colors[character_name][yn_speaker_color], what_style="yn_text_style")
             yn_gl["%s_name" % character_name] = store.yn_names[character_name]
 
     def yn_set_mode_adv():
         nvl_clear()
-        
+
         global menu
         menu = renpy.display_menu
-        
+
         global yn_store
-        
+
         for character_name in store.yn_names_list:
             yn_char_define(character_name)
 
     def yn_set_mode_nvl():
         nvl_clear()
-        
+
         global menu
         menu = nvl_menu
-        
+
         global yn_narrator
         global yn_th
         yn_narrator_nvl = yn_narrator
         th_nvl = yn_th
-        
+
         global yn_store
-        
+
         for character_name in store.yn_names_list:
             yn_char_define(character_name, True)
 
     def yn_reload_names():
         global yn_store
-        
+
         for character_name in store.yn_names_list:
             yn_char_define(character_name)
 
@@ -326,14 +326,14 @@ init python:
 
     def yn_frame_animation(image_name, frames_quantity, retention, loop, transition, start=1, **properties):
         anim_args = []
-        
+
         for i in range(start, start + frames_quantity):
             anim_args.append(renpy.display.im.image(image_name + "_" + str(i) + ".png"))
-            
+
             if loop:
                 anim_args.append(retention)
                 anim_args.append(transition)
-        
+
         return anim.TransitionAnimation(*anim_args, **properties)
 
     def yn_blink(blink_pause):
@@ -350,7 +350,7 @@ init python:
     class YnTimingMemorization():
         def __init__(self, channel, fade):
             self.channel = channel
-            self.fade = fade            
+            self.fade = fade
 
         def pause(self):
             self.file_name = renpy.music.get_playing(self.channel)
@@ -378,7 +378,7 @@ init python:
         config.mouse_displayable = MouseDisplayable(yn_gui_path + "misc/yn_none.png", 0, 0)
 
     yn_set_null_cursor_curried = renpy.curry(yn_set_null_cursor)
-        
+
     def yn_chapter_intro(_save_name, background, ambience, sprite, text, intermedia_phrase=None):
         global save_name
 
@@ -396,7 +396,7 @@ init python:
         renpy.music.stop("ambience", 2)
 
     yn_keyboard_help_list = {
-        "TAB, LCTRL — пропуск": 200, 
+        "TAB, LCTRL — пропуск": 200,
         "H, колесо мыши — скрыть интерфейс": 400,
         "Скроллинг вверх — история": 600
     }
@@ -435,21 +435,21 @@ init python:
             yn_lock_quick_menu = False
             config.allow_skipping = True
 
-    class YnDustParticles(renpy.Displayable, NoRollback):   
+    class YnDustParticles(renpy.Displayable, NoRollback):
         def __init__(self, particle):
             super(YnDustParticles, self).__init__()
-            self.particle = renpy.displayable(particle)           
+            self.particle = renpy.displayable(particle)
             self.parts_cache = []
-            
+
             if self.parts_cache:
                 self.__init__()
-            
+
             self.max_parts = 125
-            self.oldst = None                    
-        
-        def yn_dust_create_cache(self):     
+            self.oldst = None
+
+        def yn_dust_create_cache(self):
             self.parts_cache = [self.yn_dust_get_anim() for i in xrange(self.max_parts)]
-        
+
         def yn_dust_get_anim(self):
             part = self.particle
             pos = [random.randint(0, config.screen_width), random.randint(0, config.screen_height)]
@@ -464,84 +464,84 @@ init python:
             death_time = random.uniform(.5, 3.5)
             current_zoom = .0
             current_alpha = .0
-            return [part, pos, pos2, dist, speed, alpha, zoom, time, elapsed_time, birth_time, death_time, current_zoom, current_alpha]      
-        
+            return [part, pos, pos2, dist, speed, alpha, zoom, time, elapsed_time, birth_time, death_time, current_zoom, current_alpha]
+
         def yn_dust_visit(self):
             return [i[0] for i in self.parts_cache]
-        
-        def yn_dust_update(self, st):            
+
+        def yn_dust_update(self, st):
             if self.oldst == None:
                 self.oldst = st
-            
+
             self.tick = st - self.oldst
-            self.oldst = st     
-            
-            for part in self.parts_cache:   
+            self.oldst = st
+
+            for part in self.parts_cache:
                 if part[8] <= part[7]:
                     part[8] -= self.tick
-                
+
                 else:
                     part[8] = 0
-                    self.tick = 0     
-                
+                    self.tick = 0
+
                 if part[8] <= .0:
                     upd_val = self.yn_dust_get_anim()
 
                     for i in xrange(1, 13):
                         part[i] = upd_val[i]
 
-                try:        
-                    path_progress = part[8] / part[7]           
+                try:
+                    path_progress = part[8] / part[7]
                     xdist_now = part[3][0] * path_progress
                     part[1][0] = part[2][0] - xdist_now
-                    
+
                     ydist_now = part[3][1] * path_progress
                     part[1][1] = part[2][1] - ydist_now
-                    
+
                     alpha_time = part[7] - part[9]
                     alpha_el_time = alpha_time
                     alpha_el_time -= self.tick
                     alpha_progress = alpha_el_time / alpha_time
                     alpha_now = part[5] * (1.0 - alpha_progress)
                     zoom_now = part[6] * (1.0 - alpha_progress)
-                    
+
                     if part[8] >= part[9]:
                         if part[12] < part[5] and part[11] < part[6]:
                             part[12] += alpha_now
                             part[11] += zoom_now
-                        
+
                         elif part[12] > part[5] and part[11] > part[6]:
                             part[12] = part[5]
                             part[11] = part[6]
-                    
+
                     if part[8] <= part[10]:
                         if part[12] > .0 and part[11] > .0:
                             part[12] -= alpha_now
                             part[11] -= zoom_now
-                        
+
                         elif part[12] <= .001 and part[11] <= .001:
                             part[12] = .0
                             part[11] = .0
-                
+
                 except ZeroDivisionError:
                     pass
-        
-        def render(self, width, height, st, at):               
+
+        def render(self, width, height, st, at):
             if not self.parts_cache:
                 self.yn_dust_create_cache()
-            
+
             renderObj = renpy.Render(config.screen_width, config.screen_height)
-            
+
             for part in self.parts_cache:
                 xpos, ypos = part[1]
                 alpha, zoom = part[12], part[11]
                 t = Transform(child = part[0], zoom = zoom, alpha = alpha)
                 cp_render = renpy.render(t, width, height, st, at)
                 renderObj.blit(cp_render, (xpos, ypos))
-            
-            self.yn_dust_update(st)              
+
+            self.yn_dust_update(st)
             renpy.redraw(self, 0)
-            return renderObj     
+            return renderObj
 
 init:
     $ yn_titles_text_good_end = """
@@ -586,7 +586,7 @@ init:
     {b}ДОНАТЕРЫ{/b}
     Запрещённая на территории летосферы группировка FJ (500р) - Sorry, but I drank your beer while I was holding.
 
-    Илья Можайкин (200р) - Мы очень быстро ждали и дождались! 
+    Илья Можайкин (200р) - Мы очень быстро ждали и дождались!
 
     Максим Миронов (1000р) - Он пришёл безмолвно, только и кинув кошель шекелей на стол.
 
@@ -608,7 +608,7 @@ init:
 
     Абдулкадыр Курбанов (50р) - Ну, тут уже не с первого раза.
 
-    Максим Сацукевич (10р) - Зачем ты задонатил, если состоишь в команде? 
+    Максим Сацукевич (10р) - Зачем ты задонатил, если состоишь в команде?
 
     Герман Медведев (38р) - Вот ты и в титрах, бро, как и хотел.
 
@@ -616,7 +616,7 @@ init:
 
     Инори Милованова (21р) - Тут ты как-нибудь сам.
 
-    Сергей Столбов (10р) - Слишком мало ты выделил на юри. 
+    Сергей Столбов (10р) - Слишком мало ты выделил на юри.
 
     Даниэль Маринюк (200р) - Мы всё ещё перспективные и в том же духе!
 
@@ -629,13 +629,13 @@ init:
     Руслан Рыков - спасибо за спрайты Эрики и Сказочницы!)
 
     {i}Тебе, дорогой читатель.{/i} Молодец, что не скипнул титры.
-    
+
     Обняли и поцеловали и всех тех других, кто помогал\n и поддерживал нас в процессе создания данного проекта.
 
 
 
 
-    
+
 
     Для каждого из нас, кто разрабатывал эту модификацию на протяжении четырех лет, Яна - отдельная глава в жизни. В этом моде реализовано огромное количество наших задумок, вложена, если можно так сказать, частичка души каждого из нас. Будем рады, если вы оцените нашу работу по достоинству."""
 
@@ -678,7 +678,7 @@ init:
 
 
     {b}ДОНАТЕРЫ{/b}
-    FJ - 500р. 
+    FJ - 500р.
 
     Илья Можайкин - 200р.
 
@@ -808,9 +808,9 @@ init:
         "yn_act_one_play_two_bypass_radio_engineering_club_completed": False,
         "yn_act_one_play_two_bypass_music_club_completed": False,
         "yn_act_one_play_two_bypass_art_club_completed": False,
-        "yn_act_one_play_two_bypass_theatre_club_completed": False  
+        "yn_act_one_play_two_bypass_theatre_club_completed": False
     }
-    
+
     $ yn_act_one_play_two_bypass_assignment = {
         "yn_act_one_play_two_bypass_library_completed": ["yn_mz_sign", (1708, 695)],
         "yn_act_one_play_two_bypass_medic_house_completed": ["yn_cs_sign", (1718, 726)],
@@ -905,7 +905,7 @@ init:
 
         contains:
             "yn_dusts"
-        
+
         contains:
             "yn_loading_screen_header"
             xpos 770
@@ -982,7 +982,7 @@ init:
             "yn_slon normal"
             xpos 1230
             ypos 0
-    
+
     transform yn_skip_pos():
         xalign 0.5
         ypos 900
@@ -993,12 +993,12 @@ init:
         ypos 0.5
         xpos 0.35
         linear 19 xpos 0.7
-        
+
     transform yn_chapter_intro_sprite_moving():
         ypos 0.05
         xpos 0.001
         linear 20 xpos 0.7
-        
+
     transform yn_chapter_intro_text_pos(text):
         xpos yn_chapter_text_pos(text)
         ypos 150
@@ -1060,7 +1060,7 @@ init:
         parallel:
             zoom z
             xalign x
-            yalign y 
+            yalign y
             rotate_pad True
             rotate 0
             linear l rotate 360

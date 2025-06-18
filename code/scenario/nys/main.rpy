@@ -158,7 +158,7 @@ label yn_nys:
 
     show nys_mz normal:
         linear 1.0 xalign 0.5
-    
+
     $ renpy.pause(1, hard = True)
 
     show nys_dv smile behind nys_dust_forw:
@@ -167,7 +167,7 @@ label yn_nys:
     show nys_us smile behind nys_dust_forw at fright
 
     with dissolve
-    
+
     nys_narrator "Нас наконец-то решили почтить своим присутствием Ульяна и Алиса. Румяные с улицы они тяжело дышали, смахивая с одежды снег."
     nys_narrator "Явные последствия недавней игры в снежки."
     nys_dv "Добрейшего денёчка! {w}Гляжу, мы успели придти раньше Ольги."
@@ -400,7 +400,7 @@ label yn_nys:
     nys_narrator "Алиса же в это время очень старательно «мылила» снегом зазевавшуюся и верещащую от сего действа Ульяну."
     nys_narrator "Вдруг глухо крякнули динамики репродукторов. Зазвучала всем до боли знакомая мелодия. Кто-то из толпы задорно выкрикнул: «Скоро начнётся!»"
     nys_narrator "Шум стих и все пионеры устремились к сверкающей, как маяк ёлке."
-    scene bg nys_ext_new_year_tree 
+    scene bg nys_ext_new_year_tree
     show nys_snow_layer3_anim
     show nys_snow_layer2_anim
     with fade

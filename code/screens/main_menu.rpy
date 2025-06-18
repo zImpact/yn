@@ -1,10 +1,10 @@
 screen yn_main_menu():
-    tag menu 
+    tag menu
     modal True
 
     key "game_menu":
         action NullAction()
-        
+
     key "K_F1":
         action NullAction()
 
@@ -53,7 +53,7 @@ screen yn_main_menu():
 screen yn_notes_main_menu():
     tag menu
     modal True
-        
+
     key "K_F1":
         action NullAction()
 
@@ -506,7 +506,7 @@ screen yn_notes_choosen_group():
 screen yn_quit_main_menu():
     tag menu
     modal True
-    
+
     key "K_F1":
         action NullAction()
 
@@ -515,7 +515,7 @@ screen yn_quit_main_menu():
     add "yn_main_menu_picture" xpos 1146 ypos 111
 
     add "yn_yana_name" xpos 1428 ypos 709
-    
+
     text "Вы действительно \nхотите выйти?":
         size 60
         xalign 0.35
@@ -582,7 +582,7 @@ screen yn_authors_main_menu():
 
     textbutton ["Егор Бобков"]:
         style "yn_button_none"
-        text_style "yn_settings_header_main_menu_preferences"        
+        text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
         xpos 525
         ypos 527
@@ -598,7 +598,7 @@ screen yn_authors_main_menu():
 
     textbutton ["Александр Герасимов"]:
         style "yn_button_none"
-        text_style "yn_settings_header_main_menu_preferences"        
+        text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
         xpos 1100
         ypos 182
@@ -606,7 +606,7 @@ screen yn_authors_main_menu():
 
     textbutton ["Лена Тихонова"]:
         style "yn_button_none"
-        text_style "yn_settings_header_main_menu_preferences"        
+        text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
         xpos 1100
         ypos 297
@@ -622,7 +622,7 @@ screen yn_authors_main_menu():
 
     textbutton ["Мария Ракшинская"]:
         style "yn_button_none"
-        text_style "yn_settings_header_main_menu_preferences"        
+        text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
         xpos 1100
         ypos 527
@@ -638,17 +638,17 @@ screen yn_authors_main_menu():
         auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_authors_main_menu"), ShowMenu("yn_main_menu")]  
-        
+        action [Hide("yn_authors_main_menu"), ShowMenu("yn_main_menu")]
+
 screen yn_preferences_main_menu():
     tag menu
     modal True
-    
+
     key "K_F1":
         action NullAction()
 
     add "yn_main_menu_background"
-    
+
     text "Настройки":
         size 60
         xalign 0.37
@@ -664,7 +664,7 @@ screen yn_preferences_main_menu():
         ypos 177
         font yn_main_menu_font
         color "#000000"
-        
+
     textbutton ["На весь экран"]:
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
@@ -672,7 +672,7 @@ screen yn_preferences_main_menu():
         xpos 481
         ypos 296
         action Preference("display", "fullscreen")
-        
+
     textbutton ["В окне"]:
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
@@ -694,7 +694,7 @@ screen yn_preferences_main_menu():
         ypos 177
         font yn_main_menu_font
         color "#000000"
-            
+
     textbutton ["Обычный"]:
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
@@ -702,7 +702,7 @@ screen yn_preferences_main_menu():
         xpos 1100
         ypos 296
         action SetField(persistent, "font_size", "small")
-            
+
     textbutton ["Большой"]:
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
@@ -710,7 +710,7 @@ screen yn_preferences_main_menu():
         xpos 1400
         ypos 296
         action SetField(persistent, "font_size", "large")
-            
+
     text "{font=[yn_main_menu_font]}{color=#000000}Пропускать{/font}{/color}":
         size 55
         xalign 0.37
@@ -732,7 +732,7 @@ screen yn_preferences_main_menu():
             xpos 880
             ypos 604
             action Preference("skip", "all")
-                        
+
     if _preferences.skip_unseen:
         textbutton ["Виденное ранее"]:
             style "yn_button_none"
@@ -748,8 +748,8 @@ screen yn_preferences_main_menu():
             text_align 0.5
             xpos 880
             ypos 604
-            action Preference("skip", "all")    
-        
+            action Preference("skip", "all")
+
     text "Громкость музыки":
         size 55
         xpos 1150
@@ -771,17 +771,17 @@ screen yn_preferences_main_menu():
         auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_preferences_main_menu"), ShowMenu("yn_main_menu")]  
-        
+        action [Hide("yn_preferences_main_menu"), ShowMenu("yn_main_menu")]
+
 screen yn_load_main_menu():
     tag menu
     modal True
-    
+
     key "K_F1":
         action NullAction()
 
     add "yn_main_menu_background"
-    
+
     text "Загрузка":
         size 60
         xalign 0.37
@@ -807,8 +807,8 @@ screen yn_load_main_menu():
         auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_load_main_menu"), ShowMenu("yn_main_menu")]    
-        
+        action [Hide("yn_load_main_menu"), ShowMenu("yn_main_menu")]
+
     grid 4 3:
         xpos 0.25
         ypos 0.17

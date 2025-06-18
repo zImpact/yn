@@ -140,7 +140,7 @@ init -10 python:
     style.yn_settings_header_day.size = 50
     style.yn_settings_header_day.color = "#4d2e19"
     style.yn_settings_header_day.hover_color = "#a27146"
-    
+
     style.yn_settings_header_night = Style(style.yn_base_font)
     style.yn_settings_header_night.font = yn_header_font
     style.yn_settings_header_night.size = 50

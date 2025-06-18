@@ -3,25 +3,25 @@ init python:
 
     def yn_note_picking_piece_dragged(drags, drop):
         global yn_note_picking_minigame_parts_count
-        
+
         if not drop:
             for part in ["null", "first", "second", "third", "fourth", "fifth"]:
                 if drags[0].drag_name == part:
                     win_xpos = yn_note_picking_win_positions[part][0]
                     win_ypos = yn_note_picking_win_positions[part][1]
-                    
+
                     if abs(drags[0].x - win_xpos) <= 70 and abs(drags[0].y - win_ypos) <= 70:
                         yn_note_picking_minigame_parts_count += 1
                         drags[0].snap(win_xpos, win_ypos, 0.3)
                         drags[0].draggable = False
-                        
+
                         if yn_note_picking_minigame_parts_count == 6:
                             renpy.hide_screen("yn_note_picking_minigame")
                             renpy.transition("fade")
                             renpy.show("yn_note_full")
                             renpy.transition(fade)
             return
-        
+
         return True
 
 init:
