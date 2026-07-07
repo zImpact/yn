@@ -1,4 +1,5 @@
-stop music fadeout 2
+label yn_act2_scene8:
+    stop music fadeout 2
     stop ambience fadeout 2
     scene bg black with Dissolve(1)
     $ renpy.block_rollback()

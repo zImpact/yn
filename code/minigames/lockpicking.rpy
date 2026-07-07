@@ -111,8 +111,8 @@ init python:
             else:
                 pick = Transform(child=self.lock_pick_image, rotate=self.pick_pos, subpixel=True)
 
-            global display_pos
-            display_pos = self.pick_pos
+            global yn_display_pos
+            yn_display_pos = self.pick_pos
 
             global display_spot
             display_spot = self.sweet_spot
@@ -263,8 +263,8 @@ init python:
     def counter(st, at):
         f = 0.0
 
-        if hasattr(store, "display_pos"):
-            f = store.display_pos
+        if hasattr(store, "yn_display_pos"):
+            f = store.yn_display_pos
 
         return Text("%.1f" % f, color="#09c", size=30), .1
 
@@ -279,11 +279,16 @@ init python:
 image counter = DynamicDisplayable(counter)
 image counter2 = DynamicDisplayable(counter2)
 
-default display_pos = 0
-default display_spot = 0
-default timers = 0
-default set_timers = 0
-default current_chest = None
+init:
+    $ yn_display_pos = 0
+    $ display_spot = 0
+    $ timers = 0
+    $ set_timers = 0
+    $ current_chest = None
+    $ lock_chest1_lock = YnLockpickingMinigame(20)
+    $ lock_chest1_have_key = False
+    $ lock_chest1_opened = False
+    $ lockpicks = 5
 
 image lock_dark = Solid("#000c")
 image lock_plate = "yn/images/mini_games/lockpicking/lock_plate.png"
@@ -295,12 +300,6 @@ image lock_chest1_closed = "yn/images/mini_games/lockpicking/lock_chest1_closed.
 image lock_chest1_hover = "yn/images/mini_games/lockpicking/lock_chest1_hover.png"
 image lock_chest1_open = "yn/images/mini_games/lockpicking/lock_chest1_open.png"
 image lock_chest1_open_hover = "yn/images/mini_games/lockpicking/lock_chest1_open_hover.png"
-
-default lock_chest1_lock = YnLockpickingMinigame(20)
-default lock_chest1_have_key = False
-default lock_chest1_opened = False
-
-default lockpicks = 5
 
 screen click_chest(chest1_name, chest2_name=None, chest3_name=None, chest4_name=None, chest5_name=None):
     if str_to_class("{}_opened".format(chest1_name)) != True:
