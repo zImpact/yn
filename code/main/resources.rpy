@@ -375,7 +375,7 @@ init python:
     yn_set_timeofday_cursor_curried = renpy.curry(yn_set_timeofday_cursor)
 
     def yn_set_null_cursor():
-        config.mouse_displayable = MouseDisplayable(yn_gui_path + "misc/yn_none.png", 0, 0)
+        config.mouse_displayable = MouseDisplayable(yn_gui_path + "misc/none.png", 0, 0)
 
     yn_set_null_cursor_curried = renpy.curry(yn_set_null_cursor)
 
@@ -725,7 +725,7 @@ init:
     {i}Тебе, дорогой читатель.{/i} Спасибо, что не скипнул титры."""
 
     image yn_titles_final = ParameterizedText(style="yn_titles_style", size=40, xalign=0.5)
-
+    image yn_main_menu_background = "yn/images/gui/main_menu/main_menu_background.png"
     image yn_int_library_sunset_rain = "yn/images/bg/yn_rain_library/yn_int_library_sunset_rain.png"
     image yn_curtains = "yn/images/bg/yn_rain_library/yn_curtains.png"
     image yn_forest = "yn/images/bg/yn_rain_library/yn_forest.png"
@@ -838,10 +838,10 @@ init:
 
     image bg yn_ext_square_lenin_night_party_blurred = im.Blur("yn/images/bg/yn_ext_square_lenin_night_party.png", 2)
     image bg yn_ext_square_lenin_day_blurred = im.Blur("yn/images/bg/yn_ext_square_lenin_day.png", 2)
-    image bg yn_int_dining_hall_people_sunset_blurred = im.Blur("yn/images/bg/yn_int_dining_hall_people_sunset.png", 2)
+    image bg yn_int_dining_hall_people_sunset_blurred = im.Blur("yn/images/bg/int_dining_hall_people_sunset.png", 2)
     image bg yn_int_theatreclub_day_blurred = im.Blur("yn/images/bg/yn_int_theatreclub_day.png", 2)
-    image bg yn_int_yana_room_blurred = im.Blur("yn/images/bg/yn_int_yana_room.png", 1)
-    image bg yn_ext_busstop_summer_blurred = im.Blur("yn/images/bg/yn_ext_busstop_summer.png", 2)
+    image bg yn_int_yana_room_blurred = im.Blur("yn/images/bg/int_yana_room.png", 1)
+    image bg yn_ext_busstop_summer_blurred = im.Blur("yn/images/bg/ext_busstop_summer.png", 2)
     image bg yn_int_dining_hall_people_day_blurred = im.Blur("images/bg/int_dining_hall_people_day.jpg", 2)
     image bg yn_ext_camp_entrance_day_blurred = im.Blur("images/bg/ext_camp_entrance_day.jpg", 2)
     image bg yn_ext_beach_day_blurred = im.Blur("images/bg/ext_beach_day.jpg", 2)

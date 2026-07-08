@@ -25,7 +25,7 @@ label yn_start:
     $ renpy.pause(3, hard = True)
     scene bg black with Dissolve(2)
     $ renpy.pause(1, hard = True)
-    $ renpy.movie_cutscene("yn/images/gui/main_menu/yn_main_menu_intro_start_background.ogv")
+    $ renpy.movie_cutscene("yn/images/gui/main_menu/main_menu_intro_start_background.ogv")
     scene yn_main_menu_background_full
     $ renpy.pause(0.5, hard = True)
     scene yn_main_menu_background_full:

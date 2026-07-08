@@ -14,7 +14,7 @@ init python:
     yn_narrator_diary = Character(None, screen="yn_diary_mode", what_color="#000000")
 
 screen yn_diary_mode(what, who):
-    add "yn_diary_" + persistent.timeofday
+    add yn_gui_path + "misc/diary_" + persistent.timeofday + ".png"
 
     if yn_diary_say.page == 1:
         text what:

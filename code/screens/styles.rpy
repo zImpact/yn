@@ -5,7 +5,7 @@ init -10 python:
     yn_header_font = yn_gui_path + "fonts/corbel.ttf"
     yn_main_font = "fonts/calibri.ttf"
     yn_main_menu_font = yn_gui_path + "fonts/BADSCRIPT_REGULAR.ttf"
-    yn_flow_ext = yn_gui_path + "fonts/yn_flow_ext.otf"
+    yn_flow_ext = yn_gui_path + "fonts/flow_ext.otf"
 
     style.yn_button_none = Style(style.button)
     style.yn_button_none.background = None

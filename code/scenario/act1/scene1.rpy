@@ -9,7 +9,7 @@ label yn_act1_scene1:
         "bg yn_int_dining_hall_people_sunset_blurred",
         "dining_hall_full",
         "yn_yana smile1",
-        "yn_play_one_intro_text"
+        "play_one_intro_text"
     )
     scene bg black with Dissolve(2)
     $ persistent.timeofday = "day"
@@ -105,7 +105,7 @@ label yn_act1_scene1:
     yn_th "Ничего особенно интересного."
     $ nvl_clear()
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard=True)
+    pause 1
     scene bg yn_int_bus_window_view at yn_bus_moving with Dissolve(2)
     yn_narrator "Прошло около часа. За окном проплывали вспаханные поля - плод чьей-то напряженной страды - и бесконечные линии электропередач." with dissolve
     yn_th "Странно. Так хотелось поехать в этот летний лагерь, но по дороге в столь желанное место я не ощущаю ничего, кроме меланхолии."
@@ -126,7 +126,7 @@ label yn_act1_scene1:
     stop sound_loop fadeout 4
     stop music fadeout 4
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard=True)
+    pause 1
     scene bg ext_camp_entrance_day with Dissolve(2)
     play ambience ambience_camp_entrance_day_people fadein 2
     $ yn_set_mode_adv()

@@ -818,7 +818,7 @@ screen yn_interface_info():
     tag menu
     modal True
 
-    add yn_gui_path + "misc/yn_interface_tip.png"
+    add yn_gui_path + "misc/interface_tip.png"
 
     textbutton ["продолжить..."]:
         style "yn_dw_info_text_style"

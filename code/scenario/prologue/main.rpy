@@ -3,18 +3,17 @@ label yn_prologue:
     stop music fadeout 4
     $ persistent.timeofday = "day"
     $ persistent.sprite_time = "day"
-    # $ yn_reload_names()
     $ yn_set_mode_nvl()
-    $ renpy.pause(4, hard=True)
+    pause 4
     $ yn_chapter_intro(
         "Пролог.",
         "bg yn_ext_busstop_summer_blurred",
         "ext_road_day",
         "yn_yana serious",
-        "yn_prologue_intro_text"
+        "prologue_intro_text"
     )
     scene bg black with Dissolve(2)
-    $ renpy.pause(1, hard=True)
+    pause 1
     $ yn_onload("unlock")
     scene bg yn_int_yana_room with Dissolve(4)
     play music yn_follow_the_compass_be_near fadein 7
@@ -44,7 +43,7 @@ label yn_prologue:
     stop music fadeout 2
     scene bg black with Dissolve(2)
     $ persistent.yn_int_yana_room_photo_note = True
-    $ renpy.pause(1, hard=True)
+    pause 1
     scene bg yn_ext_bus_station with Dissolve(2)
     play ambience ambience_ext_road_day fadein 2
     $ nvl_clear()
@@ -52,18 +51,35 @@ label yn_prologue:
     yn_narrator "За окном машины стоял знойный летний день, настолько жаркий, что кажется, я вижу, как плавится асфальт."
     yn_narrator "Чуть в стороне слышался гомон детских и подростковых голосов, обладатели которых медленно рассаживались по автобусам. Мне же сказали сесть в красный четыреста десятый «Икарус»."
     yn_th "Особо комфортным он не выглядит."
+    show yn_mom normal at left with dissolve
     yn_mom "Ну все, дорогая, тебе пора, а то мы и так опоздали!"
     yn_yana "Да, уже бегу. Еще раз спасибо. Скоро увидимся!"
     yn_narrator "Мама чмокнула меня в щеку и потянулась за платком."
     yn_th "Уж очень она у меня сентиментальная или, по крайней мере, хочет такой казаться."
     $ nvl_clear()
     yn_narrator "Я вышла из машины, а отец тем временем, уже достав мои сумки из багажника, ждал возле автобуса."
+    show yn_dad normal at right with dissolve
     yn_dad "Приятного отдыха, Яна. Надеюсь, он тебе поможет."
     yn_th "Папа никогда не славился тактичностью."
     yn_yana "Спасибо, пап. Я тоже на это надеюсь."
     yn_narrator "Отец обнял меня свободной рукой и в свойственной ему манере на прощание похлопал по плечу."
     yn_narrator "В слепящих лучах солнца и с серьезным выражением лица он был похож на слегка постаревшего Александра Розенбаума."
+    hide yn_mom
+    hide yn_dad
+    with dissolve
     yn_narrator "Закинув на не болящее от похлопываний плечо спортивную сумку и прихватив внушительных размеров чемодан, я поспешила к дверям автобуса."
+    Практически все места были заняты. 
+
+    Только в самом конце автобуса маячило два свободных кресла. Я решила сесть именно туда. 
+
+    Закинула сумку под сидение и посмотрела в окно. 
+
+    Родители всё ещё стояли на улице и искали меня глазами. Когда заметили, улыбнулись, но тут же их лица как-то посерьёзнели. Папа помахал мне, мама прижала руки к груди. 
+
+    На мгновение их тревожность передалась и мне. Я дотронулась протезом до стекла. В голове возникло множество мыслей и вопросов: Что меня ждёт в этом лагере? Что будет, если я не найду там себе место?
+    ~ Ай, какая всё это чепуха! Зачем я себя сейчас накручиваю? ~ 
+    Меня ждёт отдых. Нужно просто расслабиться и не думать лишнего.
+    Мне нужна эта поездка.
     yn_th "Возможно, это лето я запомню надолго."
     $ nvl_clear()
     $ yn_set_timeofday_cursor_var = False
@@ -71,5 +87,5 @@ label yn_prologue:
     $ yn_set_null_cursor()
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(3, hard=True)
+    pause 3
     jump yn_act1_scene1

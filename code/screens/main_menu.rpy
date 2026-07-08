@@ -15,37 +15,37 @@ screen yn_main_menu():
     add "yn_yana_name" xpos 1428 ypos 709
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_start_%s.png"
+        auto yn_gui_path + "main_menu/buttons/start_%s.png"
         xpos 525
         ypos 161
         action [Hide("yn_main_menu", Dissolve(1.5)), yn_set_null_cursor_curried(), SetVariable("yn_lock_quit_game_main_menu_var", False), Start("yn_prologue")]
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_load_%s.png"
+        auto yn_gui_path + "main_menu/buttons/load_%s.png"
         xpos 525
         ypos 276
         action [Hide("yn_main_menu"), ShowMenu("yn_load_main_menu")]
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_preferences_%s.png"
+        auto yn_gui_path + "main_menu/buttons/preferences_%s.png"
         xpos 525
         ypos 394
         action [Hide("yn_main_menu"), ShowMenu("yn_preferences_main_menu")]
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_notes_%s.png"
+        auto yn_gui_path + "main_menu/buttons/notes_%s.png"
         xpos 525
         ypos 509
         action [Hide("yn_main_menu"), ShowMenu("yn_notes_main_menu")]
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_authors_%s.png"
+        auto yn_gui_path + "main_menu/buttons/authors_%s.png"
         xpos 525
         ypos 625
         action [Hide("yn_main_menu"), ShowMenu("yn_authors_main_menu")]
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_quit_%s.png"
+        auto yn_gui_path + "main_menu/buttons/quit_%s.png"
         xpos 525
         ypos 743
         action [Hide("yn_main_menu"), ShowMenu("yn_quit_main_menu")]
