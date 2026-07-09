@@ -34,7 +34,7 @@ screen yn_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.fullscreen:
-                            add yn_gui_path + "preferences/" + persistent.timeofday + "/yn_leaf.png" ypos 0.12
+                            add yn_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -46,7 +46,7 @@ screen yn_preferences():
 
                     hbox xalign 0.5:
                         if not _preferences.fullscreen:
-                            add yn_gui_path + "preferences/" + persistent.timeofday + "/yn_leaf.png" ypos 0.12
+                            add yn_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -63,7 +63,7 @@ screen yn_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.skip_unseen:
-                            add yn_gui_path + "preferences/" + persistent.timeofday + "/yn_leaf.png" ypos 0.12
+                            add yn_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -75,7 +75,7 @@ screen yn_preferences():
 
                     hbox xalign 0.5:
                         if not _preferences.skip_unseen:
-                            add yn_gui_path + "preferences/" + persistent.timeofday + "/yn_leaf.png" ypos 0.12
+                            add yn_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -100,8 +100,8 @@ screen yn_preferences():
                         value Preference("music volume")
                         left_bar yn_bar_full
                         right_bar yn_bar_null
-                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
-                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
+                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
                         xmaximum 1.35
                         ymaximum 36
                         xpos -0.55
@@ -117,8 +117,8 @@ screen yn_preferences():
                         value Preference("sound volume")
                         left_bar yn_bar_full
                         right_bar yn_bar_null
-                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
-                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
+                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
                         xmaximum 1.35
                         ymaximum 36
                         xpos -0.55
@@ -148,8 +148,8 @@ screen yn_preferences():
                     value Preference("text speed")
                     left_bar yn_bar_full
                     right_bar yn_bar_null
-                    thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
-                    hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                    thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
+                    hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
                     xalign 0.5
                     xmaximum 0.8
                     ymaximum 36
@@ -161,29 +161,29 @@ screen yn_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.afm_time != 0:
-                            add yn_gui_path + "preferences/" + persistent.timeofday + "/yn_leaf.png" ypos 0.12
+                            add yn_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
 
-                        textbutton ["Включить"]:
+                        textbutton "Включить":
                             style "yn_log_button"
                             text_style "yn_settings_text_" + persistent.timeofday
                             action Preference("auto-forward after click", "enable")
 
                     hbox xalign 0.5:
                         if _preferences.afm_time == 0:
-                            add yn_gui_path + "preferences/" + persistent.timeofday + "/yn_leaf.png" ypos 0.12
+                            add yn_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
 
-                        textbutton ["Выключить"]:
+                        textbutton "Выключить":
                             style "yn_log_button"
                             text_style "yn_settings_text_" + persistent.timeofday
                             action (Preference("auto-forward time", 0), Preference("auto-forward after click", "disable"))
 
-                text ["Время автоперехода"]:
+                text "Время автоперехода":
                     style "yn_settings_header_" + persistent.timeofday
                     xalign 0.5
 
@@ -204,7 +204,7 @@ screen yn_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if persistent.font_size == "small":
-                            add yn_gui_path + "preferences/" + persistent.timeofday + "/yn_leaf.png" ypos 0.12
+                            add yn_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -216,7 +216,7 @@ screen yn_preferences():
 
                     hbox xalign 0.5:
                         if not persistent.font_size == "small":
-                            add yn_gui_path + "preferences/" + persistent.timeofday + "/yn_leaf.png" ypos 0.12
+                            add yn_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22

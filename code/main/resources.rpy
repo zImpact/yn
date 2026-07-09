@@ -725,7 +725,11 @@ init:
     {i}Тебе, дорогой читатель.{/i} Спасибо, что не скипнул титры."""
 
     image yn_titles_final = ParameterizedText(style="yn_titles_style", size=40, xalign=0.5)
-    image yn_main_menu_background = "yn/images/gui/main_menu/main_menu_background.png"
+    image yn_main_menu_intro = yn_gui_path + "misc/main_menu_intro.png"
+    image yn_main_menu_background = yn_gui_path + "main_menu/background.png"
+    image yn_main_menu_background_full = yn_gui_path + "main_menu/background_full.png"
+    image yn_main_menu_picture = yn_gui_path + "main_menu/yana_picture.png"
+    image yn_main_menu_yana_name = yn_gui_path + "main_menu/yana_name.png"
     image yn_int_library_sunset_rain = "yn/images/bg/yn_rain_library/yn_int_library_sunset_rain.png"
     image yn_curtains = "yn/images/bg/yn_rain_library/yn_curtains.png"
     image yn_forest = "yn/images/bg/yn_rain_library/yn_forest.png"
@@ -874,47 +878,29 @@ init:
             "yn_pigeons_group_note": False
         }
 
-    $ yn_place_var = None
-    $ yn_character_var = None
-    $ yn_group_var = None
-
-    $ yn_notes_all = {
-        "yn_int_yana_room": ["Комната Яны", "yn_int_yana_room_photo", "yn_int_yana_room_photo_text"],
-        "yn_ext_bus_station": ["Автобусная\nстанция", "yn_ext_bus_station_photo", "yn_ext_bus_station_photo_text"],
-        "yn_int_house_of_yana_day_2": ["Домик Яны", "yn_int_house_of_yana_photo", "yn_int_house_of_yana_photo_text"],
-        "yn_int_theatreclub_day": ["Театральный\nклуб", "yn_int_theatreclub_photo", "yn_int_theatreclub_photo_text"],
-        "yn_int_artclub_day": ["Художественный\nклуб", "yn_int_artclub_photo", "yn_int_artclub_photo_text"],
-        "yn_haer": ["Хаер", "yn_haer_photo", "yn_haer_photo_text"],
-        "yn_kot": ["Кот", "yn_kot_photo", "yn_kot_photo_text"],
-        "yn_slon": ["Слон", "yn_slon_photo", "yn_slon_photo_text"],
-        "yn_jurn": ["Журналистка", "yn_jurn_photo", "yn_jurn_photo_text"],
-        "yn_kras": ["Красавица", "yn_kras_photo", "yn_kras_photo_text"],
-        "yn_erika": ["Эрика", "yn_erika_photo", "yn_erika_photo_text"],
-        "yn_tomtits_group": ["Синицы", "yn_tomtits_group_logo", "yn_tomtits_group_text", "yn_tomtits_group_roster"],
-        "yn_sparrows_group": ["Воробьи", "yn_sparrows_group_logo", "yn_sparrows_group_text", "yn_sparrows_group_roster"],
-        "yn_peacocks_group": ["Павлины", "yn_peacocks_group_logo", "yn_peacocks_group_text", None],
-        "yn_pigeons_group": ["Голуби", "yn_pigeons_group_logo", "yn_pigeons_group_text", "yn_pigeons_group_roster"]
+    $ yn_note_places = {
+        "int_yana_room": "Комната Яны",
+        "ext_bus_station": "Автобусная\nстанция",
+        "int_house_of_yana_day_2": "Домик Яны",
+        "int_theatreclub_day": "Театральный\nклуб",
+        "int_artclub_day": "Художественный\nклуб",
     }
 
-    image bg yn_loading_background:
-        contains:
-            "bg yn_int_yana_room_night_blurred"
-            xalign 0.5 yalign 0.5 zoom 1.0
-            pause 2.0
-            linear 20 zoom 2.0 xalign 0.5 yalign 0.5
+    $ yn_note_characters = {
+        "haer": "Хаер",
+        "kot": "Кот",
+        "slon": "Слон",
+        "jurn": "Журналистка",
+        "kras": "Красавица",
+        "erika": "Эрика",
+    }
 
-        contains:
-            "yn_dusts"
-
-        contains:
-            "yn_loading_screen_header"
-            xpos 770
-            ypos 46
-
-        contains:
-            "yn_resources_loading"
-            xpos 557
-            ypos 831
+    $ yn_note_groups = {
+        "tomtits": "Синицы",
+        "sparrows": "Воробьи",
+        "peacocks": "Павлины",
+        "pigeons": "Голуби",
+    }
 
     image bg yn_int_dining_hall_people_sunset_sparrows:
         contains:

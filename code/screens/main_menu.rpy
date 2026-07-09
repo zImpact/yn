@@ -12,43 +12,63 @@ screen yn_main_menu():
 
     add "yn_main_menu_picture" xpos 1146 ypos 111
 
-    add "yn_yana_name" xpos 1428 ypos 709
+    add "yn_main_menu_yana_name" xpos 1428 ypos 709
 
     imagebutton:
         auto yn_gui_path + "main_menu/buttons/start_%s.png"
         xpos 525
         ypos 161
-        action [Hide("yn_main_menu", Dissolve(1.5)), yn_set_null_cursor_curried(), SetVariable("yn_lock_quit_game_main_menu_var", False), Start("yn_prologue")]
+        action [
+            Hide("yn_main_menu", Dissolve(1.5)),
+            yn_set_null_cursor_curried(),
+            SetVariable("yn_lock_quit_game_main_menu_var", False),
+            Start("yn_prologue")
+        ]
 
     imagebutton:
         auto yn_gui_path + "main_menu/buttons/load_%s.png"
         xpos 525
         ypos 276
-        action [Hide("yn_main_menu"), ShowMenu("yn_load_main_menu")]
+        action [
+            Hide("yn_main_menu"),
+            ShowMenu("yn_load_main_menu")
+        ]
 
     imagebutton:
         auto yn_gui_path + "main_menu/buttons/preferences_%s.png"
         xpos 525
         ypos 394
-        action [Hide("yn_main_menu"), ShowMenu("yn_preferences_main_menu")]
+        action [
+            Hide("yn_main_menu"),
+            ShowMenu("yn_preferences_main_menu")
+        ]
 
     imagebutton:
         auto yn_gui_path + "main_menu/buttons/notes_%s.png"
         xpos 525
         ypos 509
-        action [Hide("yn_main_menu"), ShowMenu("yn_notes_main_menu")]
+        action [
+            Hide("yn_main_menu"),
+            ShowMenu("yn_notes_main_menu")
+        ]
 
     imagebutton:
         auto yn_gui_path + "main_menu/buttons/authors_%s.png"
         xpos 525
         ypos 625
-        action [Hide("yn_main_menu"), ShowMenu("yn_authors_main_menu")]
+        action [
+            Hide("yn_main_menu"),
+            ShowMenu("yn_authors_main_menu")
+        ]
 
     imagebutton:
         auto yn_gui_path + "main_menu/buttons/quit_%s.png"
         xpos 525
         ypos 743
-        action [Hide("yn_main_menu"), ShowMenu("yn_quit_main_menu")]
+        action [
+            Hide("yn_main_menu"),
+            ShowMenu("yn_quit_main_menu")
+        ]
 
 screen yn_notes_main_menu():
     tag menu
@@ -61,7 +81,7 @@ screen yn_notes_main_menu():
 
     add "yn_main_menu_picture" xpos 1146 ypos 111
 
-    add "yn_yana_name" xpos 1428 ypos 709
+    add "yn_main_menu_yana_name" xpos 1428 ypos 709
 
     text "Заметки":
         size 60
@@ -72,35 +92,47 @@ screen yn_notes_main_menu():
         antialias True
         kerning 2
 
-    textbutton ["Обитатели лагеря"]:
+    textbutton "Обитатели лагеря":
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
         xpos 525
         ypos 182
-        action [Hide("yn_notes_main_menu"), ShowMenu("yn_notes_characters_main_menu")]
+        action [
+            Hide("yn_notes_main_menu"),
+            ShowMenu("yn_notes_characters_main_menu")
+        ]
 
-    textbutton ["Места"]:
+    textbutton "Места":
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
         xpos 525
         ypos 297
-        action [Hide("yn_notes_main_menu"), ShowMenu("yn_notes_places_main_menu")]
+        action [
+            Hide("yn_notes_main_menu"),
+            ShowMenu("yn_notes_places_main_menu")
+        ]
 
-    textbutton ["Группы"]:
+    textbutton "Группы":
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
         xpos 525
         ypos 413
-        action [Hide("yn_notes_main_menu"), ShowMenu("yn_notes_groups_main_menu")]
+        action [
+            Hide("yn_notes_main_menu"),
+            ShowMenu("yn_notes_groups_main_menu")
+        ]
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_notes_main_menu"), ShowMenu("yn_main_menu")]
+        action [
+            Hide("yn_notes_main_menu"),
+            ShowMenu("yn_main_menu")
+        ]
 
 screen yn_notes_characters_main_menu():
     tag menu
@@ -120,10 +152,13 @@ screen yn_notes_characters_main_menu():
         antialias True
         kerning 2
 
-    textbutton ["Хаер"]:
+    textbutton "Хаер":
         if persistent.yn_haer_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_characters_main_menu"), SetVariable("yn_character_var", "yn_haer"), ShowMenu("yn_notes_choosen_character")]
+            action [
+                Hide("yn_notes_characters_main_menu"),
+                ShowMenu("yn_notes_choosen_character", character_name="haer")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -134,10 +169,13 @@ screen yn_notes_characters_main_menu():
         xpos 525
         ypos 182
 
-    textbutton ["Кот"]:
+    textbutton "Кот":
         if persistent.yn_kot_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_characters_main_menu"), SetVariable("yn_character_var", "yn_kot"), ShowMenu("yn_notes_choosen_character")]
+            action [
+                Hide("yn_notes_characters_main_menu"),
+                ShowMenu("yn_notes_choosen_character", character_name="kot")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -148,10 +186,13 @@ screen yn_notes_characters_main_menu():
         xpos 525
         ypos 297
 
-    textbutton ["Слон"]:
+    textbutton "Слон":
         if persistent.yn_slon_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_characters_main_menu"), SetVariable("yn_character_var", "yn_slon"), ShowMenu("yn_notes_choosen_character")]
+            action [
+                Hide("yn_notes_characters_main_menu"),
+                ShowMenu("yn_notes_choosen_character", character_name="slon")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -162,10 +203,13 @@ screen yn_notes_characters_main_menu():
         xpos 525
         ypos 413
 
-    textbutton ["Журналистка"]:
+    textbutton "Журналистка":
         if persistent.yn_jurn_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_characters_main_menu"), SetVariable("yn_character_var", "yn_jurn"), ShowMenu("yn_notes_choosen_character")]
+            action [
+                Hide("yn_notes_characters_main_menu"),
+                ShowMenu("yn_notes_choosen_character", character_name="jurn")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -176,10 +220,13 @@ screen yn_notes_characters_main_menu():
         xpos 525
         ypos 527
 
-    textbutton ["Красавица"]:
+    textbutton "Красавица":
         if persistent.yn_kras_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_characters_main_menu"), SetVariable("yn_character_var", "yn_kras"), ShowMenu("yn_notes_choosen_character")]
+            action [
+                Hide("yn_notes_characters_main_menu"),
+                ShowMenu("yn_notes_choosen_character", character_name="kras")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -190,10 +237,13 @@ screen yn_notes_characters_main_menu():
         xpos 525
         ypos 647
 
-    textbutton ["Эрика"]:
+    textbutton "Эрика":
         if persistent.yn_erika_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_characters_main_menu"), SetVariable("yn_character_var", "yn_erika"), ShowMenu("yn_notes_choosen_character")]
+            action [
+                Hide("yn_notes_characters_main_menu"),
+                ShowMenu("yn_notes_choosen_character", character_name="erika")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -205,12 +255,15 @@ screen yn_notes_characters_main_menu():
         ypos 182
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_notes_characters_main_menu"), ShowMenu("yn_notes_main_menu")]
+        action [
+            Hide("yn_notes_characters_main_menu"),
+            ShowMenu("yn_notes_main_menu")
+        ]
 
-screen yn_notes_choosen_character():
+screen yn_notes_choosen_character(character_name):
     tag menu
     modal True
 
@@ -219,7 +272,7 @@ screen yn_notes_choosen_character():
 
     add "yn_main_menu_background"
 
-    text yn_notes_all[yn_character_var][0]:
+    text yn_note_characters[character_name]:
         font yn_main_menu_font
         color "#000000"
         size 60
@@ -228,17 +281,20 @@ screen yn_notes_choosen_character():
         antialias True
         kerning 2
 
-    add yn_notes_all[yn_character_var][1]
+    add yn_gui_path + "main_menu/notes/characters/" + character_name + "_photo.png"
 
-    add yn_notes_all[yn_character_var][2]:
+    add yn_gui_path + "main_menu/notes/characters/" + character_name + "_photo_text.png":
         xpos 1106
         ypos 124
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_notes_choosen_character"), SetVariable("yn_character_var", None), ShowMenu("yn_notes_characters_main_menu")]
+        action [
+            Hide("yn_notes_choosen_character"),
+            ShowMenu("yn_notes_characters_main_menu")
+        ]
 
 screen yn_notes_places_main_menu():
     tag menu
@@ -251,7 +307,7 @@ screen yn_notes_places_main_menu():
 
     add "yn_main_menu_picture" xpos 1146 ypos 111
 
-    add "yn_yana_name" xpos 1428 ypos 709
+    add "yn_main_menu_yana_name" xpos 1428 ypos 709
 
     text "Места":
         size 60
@@ -262,10 +318,13 @@ screen yn_notes_places_main_menu():
         antialias True
         kerning 2
 
-    textbutton ["Комната Яны"]:
+    textbutton "Комната Яны":
         if persistent.yn_int_yana_room_photo_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_places_main_menu"), SetVariable("yn_place_var", "yn_int_yana_room"), ShowMenu("yn_notes_choosen_place")]
+            action [
+                Hide("yn_notes_places_main_menu"),
+                ShowMenu("yn_notes_choosen_place", place_name="int_yana_room")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -276,10 +335,13 @@ screen yn_notes_places_main_menu():
         xpos 525
         ypos 182
 
-    textbutton ["Автобусная станция"]:
+    textbutton "Автобусная станция":
         if persistent.yn_ext_bus_station_photo_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_places_main_menu"), SetVariable("yn_place_var", "yn_ext_bus_station"), ShowMenu("yn_notes_choosen_place")]
+            action [
+                Hide("yn_notes_places_main_menu"),
+                ShowMenu("yn_notes_choosen_place", place_name="ext_bus_station")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -290,10 +352,13 @@ screen yn_notes_places_main_menu():
         xpos 525
         ypos 297
 
-    textbutton ["Домик Яны"]:
+    textbutton "Домик Яны":
         if persistent.yn_int_house_of_yana_photo_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_places_main_menu"), SetVariable("yn_place_var", "yn_int_house_of_yana_day_2"), ShowMenu("yn_notes_choosen_place")]
+            action [
+                Hide("yn_notes_places_main_menu"),
+                ShowMenu("yn_notes_choosen_place", place_name="int_house_of_yana_day_2")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -304,10 +369,13 @@ screen yn_notes_places_main_menu():
         xpos 525
         ypos 413
 
-    textbutton ["Театральный клуб"]:
+    textbutton "Театральный клуб":
         if persistent.yn_int_theatreclub_photo_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_places_main_menu"), SetVariable("yn_place_var", "yn_int_theatreclub_day"), ShowMenu("yn_notes_choosen_place")]
+            action [
+                Hide("yn_notes_places_main_menu"),
+                ShowMenu("yn_notes_choosen_place", place_name="int_theatreclub_day")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -318,10 +386,13 @@ screen yn_notes_places_main_menu():
         xpos 523
         ypos 525
 
-    textbutton ["Художественный клуб"]:
+    textbutton "Художественный клуб":
         if persistent.yn_int_artclub_photo_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_places_main_menu"), SetVariable("yn_place_var", "yn_int_artclub_day"), ShowMenu("yn_notes_choosen_place")]
+            action [
+                Hide("yn_notes_places_main_menu"),
+                ShowMenu("yn_notes_choosen_place", place_name="int_artclub_day")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -333,10 +404,13 @@ screen yn_notes_places_main_menu():
         ypos 647
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_notes_places_main_menu"), ShowMenu("yn_notes_main_menu")]
+        action [
+            Hide("yn_notes_places_main_menu"),
+            ShowMenu("yn_notes_main_menu")
+        ]
 
 screen yn_notes_image_temp(image_name):
     tag menu
@@ -345,11 +419,19 @@ screen yn_notes_image_temp(image_name):
     key "K_F1":
         action NullAction()
 
-    button style "blank_button" xpos 0 ypos 0 xfill True yfill True action [Hide("yn_notes_image_temp", Dissolve(1.5)), ShowMenu("yn_notes_choosen_place")]
+    button style "blank_button":
+        xpos 0
+        ypos 0
+        xfill True
+        yfill True
+        action [
+            Hide("yn_notes_image_temp", Dissolve(1.5)),
+            ShowMenu("yn_notes_choosen_place", place_name=image_name)
+        ]
 
-    add "bg {}".format(image_name)
+    add "bg yn_{}".format(image_name)
 
-screen yn_notes_choosen_place():
+screen yn_notes_choosen_place(place_name):
     tag menu
     modal True
 
@@ -358,7 +440,7 @@ screen yn_notes_choosen_place():
 
     add "yn_main_menu_background"
 
-    text yn_notes_all[yn_place_var][0]:
+    text yn_note_places[place_name]:
         font yn_main_menu_font
         line_spacing -43
         color "#000000"
@@ -369,19 +451,25 @@ screen yn_notes_choosen_place():
         kerning 2
 
     imagebutton at yn_notes_zoom_rotate():
-        idle yn_notes_all[yn_place_var][1]
-        hover yn_notes_all[yn_place_var][1]
-        action [Hide("yn_notes_choosen_place", Dissolve(1.5)), ShowMenu("yn_notes_image_temp", image_name=yn_place_var)]
+        idle yn_gui_path + "main_menu/notes/places/" + place_name + "_photo.png"
+        hover yn_gui_path + "main_menu/notes/places/" + place_name + "_photo.png"
+        action [
+            Hide("yn_notes_choosen_place", Dissolve(1.5)),
+            ShowMenu("yn_notes_image_temp", image_name=place_name)
+        ]
 
-    add yn_notes_all[yn_place_var][2]:
+    add yn_gui_path + "main_menu/notes/places/" + place_name + "_photo_text.png":
         xpos 1106
         ypos 124
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_notes_choosen_place"), SetVariable("yn_place_var", None), ShowMenu("yn_notes_places_main_menu")]
+        action [
+            Hide("yn_notes_choosen_place"),
+            ShowMenu("yn_notes_places_main_menu")
+        ]
 
 screen yn_notes_groups_main_menu():
     tag menu
@@ -394,7 +482,7 @@ screen yn_notes_groups_main_menu():
 
     add "yn_main_menu_picture" xpos 1146 ypos 111
 
-    add "yn_yana_name" xpos 1428 ypos 709
+    add "yn_main_menu_yana_name" xpos 1428 ypos 709
 
     text "Группы":
         size 60
@@ -405,10 +493,13 @@ screen yn_notes_groups_main_menu():
         antialias True
         kerning 2
 
-    textbutton ["Синицы"]:
+    textbutton "Синицы":
         if persistent.yn_tomtits_group_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_groups_main_menu"), SetVariable("yn_group_var", "yn_tomtits_group"), ShowMenu("yn_notes_choosen_group")]
+            action [
+                Hide("yn_notes_groups_main_menu"),
+                ShowMenu("yn_notes_choosen_group", group_name="tomtits")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -419,10 +510,13 @@ screen yn_notes_groups_main_menu():
         xpos 525
         ypos 182
 
-    textbutton ["Воробьи"]:
+    textbutton "Воробьи":
         if persistent.yn_sparrows_group_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_groups_main_menu"), SetVariable("yn_group_var", "yn_sparrows_group"), ShowMenu("yn_notes_choosen_group")]
+            action [
+                Hide("yn_notes_groups_main_menu"),
+                ShowMenu("yn_notes_choosen_group", group_name="sparrows")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -433,10 +527,13 @@ screen yn_notes_groups_main_menu():
         xpos 525
         ypos 297
 
-    textbutton ["Павлины"]:
+    textbutton "Павлины":
         if persistent.yn_peacocks_group_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_groups_main_menu"), SetVariable("yn_group_var", "yn_peacocks_group"), ShowMenu("yn_notes_choosen_group")]
+            action [
+                Hide("yn_notes_groups_main_menu"),
+                ShowMenu("yn_notes_choosen_group", group_name="peacocks")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -447,10 +544,13 @@ screen yn_notes_groups_main_menu():
         xpos 525
         ypos 413
 
-    textbutton ["Голуби"]:
+    textbutton "Голуби":
         if persistent.yn_pigeons_group_note:
             text_style "yn_settings_header_main_menu_preferences"
-            action [Hide("yn_notes_groups_main_menu"), SetVariable("yn_group_var", "yn_pigeons_group"), ShowMenu("yn_notes_choosen_group")]
+            action [
+                Hide("yn_notes_groups_main_menu"),
+                ShowMenu("yn_notes_choosen_group", group_name="pigeons")
+            ]
 
         else:
             text_style "yn_settings_header_main_menu_preferences_locked"
@@ -462,12 +562,15 @@ screen yn_notes_groups_main_menu():
         ypos 527
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_notes_groups_main_menu"), ShowMenu("yn_notes_main_menu")]
+        action [
+            Hide("yn_notes_groups_main_menu"),
+            ShowMenu("yn_notes_main_menu")
+        ]
 
-screen yn_notes_choosen_group():
+screen yn_notes_choosen_group(group_name):
     tag menu
     modal True
 
@@ -476,7 +579,7 @@ screen yn_notes_choosen_group():
 
     add "yn_main_menu_background"
 
-    text yn_notes_all[yn_group_var][0]:
+    text yn_note_groups[group_name]:
         font yn_main_menu_font
         color "#000000"
         size 60
@@ -485,23 +588,26 @@ screen yn_notes_choosen_group():
         antialias True
         kerning 2
 
-    add yn_notes_all[yn_group_var][1]:
+    add yn_gui_path + "main_menu/notes/groups/" + group_name + "_group_logo.png":
         xpos 521
         ypos 190
 
-    add yn_notes_all[yn_group_var][2]:
+    add yn_gui_path + "main_menu/notes/groups/" + group_name + "_group_text.png":
         xpos 1106
         ypos 124
 
-    add yn_notes_all[yn_group_var][3]:
+    add yn_gui_path + "main_menu/notes/groups/" + group_name + "_group_roster.png":
         xpos 490
         ypos 508
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_notes_choosen_group"), SetVariable("yn_group_var", None), ShowMenu("yn_notes_groups_main_menu")]
+        action [
+            Hide("yn_notes_choosen_group"),
+            ShowMenu("yn_notes_groups_main_menu")
+        ]
 
 screen yn_quit_main_menu():
     tag menu
@@ -514,7 +620,7 @@ screen yn_quit_main_menu():
 
     add "yn_main_menu_picture" xpos 1146 ypos 111
 
-    add "yn_yana_name" xpos 1428 ypos 709
+    add "yn_main_menu_yana_name" xpos 1428 ypos 709
 
     text "Вы действительно \nхотите выйти?":
         size 60
@@ -527,16 +633,23 @@ screen yn_quit_main_menu():
         line_spacing -2
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_yes_%s.png"
+        auto yn_gui_path + "main_menu/buttons/yes_%s.png"
         xpos 550
         ypos 623
-        action [Hide("yn_quit_main_menu"), (Function(yn_screens_diact)), ShowMenu("main_menu")]
+        action [
+            Hide("yn_quit_main_menu"),
+            Function(yn_screens_diact),
+            ShowMenu("main_menu")
+        ]
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_no_%s.png"
+        auto yn_gui_path + "main_menu/buttons/no_%s.png"
         xpos 810
         ypos 623
-        action [Hide("yn_quit_main_menu"), ShowMenu("yn_main_menu")]
+        action [
+            Hide("yn_quit_main_menu"),
+            ShowMenu("yn_main_menu")
+        ]
 
 screen yn_authors_main_menu():
     tag menu
@@ -572,7 +685,7 @@ screen yn_authors_main_menu():
         ypos 297
         action OpenURL("https://github.com/paych3ck")
 
-    textbutton ["Рина Анисимова"]:
+    textbutton "Рина Анисимова":
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
@@ -580,7 +693,7 @@ screen yn_authors_main_menu():
         ypos 413
         action OpenURL("https://vk.com/liffft_art")
 
-    textbutton ["Егор Бобков"]:
+    textbutton "Егор Бобков":
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
@@ -612,7 +725,7 @@ screen yn_authors_main_menu():
         ypos 297
         action OpenURL("https://vk.com/kagome_art")
 
-    textbutton ["Juria Kraiymer"]:
+    textbutton "Juria Kraiymer":
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
@@ -620,7 +733,7 @@ screen yn_authors_main_menu():
         ypos 413
         action OpenURL("https://vk.com/juriakraiymer")
 
-    textbutton ["Мария Ракшинская"]:
+    textbutton "Мария Ракшинская":
         style "yn_button_none"
         text_style "yn_settings_header_main_menu_preferences"
         text_align 0.5
@@ -629,16 +742,19 @@ screen yn_authors_main_menu():
         action OpenURL("https://vk.com/marie_raksha")
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_zero_impact_logo_%s.png"
+        auto yn_gui_path + "main_menu/buttons/zero_impact_logo_%s.png"
         xpos 1311
         ypos 650
         action OpenURL("https://vk.com/zeroimpact")
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_authors_main_menu"), ShowMenu("yn_main_menu")]
+        action [
+            Hide("yn_authors_main_menu"),
+            ShowMenu("yn_main_menu")
+        ]
 
 screen yn_preferences_main_menu():
     tag menu
@@ -759,19 +875,22 @@ screen yn_preferences_main_menu():
 
     bar:
         value Preference("music volume")
-        right_bar yn_gui_path + "preferences/main_menu/yn_main_menu_bar_null.png"
-        left_bar yn_gui_path + "preferences/main_menu/yn_main_menu_bar_full.png"
-        thumb "yn_main_menu_thumb"
+        right_bar yn_gui_path + "preferences/main_menu/bar_null.png"
+        left_bar yn_gui_path + "preferences/main_menu/bar_full.png"
+        thumb yn_gui_path + "preferences/main_menu/thumb.png"
         xpos 1140
         ypos 613
         xmaximum 400
         ymaximum 85
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_preferences_main_menu"), ShowMenu("yn_main_menu")]
+        action [
+            Hide("yn_preferences_main_menu"),
+            ShowMenu("yn_main_menu")
+        ]
 
 screen yn_load_main_menu():
     tag menu
@@ -792,22 +911,28 @@ screen yn_load_main_menu():
         kerning 2
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_load_%s.png"
+        auto yn_gui_path + "main_menu/buttons/load_%s.png"
         xalign 0.285
         ypos 702
-        action [(YnFunctionCallback(yn_on_load_callback, selected_slot), FileLoad(selected_slot, confirm = False))]
+        action [
+            YnFunctionCallback(yn_on_load_callback, selected_slot),
+            FileLoad(selected_slot, confirm=False)
+        ]
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_delete_%s.png"
+        auto yn_gui_path + "main_menu/buttons/delete_%s.png"
         xalign 0.455
         ypos 702
-        action FileDelete(selected_slot, confirm = False)
+        action FileDelete(selected_slot, confirm=False)
 
     imagebutton:
-        auto yn_gui_path + "main_menu/buttons/yn_return_%s.png"
+        auto yn_gui_path + "main_menu/buttons/return_%s.png"
         xalign 0.37
         ypos 779
-        action [Hide("yn_load_main_menu"), ShowMenu("yn_main_menu")]
+        action [
+            Hide("yn_load_main_menu"),
+            ShowMenu("yn_main_menu")
+        ]
 
     grid 4 3:
         xpos 0.25
@@ -832,7 +957,7 @@ screen yn_load_main_menu():
                     style "yn_save_load_button_main_menu"
 
                     fixed:
-                        text (FileTime(slot, format = "%d.%m.%y, %H:%M", empty = "Пусто") + "\n" + FileSaveName(slot)):
+                        text (FileTime(slot, format="%d.%m.%y, %H:%M", empty="Пусто") + "\n" + FileSaveName(slot)):
                             style "yn_text_save_load_main_menu"
                             xpos 10
                             ypos 10
