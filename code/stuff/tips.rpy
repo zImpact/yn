@@ -4,13 +4,15 @@ init python:
         renpy.restart_interaction()
 
     def yn_tip_tag_func(tag, argument, contents):
+        if not yn_has_skill("encyclopedia"):
+            return contents
+
         size = 29 if persistent.font_size == "large" else 24
         text = argument
         return [(renpy.TEXT_TAG, u"size={}".format(size))] + [(renpy.TEXT_TAG, u"a=yn_tip_h:{}".format(text))] + contents + [(renpy.TEXT_TAG, u"/a")] + [(renpy.TEXT_TAG, u"/size")]
 
     yn_tip_phrases = {
         "geterohrom": "{b}Гетерохромия{/b} - редкое явление, предполагающее разный цвет глаз у человека. Эта патология проявляется не только в расцветке органов зрения, но и в окрасе радужки.",
-        "fraulein": "{b}Фройляйн{/b} - форма вежливого упоминания по отношению к незамужней женщине или к девушке в Германии и в некоторых других странах, обычно присоединяемое к фамилии или имени.",
         "mitskatta": "{b}Митскатта{/b} - в переводе с японского означает «нашла».",
         "dekfaul": "{b}Нецензурно ругается на немецком.{/b}",
         "aisawu": "{b}Айсацу{/b} - японское приветствие.",

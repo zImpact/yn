@@ -2,8 +2,8 @@ screen yn_preferences():
     tag menu
     modal True
 
-    $ yn_bar_null = Frame((yn_gui_path + "preferences/" + persistent.timeofday + "/yn_bar_null.png"), 36, 36)
-    $ yn_bar_full = Frame((yn_gui_path + "preferences/" + persistent.timeofday + "/yn_bar_full.png"), 36, 36)
+    $ yn_bar_null = Frame((yn_gui_path + "preferences/" + persistent.timeofday + "/bar_null.png"), 36, 36)
+    $ yn_bar_full = Frame((yn_gui_path + "preferences/" + persistent.timeofday + "/bar_full.png"), 36, 36)
 
     window background yn_gui_path + "preferences/" + persistent.timeofday + "/preferences_bg.jpg":
         text ["Настройки"]:
@@ -25,7 +25,7 @@ screen yn_preferences():
                 mousewheel True
                 scrollbars None
 
-                has grid 1 16 xfill True spacing 15
+                has grid 1 17 xfill True spacing 15
 
                 text ["Режим экрана"]:
                     style "yn_settings_header_" + persistent.timeofday
@@ -134,8 +134,25 @@ screen yn_preferences():
                         value Preference("voice volume")
                         left_bar yn_bar_full
                         right_bar yn_bar_null
-                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
-                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
+                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
+                        xmaximum 1.35
+                        ymaximum 36
+                        xpos -0.55
+
+                grid 2 1 xfill True:
+                    textbutton ["Навыки"]:
+                        style "yn_log_button"
+                        text_style "yn_settings_text_" + persistent.timeofday
+                        action NullAction()
+                        xpos 0.1
+
+                    bar:
+                        value MixerValue("yn_skills")
+                        left_bar yn_bar_full
+                        right_bar yn_bar_null
+                        thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
+                        hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
                         xmaximum 1.35
                         ymaximum 36
                         xpos -0.55
@@ -191,8 +208,8 @@ screen yn_preferences():
                     value Preference("auto-forward time")
                     left_bar yn_bar_full
                     right_bar yn_bar_null
-                    thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
-                    hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_htumb.png"
+                    thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
+                    hover_thumb yn_gui_path + "preferences/" + persistent.timeofday + "/htumb.png"
                     xalign 0.5
                     xmaximum 0.8
                     ymaximum 36
@@ -237,7 +254,7 @@ screen yn_preferences():
                 value YScrollValue("preferences")
                 bottom_bar "images/misc/none.png"
                 top_bar "images/misc/none.png"
-                thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_vthumb.png"
+                thumb yn_gui_path + "preferences/" + persistent.timeofday + "/vthumb.png"
                 thumb_offset -12
 
 screen yn_save():
@@ -341,30 +358,33 @@ screen yn_say(what, who):
         # add yn_gui_path + "dialogue_box/" + persistent.timeofday + "/buttons_box.png" xpos 1670 ypos 50
 
         if persistent.font_size == "large":
+            $ yn_dialogue_skill_icon = yn_get_dialogue_skill_icon()
+            $ yn_skill_icon_shift = 36 if yn_dialogue_skill_icon else 0
+
             add yn_gui_path + "dialogue_box/" + persistent.timeofday + "/dialogue_box_large.png" xpos 304 ypos 866
 
             add yn_gui_path + "dialogue_box/" + persistent.timeofday + "/side_box_large.png" xpos 52 ypos 866
 
             imagebutton:
-                auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/hide_%s.png"
+                auto yn_gui_path + "dialogue_box/" + persistent.timeofday + "/hide_%s.png"
                 xpos 1648
                 ypos 883
                 action HideInterface()
 
             imagebutton:
-                auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/save_%s.png"
+                auto yn_gui_path + "dialogue_box/" + persistent.timeofday + "/save_%s.png"
                 xpos 1707
                 ypos 883
                 action ShowMenu("yn_save")
 
             imagebutton:
-                auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/menu_%s.png"
+                auto yn_gui_path + "dialogue_box/" + persistent.timeofday + "/menu_%s.png"
                 xpos 1765
                 ypos 883
                 action ShowMenu("yn_game_menu_selector")
 
             imagebutton:
-                auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/load_%s.png"
+                auto yn_gui_path + "dialogue_box/" + persistent.timeofday + "/load_%s.png"
                 xpos 1822
                 ypos 883
                 action ShowMenu("yn_load")
@@ -375,11 +395,17 @@ screen yn_say(what, who):
             else:
                 add "yn_" + persistent.yn_protagonist + "_emote_" + persistent.yn_protagonist_mood xpos 72 ypos 871
 
+            if yn_dialogue_skill_icon:
+                add yn_skill_icon_image(yn_dialogue_skill_icon):
+                    xpos 315
+                    ypos 909
+                    size (29, 29)
+
             text what:
                 id "what"
-                xpos 315
+                xpos 315 + yn_skill_icon_shift
                 ypos 907
-                xmaximum 1550
+                xmaximum 1550 - yn_skill_icon_shift
                 size 29
                 line_spacing 1
 
@@ -392,30 +418,33 @@ screen yn_say(what, who):
                     line_spacing 1
 
         elif persistent.font_size == "small":
+            $ yn_dialogue_skill_icon = yn_get_dialogue_skill_icon()
+            $ yn_skill_icon_shift = 30 if yn_dialogue_skill_icon else 0
+
             add yn_gui_path + "dialogue_box/" + persistent.timeofday + "/dialogue_box.png" xpos 285 ypos 916
 
             add yn_gui_path + "dialogue_box/" + persistent.timeofday + "/side_box.png" xpos 69 ypos 916
 
             imagebutton:
-                auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/hide_%s.png"
+                auto yn_gui_path + "dialogue_box/" + persistent.timeofday + "/hide_%s.png"
                 xpos 1629
                 ypos 933
                 action HideInterface()
 
             imagebutton:
-                auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/save_%s.png"
+                auto yn_gui_path + "dialogue_box/" + persistent.timeofday + "/save_%s.png"
                 xpos 1688
                 ypos 933
                 action ShowMenu("yn_save")
 
             imagebutton:
-                auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/menu_%s.png"
+                auto yn_gui_path + "dialogue_box/" + persistent.timeofday + "/menu_%s.png"
                 xpos 1746
                 ypos 933
                 action ShowMenu("yn_game_menu_selector")
 
             imagebutton:
-                auto yn_gui_path + "dialogue_box/" +persistent.timeofday + "/load_%s.png"
+                auto yn_gui_path + "dialogue_box/" + persistent.timeofday + "/load_%s.png"
                 xpos 1803
                 ypos 933
                 action ShowMenu("yn_load")
@@ -432,11 +461,17 @@ screen yn_say(what, who):
                     xpos 83
                     ypos 918
 
+            if yn_dialogue_skill_icon:
+                add yn_skill_icon_image(yn_dialogue_skill_icon):
+                    xpos 298
+                    ypos 958
+                    size (24, 24)
+
             text what:
                 id "what"
-                xpos 298
+                xpos 298 + yn_skill_icon_shift
                 ypos 956
-                xmaximum 1541
+                xmaximum 1541 - yn_skill_icon_shift
                 size 24
                 line_spacing 2
 
@@ -452,7 +487,12 @@ screen yn_nvl(items, dialogue):
     window background Frame((yn_gui_path + "choice/" + persistent.timeofday + "/choice_box.png"), 50, 50) xfill True yfill True yalign 0.5 left_padding 175 right_padding 175 bottom_padding 150 top_padding 150:
         has vbox
 
-        for who, what, who_id, what_id, window_id in dialogue:
+        $ yn_nvl_dialogue_count = len(dialogue)
+
+        for line_index, dialogue_line in enumerate(dialogue):
+            $ who, what, who_id, what_id, window_id = dialogue_line
+            $ yn_dialogue_skill_icon = yn_get_dialogue_skill_icon() if line_index == yn_nvl_dialogue_count - 1 else None
+
             window:
                 id window_id
                 has hbox:
@@ -464,6 +504,11 @@ screen yn_nvl(items, dialogue):
                             id who_id
                             size 35
 
+                    if yn_dialogue_skill_icon:
+                        add yn_skill_icon_image(yn_dialogue_skill_icon):
+                            yoffset 2
+                            size (32, 32)
+
                     text what:
                         id what_id
                         size 32
@@ -473,6 +518,11 @@ screen yn_nvl(items, dialogue):
                         text who:
                             id who_id
                             size 30
+
+                    if yn_dialogue_skill_icon:
+                        add yn_skill_icon_image(yn_dialogue_skill_icon):
+                            yoffset 2
+                            size (28, 28)
 
                     text what:
                         id what_id
@@ -502,20 +552,6 @@ screen yn_game_menu_selector():
         button style "blank_button" xpos 0 ypos 0 xfill True yfill True action Return()
 
         add yn_gui_path + "quick_menu/" + persistent.timeofday + "/quick_menu_ground.png" xalign 0.5 yalign 0.5
-
-        # $ yn_current_music = renpy.music.get_playing()
-
-        # if yn_current_music == None:
-        #     text "Сейчас ничего не играет"
-
-        # else:
-        #     text "Сейчас играет: " + yn_music_list[yn_current_music]
-
-        # imagebutton:
-        #     auto yn_gui_path + "quick_menu/" + persistent.timeofday + "/help_%s.png"
-        #     xpos 1780
-        #     ypos 30
-        #     action ShowMenu("yn_keyboard_help")
 
         imagemap:
             auto yn_gui_path + "quick_menu/" + persistent.timeofday + "/quick_menu_%s.png" xalign 0.5 yalign 0.5
@@ -638,9 +674,11 @@ screen yn_text_history():
     tag menu
 
     predict False
+    default hovered_history_index = None
 
     $ xmax = 1600
     $ xposition = 100
+    $ history_text_hover_color = yn_history_hover_colors.get(persistent.timeofday, "#40e138")
 
     $ history_text_size = 21
     $ history_name_size = 22
@@ -664,7 +702,12 @@ screen yn_text_history():
 
             has vbox
 
-            for h in _history_list:
+            for history_index, h in enumerate(_history_list):
+                $ history_skill_icon = getattr(h, "yn_skill_icon", None)
+                $ history_skill_icon_size = history_text_size
+                $ history_skill_icon_shift = history_skill_icon_size + 8 if history_skill_icon else 0
+                $ history_line_color = history_text_hover_color if hovered_history_index == history_index else "#ffdd7d"
+
                 if h.who:
                     text h.who:
                         ypos 0
@@ -675,29 +718,28 @@ screen yn_text_history():
                         if "color" in h.who_args:
                             color h.who_args["color"]
 
-                textbutton h.what:
-                    text_size history_text_size
+                button:
                     style "yn_log_button"
-                    text_style "yn_text_history"
                     xpos 100
                     xmaximum xmax
-                    text_color "#ffdd7d"
-
-                    if persistent.timeofday == "day":
-                        text_hover_color "#40e138"
-
-                    elif persistent.timeofday == "night":
-                        text_hover_color "#008193"
-
-                    elif persistent.timeofday == "sepia":
-                        text_hover_color "#b7a492"
-
-                    elif persistent.timeofday == "sunset":
-                        text_hover_color "#636840"
-
+                    hovered SetScreenVariable("hovered_history_index", history_index)
+                    unhovered SetScreenVariable("hovered_history_index", None)
                     action RollbackToIdentifier(h.rollback_identifier)
+                    has hbox:
+                        spacing 8
 
-        vbar value YScrollValue("yn_text_history_screen") bottom_bar "images/misc/none.png" top_bar "images/misc/none.png" thumb yn_gui_path + "preferences/" + persistent.timeofday + "/yn_vthumb.png" xoffset 1700
+                    if history_skill_icon:
+                        add yn_skill_icon_image(history_skill_icon, history_line_color):
+                            ypos 2
+                            size (history_skill_icon_size, history_skill_icon_size)
+
+                    text h.what:
+                        size history_text_size
+                        style "yn_text_history"
+                        xmaximum xmax - history_skill_icon_shift
+                        color history_line_color
+
+        vbar value YScrollValue("yn_text_history_screen") bottom_bar "images/misc/none.png" top_bar "images/misc/none.png" thumb yn_gui_path + "preferences/" + persistent.timeofday + "/vthumb.png" xoffset 1700
 
 screen yn_choice(items):
     modal True

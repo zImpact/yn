@@ -218,10 +218,6 @@ init python:
     yn_names["yn_san"] = "Физрук"
     store.yn_names_list.append("yn_san")
 
-    # yn_colors["yn_kris"] = {"speaker_color": "#aa64d9"}
-    # yn_names["yn_kris"] = "Кристина"
-    # store.yn_names_list.append("yn_kris")
-
     yn_colors["yn_wuk"] = {"speaker_color": "#c33736"}
     yn_names["yn_wuk"] = "Ёж"
     store.yn_names_list.append("yn_wuk")
@@ -259,28 +255,28 @@ init python:
 
         if character_name == "yn_narrator":
             if is_nvl:
-                yn_gl["yn_narrator"] = Character(None, kind=nvl, what_style="yn_text_style", what_suffix="\n")
+                yn_gl["yn_narrator"] = Character(None, kind=nvl, what_style="yn_text_style", what_suffix="\n", callback=yn_skill_dialogue_callback)
 
             else:
-                yn_gl["yn_narrator"] = Character(None, what_style="yn_text_style")
+                yn_gl["yn_narrator"] = Character(None, what_style="yn_text_style", callback=yn_skill_dialogue_callback)
 
             return
 
         if character_name == "yn_th":
             if is_nvl:
-                yn_gl["yn_th"] = Character(None, kind=nvl, what_style="yn_text_style", what_prefix="~ ", what_suffix=" ~\n")
+                yn_gl["yn_th"] = Character(None, kind=nvl, what_style="yn_text_style", what_prefix="~ ", what_suffix=" ~\n", callback=yn_skill_dialogue_callback)
 
             else:
-                yn_gl["yn_th"] = Character(None, what_style="yn_text_style", what_prefix="~ ", what_suffix=" ~")
+                yn_gl["yn_th"] = Character(None, what_style="yn_text_style", what_prefix="~ ", what_suffix=" ~", callback=yn_skill_dialogue_callback)
 
             return
 
         if is_nvl:
-            yn_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.yn_colors[character_name][yn_speaker_color], kind=nvl, what_style="yn_text_style", who_suffix=":", what_suffix="\n")
+            yn_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.yn_colors[character_name][yn_speaker_color], kind=nvl, what_style="yn_text_style", who_suffix=":", what_suffix="\n", callback=yn_skill_dialogue_callback)
             yn_gl["%s_name" % character_name] = store.yn_names[character_name]
 
         else:
-            yn_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.yn_colors[character_name][yn_speaker_color], what_style="yn_text_style")
+            yn_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.yn_colors[character_name][yn_speaker_color], what_style="yn_text_style", callback=yn_skill_dialogue_callback)
             yn_gl["%s_name" % character_name] = store.yn_names[character_name]
 
     def yn_set_mode_adv():
@@ -771,7 +767,6 @@ init:
 
     $ yn_act_one_play_two_lunch_us_hoax = False
     $ yn_act_one_play_two_library_mz_play_along = False
-    $ yn_act_two_totmits_group_song = None
     $ yn_act_two_play_fourth_dv_card_game_result = None
     $ yn_act_two_play_fourth_haer_ask_about_bf = False
     $ yn_act_two_play_fourth_haer_told_about_jurn_newspaper = False

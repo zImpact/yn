@@ -1,0 +1,5 @@
+define YN_EMPATHY_SKILL = "empathy"
+define YN_PERCEPTION_SKILL = "perception"
+define YN_DRAMA_SKILL = "drama"
+define YN_CHARISMA_SKILL = "charisma"
+define YN_ECNYCLOPEDIA_SKILL = "encyclopedia"
